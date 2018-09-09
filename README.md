@@ -19,9 +19,9 @@ Advantages:
 
 ## Development milestones
 1. First release - **On-going**
-  - Able to config form (Template)
-  - Render form by config data (GUI)
-  - Get/set value from built form
+    - Able to config form (Template)
+    - Render form by config data (GUI)
+    - Get/set value from built form
 2. Hook will be available for several events.
 3. Able to validate the form.
 4. Server-side library demo (Laravel).
