@@ -11,7 +11,7 @@ Advantages:
 - Javascript
 - VueJS
 - Webpack
-- JQuery 
+- JQuery
 - Bootstrap 4
 - ...
 
@@ -21,13 +21,24 @@ Run this:
 npm i v-form-builder --save
 ```
 ## How to implement?
-Import as global component
-```javascript
-Vue.use('form-builder-gui');
-Vue.use('form-builder-template');
+
+### Browser
+
+```html
+<div id="app">
+    <form-builder-template></form-builder-template>
+</div>
+
+<script>
+// use Form GUI
+Vue.use(FormBuilderGui);
+
+// use Form Template
+Vue.use(FormBuilderTemplate);
+</script>
 ```
 
-Import in any component
+### Use in node
 ```php
 update later...
 ```
