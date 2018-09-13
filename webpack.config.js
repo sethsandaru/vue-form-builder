@@ -63,7 +63,7 @@ var commomConfig = {
         select2: 'select2',
         'popper.js': 'popper.js',
         'webpack-jquery-ui': 'webpack-jquery-ui',
-        'underscore-deep-extend': 'underscore-deep-exten',
+        'underscore-deep-extend': 'underscore-deep-extend',
         'v-toaster': 'v-toaster',
         // '@fortawesome/vue-fontawesome': '@fortawesome/vue-fontawesome',
         // '@fortawesome/free-solid-svg-icons': '@fortawesome/free-solid-svg-icons',
