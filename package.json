@@ -3,7 +3,13 @@
     "description": "A Super Form Builder build with VueJS by Seth Phat",
     "version": "1.0.0",
     "author": "Phat Tran <phattranminh96@gmail.com> (https://sethphat.com)",
-    "keywords": ["vue", "vuejs", "form builder", "drag & drop", "seth phat"],
+    "keywords": [
+        "vue",
+        "vuejs",
+        "form builder",
+        "drag & drop",
+        "seth phat"
+    ],
     "license": "MIT",
     "private": false,
     "main": "dist/vue-form-builder.min.js",
@@ -14,7 +20,8 @@
     },
     "scripts": {
         "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-        "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+        "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+        "build-bundle": "rimraf ./dist && webpack --config ./webpack.config.js"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.4",
@@ -24,13 +31,15 @@
         "jquery": "^3.3.1",
         "moment": "^2.22.2",
         "popper.js": "^1.14.4",
+        "rimraf": "^2.6.2",
         "select2": "^4.0.6-rc.1",
         "timepicker": "^1.11.12",
         "underscore": "^1.9.1",
         "underscore-deep-extend": "^1.1.5",
         "v-toaster": "^1.0.3",
         "vue": "^2.5.11",
-        "webpack-jquery-ui": "^2.0.1"
+        "webpack-jquery-ui": "^2.0.1",
+        "webpack-merge": "^4.1.4"
     },
     "browserslist": [
         "> 1%",

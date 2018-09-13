@@ -1,14 +1,10 @@
 var path = require('path');
 var webpack = require('webpack');
+var merge = require('webpack-merge');
 var APP_DIR = path.resolve(__dirname, 'src');
 
-module.exports = {
+var commomConfig = {
     entry: './src/main.js',
-    output: {
-        path: path.resolve(__dirname, './dist'),
-        publicPath: '/dist/',
-        filename: 'vue-form-builder.min.js'
-    },
     module: {
         rules: [
             {
@@ -57,26 +53,101 @@ module.exports = {
     performance: {
         hints: false
     },
-    devtool: '#eval-source-map'
-}
-
-if (process.env.NODE_ENV === 'production') {
-    module.exports.devtool = '#source-map'
-    // http://vue-loader.vuejs.org/en/workflow/production.html
-    module.exports.plugins = (module.exports.plugins || []).concat([
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: '"production"'
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
+    devtool: '#eval-source-map',
+    externals: {
+        moment: 'moment',
+        jquery: 'jquery',
+        bootstrap: 'bootstrap',
+        underscore: 'underscore',
+        timepicker: 'timepicker',
+        select2: 'select2',
+        'popper.js': 'popper.js',
+        'webpack-jquery-ui': 'webpack-jquery-ui',
+        'underscore-deep-extend': 'underscore-deep-exten',
+        'v-toaster': 'v-toaster',
+        // '@fortawesome/vue-fontawesome': '@fortawesome/vue-fontawesome',
+        // '@fortawesome/free-solid-svg-icons': '@fortawesome/free-solid-svg-icons',
+        // '@fortawesome/fontawesome-svg-core': '@fortawesome/fontawesome-svg-core',
+    },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin( {
+            minimize : true,
+            sourceMap : false,
+            mangle: true,
             compress: {
                 warnings: false
             }
-        }),
-        new webpack.LoaderOptionsPlugin({
-            minimize: true
-        })
-    ])
-}
+        } )
+    ]
+};
+
+module.exports = [
+    // library for browser - form template
+    merge(commomConfig, {
+        entry: path.resolve(__dirname + '/src/template/index.js'),
+        output: {
+            path: path.resolve(__dirname, './dist'),
+            publicPath: '/dist/',
+            filename: 'vue-form-builder-template.browser.min.js',
+            libraryTarget: 'window',
+        },
+    }),
+
+    // library for browser - form template
+    merge(commomConfig, {
+        entry: path.resolve(__dirname + '/src/gui/index.js'),
+        output: {
+            path: path.resolve(__dirname, './dist'),
+            publicPath: '/dist/',
+            filename: 'vue-form-builder-gui.browser.min.js',
+            libraryTarget: 'window',
+        },
+    }),
+
+    // library for node - form template
+    merge(commomConfig, {
+        entry: path.resolve(__dirname + '/src/template/FormBuilderTemplate.vue'),
+        output: {
+            path: path.resolve(__dirname, './dist'),
+            publicPath: '/dist/',
+            libraryTarget: 'umd',
+            library: 'form-builder-template',
+            filename: 'vue-form-builder-template.min.js',
+            umdNamedDefine: true
+        },
+    }),
+
+    // library for node - form GUI
+    merge(commomConfig, {
+        entry: path.resolve(__dirname + '/src/gui/FormBuilderGui.vue'),
+        output: {
+            path: path.resolve(__dirname, './dist'),
+            publicPath: '/dist/',
+            libraryTarget: 'umd',
+            library: 'form-builder-gui',
+            filename: 'vue-form-builder-gui.min.js',
+            umdNamedDefine: true
+        },
+    }),
+];
+//
+// if (process.env.NODE_ENV === 'production') {
+//     module.exports.devtool = '#source-map'
+//     // http://vue-loader.vuejs.org/en/workflow/production.html
+//     module.exports.plugins = (module.exports.plugins || []).concat([
+//         new webpack.DefinePlugin({
+//             'process.env': {
+//                 NODE_ENV: '"production"'
+//             }
+//         }),
+//         new webpack.optimize.UglifyJsPlugin({
+//             sourceMap: true,
+//             compress: {
+//                 warnings: false
+//             }
+//         }),
+//         new webpack.LoaderOptionsPlugin({
+//             minimize: true
+//         })
+//     ])
+// }
