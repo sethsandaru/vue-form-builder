@@ -90,6 +90,7 @@ module.exports = [
             publicPath: '/dist/',
             filename: 'vue-form-builder-template.browser.min.js',
             libraryTarget: 'window',
+            library: 'FormBuilderTemplate',
         },
     }),
 
@@ -101,6 +102,7 @@ module.exports = [
             publicPath: '/dist/',
             filename: 'vue-form-builder-gui.browser.min.js',
             libraryTarget: 'window',
+            library: 'FormBuilderGui',
         },
     }),
 
