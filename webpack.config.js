@@ -86,8 +86,8 @@ module.exports = [
     merge(commomConfig, {
         entry: path.resolve(__dirname + '/src/template/index.js'),
         output: {
-            path: path.resolve(__dirname, './dist'),
-            publicPath: '/dist/',
+            path: path.resolve(__dirname, './browser'),
+            publicPath: '/browser/',
             filename: 'vue-form-builder-template.browser.min.js',
             libraryTarget: 'window',
             library: 'FormBuilderTemplate',
@@ -98,8 +98,8 @@ module.exports = [
     merge(commomConfig, {
         entry: path.resolve(__dirname + '/src/gui/index.js'),
         output: {
-            path: path.resolve(__dirname, './dist'),
-            publicPath: '/dist/',
+            path: path.resolve(__dirname, './browser'),
+            publicPath: '/browser/',
             filename: 'vue-form-builder-gui.browser.min.js',
             libraryTarget: 'window',
             library: 'FormBuilderGui',
