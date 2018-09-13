@@ -129,12 +129,12 @@ module.exports = [
 
     // library for node - form GUI
     merge(commomConfig, {
-        entry: path.resolve(__dirname + '/src/main.js'),
+        entry: path.resolve(__dirname + '/src/FormBuilder.vue'),
         output: {
             path: path.resolve(__dirname, './dist'),
             publicPath: '/dist/',
             libraryTarget: 'umd',
-            // library: 'form-builder-gui',
+            library: 'form-builder',
             filename: 'vue-form-builder.min.js',
             umdNamedDefine: true
         },

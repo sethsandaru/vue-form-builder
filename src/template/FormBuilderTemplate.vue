@@ -15,8 +15,6 @@
 </template>
 
 <script>
-    // load necessary
-    require('config/loader');
     import SectionComponent from "./ui/SectionComponent";
     import { dom } from '@fortawesome/fontawesome-svg-core'
     import SidebarComponent from "./ui/SidebarComponent";

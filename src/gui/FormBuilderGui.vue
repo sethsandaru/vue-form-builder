@@ -5,8 +5,6 @@
 </template>
 
 <script>
-    // load necessary
-    require('config/loader');
     import {FormHandler} from "./handler/form_handler";
     import SectionComponent from "gui/ui/SectionComponent";
     import { dom } from '@fortawesome/fontawesome-svg-core'
