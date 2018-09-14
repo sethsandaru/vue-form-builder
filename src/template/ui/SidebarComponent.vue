@@ -35,9 +35,10 @@
     import {eventBus, EventHandlerConstant} from 'sethFormBuilder/template/handler/event_handler';
     import SidebarConfigItem from "./common/SidebarConfigItem";
     import {ControlHandler} from 'sethFormBuilder/template/handler/control_handler';
+    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
     export default {
-        components: {SidebarConfigItem},
+        components: {SidebarConfigItem, FontAwesomeIcon},
         name: "sidebar-component",
         data: () => ({
             controls: FORM_CONSTANTS.Type,

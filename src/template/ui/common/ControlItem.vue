@@ -19,7 +19,7 @@
 
             <!-- demo for checkbox -->
             <div class="text-center w-100" v-if="control.type == 'checkbox'">
-                <input type="checkbox" :name="control.fieldName">
+                <input type="checkbox" :name="control.fieldName" :checked="control.isChecked">
             </div>
 
             <div class="input-group-append" v-if="control.type != 'text' && control.type != 'select' && control.type != 'checkbox'">
@@ -35,12 +35,15 @@
     import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
     import {eventBus, EventHandlerConstant} from 'sethFormBuilder/template/handler/event_handler';
     import {ControlHandler} from 'sethFormBuilder/template/handler/control_handler';
+    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
     // load timepicker
     import 'timepicker/jquery.timepicker.min.css';
     import 'timepicker/jquery.timepicker.min'
 
     export default {
         name: "control-item",
+        components: {FontAwesomeIcon},
         props: {
             control: {
                 type: Object

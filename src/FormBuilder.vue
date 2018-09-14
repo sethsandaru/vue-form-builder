@@ -47,8 +47,8 @@
     }
 
     // toaster
-    import 'v-toaster/dist/v-toaster.css';
-    Vue.use(Toaster, {timeout: 4000});
+    // import 'v-toaster/dist/v-toaster.css';
+    // Vue.use(Toaster, {timeout: 4000});
 
     // import
     import FormBuilderTemplate from './template/FormBuilderTemplate';

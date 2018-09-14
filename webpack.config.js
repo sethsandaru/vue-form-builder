@@ -81,37 +81,12 @@ module.exports = [
     //     output: {
     //         path: path.resolve(__dirname, './browser'),
     //         publicPath: '/browser/',
-    //         filename: 'vue-form-builder-template.browser.min.js',
+    //         filename: 'vue-form-builder.browser.min.js',
     //         libraryTarget: 'window',
-    //         library: 'FormBuilderTemplate',
+    //         library: 'FormBuilder',
     //     },
     // }),
     //
-    // // library for browser - form template
-    // merge(commomConfig, {
-    //     entry: path.resolve(__dirname + '/src/gui/index.js'),
-    //     output: {
-    //         path: path.resolve(__dirname, './browser'),
-    //         publicPath: '/browser/',
-    //         filename: 'vue-form-builder-gui.browser.min.js',
-    //         libraryTarget: 'window',
-    //         library: 'FormBuilderGui',
-    //     },
-    // }),
-    //
-    // // library for node - form template
-    // merge(commomConfig, {
-    //     entry: path.resolve(__dirname + '/src/template/FormBuilderTemplate.vue'),
-    //     output: {
-    //         path: path.resolve(__dirname, './dist'),
-    //         publicPath: '/dist/',
-    //         libraryTarget: 'umd',
-    //         library: 'form-builder-template',
-    //         filename: 'vue-form-builder-template.min.js',
-    //         umdNamedDefine: true
-    //     },
-    // }),
-
     // library for node - form GUI
     merge(commomConfig, {
         entry: './src/FormBuilder.vue',

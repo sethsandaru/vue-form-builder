@@ -63,10 +63,6 @@
                     this.select2.val([val]);
                 }
                 this.select2.trigger('change');
-            },
-            setReadonly(val) {
-                console.log(val);
-                this.select2.select2({disabled: val}).trigger('change');
             }
         },
         mounted() {

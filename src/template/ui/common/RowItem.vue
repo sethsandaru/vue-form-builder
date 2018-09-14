@@ -15,9 +15,10 @@
     import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
     import ControlItem from "./ControlItem";
     import {eventBus, EventHandlerConstant} from 'sethFormBuilder/template/handler/event_handler';
+    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
     export default {
-        components: {ControlItem},
+        components: {ControlItem, FontAwesomeIcon},
         name: "row-item",
         props: {
             row: {

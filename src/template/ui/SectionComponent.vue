@@ -57,9 +57,10 @@
     import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
     import RowComponent from "./RowComponent";
     import SectionConfigModal from "./common/SectionConfigModal";
+    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
     export default {
-        components: {SectionConfigModal, RowComponent},
+        components: {SectionConfigModal, RowComponent, FontAwesomeIcon},
         name: "section-component",
         props: {
             form: {
