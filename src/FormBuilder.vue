@@ -7,18 +7,19 @@
 
 <script>
     // load necessary
-    // require('config/loader');
     import Vue from 'vue'
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     import Toaster from 'v-toaster'
     import underscoreDeepExtend from 'underscore-deep-extend';
     import moment from 'moment';
-    import {FontAwesomeRegister} from "config/font-awesome-register";
+    import {FontAwesomeRegister} from "sethFormBuilder/config/font-awesome-register";
 
     // load jquery
-    var $ = require('jquery');
-    window.$ = $;
-    window.jQuery = $;
+    if (!window.$) {
+        var $ = require('jquery');
+        window.$ = $;
+        window.jQuery = $;
+    }
 
     // load jquery ui
     require('webpack-jquery-ui');
@@ -34,20 +35,24 @@
     Vue.component('font-awesome-icon', FontAwesomeIcon);
 
     // load underscore
-    window._ = require('underscore');
-    require('config/helper_function');
+    if (!window._) {
+        window._ = require('underscore');
+    }
+    require('sethFormBuilder/config/helper_function');
     _.mixin({deepExtend: underscoreDeepExtend(_)});
 
-    // load moment
-    window.moment = moment;
+    // // load moment
+    if (!window.moment) {
+        window.moment = moment;
+    }
 
     // toaster
     import 'v-toaster/dist/v-toaster.css';
     Vue.use(Toaster, {timeout: 4000});
 
     // import
-    import FormBuilderTemplate from 'template/FormBuilderTemplate';
-    import FormBuilderGui from 'gui/FormBuilderGui';
+    import FormBuilderTemplate from './template/FormBuilderTemplate';
+    import FormBuilderGui from './gui/FormBuilderGui';
 
     export default {
         name: "FormBuilder",

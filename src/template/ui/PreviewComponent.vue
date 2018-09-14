@@ -26,7 +26,7 @@
 </template>
 
 <script>
-    import FormBuilderGui from 'gui/FormBuilderGui';
+    import FormBuilderGui from 'sethFormBuilder/gui/FormBuilderGui';
 
     export default {
         name: "PreviewComponent",

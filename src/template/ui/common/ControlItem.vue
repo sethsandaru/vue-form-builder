@@ -32,9 +32,9 @@
 </template>
 
 <script>
-    import {FORM_CONSTANTS} from "config/constants";
-    import {eventBus, EventHandlerConstant} from 'template/handler/event_handler';
-    import {ControlHandler} from 'template/handler/control_handler';
+    import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
+    import {eventBus, EventHandlerConstant} from 'sethFormBuilder/template/handler/event_handler';
+    import {ControlHandler} from 'sethFormBuilder/template/handler/control_handler';
     // load timepicker
     import 'timepicker/jquery.timepicker.min.css';
     import 'timepicker/jquery.timepicker.min'

@@ -12,9 +12,9 @@
 </template>
 
 <script>
-    import {FORM_CONSTANTS} from "config/constants";
+    import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
     import ControlItem from "./ControlItem";
-    import {eventBus, EventHandlerConstant} from 'template/handler/event_handler';
+    import {eventBus, EventHandlerConstant} from 'sethFormBuilder/template/handler/event_handler';
 
     export default {
         components: {ControlItem},

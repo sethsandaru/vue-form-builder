@@ -25,7 +25,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 // load underscore
 window._ = require('underscore');
-require('config/helper_function');
+require('@config/helper_function');
 _.mixin({deepExtend: underscoreDeepExtend(_)});
 
 // load moment

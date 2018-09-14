@@ -22,7 +22,7 @@
 </template>
 
 <script>
-    import {FORM_CONSTANTS} from "config/constants";
+    import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
     // load timepicker
     import 'timepicker/jquery.timepicker.min.css';
     import 'timepicker/jquery.timepicker.min'

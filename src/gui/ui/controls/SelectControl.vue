@@ -19,8 +19,8 @@
 </template>
 
 <script>
-    import Select2Control from "third_party_controls/Select2Control";
-    import Select2MultipleControl from "third_party_controls/Select2MultipleControl";
+    import Select2Control from "sethFormBuilder/third_party_controls/Select2Control";
+    import Select2MultipleControl from "sethFormBuilder/third_party_controls/Select2MultipleControl";
     export default {
         name: "SelectControl",
         components: {Select2MultipleControl, Select2Control},

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-    import {FORM_CONSTANTS} from "config/constants";
+    import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
 
     export default {
         name: "DatePickerControl",

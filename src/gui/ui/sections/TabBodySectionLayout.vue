@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import RowComponent from "gui/ui/RowComponent";
+    import RowComponent from "sethFormBuilder/gui/ui/RowComponent";
     export default {
         name: "TabBodySectionLayout",
         components: {RowComponent},

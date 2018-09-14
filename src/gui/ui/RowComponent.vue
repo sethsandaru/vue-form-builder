@@ -33,7 +33,7 @@
 </template>
 
 <script>
-    import {FormHandler} from "gui/handler/form_handler";
+    import {FormHandler} from "sethFormBuilder/gui/handler/form_handler";
     import ControlComponent from "./ControlComponent";
 
     export default {

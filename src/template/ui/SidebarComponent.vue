@@ -31,10 +31,10 @@
 </template>
 
 <script>
-    import {FORM_CONSTANTS} from "config/constants";
-    import {eventBus, EventHandlerConstant} from 'template/handler/event_handler';
+    import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
+    import {eventBus, EventHandlerConstant} from 'sethFormBuilder/template/handler/event_handler';
     import SidebarConfigItem from "./common/SidebarConfigItem";
-    import {ControlHandler} from 'template/handler/control_handler';
+    import {ControlHandler} from 'sethFormBuilder/template/handler/control_handler';
 
     export default {
         components: {SidebarConfigItem},
