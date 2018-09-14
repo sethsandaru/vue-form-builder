@@ -53,7 +53,7 @@ var commomConfig = {
     },
     devtool: '#eval-source-map',
     // target: 'node',
-    externals: [nodeExternals()],
+    // externals: [nodeExternals()],
     plugins: [
         new webpack.optimize.UglifyJsPlugin( {
             minimize : true,
