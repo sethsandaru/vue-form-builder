@@ -15,6 +15,11 @@ Advantages:
 - Bootstrap 4
 - ...
 
+## Form Builder Structure
+- Template: is where you can config/create/edit your own form.
+- GUI: is where the form will be built by your configuration.
+
+
 ## How to install?
 Run this:
 ```php
@@ -22,30 +27,31 @@ npm i v-form-builder --save
 ```
 ## How to implement?
 
-### Browser
-
-```html
-<div id="app">
-    <form-builder-template></form-builder-template>
-</div>
-
-<script>
-// use Form GUI
-Vue.use(FormBuilderGui);
-
-// use Form Template
-Vue.use(FormBuilderTemplate);
-</script>
+### Import into your project
+1/ Import as global component
+```javascript
+import FormBuilder from 'v-form-builder';
+Vue.component('FormBuilder', FormBuilder);
 ```
 
-### Use in node
+2/ Import as single component
+```javascript
+import FormBuilder from 'v-form-builder';
+
+export default {
+    components: {FormBuilder}
+    ...
+}
+```
+
+### Usage
 ```php
-update later...
+<template>
+    <div>
+        <form-builder type="template"></form-builder>
+    </div>
+</template>
 ```
-
-## Structure
-- Template: is where you can config/create/edit your own form.
-- GUI: is where the form will be built by your configuration.
 
 ## Available Controls
 - Text input

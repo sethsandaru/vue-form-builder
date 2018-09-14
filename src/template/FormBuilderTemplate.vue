@@ -28,6 +28,12 @@
             SidebarComponent,
             SectionComponent
         },
+        props: ['value'],
+        watch: {
+            form(val) {
+                this.value = val;
+            }
+        },
         data: () => ({
             form: {
                 sections: [],

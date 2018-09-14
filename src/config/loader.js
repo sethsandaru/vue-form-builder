@@ -14,10 +14,6 @@ window.jQuery = $;
 require('webpack-jquery-ui');
 require('webpack-jquery-ui/css');
 
-// load timepicker
-import 'timepicker/jquery.timepicker.min.css';
-import 'timepicker/jquery.timepicker.min'
-
 // load bootstrap
 require('popper.js');
 require('bootstrap');
@@ -29,7 +25,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 // load underscore
 window._ = require('underscore');
-require('config/helper_function');
+require('@config/helper_function');
 _.mixin({deepExtend: underscoreDeepExtend(_)});
 
 // load moment

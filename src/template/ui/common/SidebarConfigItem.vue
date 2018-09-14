@@ -130,10 +130,12 @@
 </template>
 
 <script>
-    import {FORM_CONSTANTS} from "config/constants";
+    import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
+    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
     export default {
         name: "sidebar-config-item",
+        components: {FontAwesomeIcon},
         props: {
             control: {
                 type: Object

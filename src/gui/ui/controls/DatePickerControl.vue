@@ -22,10 +22,12 @@
 </template>
 
 <script>
-    import {FORM_CONSTANTS} from "config/constants";
+    import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
+    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
     export default {
         name: "DatePickerControl",
+        components: {FontAwesomeIcon},
         props:['control'],
         data: () => ({
             controlTypes: FORM_CONSTANTS.Type,
