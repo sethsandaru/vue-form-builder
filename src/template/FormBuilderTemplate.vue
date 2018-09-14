@@ -21,6 +21,12 @@
     import PreviewComponent from "./ui/PreviewComponent";
     dom.watch();
 
+    var default_form_value = () => ({
+        sections: [],
+        layout: "",
+        _uniqueId: Math.random()
+    });
+
     export default {
         name: "form-builder-template",
         components: {
@@ -28,19 +34,18 @@
             SidebarComponent,
             SectionComponent
         },
-        props: ['value'],
-        watch: {
-            form(val) {
-                this.value = val;
+        props: {
+            form: {
+                type: Object
             }
         },
-        data: () => ({
-            form: {
-                sections: [],
-                layout: "",
-                _uniqueId: Math.random()
-            }
-        }),
+        // data: () => ({
+        //     form: {
+        //         sections: [],
+        //         layout: "",
+        //         _uniqueId: Math.random()
+        //     }
+        // }),
         methods: {
             getValue() {
                 return this.form;
@@ -49,10 +54,9 @@
                 this.form = val;
             },
             preview() {
-                this.$refs.PreviewComponent.openModal();
+                this.$refs.PreviewComponent.openModal(this.form);
             }
-        },
-
+        }
     }
 </script>
 

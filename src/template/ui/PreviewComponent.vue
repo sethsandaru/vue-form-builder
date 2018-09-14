@@ -10,8 +10,8 @@
                 </div>
 
                 <!-- Modal body -->
-                <div class="modal-body">
-                    <form-builder-gui ref="FormBuilderGui" :form="form" :key="form._uniqueId"></form-builder-gui>
+                <div class="modal-body" v-if="formData !== null">
+                    <form-builder-gui ref="FormBuilderGui" :form="formData" :key="formData._uniqueId"></form-builder-gui>
                 </div>
 
                 <!-- Modal footer -->
@@ -33,11 +33,16 @@
         components: {FormBuilderGui},
         props: ['form'],
         data: () => ({
-            previewModal: null
+            previewModal: null,
+            formData: null
         }),
         methods: {
-            openModal() {
-                this.form._uniqueId = Math.random();
+            openModal(formData) {
+                // set data
+                this.formData = _.cloneDeep(formData);
+                this.formData._uniqueId = Math.random();
+
+                // open
                 this.previewModal.modal('show');
             },
             closeModal() {

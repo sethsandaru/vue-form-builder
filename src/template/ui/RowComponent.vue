@@ -36,7 +36,7 @@
             removeRow(rowName) {
                 var rowIndex = _.findIndex(this.section.rows, {name: rowName});
                 if (this.section.rows[rowIndex].controls.length > 0) {
-                    this.$toaster.error("Can't remove this row because this row still have controls inside.");
+                    SethPhatToaster.error("Can't remove this row because it's still have controls inside.");
                     return;
                 }
 

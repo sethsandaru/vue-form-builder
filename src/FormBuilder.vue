@@ -1,7 +1,10 @@
 <template>
     <div>
-        <form-builder-template v-if="type === 'template'" ref="FormBuilderTemplate"></form-builder-template>
-        <form-builder-gui v-if="type === 'gui'" ref="FormBuilderGui" :form="form"></form-builder-gui>
+        <form-builder-template v-if="type === 'template'" ref="FormBuilderTemplate" :form="form"></form-builder-template>
+        <form-builder-gui v-else-if="type === 'gui'" ref="FormBuilderGui" :form="form"></form-builder-gui>
+        <div v-else>
+            <p>Type not found, did you enter correct type <b>(template, gui)</b>?</p>
+        </div>
     </div>
 </template>
 
@@ -9,10 +12,10 @@
     // load necessary
     import Vue from 'vue'
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-    import Toaster from 'v-toaster'
     import underscoreDeepExtend from 'underscore-deep-extend';
     import moment from 'moment';
     import {FontAwesomeRegister} from "sethFormBuilder/config/font-awesome-register";
+    import {SethPhatToaster} from "./config/toaster";
 
     // load jquery
     if (!window.$) {
@@ -47,8 +50,8 @@
     }
 
     // toaster
-    // import 'v-toaster/dist/v-toaster.css';
-    // Vue.use(Toaster, {timeout: 4000});
+    require('sethFormBuilder/assets/js/jquery.noty.packaged');
+    window.SethPhatToaster = SethPhatToaster;
 
     // import
     import FormBuilderTemplate from './template/FormBuilderTemplate';
@@ -60,7 +63,40 @@
             FormBuilderTemplate,
             FormBuilderGui
         },
-        props: ['type', 'form'],
+        model: {
+            prop: 'value',
+            event: 'change'
+        },
+        props: {
+            type: {
+                type: String,
+                default: "template"
+            },
+            form: {
+                type: Object,
+                default:() => ({
+                    sections: [],
+                    layout: "",
+                    _uniqueId: Math.random()
+                })
+            },
+            value: null
+        },
+        watch: {
+            form: {
+                handler(val) {
+                    if (this.type === 'template') {
+                        this.$emit('change', val);
+                    } else {
+                        this.debounceGetFormGUIValue();
+                    }
+                },
+                deep: true
+            },
+            value(val) {
+                this.setValue(val);
+            }
+        },
         methods: {
             getValue() {
                 if (this.type === 'template') {
@@ -70,15 +106,30 @@
                 }
             },
             setValue(values) {
+                if (_.isEmpty(values)) {
+                    return;
+                }
+
+                // set values for specific type
                 if (this.type === 'template') {
-                    return this.$refs.FormBuilderTemplate.setValue(values);
+                    _.deepExtend(this.form, values);
+                    // this.$refs.FormBuilderTemplate.setValue(values);
                 } else {
-                    return this.$refs.FormBuilderGui.setValue(values);
+                    this.$refs.FormBuilderGui.setValue(values);
                 }
             },
             validate() {
 
             }
+        },
+        created() {
+            let self = this;
+            this.debounceGetFormGUIValue = _.debounce(() => {
+                self.$emit('change', self.getValue());
+            }, 500);
+        },
+        mounted() {
+            this.setValue(this.value);
         }
     }
 </script>

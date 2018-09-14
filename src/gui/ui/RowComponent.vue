@@ -47,7 +47,7 @@
         methods: {
             addDynamicObj() {
                 if (this.section.maxInstance > 0 && this.section.instances.length === this.section.maxInstance) {
-                    this.$toaster.error("Maximum instances reached, can't create more.");
+                    SethPhatToaster.error("Maximum instances reached, can't create more.");
                     return;
                 }
 
@@ -55,7 +55,7 @@
             },
             removeDynamicObj(index) {
                 if (this.section.minInstance === this.section.instances.length) {
-                    this.$toaster.error("Minimum instances reached, can't remove more.");
+                    SethPhatToaster.error("Minimum instances reached, can't remove more.");
                     return;
                 }
 

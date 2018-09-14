@@ -2,7 +2,6 @@ var path = require('path');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
 var APP_DIR = path.resolve(__dirname, 'src');
-var nodeExternals = require('webpack-node-externals');
 
 var commomConfig = {
     entry: './src/main.js',
@@ -53,7 +52,21 @@ var commomConfig = {
     },
     devtool: '#eval-source-map',
     // target: 'node',
-    // externals: [nodeExternals()],
+    externals: {
+        moment: 'moment',
+        jquery: 'jquery',
+        bootstrap: 'bootstrap',
+        underscore: 'underscore',
+        timepicker: 'timepicker',
+        select2: 'select2',
+        'popper.js': 'popper.js',
+        'webpack-jquery-ui': 'webpack-jquery-ui',
+        'underscore-deep-extend': 'underscore-deep-extend',
+        'v-toaster': 'v-toaster',
+        'vue-fontawesome': '@fortawesome/vue-fontawesome',
+        'free-solid-svg-icons': '@fortawesome/free-solid-svg-icons',
+        'fontawesome-svg-core': '@fortawesome/fontawesome-svg-core',
+    },
     plugins: [
         new webpack.optimize.UglifyJsPlugin( {
             minimize : true,

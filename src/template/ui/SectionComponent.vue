@@ -82,7 +82,7 @@
             delSection(secIndex) {
                 // make sure no dependencies
                 if (this.form.sections[secIndex].rows.length > 0) {
-                    this.$toaster.error("Can't remove this section because this section still have rows inside.");
+                    SethPhatToaster.error("Can't remove this section because it's still have row(s) inside.");
                     return;
                 }
 

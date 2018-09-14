@@ -18,9 +18,6 @@
                 type: Object
             },
         },
-        data: () => ({
-
-        }),
         methods: {
             getValue() {
                 return FormHandler.getValue(this.form);
