@@ -35,6 +35,9 @@
     import {FORM_CONSTANTS} from "config/constants";
     import {eventBus, EventHandlerConstant} from 'template/handler/event_handler';
     import {ControlHandler} from 'template/handler/control_handler';
+    // load timepicker
+    import 'timepicker/jquery.timepicker.min.css';
+    import 'timepicker/jquery.timepicker.min'
 
     export default {
         name: "control-item",

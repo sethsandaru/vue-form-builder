@@ -23,6 +23,9 @@
 
 <script>
     import {FORM_CONSTANTS} from "config/constants";
+    // load timepicker
+    import 'timepicker/jquery.timepicker.min.css';
+    import 'timepicker/jquery.timepicker.min'
 
     export default {
         name: "TimePickerControl",

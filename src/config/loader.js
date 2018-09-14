@@ -14,10 +14,6 @@ window.jQuery = $;
 require('webpack-jquery-ui');
 require('webpack-jquery-ui/css');
 
-// load timepicker
-import 'timepicker/jquery.timepicker.min.css';
-import 'timepicker/jquery.timepicker.min'
-
 // load bootstrap
 require('popper.js');
 require('bootstrap');
