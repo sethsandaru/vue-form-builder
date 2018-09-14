@@ -52,7 +52,7 @@ var commomConfig = {
         hints: false
     },
     devtool: '#eval-source-map',
-    target: 'node',
+    // target: 'node',
     externals: [nodeExternals()],
     plugins: [
         new webpack.optimize.UglifyJsPlugin( {
@@ -114,7 +114,7 @@ module.exports = [
 
     // library for node - form GUI
     merge(commomConfig, {
-        entry: path.resolve(__dirname + '/src/FormBuilder.vue'),
+        entry: './src/FormBuilder.vue',
         output: {
             path: path.resolve(__dirname, './dist'),
             publicPath: '/dist/',
