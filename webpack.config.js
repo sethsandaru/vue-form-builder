@@ -65,9 +65,9 @@ var commomConfig = {
         'webpack-jquery-ui': 'webpack-jquery-ui',
         'underscore-deep-extend': 'underscore-deep-extend',
         'v-toaster': 'v-toaster',
-        // '@fortawesome/vue-fontawesome': '@fortawesome/vue-fontawesome',
-        // '@fortawesome/free-solid-svg-icons': '@fortawesome/free-solid-svg-icons',
-        // '@fortawesome/fontawesome-svg-core': '@fortawesome/fontawesome-svg-core',
+        'vue-fontawesome': '@fortawesome/vue-fontawesome',
+        'free-solid-svg-icons': '@fortawesome/free-solid-svg-icons',
+        'fontawesome-svg-core': '@fortawesome/fontawesome-svg-core',
     },
     plugins: [
         new webpack.optimize.UglifyJsPlugin( {
@@ -77,79 +77,66 @@ var commomConfig = {
             compress: {
                 warnings: false
             }
-        } )
+        } ),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: '"production"'
+            }
+        }),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
+        })
     ]
 };
 
 module.exports = [
     // library for browser - form template
-    merge(commomConfig, {
-        entry: path.resolve(__dirname + '/src/template/index.js'),
-        output: {
-            path: path.resolve(__dirname, './dist'),
-            publicPath: '/dist/',
-            filename: 'vue-form-builder-template.browser.min.js',
-            libraryTarget: 'window',
-            library: 'FormBuilderTemplate',
-        },
-    }),
-
-    // library for browser - form template
-    merge(commomConfig, {
-        entry: path.resolve(__dirname + '/src/gui/index.js'),
-        output: {
-            path: path.resolve(__dirname, './dist'),
-            publicPath: '/dist/',
-            filename: 'vue-form-builder-gui.browser.min.js',
-            libraryTarget: 'window',
-            library: 'FormBuilderGui',
-        },
-    }),
-
-    // library for node - form template
-    merge(commomConfig, {
-        entry: path.resolve(__dirname + '/src/template/FormBuilderTemplate.vue'),
-        output: {
-            path: path.resolve(__dirname, './dist'),
-            publicPath: '/dist/',
-            libraryTarget: 'umd',
-            library: 'form-builder-template',
-            filename: 'vue-form-builder-template.min.js',
-            umdNamedDefine: true
-        },
-    }),
+    // merge(commomConfig, {
+    //     entry: path.resolve(__dirname + '/src/template/index.js'),
+    //     output: {
+    //         path: path.resolve(__dirname, './browser'),
+    //         publicPath: '/browser/',
+    //         filename: 'vue-form-builder-template.browser.min.js',
+    //         libraryTarget: 'window',
+    //         library: 'FormBuilderTemplate',
+    //     },
+    // }),
+    //
+    // // library for browser - form template
+    // merge(commomConfig, {
+    //     entry: path.resolve(__dirname + '/src/gui/index.js'),
+    //     output: {
+    //         path: path.resolve(__dirname, './browser'),
+    //         publicPath: '/browser/',
+    //         filename: 'vue-form-builder-gui.browser.min.js',
+    //         libraryTarget: 'window',
+    //         library: 'FormBuilderGui',
+    //     },
+    // }),
+    //
+    // // library for node - form template
+    // merge(commomConfig, {
+    //     entry: path.resolve(__dirname + '/src/template/FormBuilderTemplate.vue'),
+    //     output: {
+    //         path: path.resolve(__dirname, './dist'),
+    //         publicPath: '/dist/',
+    //         libraryTarget: 'umd',
+    //         library: 'form-builder-template',
+    //         filename: 'vue-form-builder-template.min.js',
+    //         umdNamedDefine: true
+    //     },
+    // }),
 
     // library for node - form GUI
     merge(commomConfig, {
-        entry: path.resolve(__dirname + '/src/gui/FormBuilderGui.vue'),
+        entry: path.resolve(__dirname + '/src/FormBuilder.vue'),
         output: {
             path: path.resolve(__dirname, './dist'),
             publicPath: '/dist/',
             libraryTarget: 'umd',
-            library: 'form-builder-gui',
-            filename: 'vue-form-builder-gui.min.js',
+            library: 'form-builder',
+            filename: 'vue-form-builder.min.js',
             umdNamedDefine: true
         },
     }),
 ];
-//
-// if (process.env.NODE_ENV === 'production') {
-//     module.exports.devtool = '#source-map'
-//     // http://vue-loader.vuejs.org/en/workflow/production.html
-//     module.exports.plugins = (module.exports.plugins || []).concat([
-//         new webpack.DefinePlugin({
-//             'process.env': {
-//                 NODE_ENV: '"production"'
-//             }
-//         }),
-//         new webpack.optimize.UglifyJsPlugin({
-//             sourceMap: true,
-//             compress: {
-//                 warnings: false
-//             }
-//         }),
-//         new webpack.LoaderOptionsPlugin({
-//             minimize: true
-//         })
-//     ])
-// }

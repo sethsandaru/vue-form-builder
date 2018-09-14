@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Toaster from 'v-toaster'
 import underscoreDeepExtend from 'underscore-deep-extend';
 import moment from 'moment';
+import {FontAwesomeRegister} from "./font-awesome-register";
 
 // load jquery
 var $ = require('jquery');
@@ -23,7 +24,7 @@ require('bootstrap');
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // load font-awesome
-require('config/font-awesome-register');
+FontAwesomeRegister.register();
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 // load underscore
