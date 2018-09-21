@@ -1,6 +1,12 @@
-import { faEdit, faCalculator, faCalendarAlt, faClock, faCheck, faDatabase } from '@fortawesome/free-solid-svg-icons'
+import {faEdit} from '@fortawesome/free-solid-svg-icons/faEdit';
+import {faCalculator} from '@fortawesome/free-solid-svg-icons/faCalculator';
+import {faCalendarAlt} from '@fortawesome/free-solid-svg-icons/faCalendarAlt';
+import {faClock} from '@fortawesome/free-solid-svg-icons/faClock';
+import {faCheck} from '@fortawesome/free-solid-svg-icons/faCheck';
+import {faDatabase} from '@fortawesome/free-solid-svg-icons/faDatabase';
 
 var FORM_CONSTANTS = {};
+var CONTROL_CONSTANTS = {};
 
 FORM_CONSTANTS.SectionLayout = {
   collapse: "Collapse",
@@ -50,15 +56,17 @@ FORM_CONSTANTS.Control = {
 
     // attr for datePicker
     isTodayValue: false,
-    dateFormat: "", // enhancement later
+    dateFormat: "dd/mm/yy",
 
     // attr for timePicker
     isNowTimeValue: false,
-    timeFormat: "", // enhancement later
+    timeFormat: "HH:mm", // enhancement later
 
     // attr for select
     isMultiple: false,
-    dataOptions: [],
+    isAjax: false, // is ajax data source or not
+    dataOptions: [], // static data source
+    ajaxDataUrl: "", // ajax data source
 
     // attr for checkbox
     isChecked: false
@@ -111,6 +119,24 @@ FORM_CONSTANTS.OptionDefault = {
     text: ""
 };
 
+CONTROL_CONSTANTS.DateFormat = {
+    // rule: date picker format => moment format
+    'dd/mm/yy': "D/M/YYYY",
+    'dd-mm-yy': "D-M-YYYY",
+    'mm/dd/yy': "M/D/YYYY",
+    'mm-dd-yy': "M/D/YYYY",
+    'yy/mm/dd': "YYYY/M/D",
+    'yy-mm-dd': "YYYY-M-D",
+};
+
+CONTROL_CONSTANTS.TimeFormat = {
+    'H:m': 'H:m',
+    'HH:mm': 'HH:mm',
+    'h:m p': "h:m A",
+    'hh:mm p': "hh:mm A"
+};
+
 export {
-  FORM_CONSTANTS
+    FORM_CONSTANTS,
+    CONTROL_CONSTANTS
 }

@@ -10,6 +10,7 @@
                        :readonly="this.control.readonly"
                        :name="control.fieldName"
                        :step="controlStep"
+                       @change="numberChange"
                        v-model="control.value" />
             </div>
         </div>
@@ -17,6 +18,8 @@
 </template>
 
 <script>
+    import {Hooks} from 'sethFormBuilder/gui/components/hook_lists';
+
     export default {
         name: "NumberControl",
         props: ['control'],
@@ -24,25 +27,23 @@
             if (!_.isEmpty(this.control.defaultValue)) {
                 this.control.value = this.control.defaultValue;
             }
+
+            // after hook
+            Hooks.Control.afterInit.run(this.control, $(this.$el).find("input"));
+        },
+        methods: {
+            numberChange(e) {
+                let val = e.target.value;
+
+                if (this.control.isInteger === false) {
+                    this.control.value = parseFloat(val).toFixed(this.control.decimalPlace);
+                } else {
+                    this.control.value = parseInt(val);
+                }
+            }
         },
         computed: {
             controlStep() {
-                if (!this.control.isInteger) {
-                    var step = 1;
-
-                    // calculate the step by decimal place
-                    if (this.control.decimalPlace > 0) {
-                        step = "0.";
-                        for (var i = 1; i < this.control.decimalPlace; i++) {
-                            step += "0";
-                        }
-                        step += "1";
-                    }
-
-                    // generate
-                    return parseFloat(step);
-                }
-
                 return 1;
             }
         }

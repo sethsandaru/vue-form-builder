@@ -19,6 +19,8 @@
 </template>
 
 <script>
+    import {Hooks} from 'sethFormBuilder/gui/components/hook_lists';
+
     export default {
         name: "TextControl",
         props: ['control'],
@@ -26,6 +28,9 @@
             if (!_.isEmpty(this.control.defaultValue)) {
                 this.control.value = this.control.defaultValue;
             }
+
+            // after hook
+            Hooks.Control.afterInit.run(this.control, $(this.$el).find(this.control.isMultiLine ? "textarea" : "input"));
         }
     }
 </script>

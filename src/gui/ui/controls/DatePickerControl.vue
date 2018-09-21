@@ -22,8 +22,9 @@
 </template>
 
 <script>
-    import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
+    import {FORM_CONSTANTS,CONTROL_CONSTANTS} from "sethFormBuilder/config/constants";
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+    import {Hooks} from 'sethFormBuilder/gui/components/hook_lists';
 
     export default {
         name: "DatePickerControl",
@@ -37,14 +38,14 @@
             let self = this;
             let $selector = $(this.$el).find("input");
             $selector.datepicker({
-                dateFormat: "dd/mm/yy",
-                // fix problem...
+                dateFormat: this.control.dateFormat,
                 beforeShow:function(input) {
+                    // read only can't choose
                     if (self.control.readonly) {
                         return false;
                     }
 
-                    // stylin..
+                    // styling the error style
                     var $selector = $(input);
 
                     // only increase z-index if this control is in a modal
@@ -66,13 +67,16 @@
             }
             // today value or not
             if (this.control.isTodayValue) {
-                $selector.val(moment().format('D/M/YYYY'));
+                $selector.val(moment().format(CONTROL_CONSTANTS.DateFormat[this.control.dateFormat]));
             }
             if (!_.isEmpty(this.control.defaultValue)) {
                 $selector.val(this.control.defaultValue);
             }
 
             this.datePicker = $selector;
+
+            // after hook
+            Hooks.Control.afterInit.run(this.control, $selector);
         },
         beforeDestroy() {
             this.datePicker.datepicker('destroy');

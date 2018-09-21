@@ -10,32 +10,37 @@
 
 <script>
     // load necessary
-    import Vue from 'vue'
-    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     import underscoreDeepExtend from 'underscore-deep-extend';
     import moment from 'moment';
     import {FontAwesomeRegister} from "sethFormBuilder/config/font-awesome-register";
     import {SethPhatToaster} from "./config/toaster";
+    import {Hooks as GUI_Hooks} from './gui/components/hook_lists';
+    import {Hooks as Template_Hooks} from './template/components/hook_lists';
 
     // load jquery
     if (!window.$) {
-        var $ = require('jquery');
+        let $ = require('jquery');
         window.$ = $;
         window.jQuery = $;
     }
 
     // load jquery ui
-    require('webpack-jquery-ui');
-    require('webpack-jquery-ui/css');
+    import 'webpack-jquery-ui';
+    import 'webpack-jquery-ui/css';
+
+    // load timepicker
+    // require('sethFormBuilder/assets/css/jquery-ui-timepicker-addon.css');
+    // require('sethFormBuilder/assets/js/jquery-ui-timepicker-addon');
+    require('sethFormBuilder/assets/js/jquery.timepicker.min');
+    require('sethFormBuilder/assets/css/jquery.timepicker.min.css');
 
     // load bootstrap
     require('popper.js');
     require('bootstrap');
-    import 'bootstrap/dist/css/bootstrap.min.css';
+    // import 'bootstrap/dist/css/bootstrap.min.css';
 
     // load font-awesome
     FontAwesomeRegister.register();
-    Vue.component('font-awesome-icon', FontAwesomeIcon);
 
     // load underscore
     if (!window._) {
@@ -80,7 +85,11 @@
                     _uniqueId: Math.random()
                 })
             },
-            value: null
+            value: null,
+            options: {
+                type: Object,
+                default: () => ({})
+            }
         },
         watch: {
             form: {
@@ -127,6 +136,17 @@
             this.debounceGetFormGUIValue = _.debounce(() => {
                 self.$emit('change', self.getValue());
             }, 500);
+
+            // Register for hook
+            if (this.type === 'template') {
+                if(_.has(this.options, 'hooks')) {
+                    Template_Hooks.register(this.options.hooks);
+                }
+            } else {
+                if(_.has(this.options, 'hooks')) {
+                    GUI_Hooks.register(this.options.hooks);
+                }
+            }
         },
         mounted() {
             this.setValue(this.value);

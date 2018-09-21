@@ -1,7 +1,7 @@
 {
     "name": "v-form-builder",
-    "description": "A Super Form Builder build with VueJS by Seth Phat",
-    "version": "1.1.1",
+    "description": "A Super Form Builder (drag & drop) build with VueJS by Seth Phat",
+    "version": "1.2.0",
     "author": "Phat Tran <phattranminh96@gmail.com> (https://sethphat.com)",
     "keywords": [
         "vue",
@@ -19,8 +19,10 @@
         "url": "git+https://github.com/sethsandaru/vue-form-builder.git"
     },
     "scripts": {
-        "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+        "test": "webpack --json > stats.json",
+        "dev": "webpack -d --watch",
         "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+        "build-dev": "cross-env NODE_ENV=development webpack --progress --hide-modules",
         "build-bundle": "rimraf ./dist && webpack --config ./webpack.config.js"
     },
     "dependencies": {
@@ -31,20 +33,11 @@
         "jquery": "^3.3.1",
         "moment": "^2.22.2",
         "popper.js": "^1.14.4",
-        "rimraf": "^2.6.2",
         "select2": "^4.0.6-rc.1",
-        "timepicker": "^1.11.12",
         "underscore": "^1.9.1",
         "underscore-deep-extend": "^1.1.5",
-        "vue": "^2.5.11",
-        "webpack-jquery-ui": "^2.0.1",
-        "webpack-merge": "^4.1.4"
+        "webpack-jquery-ui": "^2.0.1"
     },
-    "browserslist": [
-        "> 1%",
-        "last 2 versions",
-        "not ie <= 8"
-    ],
     "devDependencies": {
         "babel-core": "^6.26.0",
         "babel-loader": "^7.1.2",
@@ -53,9 +46,14 @@
         "cross-env": "^5.0.5",
         "css-loader": "^0.28.7",
         "file-loader": "^1.1.4",
+        "rimraf": "^2.6.2",
+        "url-loader": "^1.1.1",
+        "vue": "^2.5.17",
         "vue-loader": "^13.0.5",
         "vue-template-compiler": "^2.4.4",
         "webpack": "^3.6.0",
-        "webpack-dev-server": "^2.9.1"
+        "webpack-bundle-analyzer": "^3.0.2",
+        "webpack-dev-server": "^2.9.1",
+        "webpack-merge": "^4.1.4"
     }
 }

@@ -58,6 +58,7 @@
     import RowComponent from "./RowComponent";
     import SectionConfigModal from "./common/SectionConfigModal";
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+    import {Hooks} from 'sethFormBuilder/template/components/hook_lists';
 
     export default {
         components: {SectionConfigModal, RowComponent, FontAwesomeIcon},
@@ -74,10 +75,16 @@
             addSection() {
                 var sectionInfo = _.cloneDeep(FORM_CONSTANTS.Section);
                 // set uniqueID
-                sectionInfo.name = _.uniqueId('section_');
+                sectionInfo.name = _.domUniqueID('section_');
                 sectionInfo.clientKey = sectionInfo.name;
 
+                // Before hook
+                Hooks.Section.beforeAdd.run(sectionInfo);
+
                 this.form.sections.push(sectionInfo);
+
+                // After hook
+                Hooks.Section.afterAdd.run(sectionInfo);
             },
             delSection(secIndex) {
                 // make sure no dependencies
@@ -86,7 +93,17 @@
                     return;
                 }
 
+                var sectionInfo = this.form.sections[secIndex];
+                let beforeRun = Hooks.Section.beforeRemove.runSequence(sectionInfo);
+                if (beforeRun === false) {
+                    return;
+                }
+
+                // remove section
                 this.form.sections.splice(secIndex, 1);
+
+                // final hook
+                Hooks.Section.afterRemove.run(sectionInfo);
             },
             configSection(secIndex) {
                 var sectionInfo = this.form.sections[secIndex];
@@ -114,9 +131,15 @@
                 var rowInfo = _.cloneDeep(FORM_CONSTANTS.Row);
 
                 // general row_name (id)
-                rowInfo.name = _.uniqueId(this.form.sections[secIndex].name + '_row_');
+                rowInfo.name = _.domUniqueID(this.form.sections[secIndex].name + '_row_');
+
+                // before hook
+                Hooks.Row.beforeAdd.run(rowInfo, this.form.sections[secIndex]);
 
                 this.form.sections[secIndex].rows.push(rowInfo);
+
+                // after hook
+                Hooks.Row.afterAdd.run(rowInfo, this.form.sections[secIndex]);
             },
             preview() {
                 this.$parent.preview();

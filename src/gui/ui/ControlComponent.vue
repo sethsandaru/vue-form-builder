@@ -10,6 +10,7 @@
 </template>
 
 <script>
+    import {Hooks} from 'sethFormBuilder/gui/components/hook_lists';
     import TextControl from "./controls/TextControl";
     import CheckboxControl from "./controls/CheckboxControl";
     import DatePickerControl from "./controls/DatePickerControl";
@@ -20,7 +21,13 @@
     export default {
         name: "ControlComponent",
         components: {SelectControl, NumberControl, TimePickerControl, DatePickerControl, CheckboxControl, TextControl},
-        props: ['control']
+        props: ['control'],
+        created() {
+            Hooks.Control.beforeRegister.run(this.control);
+        },
+        mounted() {
+            Hooks.Control.afterRegister.run(this.control);
+        }
     }
 </script>
 

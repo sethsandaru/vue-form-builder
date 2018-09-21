@@ -16,6 +16,7 @@
     import ControlItem from "./ControlItem";
     import {eventBus, EventHandlerConstant} from 'sethFormBuilder/template/handler/event_handler';
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+    import {Hooks} from 'sethFormBuilder/template/components/hook_lists';
 
     export default {
         components: {ControlItem, FontAwesomeIcon},
@@ -31,12 +32,21 @@
                 var controlInfo = _.cloneDeep(FORM_CONSTANTS.Control);
                 controlInfo.type = controlType;
                 // generate id
-                controlInfo.name = _.uniqueId(`control_${controlType}_`);
+                controlInfo.name = _.domUniqueID(`control_${controlType}_`);
                 controlInfo.label = FORM_CONSTANTS.Type[controlType].label;
                 controlInfo.fieldName = controlInfo.name; // same for both
 
+                // before hook
+                let b4Run = Hooks.Control.beforeAdd.runSequence(controlInfo, this.row);
+                if (b4Run === false) {
+                    return;
+                }
+
                 // add to row
                 this.row.controls.push(controlInfo);
+
+                // after hook
+                Hooks.Control.afterAdd.run(controlInfo, this.row);
             },
             traverseControl() {
                 let self = this;
@@ -70,8 +80,18 @@
                     return;
                 }
 
+                // before hook
+                var controlInfo = this.row.controls[controlIndex];
+                let beforeRun = Hooks.Control.beforeRemove.runSequence(controlInfo);
+                if (beforeRun === false) {
+                    return;
+                }
+
                 // remove control
                 this.row.controls.splice(controlIndex, 1);
+
+                // after hook
+                Hooks.Control.afterRemove.run(controlInfo);
             });
         },
         mounted() {

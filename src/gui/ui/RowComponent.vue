@@ -35,6 +35,7 @@
 <script>
     import {FormHandler} from "sethFormBuilder/gui/handler/form_handler";
     import ControlComponent from "./ControlComponent";
+    import {Hooks} from 'sethFormBuilder/gui/components/hook_lists';
 
     export default {
         name: "RowComponent",
@@ -51,7 +52,16 @@
                     return;
                 }
 
+                // b4hook
+                let b4Run = Hooks.DynamicSection.beforeAddInstance.runSequence(this.section);
+                if (b4Run === false) {
+                    return;
+                }
+
                 this.section.instances.push(_.cloneDeep(this.dynamicTemplate));
+
+                // after hook
+                Hooks.DynamicSection.afterAddInstance.run(_.last(this.section.instances),this.section);
             },
             removeDynamicObj(index) {
                 if (this.section.minInstance === this.section.instances.length) {
@@ -59,7 +69,16 @@
                     return;
                 }
 
+                // b4hook
+                let b4Run = Hooks.DynamicSection.beforeRemoveInstance.runSequence(this.section);
+                if (b4Run === false) {
+                    return;
+                }
+
                 this.section.instances.splice(index, 1);
+
+                // after hook
+                Hooks.DynamicSection.afterRemoveInstance.run(_.last(this.section.instances),this.section);
             },
             generateDynamic() {
                 if (this.section.isDynamic) {
@@ -67,6 +86,7 @@
 
                     // generate dynamic template
                     this.dynamicTemplate = _.cloneDeep(this.section.rows);
+                    Hooks.DynamicSection.beforeInitClone.run(this.dynamicTemplate, this.section);
 
                     // populate min instance
                     if (this.section.minInstance > 0) {
@@ -79,7 +99,7 @@
         },
         mounted() {
             this.generateDynamic();
-        },
+        }
     }
 </script>
 

@@ -6,6 +6,7 @@
 
 <script>
     import RowItem from "./common/RowItem";
+    import {Hooks} from 'sethFormBuilder/template/components/hook_lists';
 
     export default {
         components: {RowItem},
@@ -40,7 +41,16 @@
                     return;
                 }
 
+                var rowInfo = this.section.rows[rowIndex];
+                let beforeRun = Hooks.Row.beforeRemove.runSequence(rowInfo);
+                if (beforeRun === false) {
+                    return;
+                }
+
                 this.section.rows.splice(rowIndex, 1);
+
+                // final hook
+                Hooks.Row.afterRemove.run(rowInfo);
             }
         },
         mounted() {

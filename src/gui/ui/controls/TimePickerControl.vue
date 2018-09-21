@@ -24,9 +24,7 @@
 <script>
     import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-    // load timepicker
-    import 'timepicker/jquery.timepicker.min.css';
-    import 'timepicker/jquery.timepicker.min'
+    import {Hooks} from 'sethFormBuilder/gui/components/hook_lists';
 
     export default {
         name: "TimePickerControl",
@@ -36,9 +34,9 @@
             controlTypes: FORM_CONSTANTS.Type
         }),
         mounted() {
-            $(this.$el).find("input").timepicker({
-                timeFormat: "H:i",
-                show2400: true
+            var $selector = $(this.$el).find("input");
+            $selector.timepicker({
+                timeFormat: this.control.timeFormat
             });
 
             if (this.control.isNowTimeValue) {
@@ -47,6 +45,9 @@
             if (!_.isEmpty(this.control.defaultValue)) {
                 this.control.value = this.control.defaultValue;
             }
+
+            // after hook
+            Hooks.Control.afterInit.run(this.control, $selector);
         }
     }
 </script>

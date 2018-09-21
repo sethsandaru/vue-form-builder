@@ -13,6 +13,8 @@
 </template>
 
 <script>
+    import {Hooks} from 'sethFormBuilder/gui/components/hook_lists';
+
     export default {
         name: "CheckboxControl",
         props: ['control'],
@@ -20,6 +22,9 @@
             if (this.control.isChecked) {
                 this.control.value = true;
             }
+
+            // after hook
+            Hooks.Control.afterInit.run(this.control, $(this.$el).find("input"));
         }
     }
 </script>

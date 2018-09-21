@@ -81,8 +81,13 @@
         <!-- data options for select -->
         <div class="row mt-2" v-if="control.type === 'select'">
             <div class="col-md-12">
-                <label>Data Source</label>
-                <table class="table table-bordered table-striped">
+                <div class="form-group">
+                    <label>Data Source</label> <br />
+                    <label><input type="radio" name="isAjax" v-model="control.isAjax":value="false">Static Source</label>
+                    <label><input type="radio" name="isAjax" v-model="control.isAjax" :value="true">Ajax Source</label>
+                </div>
+
+                <table class="table table-bordered table-striped" v-if="!control.isAjax">
                     <thead>
                         <tr>
                             <th class="text-center" width="10%">
@@ -106,6 +111,31 @@
                         </tr>
                     </tbody>
                 </table>
+                <div class="form-group" v-else>
+                    <label>
+                        Ajax URL
+                        <a href="javascript:void(0)" @click="dataAjaxModal"><i class="fa fa-info-circle"></i></a>
+                    </label>
+                    <input type="text" class="form-control" v-model="control.ajaxDataUrl">
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-2" v-if="control.type === 'datepicker'">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Date Format</label>
+                    <select2-control :options="dateFormatOptions" v-model="control.dateFormat"></select2-control>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-2" v-if="control.type === 'timepicker'">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Time Format</label>
+                    <select2-control :options="timeFormatOptions" v-model="control.timeFormat"></select2-control>
+                </div>
             </div>
         </div>
 
@@ -126,23 +156,32 @@
                 </div>
             </div>
         </div>
+
+        <select-ajax-modal ref="SelectAjaxModal"></select-ajax-modal>
     </div>
 </template>
 
 <script>
-    import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
+    import {FORM_CONSTANTS, CONTROL_CONSTANTS} from "sethFormBuilder/config/constants";
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+    import Select2Control from "sethFormBuilder/third_party_controls/Select2Control";
+    import SelectAjaxModal from "sethFormBuilder/template/ui/common/sidebar_config/SelectAjaxModal";
 
     export default {
         name: "sidebar-config-item",
-        components: {FontAwesomeIcon},
+        components: {
+            SelectAjaxModal,
+            Select2Control,
+            FontAwesomeIcon},
         props: {
             control: {
                 type: Object
-            }
+            },
         },
         data: () => ({
-            widthOptions: FORM_CONSTANTS.WidthOptions
+            widthOptions: FORM_CONSTANTS.WidthOptions,
+            dateFormatOptions: [],
+            timeFormatOptions: [],
         }),
         methods: {
             addOption() {
@@ -150,7 +189,18 @@
             },
             removeOption(index) {
                 this.control.dataOptions.splice(index, 1);
+            },
+            dataAjaxModal(e) {
+                this.$refs.SelectAjaxModal.openModal();
             }
+        },
+        created() {
+            this.dateFormatOptions = _.map(CONTROL_CONSTANTS.DateFormat, (value, key) => {
+                return key;
+            });
+            this.timeFormatOptions = _.map(CONTROL_CONSTANTS.TimeFormat, (value, key) => {
+                return key;
+            });
         },
         mounted() {
             // add default options

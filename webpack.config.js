@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
 var APP_DIR = path.resolve(__dirname, 'src');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 var commomConfig = {
     entry: './src/main.js',
@@ -27,11 +28,17 @@ var commomConfig = {
                 exclude: /node_modules/
             },
             {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[ext]?[hash]'
-                }
+                // Load all images as base64 encoding if they are smaller than 8192 bytes
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            name: '[name].[hash:20].[ext]',
+                            limit: 8192
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -57,7 +64,6 @@ var commomConfig = {
         jquery: 'jquery',
         bootstrap: 'bootstrap',
         underscore: 'underscore',
-        timepicker: 'timepicker',
         select2: 'select2',
         'popper.js': 'popper.js',
         'webpack-jquery-ui': 'webpack-jquery-ui',
@@ -68,22 +74,17 @@ var commomConfig = {
         'fontawesome-svg-core': '@fortawesome/fontawesome-svg-core',
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin( {
-            minimize : true,
-            sourceMap : false,
-            mangle: true,
-            compress: {
-                warnings: false
-            }
-        } ),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"production"'
             }
         }),
+        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.LoaderOptionsPlugin({
             minimize: true
-        })
+        }),
+        // new BundleAnalyzerPlugin()
     ]
 };
 
@@ -105,6 +106,8 @@ module.exports = [
         entry: './src/FormBuilder.vue',
         output: {
             path: path.resolve(__dirname, './dist'),
+            // path: path.resolve(__dirname, '../test-form/node_modules/v-form-builder/dist'),
+            // path: path.resolve(__dirname, '../VueProject/test-form/node_modules/v-form-builder/dist'),
             publicPath: '/dist/',
             libraryTarget: 'umd',
             library: 'form-builder',
