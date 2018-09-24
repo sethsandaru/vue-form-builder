@@ -7,7 +7,7 @@
             <div class="input-group">
                 <input type="text"
                        class="form-control"
-                       :readonly="control.readonly"
+                       :disabled="control.readonly"
                        :name="control.fieldName"
                        v-model="control.value" />
 
@@ -36,7 +36,8 @@
         mounted() {
             var $selector = $(this.$el).find("input");
             $selector.timepicker({
-                timeFormat: this.control.timeFormat
+                timeFormat: this.control.timeFormat,
+                zindex: 1000
             });
 
             if (this.control.isNowTimeValue) {

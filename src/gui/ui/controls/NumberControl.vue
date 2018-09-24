@@ -23,6 +23,9 @@
     export default {
         name: "NumberControl",
         props: ['control'],
+        created() {
+            this.control.value = 0;
+        },
         mounted() {
             if (!_.isEmpty(this.control.defaultValue)) {
                 this.control.value = this.control.defaultValue;

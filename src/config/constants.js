@@ -46,6 +46,7 @@ FORM_CONSTANTS.Control = {
     value: "",
     className: 'col-md-4',
     readonly: false,
+    required: false,
 
     // attr for text
     isMultiLine: false,
