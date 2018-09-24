@@ -16,6 +16,7 @@
     import {SethPhatToaster} from "./config/toaster";
     import {Hooks as GUI_Hooks} from './gui/components/hook_lists';
     import {Hooks as Template_Hooks} from './template/components/hook_lists';
+    import {FormHandler} from "sethFormBuilder/gui/handler/form_handler";
 
     // load jquery
     if (!window.$) {
@@ -123,14 +124,27 @@
 
                 // set values for specific type
                 if (this.type === 'template') {
-                    _.deepExtend(this.form, values);
+                    _.deepExtend(this.form, FormHandler.recorrectStructure(values));
                     // this.$refs.FormBuilderTemplate.setValue(values);
                 } else {
                     this.$refs.FormBuilderGui.setValue(values);
                 }
             },
-            validate() {
+            validate(showError = true) {
+                if (this.type !== 'gui') {
+                    return;
+                }
 
+                var hasError = FormHandler.validate(this.form);
+                if (showError && hasError) {
+                    SethPhatToaster.error("There are errors on the page. Please rectify the errors so the action can be completed.");
+                }
+
+                // true => no error | false => errors
+                return !hasError;
+            },
+            clearError() {
+                FormHandler.clearErrorField();
             }
         },
         created() {
@@ -151,7 +165,11 @@
                 if(_.has(this.options, 'hooks')) {
                     GUI_Hooks.register(this.options.hooks);
                 }
+
+                // Re-correct data for GUI
+                _.deepExtend(this.form, FormHandler.recorrectStructure(this.form));
             }
+
         },
         mounted() {
             this.setValue(this.value);

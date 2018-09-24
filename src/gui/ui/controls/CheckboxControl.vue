@@ -1,7 +1,10 @@
 <template>
-    <div class="row">
+    <div class="row checkBoxControl">
         <div class="col-md-4">
-            <label :for="control.name + '_gui_control'">{{control.label}}</label>
+            <label :for="control.name + '_gui_control'"
+                   :class="{'bold': control.labelBold, 'italic': control.labelItalic, 'underline': control.labelUnderline}">
+                {{control.label}}
+            </label>
         </div>
         <div class="col-md-8 text-center">
             <input type="checkbox"

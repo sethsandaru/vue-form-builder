@@ -1,3 +1,15 @@
 .control-error {
     border: 1px solid #ff0000;
 }
+
+label.bold {
+    font-weight: bold;
+}
+
+label.italic {
+    font-style: italic;
+}
+
+label.underline {
+    text-decoration: underline;
+}

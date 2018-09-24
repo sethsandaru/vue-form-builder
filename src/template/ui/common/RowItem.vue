@@ -6,7 +6,8 @@
 
         <control-item v-for="(control, index) in row.controls"
                       :control="control"
-                      :key="control.name">
+                      :key="control.name"
+                      :label-position="labelPosition">
         </control-item>
     </div>
 </template>
@@ -25,7 +26,8 @@
             row: {
                 type: Object,
                 default: {}
-            }
+            },
+            labelPosition: null
         },
         methods: {
             addControl(controlType) {
@@ -73,7 +75,7 @@
         created() {
             eventBus.$on(EventHandlerConstant.REMOVE_CONTROL, ui => {
                 // prepare data
-                var id = $(ui.draggable[0]).attr('id');
+                var id = ui.helper.attr('data-control-name');
                 var controlIndex = _.findIndex(this.row.controls, {name: id});
 
                 if (controlIndex < 0) {

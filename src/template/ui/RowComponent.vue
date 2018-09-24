@@ -1,6 +1,11 @@
 <template>
     <div class="rowWrapper">
-        <row-item v-for="row in section.rows" :key="row.name" :row="row" @removeRow="removeRow"></row-item>
+        <row-item v-for="row in section.rows"
+                  :key="row.name"
+                  :row="row"
+                  @removeRow="removeRow"
+                  :label-position="section.labelPosition">
+        </row-item>
     </div>
 </template>
 

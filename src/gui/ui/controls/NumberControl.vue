@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col-md-4">
-            <label>{{control.label}}</label>
+            <label :class="{'bold': control.labelBold, 'italic': control.labelItalic, 'underline': control.labelUnderline}">{{control.label}}</label>
         </div>
         <div class="col-md-8">
             <div class="input-group">
