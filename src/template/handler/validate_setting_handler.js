@@ -5,6 +5,7 @@ const CONTROL_ERROR_CLASS = "control-error";
 ValidateSettingHandler.init = function (Hooks) {
     Hooks.push('Sidebar.beforeApplyConfig', validate_number_decimal);
     Hooks.push('Sidebar.beforeApplyConfig', validate_static_datasource);
+    Hooks.push('Sidebar.beforeApplyConfig', validate_ajax_datasource);
 };
 
 // clear all control error
@@ -22,7 +23,7 @@ var validate_number_decimal = function (controlInfo) {
     }
 };
 
-// validate data source
+// validate control static data source
 var validate_static_datasource = function (controlInfo) {
     if (controlInfo.type != 'select' || controlInfo.isAjax) {
         return;
@@ -49,6 +50,20 @@ var validate_static_datasource = function (controlInfo) {
     });
     if (hasError) {
         SethPhatToaster.error("Static Data Source has empty item, please check and fix it.");
+        return false;
+    }
+};
+
+// validate control ajax url
+var validate_ajax_datasource = function (controlInfo) {
+    if (controlInfo.type != 'select' || !controlInfo.isAjax) {
+        return;
+    }
+
+    clear_error_field();
+    if (_.isEmpty(controlInfo.ajaxDataUrl)) {
+        $(".settingSidebar .ajaxDataUrl").addClass(CONTROL_ERROR_CLASS);
+        SethPhatToaster.error("Ajax Data URL must not be empty.");
         return false;
     }
 };

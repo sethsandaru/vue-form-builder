@@ -29,8 +29,6 @@
     import 'webpack-jquery-ui/css';
 
     // load timepicker
-    // require('sethFormBuilder/assets/css/jquery-ui-timepicker-addon.css');
-    // require('sethFormBuilder/assets/js/jquery-ui-timepicker-addon');
     require('sethFormBuilder/assets/js/jquery.timepicker.min');
     require('sethFormBuilder/assets/css/jquery.timepicker.min.css');
     require('sethFormBuilder/assets/css/v-form.css');
