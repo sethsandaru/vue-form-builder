@@ -33,6 +33,10 @@
         <div class="row mt-2">
             <div class="col-md-12">
                 <label>
+                    <input type="checkbox" name="isRequired" v-model="control.required"> Required?
+                </label>
+
+                <label>
                     <input type="checkbox" name="isReadonly" v-model="control.readonly"> Readonly?
                 </label>
 
@@ -73,7 +77,8 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label>Decimal places</label>
-                    <input type="number" min="0" max="5" class="form-control" v-model="control.decimalPlace" :disabled="control.isInteger">
+                    <input type="number" min="0" max="5" class="form-control decimalPlaces"
+                           v-model="control.decimalPlace" :disabled="control.isInteger">
                 </div>
             </div>
         </div>
@@ -98,15 +103,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(option, index) in control.dataOptions">
+                        <tr v-for="(option, index) in control.dataOptions" :class="'staticSource_' + index">
                             <td class="text-center">
                                 <font-awesome-icon icon="times" class="clickable" @click="removeOption(index)"></font-awesome-icon>
                             </td>
                             <td>
-                                <input type="text" class="form-control" v-model="option.id">
+                                <input type="text" class="form-control txtId" v-model="option.id">
                             </td>
                             <td>
-                                <input type="text" class="form-control" v-model="option.text">
+                                <input type="text" class="form-control txtText" v-model="option.text">
                             </td>
                         </tr>
                     </tbody>
@@ -116,7 +121,7 @@
                         Ajax URL
                         <a href="javascript:void(0)" @click="dataAjaxModal"><i class="fa fa-info-circle"></i></a>
                     </label>
-                    <input type="text" class="form-control" v-model="control.ajaxDataUrl">
+                    <input type="text" class="form-control ajaxDataUrl" v-model="control.ajaxDataUrl">
                 </div>
             </div>
         </div>

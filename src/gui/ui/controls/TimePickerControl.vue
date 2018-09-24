@@ -7,7 +7,7 @@
             <div class="input-group">
                 <input type="text"
                        class="form-control"
-                       :readonly="control.readonly"
+                       :disabled="control.readonly"
                        :name="control.fieldName"
                        v-model="control.value" />
 
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-    import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
+    import {FORM_CONSTANTS, CONTROL_CONSTANTS} from "sethFormBuilder/config/constants";
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     import {Hooks} from 'sethFormBuilder/gui/components/hook_lists';
 
@@ -36,11 +36,12 @@
         mounted() {
             var $selector = $(this.$el).find("input");
             $selector.timepicker({
-                timeFormat: this.control.timeFormat
+                timeFormat: this.control.timeFormat,
+                zindex: 1000
             });
 
             if (this.control.isNowTimeValue) {
-                this.control.value = moment().format('H:m');
+                this.control.value = moment().format(CONTROL_CONSTANTS.TimeFormat[this.control.timeFormat]);
             }
             if (!_.isEmpty(this.control.defaultValue)) {
                 this.control.value = this.control.defaultValue;

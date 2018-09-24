@@ -29,10 +29,9 @@
     import 'webpack-jquery-ui/css';
 
     // load timepicker
-    // require('sethFormBuilder/assets/css/jquery-ui-timepicker-addon.css');
-    // require('sethFormBuilder/assets/js/jquery-ui-timepicker-addon');
     require('sethFormBuilder/assets/js/jquery.timepicker.min');
     require('sethFormBuilder/assets/css/jquery.timepicker.min.css');
+    require('sethFormBuilder/assets/css/v-form.css');
 
     // load bootstrap
     require('popper.js');
@@ -61,6 +60,9 @@
     // import
     import FormBuilderTemplate from './template/FormBuilderTemplate';
     import FormBuilderGui from './gui/FormBuilderGui';
+
+    // special hook
+    import {ValidateSettingHandler} from "sethFormBuilder/template/handler/validate_setting_handler";
 
     export default {
         name: "FormBuilder",
@@ -142,6 +144,9 @@
                 if(_.has(this.options, 'hooks')) {
                     Template_Hooks.register(this.options.hooks);
                 }
+
+                // add special hooks for template
+                ValidateSettingHandler.init(Template_Hooks);
             } else {
                 if(_.has(this.options, 'hooks')) {
                     GUI_Hooks.register(this.options.hooks);
@@ -155,5 +160,4 @@
 </script>
 
 <style scoped>
-
 </style>

@@ -27,6 +27,11 @@ function getControlValue(control, selectorOutside) {
         case 'datepicker':
         case 'timepicker':
             return $(`${selectorOutside} input[name='${control.fieldName}']`).val();
+        case 'number': {
+            if (_.isEmpty(control.value) || _.isNaN(control.value)) {
+                return 0;
+            }
+        }
         default:
             return control.value;
     }
