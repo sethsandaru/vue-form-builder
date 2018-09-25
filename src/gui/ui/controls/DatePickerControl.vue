@@ -1,9 +1,32 @@
 <template>
-    <div class="row">
-        <div class="col-md-4">
-            <label>{{control.label}}</label>
+    <div>
+        <div class="row datePickerControl" v-if="labelPosition === 'left'">
+            <div class="col-md-4">
+                <label :class="{'bold': control.labelBold, 'italic': control.labelItalic, 'underline': control.labelUnderline}">
+                    {{control.label}}
+                </label>
+            </div>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <input type="text"
+                           class="form-control"
+                           :name="control.fieldName"
+                           :readonly="this.control.readonly"
+                           v-model="control.value" />
+
+                    <div class="input-group-append">
+                    <span class="input-group-text">
+                        <font-awesome-icon :icon="controlTypes[control.type].icon"></font-awesome-icon>
+                    </span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-8">
+        <div class="form-group" v-else>
+            <label :class="{'bold': control.labelBold, 'italic': control.labelItalic, 'underline': control.labelUnderline}">
+                {{control.label}}
+            </label>
+
             <div class="input-group">
                 <input type="text"
                        class="form-control"
@@ -29,7 +52,7 @@
     export default {
         name: "DatePickerControl",
         components: {FontAwesomeIcon},
-        props:['control'],
+        props:['control', 'labelPosition'],
         data: () => ({
             controlTypes: FORM_CONSTANTS.Type,
             datePicker: null,

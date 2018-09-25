@@ -1,9 +1,26 @@
 <template>
-    <div class="row">
-        <div class="col-md-4">
-            <label>{{control.label}}</label>
+    <div>
+        <div class="row" v-if="labelPosition === 'left'">
+            <div class="col-md-4">
+                <label :class="{'bold': control.labelBold, 'italic': control.labelItalic, 'underline': control.labelUnderline}">{{control.label}}</label>
+            </div>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <input type="number"
+                           class="form-control"
+                           :readonly="this.control.readonly"
+                           :name="control.fieldName"
+                           :step="controlStep"
+                           @change="numberChange"
+                           v-model="control.value" />
+                </div>
+            </div>
         </div>
-        <div class="col-md-8">
+        <div class="form-group" v-else>
+            <label :class="{'bold': control.labelBold, 'italic': control.labelItalic, 'underline': control.labelUnderline}">
+                {{control.label}}
+            </label>
+
             <div class="input-group">
                 <input type="number"
                        class="form-control"
@@ -22,7 +39,7 @@
 
     export default {
         name: "NumberControl",
-        props: ['control'],
+        props: ['control', 'labelPosition'],
         created() {
             this.control.value = 0;
         },

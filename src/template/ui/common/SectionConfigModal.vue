@@ -17,6 +17,13 @@
                             <input type="text" class="form-control" v-model="section.clientKey">
                         </div>
                         <div class="form-group">
+                            <label>Label Position</label>
+                            <select class="form-control" v-model="section.labelPosition">
+                                <option value="left">Horizontal</option>
+                                <option value="top">Vertical</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label><input type="checkbox" v-model="section.isDynamic"> Is Dynamic Form?</label>
                         </div>
 

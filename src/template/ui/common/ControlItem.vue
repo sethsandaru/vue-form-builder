@@ -1,31 +1,67 @@
 <template>
-    <div class="controlItem row" :class="control.className" :id="control.name" @dblclick="openConfig">
-        <div class="col-md-4">
-            <label>{{control.label}}</label>
-        </div>
-        <div class="col-md-8 input-group">
-            <!-- demo for text, number, date & time picker -->
-            <input type="text" class="form-control"
-                   :readonly="control.readonly"
-                   :name="control.fieldName"
-                   :value="demo_value"
-                   v-if="control.type != 'checkbox' && control.type != 'select'">
-
-            <!-- demo for select -->
-            <select class="form-control" v-if="control.type == 'select'" :name="control.fieldName">
-                <option disabled selected>Options</option>
-                <option v-for="option in control.dataOptions">{{option.text}}</option>
-            </select>
-
-            <!-- demo for checkbox -->
-            <div class="text-center w-100" v-if="control.type == 'checkbox'">
-                <input type="checkbox" :name="control.fieldName" :checked="control.isChecked">
+    <div class="controlItemWrapper" :class="control.className" @dblclick="openConfig" :data-control-name="control.name">
+        <div class="controlItem row" :id="control.name" v-if="labelPosition === 'left'">
+            <div class="col-md-4">
+                <label :class="{'bold': control.labelBold, 'italic': control.labelItalic, 'underline': control.labelUnderline}">
+                    {{control.label}}
+                </label>
             </div>
+            <div class="col-md-8 input-group">
+                <!-- demo for text, number, date & time picker -->
+                <input type="text" class="form-control"
+                       :readonly="control.readonly"
+                       :name="control.fieldName"
+                       :value="demo_value"
+                       v-if="control.type != 'checkbox' && control.type != 'select'">
 
-            <div class="input-group-append" v-if="control.type != 'text' && control.type != 'select' && control.type != 'checkbox'">
-                <span class="input-group-text">
-                    <font-awesome-icon :icon="controlTypes[control.type].icon"></font-awesome-icon>
-                </span>
+                <!-- demo for select -->
+                <select class="form-control" v-if="control.type == 'select'" :name="control.fieldName">
+                    <option disabled selected>Options</option>
+                    <option v-for="option in control.dataOptions">{{option.text}}</option>
+                </select>
+
+                <!-- demo for checkbox -->
+                <div class="text-center w-100" v-if="control.type == 'checkbox'">
+                    <input type="checkbox" :name="control.fieldName" :checked="control.isChecked">
+                </div>
+
+                <div class="input-group-append" v-if="control.type != 'text' && control.type != 'select' && control.type != 'checkbox'">
+                    <span class="input-group-text">
+                        <font-awesome-icon :icon="controlTypes[control.type].icon"></font-awesome-icon>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="controlItem row" :id="control.name" v-else>
+            <div class="form-group col-md-12">
+                <label :class="{'bold': control.labelBold, 'italic': control.labelItalic, 'underline': control.labelUnderline}">
+                    {{control.label}}
+                </label>
+                <div class="input-group">
+                    <!-- demo for text, number, date & time picker -->
+                    <input type="text" class="form-control"
+                           :readonly="control.readonly"
+                           :name="control.fieldName"
+                           :value="demo_value"
+                           v-if="control.type != 'checkbox' && control.type != 'select'">
+
+                    <!-- demo for select -->
+                    <select class="form-control" v-if="control.type == 'select'" :name="control.fieldName">
+                        <option disabled selected>Options</option>
+                        <option v-for="option in control.dataOptions">{{option.text}}</option>
+                    </select>
+
+                    <!-- demo for checkbox -->
+                    <div class="text-center w-100" v-if="control.type == 'checkbox'">
+                        <input type="checkbox" :name="control.fieldName" :checked="control.isChecked">
+                    </div>
+
+                    <div class="input-group-append" v-if="control.type != 'text' && control.type != 'select' && control.type != 'checkbox'">
+                        <span class="input-group-text">
+                            <font-awesome-icon :icon="controlTypes[control.type].icon"></font-awesome-icon>
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -43,7 +79,8 @@
         props: {
             control: {
                 type: Object
-            }
+            },
+            labelPosition: null
         },
         data: () => ({
             controlTypes: FORM_CONSTANTS.Type,
@@ -158,11 +195,16 @@
 </script>
 
 <style scoped>
+
+    .controlItemWrapper {
+        border: 1px solid silver;
+        padding:0;
+    }
+
     .controlItem {
         margin: 0;
         padding: 10px;
         padding-left: 0;
-        border: 1px solid silver;
         background-color: #FFF;
     }
 

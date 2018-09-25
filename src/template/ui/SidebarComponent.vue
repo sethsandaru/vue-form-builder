@@ -104,7 +104,7 @@
             });
 
             $(this.$el).find('.controlSidebar').droppable({
-                accept: ".controlItem",
+                accept: ".controlItemWrapper",
                 drop: function (event, ui){
                     // remove control
                     eventBus.$emit(EventHandlerConstant.REMOVE_CONTROL, ui);
