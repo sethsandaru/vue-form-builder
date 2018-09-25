@@ -1,9 +1,31 @@
 <template>
-    <div class="row">
-        <div class="col-md-4">
-            <label :for="control.name + '_gui_control'">{{control.label}}</label>
+    <div>
+        <div class="row" v-if="labelPosition === 'left'">
+            <div class="col-md-4">
+                <label :class="{'bold': control.labelBold, 'italic': control.labelItalic, 'underline': control.labelUnderline}">
+                    {{control.label}}
+                </label>
+            </div>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <input type="text"
+                           class="form-control"
+                           :disabled="control.readonly"
+                           :name="control.fieldName"
+                           v-model="control.value" />
+
+                    <div class="input-group-append">
+                    <span class="input-group-text">
+                        <font-awesome-icon :icon="controlTypes[control.type].icon"></font-awesome-icon>
+                    </span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-8">
+        <div v-else class="form-group">
+            <label :class="{'bold': control.labelBold, 'italic': control.labelItalic, 'underline': control.labelUnderline}">
+                {{control.label}}
+            </label>
             <div class="input-group">
                 <input type="text"
                        class="form-control"
@@ -29,15 +51,15 @@
     export default {
         name: "TimePickerControl",
         components: {FontAwesomeIcon},
-        props:['control'],
+        props:['control', 'labelPosition'],
         data: () => ({
             controlTypes: FORM_CONSTANTS.Type
         }),
         mounted() {
-            var $selector = $(this.$el).find("input");
+            var $selector = $(this.$el).find("input.form-control");
             $selector.timepicker({
                 timeFormat: this.control.timeFormat,
-                zindex: 1000
+                zindex: 1111
             });
 
             if (this.control.isNowTimeValue) {

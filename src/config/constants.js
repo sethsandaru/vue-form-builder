@@ -15,12 +15,14 @@ FORM_CONSTANTS.SectionLayout = {
 };
 
 FORM_CONSTANTS.Section = {
-    layout: "",
     name: "",
     label: "",
     clientKey: "",
     order: 0,
     rows: [],
+
+    // config
+    labelPosition: "left", // left or top
 
     // for dynamic
     isDynamic: false,
@@ -46,6 +48,13 @@ FORM_CONSTANTS.Control = {
     value: "",
     className: 'col-md-4',
     readonly: false,
+
+    // label style
+    labelBold: false,
+    labelItalic: false,
+    labelUnderline: false,
+
+    // validation
     required: false,
 
     // attr for text

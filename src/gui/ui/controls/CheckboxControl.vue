@@ -1,13 +1,31 @@
 <template>
-    <div class="row">
-        <div class="col-md-4">
-            <label :for="control.name + '_gui_control'">{{control.label}}</label>
+    <div>
+        <div class="row checkBoxControl" v-if="labelPosition === 'left'">
+            <div class="col-md-4">
+                <label :for="control.name + '_gui_control'"
+                       :class="{'bold': control.labelBold, 'italic': control.labelItalic, 'underline': control.labelUnderline}">
+                    {{control.label}}
+                </label>
+            </div>
+            <div class="col-md-8 text-center">
+                <input type="checkbox"
+                       :readonly="this.control.readonly"
+                       :name="control.fieldName"
+                       v-model="control.value" />
+            </div>
         </div>
-        <div class="col-md-8 text-center">
-            <input type="checkbox"
-                   :readonly="this.control.readonly"
-                   :name="control.fieldName"
-                   v-model="control.value" />
+        <div class="form-group" v-else>
+            <label :for="control.name + '_gui_control'"
+                   :class="{'bold': control.labelBold, 'italic': control.labelItalic, 'underline': control.labelUnderline}">
+                {{control.label}}
+            </label>
+
+            <div class="text-center">
+                <input type="checkbox"
+                       :readonly="this.control.readonly"
+                       :name="control.fieldName"
+                       v-model="control.value" />
+            </div>
         </div>
     </div>
 </template>
@@ -17,7 +35,7 @@
 
     export default {
         name: "CheckboxControl",
-        props: ['control'],
+        props: ['control', 'labelPosition'],
         mounted() {
             if (this.control.isChecked) {
                 this.control.value = true;

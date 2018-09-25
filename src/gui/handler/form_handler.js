@@ -1,3 +1,5 @@
+import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
+
 var FormHandler = {};
 
 function flattenControlInRows(rows) {
@@ -150,12 +152,107 @@ FormHandler.setValue = function(form, values) {
     });
 };
 
+FormHandler.clearErrorField = function() {
+    $("input.control-error").removeClass('control-error');
+};
+
 FormHandler.validate = function (form) {
-    var formData =  FormHandler.getValue(form);
+    FormHandler.clearErrorField();
 
-    // TODO: Validate control in here (not develop yet) :D
+    _.each(form.sections, sectionInfo => {
+        if (!sectionInfo.isDynamic) {
+            validate_static_form(sectionInfo);
+        } else {
+            validate_dynamic_form(sectionInfo);
+        }
+    });
 
-    return true;
+    return ($("input.control-error").length > 0);
+};
+
+var validate_static_form = function (sectionInfo) {
+    // flatten rows
+    var controls = flattenControlInRows(sectionInfo.rows);
+    _.each(controls, controlInfo => {
+        if (!controlInfo.required) {
+            return;
+        }
+
+        let value = getControlValue(controlInfo, `#${sectionInfo.name}_gui_body`);
+        if (_.isEmpty(value)) {
+            // special case for number @@
+            if (controlInfo.type === 'number' && _.isNumber(value) && !_.isNaN(value)) {
+                return;
+            }
+
+            // set error here
+            $(`#${sectionInfo.name}_gui_body input[name='${controlInfo.fieldName}']`).addClass('control-error');
+        }
+    });
+};
+
+var validate_dynamic_form = function (sectionInfo) {
+    _.each(sectionInfo.instances, (instance, insIndex) => {
+
+        // flatten rows
+        var controls = flattenControlInRows(instance);
+
+        // retrieve value in control
+        _.each(controls, controlInfo => {
+            if (!controlInfo.required) {
+                return;
+            }
+
+            let value = getControlValue(controlInfo, `#${sectionInfo.name}_gui_body .rowDynamic_${insIndex}`);
+            if (_.isEmpty(value)) {
+                // special case for number @@
+                if (controlInfo.type === 'number' && _.isNumber(value) && !_.isNaN(value)) {
+                    return;
+                }
+
+                // set error here
+                $(`#${sectionInfo.name}_gui_body .rowDynamic_${insIndex} input[name='${controlInfo.fieldName}']`).addClass('control-error');
+            }
+        });
+    });
+};
+
+// re-structure (extend) to make sure the data is correct
+FormHandler.recorrectStructure = function (form) {
+    // section first
+    _.each(form.sections, (sectionInfo, secIndex) => {
+        // section re-build
+        let rows = _.cloneDeep(sectionInfo.rows);
+        form.sections[secIndex] = _.extend(_.cloneDeep(FORM_CONSTANTS.Section), sectionInfo);
+        form.sections[secIndex].rows = rows;
+    });
+
+    // row
+    _.each(form.sections, (sectionInfo) => {
+        _.each(sectionInfo.rows, (rowInfo, rowIndex) => {
+            let controls = _.cloneDeep(rowInfo.controls);
+            sectionInfo.rows[rowIndex] = _.extend(_.cloneDeep(FORM_CONSTANTS.Row), rowInfo);
+            sectionInfo.rows[rowIndex].controls = controls;
+        });
+    });
+
+    // control
+    _.each(form.sections, (sectionInfo) => {
+        _.each(sectionInfo.rows, (rowInfo) => {
+            _.each(rowInfo.controls, (controlInfo, index) => {
+                // prepare data deep
+                let staticSource = _.cloneDeep(controlInfo.dataOptions);
+
+                // extend
+                rowInfo.controls[index] = _.extend(_.cloneDeep(FORM_CONSTANTS.Control), controlInfo);
+
+                // special information need to clone
+                rowInfo.controls[index].dataOptions = staticSource;
+            });
+        });
+    });
+
+    return form;
 };
 
 export {

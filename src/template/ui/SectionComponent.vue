@@ -79,7 +79,10 @@
                 sectionInfo.clientKey = sectionInfo.name;
 
                 // Before hook
-                Hooks.Section.beforeAdd.run(sectionInfo);
+                let b4Run = Hooks.Section.beforeAdd.runSequence(sectionInfo);
+                if (b4Run === false) {
+                    return;
+                }
 
                 this.form.sections.push(sectionInfo);
 
@@ -134,7 +137,10 @@
                 rowInfo.name = _.domUniqueID(this.form.sections[secIndex].name + '_row_');
 
                 // before hook
-                Hooks.Row.beforeAdd.run(rowInfo, this.form.sections[secIndex]);
+                let b4Run = Hooks.Row.beforeAdd.runSequence(rowInfo, this.form.sections[secIndex]);
+                if (b4Run === false) {
+                    return;
+                }
 
                 this.form.sections[secIndex].rows.push(rowInfo);
 
