@@ -13,11 +13,15 @@ Advantages:
 - Easily to config your form (drag & drop, control settings)
 - ...
 
-Fully documentation in this Repo's Library. Check it out!
+Fully documentation in this Repo's Wiki. Check it out!
+
+Give this repo a ⭐ (star) if you actually like this and will use it for your development :D! Thank you!
+
+The library is still in development, so if you meet any bugs or issues, feel free to open!
 
 ## Technologies/Libraries using
 - Javascript
-- VueJS
+- VueJS 2.x
 - Webpack
 - JQuery
 - Bootstrap 4
@@ -43,11 +47,9 @@ npm i v-form-builder --save
 
 NPMJS: [https://www.npmjs.com/package/v-form-builder](https://www.npmjs.com/package/v-form-builder)
 
-### Stable version
-- 1.2.0: Second milestone released.
-- 1.1.1: First milestone released.
-
-Note: Please don't install the old version below **v1.1.1**. Thank you!
+**Notes:** 
+- For the best experience, please install the latest version!
+- Please don't install the old version below **v1.1.1**. Thank you!
 
 ## How to implement?
 
@@ -68,7 +70,7 @@ export default {
 }
 ```
 
-Note: you should have your own Bootstrap 4 stylesheet imported inside your project in order to use the Form Builder normally.
+**Note:** you should have your own Bootstrap 4 stylesheet imported inside your project in order to use the Form Builder normally.
 
 ### Usage
 ```php
@@ -97,7 +99,7 @@ You can use v-model in Form Builder Template, it'll return to you the form confi
     </div>
 </template>
 ```
-The data would look like this:
+The form config data would look like this:
 ```javascript
 {
     sections: [...],
@@ -117,12 +119,12 @@ You can use V-Model to get/set values from your built form.
     </div>
 </template>
 ```
-The data would look like this:
+The form values data would look like this:
 ```javascript
 {
     section_key: {
-        control_name_1: "",
-        control_name_2: "",
+        control_name_1: "data",
+        control_name_2: 123,
         ...
     },
     ...
@@ -133,10 +135,16 @@ The data would look like this:
 Please visit this Repo's Wiki.
 
 ## Release notes
-- Version **1.1.1**:
-    - First Release of Vue Form Builder
-    - Able to config form & render form by config data.
-    - Get/set value for both GUI & Template.
+- Version **1.3.0**:
+    - Milestone 3 released.
+    - Able to validate the form.
+    - Able to styling the label (bold, italic, underline).
+    - Able to set label position for Section (horizontal or vertical)
+    - Fix some bugs
+    - Constraints for some Hooks
+    - APIs for Validate
+- Version **1.2.1**:
+    - Fix some minor bugs.
 - Version **1.2.0**:
     - Hooks are available now for both Template & GUI.
     - More options for controls, like:
@@ -148,15 +156,18 @@ Please visit this Repo's Wiki.
         - Time Picker: change to another time picker with a better APIs + options.
     - Fix a problem that make the Date Picker icon didn't show.
     - Stop import Bootstrap 4 CSS into the bundle.
+- Version **1.1.1**:
+    - First Release of Vue Form Builder
+    - Able to config form & render form by config data.
+    - Get/set value for both GUI & Template.
 
 ## Development milestones
-1. First release - **Released**
+1. First release - **Released in 1.1.1**
     - Able to config form (Template)
     - Render form by config data (GUI)
     - Get/set value from GUI
-2. Hook will be available for several events. More options for some controls (like select with ajax data source, date format,...) - **Released**
-3. Able to validate the form (required mostly), able to style the label (bold, italic, underline and location (top, left)).
+2. Hook will be available for several events. More options for some controls (like select with ajax data source, date format,...) - **Released in 1.2.0**
+3. Able to validate the form (required mostly), able to style the label (bold, italic, underline and location (top, left)). **Released in 1.3.0**
 4. Support formula to calculate inside the form.
-5. Server-side library demo (Laravel).
 
-Copyright &copy; 2018 by [Seth Phat](http://sethphat.com) aka Phat Tran Minh
+Copyright &copy; 2018 by [Seth Phat](http://sethphat.com) aka Phat Tran Minh!
