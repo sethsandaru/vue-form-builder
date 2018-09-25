@@ -47,7 +47,7 @@
                 }
 
                 var rowInfo = this.section.rows[rowIndex];
-                let beforeRun = Hooks.Row.beforeRemove.runSequence(rowInfo);
+                let beforeRun = Hooks.Row.beforeRemove.runSequence(rowInfo, this.section);
                 if (beforeRun === false) {
                     return;
                 }
@@ -55,7 +55,7 @@
                 this.section.rows.splice(rowIndex, 1);
 
                 // final hook
-                Hooks.Row.afterRemove.run(rowInfo);
+                Hooks.Row.afterRemove.run(rowInfo, this.section);
             }
         },
         mounted() {

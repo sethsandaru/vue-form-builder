@@ -17,7 +17,8 @@
                 <div class="row" v-for="row in data">
                     <control-component v-for="control in row.controls"
                                        :key="control.name + index"
-                                       :control="control">
+                                       :control="control"
+                                       :label-position="section.labelPosition">
                     </control-component>
                 </div>
             </div>
@@ -26,7 +27,8 @@
         <div class="row rowItem" v-if="!section.isDynamic" v-for="row in section.rows">
             <control-component v-for="control in row.controls"
                                :key="control.name"
-                               :control="control">
+                               :control="control"
+                               :label-position="section.labelPosition">
             </control-component>
         </div>
     </div>
