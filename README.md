@@ -1,6 +1,6 @@
 # vue-form-builder
 [![npm version](https://badge.fury.io/js/v-form-builder.svg)](https://www.npmjs.com/package/v-form-builder)
-[![GitHub license](https://img.shields.io/github/license/sethsandaru/vue-form-builder.svg?style=flat-square)](https://github.com/sethsandaru/vue-form-builder/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/sethsandaru/vue-form-builder.svg?style=flat-square)](https://github.com/sethsandaru/vue-form-builder/blob/master/LICENSE) ![img](https://img.shields.io/npm/dm/v-form-builder.svg)
 [![HitCount](http://hits.dwyl.io/sethsandaru/vue-form-builder.svg)](http://hits.dwyl.io/sethsandaru/vue-form-builder)
 [![img](https://img.shields.io/badge/documentation-full-green.svg?longCache=true&style=flat-square)](https://github.com/sethsandaru/vue-form-builder/wiki)
 
@@ -18,6 +18,9 @@ Fully documentation in this Repo's Wiki. Check it out!
 Give this repo a ⭐ (star) if you actually like this and will use it for your development :D! Thank you!
 
 The library is still in development, so if you meet any bugs or issues, feel free to open!
+
+Demo Online: http://vue-form-builder.sethphat.com    
+Demo Project: https://github.com/sethsandaru/demo-vue-form-builder
 
 ## Technologies/Libraries using
 - Javascript
