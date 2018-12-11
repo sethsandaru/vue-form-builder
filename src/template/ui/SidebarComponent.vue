@@ -31,7 +31,7 @@
 </template>
 
 <script>
-    import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
+    import {CONTROL_TYPES} from "sethFormBuilder/config/control_constant";
     import {eventBus, EventHandlerConstant} from 'sethFormBuilder/template/handler/event_handler';
     import SidebarConfigItem from "./common/SidebarConfigItem";
     import {ControlHandler} from 'sethFormBuilder/template/handler/control_handler';
@@ -42,7 +42,7 @@
         components: {SidebarConfigItem, FontAwesomeIcon},
         name: "sidebar-component",
         data: () => ({
-            controls: FORM_CONSTANTS.Type,
+            controls: CONTROL_TYPES,
             isConfig: false,
             controlInfo: null
         }),

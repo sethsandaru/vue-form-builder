@@ -16,7 +16,7 @@
 
                     <div class="input-group-append">
                     <span class="input-group-text">
-                        <font-awesome-icon :icon="controlTypes[control.type].icon"></font-awesome-icon>
+                        <font-awesome-icon :icon="icon"></font-awesome-icon>
                     </span>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
 
                 <div class="input-group-append">
                     <span class="input-group-text">
-                        <font-awesome-icon :icon="controlTypes[control.type].icon"></font-awesome-icon>
+                        <font-awesome-icon :icon="icon"></font-awesome-icon>
                     </span>
                 </div>
             </div>
@@ -44,7 +44,8 @@
 </template>
 
 <script>
-    import {FORM_CONSTANTS, CONTROL_CONSTANTS} from "sethFormBuilder/config/constants";
+    import {CONTROL_CONSTANTS} from "sethFormBuilder/config/constants";
+    import {CONTROL_TYPES} from "sethFormBuilder/config/control_constant";
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     import {Hooks} from 'sethFormBuilder/gui/components/hook_lists';
 
@@ -53,8 +54,11 @@
         components: {FontAwesomeIcon},
         props:['control', 'labelPosition'],
         data: () => ({
-            controlTypes: FORM_CONSTANTS.Type
+            icon: null,
         }),
+        created() {
+            this.icon = CONTROL_TYPES[this.control.type].icon;
+        },
         mounted() {
             var $selector = $(this.$el).find("input.form-control");
             $selector.timepicker({
