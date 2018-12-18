@@ -30,3 +30,7 @@ label.underline {
     /*margin: 0;*/
     border: 1px solid aqua;
 }
+
+.clickable {
+    cursor: pointer;
+}

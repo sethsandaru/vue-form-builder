@@ -23,8 +23,14 @@
                     </div>
                 </div>
 
-                <sidebar-config-item :control="controlInfo">
-                </sidebar-config-item>
+                <base-config-component :control="controlInfo"></base-config-component>
+
+                <component v-if="configComponent != null"
+                           :is="configComponent"
+                           :control="controlInfo">
+                </component>
+
+                <base-style-component :control="controlInfo"></base-style-component>
             </div>
         </div>
     </div>
@@ -33,18 +39,20 @@
 <script>
     import {CONTROL_TYPES} from "sethFormBuilder/config/control_constant";
     import {eventBus, EventHandlerConstant} from 'sethFormBuilder/template/handler/event_handler';
-    import SidebarConfigItem from "./common/SidebarConfigItem";
     import {ControlHandler} from 'sethFormBuilder/template/handler/control_handler';
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     import {Hooks} from 'sethFormBuilder/template/components/hook_lists';
+    import BaseConfigComponent from "./sidebar_items/BaseConfigComponent";
+    import BaseStyleComponent from "./sidebar_items/BaseStyleComponent";
 
     export default {
-        components: {SidebarConfigItem, FontAwesomeIcon},
+        components: {BaseStyleComponent, BaseConfigComponent, FontAwesomeIcon},
         name: "sidebar-component",
         data: () => ({
             controls: CONTROL_TYPES,
             isConfig: false,
-            controlInfo: null
+            controlInfo: null,
+            configComponent: null,
         }),
         methods: {
             closeEditSidebar() {
@@ -73,6 +81,7 @@
             }
         },
         created() {
+            // catch event activate sidebar here
             eventBus.$on(EventHandlerConstant.ACTIVATE_EDITOR_SIDEBAR, controlInfo => {
                 // before hook here
                 let b4Run = Hooks.Sidebar.beforeOpenConfig.runSequence(controlInfo);
@@ -83,6 +92,12 @@
                 // open config
                 this.isConfig = true;
                 this.controlInfo = controlInfo;
+                this.configComponent = null;
+
+                // retrieve config component
+                if (_.accessStr(this.controls[controlInfo.type], 'source.config')){
+                    this.configComponent = this.controls[controlInfo.type].source.config;
+                }
 
                 // after hook here
                 Hooks.Sidebar.afterOpenConfig.run(this.controlInfo);

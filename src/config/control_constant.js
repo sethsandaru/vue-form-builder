@@ -22,6 +22,14 @@ import TEMPLATEDatePickerControl from 'sethFormBuilder/template/ui/common/contro
 import TEMPLATETimePickerControl from 'sethFormBuilder/template/ui/common/controls/TimePickerControl';
 import TEMPLATESelectControl from 'sethFormBuilder/template/ui/common/controls/SelectControl';
 
+// CONFIG CONTROL
+import SIDEBARDatePickerControl from 'sethFormBuilder/template/ui/sidebar_items/DatePickerConfigComponent';
+import SIDEBARTimePickerControl from 'sethFormBuilder/template/ui/sidebar_items/TimePickerConfigComponent';
+import SIDEBARSelectControl from 'sethFormBuilder/template/ui/sidebar_items/SelectConfigComponent';
+import SIDEBARNumberControl from 'sethFormBuilder/template/ui/sidebar_items/NumberConfigComponent';
+import SIDEBARTextControl from 'sethFormBuilder/template/ui/sidebar_items/TextConfigComponent';
+import SIDEBARCheckboxControl from 'sethFormBuilder/template/ui/sidebar_items/CheckboxConfigComponent';
+
 // Template Control
 // special key for control:
 // other_properties: {
@@ -39,7 +47,8 @@ const CONTROL_TYPES = {
         icon: faEdit,
         source: {
             gui: GUITextControl,
-            template: TEMPLATETextControl
+            template: TEMPLATETextControl,
+            config: SIDEBARTextControl
         }
     },
     number: {
@@ -47,7 +56,8 @@ const CONTROL_TYPES = {
         icon: faCalculator,
         source: {
             gui: GUINumberControl,
-            template: TEMPLATENumberControl
+            template: TEMPLATENumberControl,
+            config: SIDEBARNumberControl
         }
     },
     datepicker: {
@@ -55,7 +65,8 @@ const CONTROL_TYPES = {
         icon: faCalendarAlt,
         source: {
             gui: GUIDatePickerControl,
-            template: TEMPLATEDatePickerControl
+            template: TEMPLATEDatePickerControl,
+            config: SIDEBARDatePickerControl,
         }
     },
     timepicker: {
@@ -63,7 +74,8 @@ const CONTROL_TYPES = {
         icon: faClock,
         source: {
             gui: GUITimePickerControl,
-            template: TEMPLATETimePickerControl
+            template: TEMPLATETimePickerControl,
+            config: SIDEBARTimePickerControl,
         }
     },
     select: {
@@ -71,7 +83,8 @@ const CONTROL_TYPES = {
         icon: faDatabase,
         source: {
             gui: GUISelectControl,
-            template: TEMPLATESelectControl
+            template: TEMPLATESelectControl,
+            config: SIDEBARSelectControl
         }
     },
     checkbox: {
@@ -79,7 +92,8 @@ const CONTROL_TYPES = {
         icon: faCheck,
         source: {
             gui: GUICheckboxControl,
-            template: TEMPLATECheckboxControl
+            template: TEMPLATECheckboxControl,
+            config: SIDEBARCheckboxControl
         }
     }
 };
