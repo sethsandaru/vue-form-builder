@@ -1,6 +1,6 @@
 import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
 
-var FormHandler = {};
+const FormHandler = {};
 
 function flattenControlInRows(rows) {
     var controls = [];

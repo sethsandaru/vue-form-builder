@@ -11,13 +11,15 @@ Advantages:
 - Wide range of APIs
 - Easily to maintain, update later
 - Easily to config your form (drag & drop, control settings)
+- Extensibility (Extend-able): Help you to import your own Control
+- Validation & Custom Control Validation Supported.
 - ...
 
 Fully documentation in this Repo's Wiki. Check it out!
 
-Give this repo a ⭐ (star) if you actually like this and will use it for your development :D! Thank you!
+Give this repo a ⭐ (star) if you actually like this and will use it for your development/production :D! Thank you!
 
-The library is still in development, so if you meet any bugs or issues, feel free to open!
+The library is built & ready for production but if you meet any bugs or issues, feel free to open!
 
 Demo Online: http://vue-form-builder.sethphat.com    
 Demo Project: https://github.com/sethsandaru/demo-vue-form-builder
@@ -26,7 +28,7 @@ Demo Project: https://github.com/sethsandaru/demo-vue-form-builder
 - Javascript
 - VueJS 2.x
 - Webpack
-- JQuery
+- JQuery/JQuery UI
 - Bootstrap 4
 - ...
 
@@ -138,11 +140,17 @@ The form values data would look like this:
 Please visit this Repo's Wiki.
 
 ## Release notes
+- Version **1.4.0**:
+    - Refactored, the code is more easy to view & read.
+    - Able to extend a custom control.
+    - Able to run custom validation for custom control.
+    - Able to drag & drop element between rows in a Section.
+    - Fix some minor bugs.
 - Version **1.3.0**:
     - Milestone 3 released.
     - Able to validate the form.
     - Able to styling the label (bold, italic, underline).
-    - Able to set label position for Section (horizontal or vertical)
+    - Able to set control label position for Section (horizontal or vertical)
     - Fix some bugs
     - Constraints for some Hooks
     - APIs for Validate

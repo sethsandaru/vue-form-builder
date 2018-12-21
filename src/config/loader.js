@@ -39,3 +39,6 @@ if (!window.moment) {
 
 // toaster
 require('sethFormBuilder/assets/js/jquery.noty.packaged');
+
+// validateJS
+require('sethFormBuilder/assets/js/validate.min.js');
