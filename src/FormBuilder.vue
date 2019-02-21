@@ -119,7 +119,7 @@
         created() {
             let self = this;
             this.debounceGetFormGUIValue = _.debounce(() => {
-                if (typeof self === "undefined") {
+                if (typeof self === "undefined" || typeof self.getValue === "undefined") {
                     return;
                 }
 
