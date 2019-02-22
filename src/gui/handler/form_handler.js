@@ -1,6 +1,6 @@
 import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
 
-var FormHandler = {};
+const FormHandler = {};
 
 function flattenControlInRows(rows) {
     var controls = [];
@@ -26,9 +26,6 @@ FormHandler.dynamicTemplate = function(rows) {
 
 function getControlValue(control, selectorOutside) {
     switch (control.type) {
-        case 'datepicker':
-        case 'timepicker':
-            return $(`${selectorOutside} input[name='${control.fieldName}']`).val();
         case 'number': {
             if (_.isEmpty(control.value) || _.isNaN(control.value)) {
                 return 0;
@@ -98,10 +95,6 @@ function setControlValue(control, value, selectorOutside, firstInit = true) {
     }
 
     switch (control.type) {
-        case 'datepicker':
-        case 'timepicker':
-            $(`${selectorOutside} input[name='${control.fieldName}']`).val(value);
-            break;
         default:
             control.value = value;
     }

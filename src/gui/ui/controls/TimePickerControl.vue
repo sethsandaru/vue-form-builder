@@ -8,15 +8,11 @@
             </div>
             <div class="col-md-8">
                 <div class="input-group">
-                    <input type="text"
-                           class="form-control"
-                           :disabled="control.readonly"
-                           :name="control.fieldName"
-                           v-model="control.value" />
+                    <ControlTimePicker v-model="control.value" :readonly="control.readonly" :options="options" />
 
                     <div class="input-group-append">
                     <span class="input-group-text">
-                        <font-awesome-icon :icon="controlTypes[control.type].icon"></font-awesome-icon>
+                        <font-awesome-icon :icon="icon"></font-awesome-icon>
                     </span>
                     </div>
                 </div>
@@ -27,15 +23,11 @@
                 {{control.label}}
             </label>
             <div class="input-group">
-                <input type="text"
-                       class="form-control"
-                       :disabled="control.readonly"
-                       :name="control.fieldName"
-                       v-model="control.value" />
+                <ControlTimePicker v-model="control.value" :readonly="control.readonly" :options="options" />
 
                 <div class="input-group-append">
                     <span class="input-group-text">
-                        <font-awesome-icon :icon="controlTypes[control.type].icon"></font-awesome-icon>
+                        <font-awesome-icon :icon="icon"></font-awesome-icon>
                     </span>
                 </div>
             </div>
@@ -44,33 +36,39 @@
 </template>
 
 <script>
-    import {FORM_CONSTANTS, CONTROL_CONSTANTS} from "sethFormBuilder/config/constants";
+    import {CONTROL_CONSTANTS} from "sethFormBuilder/config/constants";
+    import {CONTROL_TYPES} from "sethFormBuilder/config/control_constant";
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     import {Hooks} from 'sethFormBuilder/gui/components/hook_lists';
+    import ControlTimePicker from 'sethFormBuilder/third_party_controls/TimePickerControl';
 
     export default {
         name: "TimePickerControl",
-        components: {FontAwesomeIcon},
+        components: {FontAwesomeIcon, ControlTimePicker},
         props:['control', 'labelPosition'],
         data: () => ({
-            controlTypes: FORM_CONSTANTS.Type
-        }),
-        mounted() {
-            var $selector = $(this.$el).find("input.form-control");
-            $selector.timepicker({
-                timeFormat: this.control.timeFormat,
-                zindex: 1111
-            });
-
-            if (this.control.isNowTimeValue) {
-                this.control.value = moment().format(CONTROL_CONSTANTS.TimeFormat[this.control.timeFormat]);
+            icon: null,
+            options: {
+                zindex:1111,
             }
+        }),
+        created() {
+            this.icon = CONTROL_TYPES[this.control.type].icon;
+
+            // setup data
+            this.options.timeFormat = this.control.timeFormat;
+
             if (!_.isEmpty(this.control.defaultValue)) {
                 this.control.value = this.control.defaultValue;
             }
 
-            // after hook
-            Hooks.Control.afterInit.run(this.control, $selector);
+            if (this.control.isNowTimeValue) {
+                this.control.value = moment().format(CONTROL_CONSTANTS.TimeFormat[this.control.timeFormat]);
+            }
+
+        },
+        mounted() {
+            Hooks.Control.afterInit.run(this.control);
         }
     }
 </script>

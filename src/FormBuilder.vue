@@ -9,53 +9,17 @@
 </template>
 
 <script>
+    // load js
+    if (require) {
+        require('sethFormBuilder/config/loader');
+    }
+
     // load necessary
-    import underscoreDeepExtend from 'underscore-deep-extend';
-    import moment from 'moment';
-    import {FontAwesomeRegister} from "sethFormBuilder/config/font-awesome-register";
-    import {SethPhatToaster} from "./config/toaster";
     import {Hooks as GUI_Hooks} from './gui/components/hook_lists';
     import {Hooks as Template_Hooks} from './template/components/hook_lists';
     import {FormHandler} from "sethFormBuilder/gui/handler/form_handler";
+    import {SethPhatToaster} from "sethFormBuilder/config/toaster";
 
-    // load jquery
-    if (!window.$) {
-        let $ = require('jquery');
-        window.$ = $;
-        window.jQuery = $;
-    }
-
-    // load jquery ui
-    import 'webpack-jquery-ui';
-    import 'webpack-jquery-ui/css';
-
-    // load timepicker
-    require('sethFormBuilder/assets/js/jquery.timepicker.min');
-    require('sethFormBuilder/assets/css/jquery.timepicker.min.css');
-    require('sethFormBuilder/assets/css/v-form.css');
-
-    // load bootstrap
-    require('popper.js');
-    require('bootstrap');
-    // import 'bootstrap/dist/css/bootstrap.min.css';
-
-    // load font-awesome
-    FontAwesomeRegister.register();
-
-    // load underscore
-    if (!window._) {
-        window._ = require('underscore');
-    }
-    require('sethFormBuilder/config/helper_function');
-    _.mixin({deepExtend: underscoreDeepExtend(_)});
-
-    // // load moment
-    if (!window.moment) {
-        window.moment = moment;
-    }
-
-    // toaster
-    require('sethFormBuilder/assets/js/jquery.noty.packaged');
     window.SethPhatToaster = SethPhatToaster;
 
     // import
@@ -64,6 +28,7 @@
 
     // special hook
     import {ValidateSettingHandler} from "sethFormBuilder/template/handler/validate_setting_handler";
+    import {CONTROL_TYPES} from "sethFormBuilder/config/control_constant";
 
     export default {
         name: "FormBuilder",
@@ -114,6 +79,10 @@
                 if (this.type === 'template') {
                     return this.$refs.FormBuilderTemplate.getValue();
                 } else {
+                    if (!_.accessStr(this, '$refs.FormBuilderGui')) {
+                        return;
+                    }
+
                     return this.$refs.FormBuilderGui.getValue();
                 }
             },
@@ -150,6 +119,10 @@
         created() {
             let self = this;
             this.debounceGetFormGUIValue = _.debounce(() => {
+                if (typeof self === "undefined" || typeof self.getValue === "undefined") {
+                    return;
+                }
+
                 self.$emit('change', self.getValue());
             }, 500);
 
@@ -170,6 +143,18 @@
                 _.deepExtend(this.form, FormHandler.recorrectStructure(this.form));
             }
 
+            // extends for controls
+            if (_.has(this.options, 'moreControls')) {
+                _.each(this.options.moreControls, (item, key) => {
+                    // won't add existed
+                    if (CONTROL_TYPES[key]) {
+                        console.error("EXISTED CONTROL KEY: " + key);
+                        return;
+                    }
+
+                    CONTROL_TYPES[key] = item;
+                });
+            }
         },
         mounted() {
             this.setValue(this.value);

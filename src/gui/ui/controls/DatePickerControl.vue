@@ -8,15 +8,11 @@
             </div>
             <div class="col-md-8">
                 <div class="input-group">
-                    <input type="text"
-                           class="form-control"
-                           :name="control.fieldName"
-                           :readonly="this.control.readonly"
-                           v-model="control.value" />
+                    <ControlDatePicker v-model="control.value" :readonly="this.control.readonly" :options="options" />
 
                     <div class="input-group-append">
                     <span class="input-group-text">
-                        <font-awesome-icon :icon="controlTypes[control.type].icon"></font-awesome-icon>
+                        <font-awesome-icon :icon="icon"></font-awesome-icon>
                     </span>
                     </div>
                 </div>
@@ -28,15 +24,11 @@
             </label>
 
             <div class="input-group">
-                <input type="text"
-                       class="form-control"
-                       :name="control.fieldName"
-                       :readonly="this.control.readonly"
-                       v-model="control.value" />
+                <ControlDatePicker v-model="control.value" :readonly="this.control.readonly" :options="options" />
 
                 <div class="input-group-append">
                     <span class="input-group-text">
-                        <font-awesome-icon :icon="controlTypes[control.type].icon"></font-awesome-icon>
+                        <font-awesome-icon :icon="icon"></font-awesome-icon>
                     </span>
                 </div>
             </div>
@@ -45,64 +37,46 @@
 </template>
 
 <script>
-    import {FORM_CONSTANTS,CONTROL_CONSTANTS} from "sethFormBuilder/config/constants";
+    import {CONTROL_CONSTANTS} from "sethFormBuilder/config/constants";
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     import {Hooks} from 'sethFormBuilder/gui/components/hook_lists';
+    import {CONTROL_TYPES} from "sethFormBuilder/config/control_constant";
+    import ControlDatePicker from 'sethFormBuilder/third_party_controls/DatePickerControl';
 
     export default {
         name: "DatePickerControl",
-        components: {FontAwesomeIcon},
+        components: {FontAwesomeIcon, ControlDatePicker},
         props:['control', 'labelPosition'],
         data: () => ({
-            controlTypes: FORM_CONSTANTS.Type,
-            datePicker: null,
+            icon: null,
+            options: {
+            },
         }),
-        mounted() {
-            let self = this;
-            let $selector = $(this.$el).find("input");
-            $selector.datepicker({
-                dateFormat: this.control.dateFormat,
-                beforeShow:function(input) {
-                    // read only can't choose
-                    if (self.control.readonly) {
-                        return false;
-                    }
+        created() {
+            // set date format
+            this.options.dateFormat = this.control.dateFormat;
 
-                    // styling the error style
-                    var $selector = $(input);
+            // get base icon
+            this.icon = CONTROL_TYPES[this.control.type].icon;
 
-                    // only increase z-index if this control is in a modal
-                    if ($selector.parents(".modal").length <= 0) {
-                        return;
-                    }
-
-                    $selector.css({
-                        "position": "relative",
-                        "z-index": 99999
-                    });
-                }
-            });
-
-            // if this control already have value, set it
+            // if this control already have value, set it (value => default value => settings)
             if (!_.isEmpty(this.control.value)) {
-                $selector.val(this.control.value);
                 return; // stop
             }
+
+            // default value
+            if (!_.isEmpty(this.control.defaultValue)) {
+                this.control.value = this.control.defaultValue;
+                return;
+            }
+
             // today value or not
             if (this.control.isTodayValue) {
-                $selector.val(moment().format(CONTROL_CONSTANTS.DateFormat[this.control.dateFormat]));
+                this.control.value = (moment().format(CONTROL_CONSTANTS.DateFormat[this.control.dateFormat]));
             }
-            if (!_.isEmpty(this.control.defaultValue)) {
-                $selector.val(this.control.defaultValue);
-            }
-
-            this.datePicker = $selector;
-
-            // after hook
-            Hooks.Control.afterInit.run(this.control, $selector);
         },
-        beforeDestroy() {
-            this.datePicker.datepicker('destroy');
+        mounted() {
+            Hooks.Control.afterInit.run(this.control);
         }
     }
 </script>

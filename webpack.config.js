@@ -79,7 +79,14 @@ var commomConfig = {
                 NODE_ENV: '"production"'
             }
         }),
-        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin( {
+            minimize : true,
+            sourceMap : false,
+            mangle: true,
+            compress: {
+                warnings: false
+            }
+        } ),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.LoaderOptionsPlugin({
             minimize: true
@@ -90,17 +97,17 @@ var commomConfig = {
 
 module.exports = [
     // library for browser - form template
-    // merge(commomConfig, {
-    //     entry: path.resolve(__dirname + '/src/template/index.js'),
-    //     output: {
-    //         path: path.resolve(__dirname, './browser'),
-    //         publicPath: '/browser/',
-    //         filename: 'vue-form-builder.browser.min.js',
-    //         libraryTarget: 'window',
-    //         library: 'FormBuilder',
-    //     },
-    // }),
-    //
+    merge(commomConfig, {
+        entry: path.resolve(__dirname + '/src/main.js'),
+        output: {
+            path: path.resolve(__dirname, './dist'),
+            publicPath: '/dist/',
+            filename: 'vue-form-builder.browser.min.js',
+            libraryTarget: 'window',
+            library: 'FormBuilder',
+        },
+    }),
+
     // library for node - form GUI
     merge(commomConfig, {
         entry: './src/FormBuilder.vue',

@@ -91,7 +91,10 @@
                 ControlHandler.clearSelect();
                 ControlHandler.setSelect(this.control.name);
                 eventBus.$emit(EventHandlerConstant.ACTIVATE_EDITOR_SIDEBAR, _.cloneDeep(this.control));
-            }
+            },
+            updating() {
+
+            },
         },
         created() {
             let self = this;
