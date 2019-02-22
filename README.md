@@ -24,6 +24,15 @@ The library is built & ready for production but if you meet any bugs or issues, 
 Demo Online: http://vue-form-builder.sethphat.com    
 Demo Project: https://github.com/sethsandaru/demo-vue-form-builder
 
+## Current version
+Current latest version of the Vue Form Builder: **1.4.0**.
+
+Updated/Features:
+- Refactored most code, easily to read, develop & maintain now.
+- Able to add more control (extendable)
+- Fix some minor bugs
+- Update devDependency that got security problem.
+
 ## Technologies/Libraries using
 - Javascript
 - VueJS 2.x
@@ -143,8 +152,6 @@ Please visit this Repo's Wiki.
 - Version **1.4.0**:
     - Refactored, the code is more easy to view & read.
     - Able to extend a custom control.
-    - Able to run custom validation for custom control.
-    - Able to drag & drop element between rows in a Section.
     - Fix some minor bugs.
 - Version **1.3.0**:
     - Milestone 3 released.
@@ -172,13 +179,9 @@ Please visit this Repo's Wiki.
     - Able to config form & render form by config data.
     - Get/set value for both GUI & Template.
 
-## Development milestones
-1. First release - **Released in 1.1.1**
-    - Able to config form (Template)
-    - Render form by config data (GUI)
-    - Get/set value from GUI
-2. Hook will be available for several events. More options for some controls (like select with ajax data source, date format,...) - **Released in 1.2.0**
-3. Able to validate the form (required mostly), able to style the label (bold, italic, underline and location (top, left)). **Released in 1.3.0**
-4. Support formula to calculate inside the form.
+## Supporting the project
+If you really like this project & want to contribute a little for the development. You can buy me a coffee. Thank you very much for your supporting <3.
+
+<a href="https://www.buymeacoffee.com/xKOM9NB8p" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 Copyright &copy; 2018 by [Seth Phat](http://sethphat.com) aka Phat Tran Minh!
