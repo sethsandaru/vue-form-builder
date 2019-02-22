@@ -1,7 +1,7 @@
 {
     "name": "v-form-builder",
     "description": "A Super Form Builder (drag & drop) build with VueJS by Seth Phat",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "author": "Phat Tran <phattranminh96@gmail.com> (https://sethphat.com)",
     "keywords": [
         "vue",
