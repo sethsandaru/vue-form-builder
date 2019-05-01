@@ -50,7 +50,7 @@
                 controlInfo.type = controlType;
                 // generate id
                 controlInfo.name = _.domUniqueID(`control_${controlType}_`);
-                controlInfo.label = FORM_CONSTANTS.Type[controlType].label;
+                controlInfo.label = CONTROL_TYPES[controlType].label;
                 controlInfo.fieldName = controlInfo.name; // same for both
 
                 // check if there's any more special fields?

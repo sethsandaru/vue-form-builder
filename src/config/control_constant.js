@@ -5,6 +5,7 @@ import {faCalendarAlt} from '@fortawesome/free-solid-svg-icons/faCalendarAlt';
 import {faClock} from '@fortawesome/free-solid-svg-icons/faClock';
 import {faCheck} from '@fortawesome/free-solid-svg-icons/faCheck';
 import {faDatabase} from '@fortawesome/free-solid-svg-icons/faDatabase';
+import {faCheckCircle} from '@fortawesome/free-solid-svg-icons/faCheckCircle'
 
 // GUI Control
 import GUICheckboxControl from 'sethFormBuilder/gui/ui/controls/CheckboxControl';
@@ -13,6 +14,7 @@ import GUINumberControl from 'sethFormBuilder/gui/ui/controls/NumberControl';
 import GUISelectControl from 'sethFormBuilder/gui/ui/controls/SelectControl';
 import GUITextControl from 'sethFormBuilder/gui/ui/controls/TextControl';
 import GUITimePickerControl from 'sethFormBuilder/gui/ui/controls/TimePickerControl';
+import GUIButtonControl from 'sethFormBuilder/gui/ui/controls/ButtonControl';
 
 // TEMPLATE Control
 import TEMPLATETextControl from 'sethFormBuilder/template/ui/common/controls/TextControl';
@@ -21,6 +23,7 @@ import TEMPLATECheckboxControl from 'sethFormBuilder/template/ui/common/controls
 import TEMPLATEDatePickerControl from 'sethFormBuilder/template/ui/common/controls/DatePickerControl';
 import TEMPLATETimePickerControl from 'sethFormBuilder/template/ui/common/controls/TimePickerControl';
 import TEMPLATESelectControl from 'sethFormBuilder/template/ui/common/controls/SelectControl';
+import TEMPLATEButtonControl from 'sethFormBuilder/template/ui/common/controls/ButtonControl';
 
 // CONFIG CONTROL
 import SIDEBARDatePickerControl from 'sethFormBuilder/template/ui/sidebar_items/DatePickerConfigComponent';
@@ -29,6 +32,7 @@ import SIDEBARSelectControl from 'sethFormBuilder/template/ui/sidebar_items/Sele
 import SIDEBARNumberControl from 'sethFormBuilder/template/ui/sidebar_items/NumberConfigComponent';
 import SIDEBARTextControl from 'sethFormBuilder/template/ui/sidebar_items/TextConfigComponent';
 import SIDEBARCheckboxControl from 'sethFormBuilder/template/ui/sidebar_items/CheckboxConfigComponent';
+import SIDEBARButtonControl from 'sethFormBuilder/template/ui/sidebar_items/ButtonConfigComponent';
 
 // Template Control
 // special key for control:
@@ -94,6 +98,17 @@ const CONTROL_TYPES = {
             gui: GUICheckboxControl,
             template: TEMPLATECheckboxControl,
             config: SIDEBARCheckboxControl
+        }
+    },
+
+    // for elfa
+    button: {
+        label: "Button",
+        icon: faCheckCircle,
+        source: {
+            gui: GUIButtonControl,
+            template: TEMPLATEButtonControl,
+            config: SIDEBARButtonControl
         }
     }
 };

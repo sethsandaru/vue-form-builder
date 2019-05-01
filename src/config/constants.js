@@ -79,7 +79,11 @@ FORM_CONSTANTS.Control = {
     ajaxDataUrl: "", // ajax data source
 
     // attr for checkbox
-    isChecked: false
+    isChecked: false,
+
+    // attr for button
+    btnClass: "btn-primary",
+    btnAction: "",
 };
 
 FORM_CONSTANTS.Type = {
