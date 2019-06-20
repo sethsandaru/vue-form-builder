@@ -160,10 +160,16 @@
             $("#sectionWrapper").sortable({
                 cursor: "move",
                 delay: 200,
+                placeholder: "ui-state-highlight",
                 update: function (event, ui) {
                     self.traverseSection();
+                },
+                start: function(e, ui){
+                    ui.placeholder.height(ui.item.height());
+                    ui.placeholder.css("border", "");
+                    ui.placeholder.css("background-color", "#3498db");
                 }
-            });
+            }).disableSelection();
         },
         updated() {
             this.form._uniqueId = Math.random();
@@ -190,5 +196,9 @@
     .accordion .fa-chevron-up {
         display: inline-block;
     }
-
+    .ui-state-highlight {
+        height: 2.5em;
+        line-height: 1.2em;
+        margin-top: .5em;
+    }
 </style>

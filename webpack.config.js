@@ -2,7 +2,6 @@ var path = require('path');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
 var APP_DIR = path.resolve(__dirname, 'src');
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 var commomConfig = {
     entry: './src/main.js',
@@ -113,6 +112,7 @@ module.exports = [
         entry: './src/FormBuilder.vue',
         output: {
             path: path.resolve(__dirname, './dist'),
+            // path: '/Applications/XAMPP/xamppfiles/htdocs/formbuilder/webpack-form-builder/node_modules/v-form-builder/dist',
             // path: path.resolve(__dirname, '../test-form/node_modules/v-form-builder/dist'),
             // path: path.resolve(__dirname, '../VueProject/test-form/node_modules/v-form-builder/dist'),
             publicPath: '/dist/',

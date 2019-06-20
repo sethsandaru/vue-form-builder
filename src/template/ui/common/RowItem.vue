@@ -4,12 +4,6 @@
             <font-awesome-icon icon="times" class="clickable" @click="removeRow(row.name)"></font-awesome-icon>
         </div>
 
-        <!--<control-item v-for="(control, index) in row.controls"-->
-                      <!--:control="control"-->
-                      <!--:key="control.name"-->
-                      <!--:label-position="labelPosition">-->
-        <!--</control-item>-->
-
         <component v-for="(control, index) in row.controls"
                    :is="CONTROL_TYPES[control.type].source.template"
                    :key="control.name"
@@ -179,8 +173,15 @@
                 cursor: "move",
                 delay: 100,
                 helper: 'clone',
+                placeholder: "ui-state-highlight",
                 update: function (event, ui) {
                     self.traverseControl();
+                },
+                start: function(e, ui){
+                    ui.placeholder.height(ui.item.height());
+                    ui.placeholder.width(ui.item.width());
+                    ui.placeholder.css("border", "");
+                    ui.placeholder.css("background-color", "#e74c3c");
                 }
             }).disableSelection();
         }
@@ -205,4 +206,6 @@
     .clickable {
         cursor: pointer;
     }
+
+    .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
 </style>
