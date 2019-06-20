@@ -66,6 +66,11 @@
                 placeholder: "ui-state-highlight",
                 update: function (event, ui) {
                     self.traverseRow();
+                },
+                start: function(e, ui){
+                    ui.placeholder.height(ui.item.height());
+                    ui.placeholder.css("border", "");
+                    ui.placeholder.css("background-color", "#27ae60");
                 }
             }).disableSelection();
         }

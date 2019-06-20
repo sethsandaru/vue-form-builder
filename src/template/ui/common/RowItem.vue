@@ -176,6 +176,12 @@
                 placeholder: "ui-state-highlight",
                 update: function (event, ui) {
                     self.traverseControl();
+                },
+                start: function(e, ui){
+                    ui.placeholder.height(ui.item.height());
+                    ui.placeholder.width(ui.item.width());
+                    ui.placeholder.css("border", "");
+                    ui.placeholder.css("background-color", "#e74c3c");
                 }
             }).disableSelection();
         }

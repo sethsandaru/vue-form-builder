@@ -111,7 +111,8 @@ module.exports = [
     merge(commomConfig, {
         entry: './src/FormBuilder.vue',
         output: {
-            path: path.resolve(__dirname, './dist'),
+            // path: path.resolve(__dirname, './dist'),
+            path: '/Applications/XAMPP/xamppfiles/htdocs/formbuilder/webpack-form-builder/node_modules/v-form-builder/dist',
             // path: path.resolve(__dirname, '../test-form/node_modules/v-form-builder/dist'),
             // path: path.resolve(__dirname, '../VueProject/test-form/node_modules/v-form-builder/dist'),
             publicPath: '/dist/',

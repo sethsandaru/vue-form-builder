@@ -163,6 +163,11 @@
                 placeholder: "ui-state-highlight",
                 update: function (event, ui) {
                     self.traverseSection();
+                },
+                start: function(e, ui){
+                    ui.placeholder.height(ui.item.height());
+                    ui.placeholder.css("border", "");
+                    ui.placeholder.css("background-color", "#3498db");
                 }
             }).disableSelection();
         },
@@ -191,5 +196,9 @@
     .accordion .fa-chevron-up {
         display: inline-block;
     }
-    .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
+    .ui-state-highlight {
+        height: 2.5em;
+        line-height: 1.2em;
+        margin-top: .5em;
+    }
 </style>
