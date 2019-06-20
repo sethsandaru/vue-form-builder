@@ -25,13 +25,12 @@ Demo Online: http://vue-form-builder.sethphat.com
 Demo Project: https://github.com/sethsandaru/demo-vue-form-builder
 
 ## Current version
-Current latest version of the Vue Form Builder: **1.4.0**.
+Current latest version of the Vue Form Builder: **1.4.1-rc1**.
 
 Updated/Features:
-- Refactored most code, easily to read, develop & maintain now.
-- Able to add more control (extendable)
-- Fix some minor bugs
-- Update devDependency that got security problem.
+- Update dependencies that got security problem.
+- Placeholder for Sortable (drag n' drop section, row, control to order)
+- Update some CSS, JS
 
 ## Technologies/Libraries using
 - Javascript
