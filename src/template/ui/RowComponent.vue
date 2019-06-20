@@ -63,14 +63,15 @@
             $(this.$el).sortable({
                 cursor: "move",
                 delay: 200,
+                placeholder: "ui-state-highlight",
                 update: function (event, ui) {
                     self.traverseRow();
                 }
-            });
+            }).disableSelection();
         }
     }
 </script>
 
 <style scoped>
-
+    .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
 </style>

@@ -2,7 +2,6 @@ var path = require('path');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
 var APP_DIR = path.resolve(__dirname, 'src');
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 var commomConfig = {
     entry: './src/main.js',
