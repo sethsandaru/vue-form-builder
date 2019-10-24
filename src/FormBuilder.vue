@@ -157,7 +157,7 @@
             }
         },
         mounted() {
-            console.log('yeaaay it has entered form builder mounted');
+            console.log(`form template config type: ${this.type}: `, this.form);
             this.setValue(this.value);
         }
     }
