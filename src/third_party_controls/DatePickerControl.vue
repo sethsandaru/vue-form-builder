@@ -1,6 +1,7 @@
 <template>
     <input type="text"
            class="form-control"
+           :name="name"
            :readonly="readonly" />
 </template>
 
@@ -23,6 +24,7 @@
                 type: Object,
                 default: () => {}
             },
+            name: null,
             value: null
         },
         watch: {

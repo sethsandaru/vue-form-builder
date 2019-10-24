@@ -23,7 +23,7 @@
                 {{control.label}}
             </label>
             <div class="input-group">
-                <ControlTimePicker v-model="control.value" :readonly="control.readonly" :options="options" />
+                <ControlTimePicker v-model="control.value" :name="control.fieldName" :readonly="control.readonly" :options="options" />
 
                 <div class="input-group-append">
                     <span class="input-group-text">
