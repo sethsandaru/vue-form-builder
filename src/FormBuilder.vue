@@ -157,6 +157,7 @@
             }
         },
         mounted() {
+            console.log('yeaaay it has entered form builder mounted');
             this.setValue(this.value);
         }
     }
