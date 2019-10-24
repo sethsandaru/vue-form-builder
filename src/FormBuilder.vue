@@ -157,7 +157,6 @@
             }
         },
         mounted() {
-            console.log(`form template config type: ${this.type}: `, this.form);
             this.setValue(this.value);
         }
     }

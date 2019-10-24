@@ -37,7 +37,6 @@
         },
         created() {
             // this.form = JSON.parse(localStorage.getItem('BUILD_FORM'));
-            console.log(`section component config: `, this.form);
         }
     }
 </script>

@@ -151,6 +151,7 @@ FormHandler.clearErrorField = function() {
 
 FormHandler.validate = function (form) {
     FormHandler.clearErrorField();
+    console.log('validate: ', form);
 
     _.each(form.sections, sectionInfo => {
         if (!sectionInfo.isDynamic) {
@@ -166,12 +167,15 @@ FormHandler.validate = function (form) {
 var validate_static_form = function (sectionInfo) {
     // flatten rows
     var controls = flattenControlInRows(sectionInfo.rows);
+    console.log('section Info Controls: ', controls);
     _.each(controls, controlInfo => {
+        console.log('controlInfo.required: ', controlInfo.required);
         if (!controlInfo.required) {
             return;
         }
 
         let value = getControlValue(controlInfo, `#${sectionInfo.name}_gui_body`);
+        console.log('control value: ', value, _.isEmpty(value));
         if (_.isEmpty(value)) {
             // special case for number @@
             if (controlInfo.type === 'number' && _.isNumber(value) && !_.isNaN(value)) {
