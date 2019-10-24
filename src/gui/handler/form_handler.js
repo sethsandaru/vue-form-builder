@@ -25,7 +25,8 @@ FormHandler.dynamicTemplate = function(rows) {
 };
 
 function getControlValue(control, selectorOutside) {
-    console.log('getControlValue: ', control.type, control.value);
+    console.log('getControlValue Type: ', control.type);
+    console.log('getControlValue Value: ', control.value);
     switch (control.type) {
         case 'number': {
             if (_.isEmpty(control.value) || _.isNaN(control.value)) {
@@ -176,7 +177,8 @@ var validate_static_form = function (sectionInfo) {
         }
 
         let value = getControlValue(controlInfo, `#${sectionInfo.name}_gui_body`);
-        console.log('control value: ', value, _.isEmpty(value));
+        console.log('control value: ', value);
+        console.log('control value is Empty?: ', _.isEmpty(value));
         if (_.isEmpty(value)) {
             // special case for number @@
             if (controlInfo.type === 'number' && _.isNumber(value) && !_.isNaN(value)) {
