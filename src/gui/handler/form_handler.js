@@ -178,6 +178,7 @@ var validate_static_form = function (sectionInfo) {
 
         let value = getControlValue(controlInfo, `#${sectionInfo.name}_gui_body`);
         console.log('control value: ', value);
+        console.log('control value typeof: ', typeof value);
         console.log('control value is Empty?: ', _.isEmpty(value));
         if (_.isEmpty(value)) {
             // special case for number @@
