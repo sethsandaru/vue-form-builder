@@ -25,6 +25,7 @@ FormHandler.dynamicTemplate = function(rows) {
 };
 
 function getControlValue(control, selectorOutside) {
+    console.log('getControlValue: ', control.type, control.value);
     switch (control.type) {
         case 'number': {
             if (_.isEmpty(control.value) || _.isNaN(control.value)) {
