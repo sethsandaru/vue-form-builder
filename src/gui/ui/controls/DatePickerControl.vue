@@ -8,7 +8,7 @@
             </div>
             <div class="col-md-8">
                 <div class="input-group">
-                    <ControlDatePicker v-model="control.value" :readonly="this.control.readonly" :options="options" />
+                    <ControlDatePicker v-model="control.value" :name="control.fieldName" :readonly="this.control.readonly" :options="options" />
 
                     <div class="input-group-append">
                     <span class="input-group-text">
@@ -24,7 +24,7 @@
             </label>
 
             <div class="input-group">
-                <ControlDatePicker v-model="control.value":name="control.fieldName" :readonly="this.control.readonly" :options="options" />
+                <ControlDatePicker v-model="control.value" :name="control.fieldName" :readonly="this.control.readonly" :options="options" />
 
                 <div class="input-group-append">
                     <span class="input-group-text">
