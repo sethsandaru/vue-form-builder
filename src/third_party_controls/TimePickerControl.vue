@@ -66,11 +66,7 @@
                 .timepicker({
                     ...this.options,
                     change: function (time) {
-                        console.log('time: ', time);
-                        console.log('time typeof: ', typeof time);
-                        console.log('time date: ', moment(time));
-                        console.log('time date: ', moment(time).format(this.options.timeFormat));
-                        self.$emit('change', time.format(this.options.timeFormat));
+                        self.$emit('change', moment(time).format(this.options.timeFormat));
                     }.bind(this),
                 });
 
