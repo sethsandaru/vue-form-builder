@@ -188,6 +188,8 @@ var validate_static_form = function (sectionInfo) {
 
             // set error here
             $(`#${sectionInfo.name}_gui_body input[name='${controlInfo.fieldName}']`).addClass('control-error');
+            console.log('node element: ', sectionInfo.name);
+            console.log('node element: ', controlInfo.fieldName);
             console.log('node element: ', $(`#${sectionInfo.name}_gui_body input[name='${controlInfo.fieldName}']`));
         }
     });
