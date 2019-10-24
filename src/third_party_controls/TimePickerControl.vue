@@ -53,10 +53,13 @@
         },
         mounted() {
             let self = this;
+            console.log('$(this.$el): ', $(this.$el));
+            console.log('this.options: ', this.options);
             this.timepicker = $(this.$el)
                 .timepicker({
                     ...this.options,
                     change: function (time) {
+                        console.log('this.options: ', this.options);
                         self.$emit('change', time.format(this.options.timeFormat));
                     },
                 });
