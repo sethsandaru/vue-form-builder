@@ -56,6 +56,11 @@
             this.icon = CONTROL_TYPES[this.control.type].icon;
 
             // setup data
+            console.log('this.control: ', this.control);
+            console.log('this.control.timeFormat: ', this.control.timeFormat);
+            console.log('CONTROL_CONSTANTS: ', CONTROL_CONSTANTS);
+            console.log('CONTROL_CONSTANTS.TimeFormat: ', CONTROL_CONSTANTS.TimeFormat);
+            console.log('CONTROL_CONSTANTS.TimeFormat[this.control.timeFormat]: ', CONTROL_CONSTANTS.TimeFormat[this.control.timeFormat]);
             this.options.timeFormat = this.control.timeFormat;
 
             if (!_.isEmpty(this.control.defaultValue)) {
