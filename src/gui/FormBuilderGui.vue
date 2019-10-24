@@ -34,6 +34,7 @@
         },
         created() {
             // this.form = JSON.parse(localStorage.getItem('BUILD_FORM'));
+            console.log(`form Gui config: `, this.form);
         }
     }
 </script>
