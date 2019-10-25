@@ -29,6 +29,8 @@ function getControlValue(control, selectorOutside) {
     console.log('getControlValue Value: ', control.value);
     switch (control.type) {
         case 'number': {
+            console.log('_.isEmpty(control.value)', _.isEmpty(control.value))
+            console.log('_.isNaN(control.value)', _.isNaN(control.value))
             if (_.isEmpty(control.value) || _.isNaN(control.value)) {
                 return 0;
             }
