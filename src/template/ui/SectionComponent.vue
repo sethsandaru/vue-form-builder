@@ -151,6 +151,7 @@
                 this.$parent.preview();
             },
             updateSectionInfo(sectionInfo, index) {
+                console.log('updateSectionInfo: ', sectionInfo)
                 _.deepExtend(this.form.sections[index], sectionInfo);
             }
         },
