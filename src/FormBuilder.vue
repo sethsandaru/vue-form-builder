@@ -71,6 +71,7 @@
                 deep: true
             },
             value(val) {
+                console.log('entered watch form builder value', val);
                 this.setValue(val);
             }
         },
@@ -87,6 +88,7 @@
                 }
             },
             setValue(values) {
+                console.log('setValue empty: ', _.isEmpty(values))
                 if (_.isEmpty(values)) {
                     return;
                 }

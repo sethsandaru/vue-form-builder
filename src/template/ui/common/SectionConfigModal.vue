@@ -91,7 +91,7 @@
                     if (_.isEmpty(this.section.clientKey)) {
                         this.section.clientKey = this.section.name;
                     }
-                    
+
                     this.$emit('updateSectionInfo', this.section, this.index);
                     this.closeModal();
                 }
