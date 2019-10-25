@@ -39,7 +39,7 @@
                             </div>
                         </div>
                     </div>
-                    <div :id="section.name + '_body'" class="collapse">
+                    <div :id="section.name + '_body'" class="collapse show">
                         <div class="card-body sectionBody">
                             <row-component :section="section"></row-component>
                         </div>
@@ -88,6 +88,8 @@
 
                 // After hook
                 Hooks.Section.afterAdd.run(sectionInfo);
+
+                this.addRow(this.form.sections.length-1);
             },
             delSection(secIndex) {
                 // make sure no dependencies
@@ -151,9 +153,9 @@
                 this.$parent.preview();
             },
             updateSectionInfo(sectionInfo, index) {
+                // the below line is obligatoary in case the old min Instances > new min Instances
                 this.form.sections[index].instances = sectionInfo.instances;
                 _.deepExtend(this.form.sections[index], sectionInfo);
-                console.log('updateSectionInfo: ', this.form.sections[index].instances)
             }
         },
         mounted() {

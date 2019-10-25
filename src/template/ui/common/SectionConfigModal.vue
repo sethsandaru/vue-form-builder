@@ -93,12 +93,13 @@
                         this.section.clientKey = this.section.name;
                     }
 
-                    const sectionsInstance = this.section.rows;
-                    const minInstances = this.section.minInstance===0? 1:this.section.minInstance;
-                    console.log(minInstances);
-                    console.log([...Array(minInstances)]);
-                    console.log([...Array(minInstances)].map((_, i) => sectionsInstance));
-                    this.section.instances = [...Array(minInstances)].map((_, i) => sectionsInstance);
+                    // Section Instance should be equal to the number of min Instance or at least 1 if min Instance ===0
+                    if(this.section.isDynamic) {
+                        const minInstances = this.section.minInstance===0? 1:this.section.minInstance;
+                        this.section.instances = [...Array(minInstances)].map((_, i) => this.section.rows);
+                    }else {
+                        this.section.instances = [];
+                    }
 
                     this.$emit('updateSectionInfo', this.section, this.index);
                     this.closeModal();
