@@ -48,6 +48,7 @@ function getControlValue(control, selectorOutside) {
 
 FormHandler.getValue = function (form) {
     var formData = {};
+    console.log('FormHandler.getValue');
 
     // solving for static
     _.each(form.sections, sectionInfo => {

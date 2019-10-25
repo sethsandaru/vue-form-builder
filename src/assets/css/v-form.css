@@ -15,6 +15,9 @@ input[type="checkbox"].control-error:after {
 .select2-container .selection .select2-selection.control-error{
     border-color: red !important;
 }
+.select2-container .selection .select2-selection.control-error:focus{
+    outline: none !important;
+}
 
 label.bold {
     font-weight: bold;
