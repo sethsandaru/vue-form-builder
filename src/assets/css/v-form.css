@@ -2,7 +2,7 @@
     border: 1px solid #ff0000;
 }
 
-input[type="checkbox"]:after.control-error {
+input[type="checkbox"].control-error:after {
     content: 'hello';
     color: #ff0000;
 }
