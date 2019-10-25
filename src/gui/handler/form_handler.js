@@ -180,12 +180,15 @@ var validate_static_form = function (sectionInfo) {
             return;
         }
 
-        let value = getControlValue(controlInfo, `#${sectionInfo.name}_gui_body`);
+        const value = getControlValue(controlInfo, `#${sectionInfo.name}_gui_body`);
         console.log('control value: ', value);
         console.log('control value typeof: ', typeof value);
         console.log('control value is Empty?: ', _.isEmpty(value));
-        if (_.isEmpty(value)) {
-            // special case for number @@
+        let checkValue = _.isEmpty(value);
+        // In case the control returns a boolean value then we should check directly on the returned value
+        if(typeof value === boolean) checkValue = !value;
+        if (checkValue) {
+            // special case for number 0
             if (controlInfo.type === 'number' && _.isNumber(value) && !_.isNaN(value)) {
                 return;
             }
