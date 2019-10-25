@@ -33,9 +33,13 @@ function getControlValue(control, selectorOutside) {
             console.log('_.isNaN(control.value)', _.isNaN(control.value))
             if(control.value===0) {
                 return 0;
-            }else if (!_.isNumber(control.value) || control.value==='NaN') {
+            }else if (control.value==='NaN') {
                 return '';
             }
+        }
+        case 'timepicker':
+            if(control.value==='Invalid date') {
+                return '';
         }
         default:
             return control.value;
