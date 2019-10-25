@@ -31,8 +31,8 @@ function getControlValue(control, selectorOutside) {
         case 'number': {
             console.log('_.isEmpty(control.value)', _.isEmpty(control.value))
             console.log('_.isNaN(control.value)', _.isNaN(control.value))
-            if (_.isEmpty(control.value) || _.isNaN(control.value)) {
-                return 0;
+            if (_.isEmpty(control.value) || control.value==='NaN') {
+                return '';
             }
         }
         default:
@@ -184,9 +184,9 @@ var validate_static_form = function (sectionInfo) {
         console.log('control value is Empty?: ', _.isEmpty(value));
         if (_.isEmpty(value)) {
             // special case for number @@
-            if (controlInfo.type === 'number' && _.isNumber(value) && !_.isNaN(value)) {
+            /*if (controlInfo.type === 'number' && _.isNumber(value) && !_.isNaN(value)) {
                 return;
-            }
+            }*/
 
             // set error here
             $(`#${sectionInfo.name}_gui_body input[name='${controlInfo.fieldName}']`).addClass('control-error');
