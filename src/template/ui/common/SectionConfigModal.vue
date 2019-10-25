@@ -81,15 +81,20 @@
                 $(SECTION_ID).modal('hide');
             },
             save() {
-                if (_.isEmpty(this.section.clientKey)) {
-                    this.section.clientKey = this.section.name;
-                }
                 // format data
                 this.section.minInstance = parseInt(this.section.minInstance);
                 this.section.maxInstance = parseInt(this.section.maxInstance);
 
-                this.$emit('updateSectionInfo', this.section, this.index);
-                this.closeModal();
+                if(this.section.maxInstance!==0 && this.section.maxInstance<this.section.minInstance) {
+                    SethPhatToaster.error(`The section max instances(${this.section.maxInstance}) should be greater than or equal the min instances(${this.section.minInstance})`);
+                }else {
+                    if (_.isEmpty(this.section.clientKey)) {
+                        this.section.clientKey = this.section.name;
+                    }
+                    
+                    this.$emit('updateSectionInfo', this.section, this.index);
+                    this.closeModal();
+                }
             },
         },
         mounted() {

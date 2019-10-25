@@ -20,7 +20,6 @@
         },
         methods: {
             getValue() {
-                console.log('FormBuilderGui getValue');
                 return FormHandler.getValue(this.form);
             },
             setValue(values) {

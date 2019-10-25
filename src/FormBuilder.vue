@@ -65,7 +65,6 @@
                     if (this.type === 'template') {
                         this.$emit('change', val);
                     } else {
-                        console.log('watch form debounceGetFormGUIValue');
                         this.debounceGetFormGUIValue();
                     }
                 },
@@ -120,7 +119,6 @@
         created() {
             let self = this;
             this.debounceGetFormGUIValue = _.debounce(() => {
-                console.log('debounceGetFormGUIValue self', self, self.getValue);
                 if (typeof self === "undefined" || typeof self.getValue === "undefined") {
                     return;
                 }

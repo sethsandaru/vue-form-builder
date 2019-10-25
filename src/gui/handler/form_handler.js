@@ -25,12 +25,8 @@ FormHandler.dynamicTemplate = function(rows) {
 };
 
 function getControlValue(control, selectorOutside) {
-    console.log('getControlValue Type: ', control.type);
-    console.log('getControlValue Value: ', control.value);
     switch (control.type) {
         case 'number': {
-            console.log('_.isEmpty(control.value)', _.isEmpty(control.value))
-            console.log('_.isNaN(control.value)', _.isNaN(control.value))
             if(control.value===0) {
                 return 0;
             }else if (control.value==='NaN') {
@@ -48,7 +44,6 @@ function getControlValue(control, selectorOutside) {
 
 FormHandler.getValue = function (form) {
     var formData = {};
-    console.log('FormHandler.getValue');
 
     // solving for static
     _.each(form.sections, sectionInfo => {
@@ -163,7 +158,6 @@ FormHandler.clearErrorField = function() {
 
 FormHandler.validate = function (form) {
     FormHandler.clearErrorField();
-    console.log('validate: ', form);
 
     _.each(form.sections, sectionInfo => {
         if (!sectionInfo.isDynamic) {
@@ -179,17 +173,12 @@ FormHandler.validate = function (form) {
 var validate_static_form = function (sectionInfo) {
     // flatten rows
     var controls = flattenControlInRows(sectionInfo.rows);
-    console.log('section Info Controls: ', controls);
     _.each(controls, controlInfo => {
-        console.log('controlInfo.required: ', controlInfo.required);
         if (!controlInfo.required) {
             return;
         }
 
         const value = getControlValue(controlInfo, `#${sectionInfo.name}_gui_body`);
-        console.log('control value: ', value);
-        console.log('control value typeof: ', typeof value);
-        console.log('control value is Empty?: ', _.isEmpty(value));
         let checkValue = _.isEmpty(value);
         // In case the control returns a boolean value then we should check directly on the returned value
         if(typeof value === 'boolean') checkValue = !value;
@@ -205,11 +194,6 @@ var validate_static_form = function (sectionInfo) {
             }else {
                 $(`#${sectionInfo.name}_gui_body input[name='${controlInfo.fieldName}']`).addClass('control-error');
             }
-            console.log('controlInfo.type: ', controlInfo.type);
-
-            console.log('node element: ', sectionInfo.name);
-            console.log('node element: ', controlInfo.fieldName);
-            console.log('node element: ', $(`#${sectionInfo.name}_gui_body input[name='${controlInfo.fieldName}']`));
         }
     });
 };

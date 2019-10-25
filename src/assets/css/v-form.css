@@ -1,6 +1,9 @@
 .control-error {
     border: 1px solid #ff0000;
 }
+.control-error:focus {
+    outline: none !important;
+}
 
 input[type="checkbox"].control-error:after {
     content: "!";
@@ -14,9 +17,6 @@ input[type="checkbox"].control-error:after {
 
 .select2-container .selection .select2-selection.control-error{
     border-color: red !important;
-}
-.select2-container .selection .select2-selection.control-error:focus{
-    outline: none !important;
 }
 
 label.bold {
