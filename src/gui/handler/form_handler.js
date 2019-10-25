@@ -171,7 +171,7 @@ FormHandler.validate = function (form) {
         }
     });
 
-    return ($("input.control-error").length > 0);
+    return ($("input.control-error").length > 0 || $(".select2-container .selection .select2-selection.control-error").length > 0);
 };
 
 var validate_static_form = function (sectionInfo) {
