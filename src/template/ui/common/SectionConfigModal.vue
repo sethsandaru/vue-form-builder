@@ -93,14 +93,12 @@
                         this.section.clientKey = this.section.name;
                     }
 
-                    if(this.section.instances.length>0) {
-                        const sectionsInstance = this.section.instances[0];
-                        const minInstances = this.section.minInstance===0? 1:this.section.minInstance;
-                        console.log(minInstances);
-                        console.log([...Array(minInstances)]);
-                        console.log([...Array(minInstances)].map((_, i) => sectionsInstance));
-                        this.section.instances = Object.assign([], [...Array(minInstances)].map((_, i) => sectionsInstance));
-                    }
+                    const sectionsInstance = this.section.rows;
+                    const minInstances = this.section.minInstance===0? 1:this.section.minInstance;
+                    console.log(minInstances);
+                    console.log([...Array(minInstances)]);
+                    console.log([...Array(minInstances)].map((_, i) => sectionsInstance));
+                    this.section.instances = [...Array(minInstances)].map((_, i) => sectionsInstance);
 
                     this.$emit('updateSectionInfo', this.section, this.index);
                     this.closeModal();
