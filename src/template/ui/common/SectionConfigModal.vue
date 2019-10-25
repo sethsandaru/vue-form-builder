@@ -84,12 +84,19 @@
                 // format data
                 this.section.minInstance = parseInt(this.section.minInstance);
                 this.section.maxInstance = parseInt(this.section.maxInstance);
+                console.log('SectionConfigModal section: ', this.section);
 
                 if(this.section.maxInstance!==0 && this.section.maxInstance<this.section.minInstance) {
                     SethPhatToaster.error(`The section max instances(${this.section.maxInstance}) should be greater than or equal the min instances(${this.section.minInstance})`);
                 }else {
                     if (_.isEmpty(this.section.clientKey)) {
                         this.section.clientKey = this.section.name;
+                    }
+
+                    if(this.section.instances.length>0) {
+                        const sectionsInstance = this.section.instances[0];
+                        const minInstances = this.section.minInstance===0? 1:this.section.minInstance;
+                        this.section.instances = [...Array(minInstances)].map((_, i) => sectionsInstance);
                     }
 
                     this.$emit('updateSectionInfo', this.section, this.index);
