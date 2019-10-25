@@ -157,6 +157,7 @@ FormHandler.setValue = function(form, values) {
 
 FormHandler.clearErrorField = function() {
     $("input.control-error").removeClass('control-error');
+    $(".select2-container .selection .select2-selection.control-error").removeClass('control-error');
 };
 
 FormHandler.validate = function (form) {
@@ -225,14 +226,21 @@ var validate_dynamic_form = function (sectionInfo) {
             }
 
             let value = getControlValue(controlInfo, `#${sectionInfo.name}_gui_body .rowDynamic_${insIndex}`);
-            if (_.isEmpty(value)) {
-                // special case for number @@
+            let checkValue = _.isEmpty(value);
+            // In case the control returns a boolean value then we should check directly on the returned value
+            if(typeof value === 'boolean') checkValue = !value;
+            if (checkValue) {
+                // special case for number 0
                 if (controlInfo.type === 'number' && _.isNumber(value) && !_.isNaN(value)) {
                     return;
                 }
 
                 // set error here
-                $(`#${sectionInfo.name}_gui_body .rowDynamic_${insIndex} input[name='${controlInfo.fieldName}']`).addClass('control-error');
+                if(controlInfo.type === 'select') {
+                    $(`#${sectionInfo.name}_gui_body .rowDynamic_${insIndex} #${controlInfo.fieldName} .select2-container .selection .select2-selection`).addClass('control-error');
+                }else {
+                    $(`#${sectionInfo.name}_gui_body .rowDynamic_${insIndex} input[name='${controlInfo.fieldName}']`).addClass('control-error');
+                }
             }
         });
     });
