@@ -3,8 +3,13 @@
 }
 
 input[type="checkbox"].control-error:after {
-    content: 'hello';
+    content: "!";
+    font-size: 1.3rem;
+    font-weight: bold;
     color: #ff0000;
+    top: -5.51px;
+    position: absolute;
+    right: 30%;
 }
 
 label.bold {
