@@ -151,8 +151,9 @@
                 this.$parent.preview();
             },
             updateSectionInfo(sectionInfo, index) {
-                console.log('updateSectionInfo: ', sectionInfo)
+                this.form.sections[index].instances = sectionInfo.instances;
                 _.deepExtend(this.form.sections[index], sectionInfo);
+                console.log('updateSectionInfo: ', this.form.sections[index].instances)
             }
         },
         mounted() {
