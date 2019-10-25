@@ -9,11 +9,13 @@
             <div class="col-md-8">
                 <select2-control v-if="!control.isMultiple"
                                  v-model="control.value"
+                                 :name="control.fieldName"
                                  :disabled="this.control.readonly"
                                  :options="dataSource">
                 </select2-control>
                 <select2-multiple-control v-else
                                           v-model="control.value"
+                                          :name="control.fieldName"
                                           :disabled="this.control.readonly"
                                           :options="dataSource">
                 </select2-multiple-control>
@@ -25,11 +27,13 @@
             </label>
             <select2-control v-if="!control.isMultiple"
                              v-model="control.value"
+                             :name="control.fieldName"
                              :disabled="this.control.readonly"
                              :options="dataSource">
             </select2-control>
             <select2-multiple-control v-else
                                       v-model="control.value"
+                                      :name="control.fieldName"
                                       :disabled="this.control.readonly"
                                       :options="dataSource">
             </select2-multiple-control>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :id="name">
         <select class="form-control" :placeholder="placeholder" :disabled="disabled" style="width: 100%"></select>
     </div>
 </template>
@@ -37,7 +37,8 @@
                 type: Object,
                 default: () => {}
             },
-            value: null
+            value: null,
+            name: '',
         },
         watch: {
             options(val) {

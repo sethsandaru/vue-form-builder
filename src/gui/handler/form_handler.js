@@ -197,9 +197,14 @@ var validate_static_form = function (sectionInfo) {
                 return;
             }
 
-            console.log('controlInfo.type: ', controlInfo.type);
             // set error here
-            $(`#${sectionInfo.name}_gui_body input[name='${controlInfo.fieldName}']`).addClass('control-error');
+            if(controlInfo.type === 'select') {
+                $(`#${sectionInfo.name}_gui_body #${controlInfo.fieldName} .select2-container .selection .select2-selection`).addClass('control-error');
+            }else {
+                $(`#${sectionInfo.name}_gui_body input[name='${controlInfo.fieldName}']`).addClass('control-error');
+            }
+            console.log('controlInfo.type: ', controlInfo.type);
+
             console.log('node element: ', sectionInfo.name);
             console.log('node element: ', controlInfo.fieldName);
             console.log('node element: ', $(`#${sectionInfo.name}_gui_body input[name='${controlInfo.fieldName}']`));

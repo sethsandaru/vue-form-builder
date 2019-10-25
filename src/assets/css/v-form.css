@@ -12,6 +12,10 @@ input[type="checkbox"].control-error:after {
     right: 30%;
 }
 
+.select2-container .selection .select2-selection.control-error{
+    border-color: red !important;
+}
+
 label.bold {
     font-weight: bold;
 }
