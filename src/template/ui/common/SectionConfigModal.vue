@@ -99,7 +99,7 @@
                         console.log(minInstances);
                         console.log([...Array(minInstances)]);
                         console.log([...Array(minInstances)].map((_, i) => sectionsInstance));
-                        this.section.instances = [...Array(minInstances)].map((_, i) => sectionsInstance);
+                        this.section.instances = Object.assign([], [...Array(minInstances)].map((_, i) => sectionsInstance));
                     }
 
                     this.$emit('updateSectionInfo', this.section, this.index);
