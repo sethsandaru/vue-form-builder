@@ -96,6 +96,7 @@
                     if(this.section.instances.length>0) {
                         const sectionsInstance = this.section.instances[0];
                         const minInstances = this.section.minInstance===0? 1:this.section.minInstance;
+                        console.log(minInstances);
                         this.section.instances = [...Array(minInstances)].map((_, i) => sectionsInstance);
                     }
 
