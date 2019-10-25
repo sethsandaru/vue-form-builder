@@ -186,7 +186,7 @@ var validate_static_form = function (sectionInfo) {
         console.log('control value is Empty?: ', _.isEmpty(value));
         let checkValue = _.isEmpty(value);
         // In case the control returns a boolean value then we should check directly on the returned value
-        if(typeof value === boolean) checkValue = !value;
+        if(typeof value === 'boolean') checkValue = !value;
         if (checkValue) {
             // special case for number 0
             if (controlInfo.type === 'number' && _.isNumber(value) && !_.isNaN(value)) {
