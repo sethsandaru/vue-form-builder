@@ -14,12 +14,12 @@
         <div class="settingSidebar card" v-if="isConfig">
             <div class="card-body">
                 <div class="row mb-2">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <h4>{{controlInfo.label}}</h4>
                     </div>
-                    <div class="col-md-6 text-right">
-                        <button class="btn btn-default" @click="applyEditSidebar">Apply</button>
-                        <button class="btn btn-default" @click="closeEditSidebar">Close</button>
+                    <div class="col-md-12 text-center py-3">
+                        <button class="btn btn-primary" @click="applyEditSidebar">Apply</button>
+                        <button class="btn btn-light" @click="closeEditSidebar">Close</button>
                     </div>
                 </div>
 

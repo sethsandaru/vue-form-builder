@@ -1,26 +1,26 @@
 <template>
     <div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 pr-1">
                 <div class="form-group">
                     <label>ID</label>
                     <input type="text" readonly class="form-control" :value="control.name">
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 pl-1">
                 <div class="form-group">
                     <label>Control type</label>
                     <input type="text" readonly class="form-control" :value="typeFirstUpper">
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 pr-1">
                 <div class="form-group">
                     <label>Name</label>
                     <input type="text" class="form-control" v-model="control.fieldName"
                            data-toggle="tooltip" title="Field Name must be UNIQUE in Section!">
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 pl-1">
                 <div class="form-group">
                     <label>Width</label>
                     <select class="form-control" v-model="control.className">

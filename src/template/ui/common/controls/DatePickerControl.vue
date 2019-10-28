@@ -11,7 +11,7 @@
                        :readonly="control.readonly"
                        :name="control.fieldName">
 
-                <div class="input-group-append">
+                <div class="input-group-append" style="height: calc(1.5em + 0.75rem + 3px);">
                         <span class="input-group-text">
                             <font-awesome-icon :icon="icon"></font-awesome-icon>
                         </span>
@@ -28,7 +28,7 @@
                            :readonly="control.readonly"
                            :name="control.fieldName">
 
-                    <div class="input-group-append">
+                    <div class="input-group-append" style="height: calc(1.5em + 0.75rem + 3px);">
                         <span class="input-group-text">
                             <font-awesome-icon :icon="icon"></font-awesome-icon>
                         </span>

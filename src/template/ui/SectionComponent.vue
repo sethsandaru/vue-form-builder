@@ -2,13 +2,13 @@
     <div>
         <div class="row">
 
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <select class="form-control" v-model="form.layout">
                     <option value="" disabled selected>Select layout</option>
                     <option v-for="(value, key) in layouts" :value="key">{{value}} layout</option>
                 </select>
             </div>
-            <div class="col-md-10 text-right">
+            <div class="col-md-9 text-right">
                 <button class="btn btn-default" @click="preview">
                     <font-awesome-icon icon="image"/>
                     Preview
@@ -23,11 +23,11 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <input type="text" class="form-control" placeholder="Section Label" v-model="section.label">
                             </div>
-                            <div class="col-md-8 text-right">
-                                <p style="margin-top: 5px;">
+                            <div class="col-md-9 text-right">
+                                <p style="margin-top: 5px;font-size: 1.1rem;">
                                     <span class="pr-2 clickable" @click="addRow(index)"><font-awesome-icon icon="plus"/> Add Row</span>
                                     <span class="pr-2 clickable" @click="delSection(index)"><font-awesome-icon icon="times"/> Remove Section</span>
                                     <span class="pr-2 clickable" @click="configSection(index)"><font-awesome-icon icon="cog"/> Section Config</span>

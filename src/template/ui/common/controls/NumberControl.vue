@@ -12,7 +12,7 @@
                        :name="control.fieldName"
                        :value="demo_value">
 
-                <div class="input-group-append">
+                <div class="input-group-append" style="height: calc(1.5em + 0.75rem + 3px);">
                         <span class="input-group-text">
                             <font-awesome-icon :icon="icon"></font-awesome-icon>
                         </span>
@@ -30,7 +30,7 @@
                            :name="control.fieldName"
                            :value="demo_value">
 
-                    <div class="input-group-append">
+                    <div class="input-group-append" style="height: calc(1.5em + 0.75rem + 3px);">
                         <span class="input-group-text">
                             <font-awesome-icon :icon="icon"></font-awesome-icon>
                         </span>
