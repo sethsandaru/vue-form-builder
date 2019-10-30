@@ -167,18 +167,24 @@ FormHandler.validate = function (form) {
         }
     });
 
+    console.log('FormHandler.validate: ', ($("input.control-error").length > 0 || $(".select2-container .selection .select2-selection.control-error").length > 0));
+
     return ($("input.control-error").length > 0 || $(".select2-container .selection .select2-selection.control-error").length > 0);
 };
 
 var validate_static_form = function (sectionInfo) {
     // flatten rows
+    console.log('---------------------validate_static_form--------------------------');
+    console.log('sectionInfo.name: ', sectionInfo.name);
     var controls = flattenControlInRows(sectionInfo.rows);
     _.each(controls, controlInfo => {
+        console.log('controlInfo.required: ', controlInfo.required);
         if (!controlInfo.required) {
             return;
         }
 
         const value = getControlValue(controlInfo, `#${sectionInfo.name}_gui_body`);
+        console.log('controlInfo_Value: ', value, _.isEmpty(value))
         let checkValue = _.isEmpty(value);
         // In case the control returns a boolean value then we should check directly on the returned value
         if(typeof value === 'boolean') checkValue = !value;
@@ -196,10 +202,13 @@ var validate_static_form = function (sectionInfo) {
             }
         }
     });
+    console.log('---------------------validate_static_form--------------------------');
 };
 
 var validate_dynamic_form = function (sectionInfo) {
+    console.log('---------------------validate_dynamic_form--------------------------');
     _.each(sectionInfo.instances, (instance, insIndex) => {
+        console.log('sectionInfo.name: ', sectionInfo.name);
 
         // flatten rows
         var controls = flattenControlInRows(instance);
@@ -211,6 +220,7 @@ var validate_dynamic_form = function (sectionInfo) {
             }
 
             let value = getControlValue(controlInfo, `#${sectionInfo.name}_gui_body .rowDynamic_${insIndex}`);
+            console.log('controlInfo_Value: ', value, _.isEmpty(value))
             let checkValue = _.isEmpty(value);
             // In case the control returns a boolean value then we should check directly on the returned value
             if(typeof value === 'boolean') checkValue = !value;
@@ -229,6 +239,7 @@ var validate_dynamic_form = function (sectionInfo) {
             }
         });
     });
+    console.log('---------------------validate_dynamic_form--------------------------');
 };
 
 // re-structure (extend) to make sure the data is correct
