@@ -24,6 +24,29 @@ The library is built & ready for production but if you meet any bugs or issues, 
 Demo Online: http://vue-form-builder.sethphat.com    
 Demo Project: https://github.com/sethsandaru/demo-vue-form-builder
 
+## Big Announcement
+Hey guys, seem likes I have ignored the project for nearly 1 year. Still a lot of problems left to make the form become better, like:   
+- The library itself is too highly depended from many libraries. This cost us a lot (including the final bundle size, too heavy)
+- Multilingual - One of the must-have feature.
+- Better approaches in the library, implement most of the good features from Vue, less depend on JQuery,...
+- Extendable (yes it extendable, but still, not perfect enough)
+- ...
+
+I got a plan to build a new version which is **v2.0.0**, to rebuild the library and make it better.
+
+You can send me an email to: `vue-form-builder@sethphat.com`, I would love to receive your feedback, ideas for the next version of Vue Form Builder. Together for the better.
+
+### New Plan - v2.0.0
+- A new structural for the Vue-Form-Builder. New codebase, new everything new.
+- Still Vue, Still 2.5+
+- Less dependencies
+- Style Injection - not only Bootstrap, you can use any CSS Framework as you want, even your own CSS Styling.
+- More controls:
+    - Date Range (Start date - End date)
+    - File Upload (Interact with RestAPI)
+    - ... (your ideas here)
+- ...
+
 ## Current version
 Current latest version of the Vue Form Builder: **1.4.1-rc1**.
 
