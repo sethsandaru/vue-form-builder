@@ -1,7 +1,12 @@
 {
   "name": "v-form-builder",
   "version": "2.0.0",
-  "private": true,
+  "author": {
+    "email": "phattranminh@gmail.com",
+    "name": "Phat Tran",
+    "url": "https://sethphat.com"
+  },
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -42,5 +47,8 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "repository": {
+    "url": "https://github.com/sethsandaru/vue-form-builder.git"
+  }
 }
