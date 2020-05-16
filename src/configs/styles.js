@@ -25,6 +25,27 @@ const STYLES = {
         COL11: "col-md-11",
         COL12: "col-md-12",
     },
+
+    /**
+     * List Group Classes - Used in AddSectionVueControl
+     */
+    LIST_GROUP: {
+        CONTAINER: "list-group", // div.list-group
+        SINGLE_ITEM: "list-group-item list-group-item-action", //a[href=...].list-group-item.list-group-item-action
+    },
+
+    /**
+     * Button Classes
+     */
+    BUTTON: {
+        PRIMARY: "btn btn-primary",
+        SECONDARY: "btn btn-secondary",
+        DEFAULT: "btn btn-default",
+        SUCCESS: "btn btn-success",
+        DANGER: "btn btn-danger",
+        WARNING: "btn btn-warning",
+        INFO: "btn btn-info",
+    }
 };
 
 export {

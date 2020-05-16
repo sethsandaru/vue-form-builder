@@ -14,6 +14,7 @@ const CONTROLS = {
     dropDown: {},
     checkbox: {},
     radio: {},
+    label: {},
 };
 
 export {
