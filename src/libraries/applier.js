@@ -1,4 +1,6 @@
 import {SECTION_DEFAULT_DATA} from "@/configs/section";
+import {CONTROL_DEFAULT_DATA, CONTROLS} from "@/configs/controls";
+import {FORM_DEFAULT_DATA} from "@/configs/form";
 
 
 /**
@@ -7,7 +9,7 @@ import {SECTION_DEFAULT_DATA} from "@/configs/section";
  * @param {{formConfig: Object, sections: Array, controls: Object}} formConfigObject
  * @return {Object} Final Object that can always use with the Form-Builder/Renderer
  */
-const APPLIER = function(formConfigObject) {
+const dataApplier = function(formConfigObject) {
     let appliedObject = {
         formConfig: {},
         sections: [],
@@ -15,32 +17,50 @@ const APPLIER = function(formConfigObject) {
     };
 
     // Form-Config Apply
-    appliedObject.formConfig = Object.assign({}, formConfigObject.formConfig)
+    appliedObject.formConfig = Object.assign(FORM_DEFAULT_DATA, formConfigObject.formConfig)
 
     // Section Apply
     formConfigObject.sections.forEach(sectionObject => {
         appliedObject.sections.push(
-            extendSection(sectionObject)
+            baseObjectExtend(SECTION_DEFAULT_DATA, sectionObject)
         );
     });
+
+    // Control Apply
+    for (let [controlId, controlObject] of Object.entries(formConfigObject.controls)) {
+        // get type - pick up config of type - merge it with the base
+        let type = controlObject.type
+        let baseConfigOfType = CONTROLS[type].configData
+        let baseDefaultConfig = baseObjectExtend(CONTROL_DEFAULT_DATA, baseConfigOfType)
+
+        appliedObject.controls.push(
+            Object.assign(baseDefaultConfig, controlObject)
+        );
+    }
 
     return appliedObject
 }
 
 /**
- * Object Extendation...
- * @param sectionObj
- * @returns {any}
+ * From A Base Object - We Clone and Extending from a different Object
+ * @param {Object} baseObject
+ * @param {Object} fromObject
+ * @returns {Object}
  */
-function extendSection(sectionObj) {
-    const sectionData = cloneDeep(SECTION_DEFAULT_DATA)
-    return Object.assign(sectionData, sectionObj)
+function baseObjectExtend(baseObject, fromObject) {
+    const clonedData = cloneDeep(baseObject)
+    return Object.assign(clonedData, fromObject)
 }
 
+/**
+ * Deep-Clone an Object
+ * @param obj
+ * @returns {any}
+ */
 function cloneDeep(obj) {
     return JSON.parse(JSON.stringify(obj));
 }
 
 export {
-    APPLIER
+    dataApplier
 }

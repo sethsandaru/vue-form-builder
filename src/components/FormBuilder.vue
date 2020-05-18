@@ -16,6 +16,7 @@
     import {STYLES} from "@/configs/styles";
     import AddSectionControl from "@/views/builder/AddSectionControl";
     import {MAIN_CONSTANTS} from "@/configs";
+    import {dataApplier} from "@/libraries/applier";
 
     export default {
         name: "FormBuilder",
@@ -41,12 +42,15 @@
             addSection() {
 
             },
+
+            mapping(value) {
+                this.formData = dataApplier(value)
+            }
         },
 
         created() {
-            if (this.value) {
-                // TODO: merge the old value into the current structure
-                //
+            if (this.value && typeof this.value === 'object') {
+                this.mapping(this.value)
             }
         },
 
