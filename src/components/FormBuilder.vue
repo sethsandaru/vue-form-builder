@@ -3,6 +3,11 @@
         <!-- top configuration -->
 
         <!-- sections info -->
+        <SectionContainer v-for="(sectionData, index) in formData.sections"
+                          :section="sectionData"
+                          :rows="formData.rows"
+                          :controls="formData.controls"
+                          :key="sectionData.uniqueId" />
 
         <!-- below all -->
         <AddSectionControl @addSectionNotify="addSection" />
@@ -17,10 +22,12 @@
     import AddSectionControl from "@/views/builder/AddSectionControl";
     import {MAIN_CONSTANTS} from "@/configs";
     import {dataApplier} from "@/libraries/applier";
+    import {createNewSection} from "@/configs/section";
+    import SectionContainer from "@/views/builder/SectionContainer";
 
     export default {
         name: "FormBuilder",
-        components: {AddSectionControl},
+        components: {SectionContainer, AddSectionControl},
         props: {
             value: Object,
         },
@@ -32,19 +39,25 @@
             formData: {
                 formConfig: {},
                 sections: [],
-                controls: [],
+                rows: {},
+                controls: {},
             },
         }),
         methods: {
             /**
              * Push new Section Item into the Big Data
              */
-            addSection() {
-
+            addSection(sectionType) {
+                this.formData.sections.push(
+                    createNewSection(sectionType)
+                )
             },
 
+            /**
+             * Do Mapping Before Rendering
+             */
             mapping(value) {
-                this.formData = dataApplier(value)
+                this.formData = Object.assign({}, this.formData, dataApplier(value));
             }
         },
 

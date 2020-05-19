@@ -1,6 +1,7 @@
 import {SECTION_DEFAULT_DATA} from "@/configs/section";
 import {CONTROL_DEFAULT_DATA, CONTROLS} from "@/configs/controls";
 import {FORM_DEFAULT_DATA} from "@/configs/form";
+import {HELPER} from "@/libraries/helper";
 
 
 /**
@@ -13,6 +14,7 @@ const dataApplier = function(formConfigObject) {
     let appliedObject = {
         formConfig: {},
         sections: [],
+        rows: {},
         controls: {}
     };
 
@@ -48,17 +50,8 @@ const dataApplier = function(formConfigObject) {
  * @returns {Object}
  */
 function baseObjectExtend(baseObject, fromObject) {
-    const clonedData = cloneDeep(baseObject)
+    const clonedData = HELPER.cloneDeep(baseObject)
     return Object.assign(clonedData, fromObject)
-}
-
-/**
- * Deep-Clone an Object
- * @param obj
- * @returns {any}
- */
-function cloneDeep(obj) {
-    return JSON.parse(JSON.stringify(obj));
 }
 
 export {

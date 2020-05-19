@@ -3,6 +3,7 @@
         <p>+ Add New Section</p>
 
         <div :class="cssClasses.LIST_GROUP.CONTAINER" v-show="show">
+
             <a href="javascript:void(0)"
                :class="cssClasses.LIST_GROUP.SINGLE_ITEM"
                v-for="(sectionInfo, sectionKey) in sectionTypes"
@@ -12,6 +13,7 @@
                 <p class="type-desc" v-text="sectionInfo.description"></p>
 
             </a>
+
         </div>
     </div>
 </template>
