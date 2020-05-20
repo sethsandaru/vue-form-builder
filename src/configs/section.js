@@ -42,8 +42,15 @@ const SECTION_TYPES = {
  */
 const SECTION_DEFAULT_DATA = {
     uniqueId: '',
+
     headline: '',
+    headlineAdditionalClass: '',
+
     subHeadline: '',
+    subHeadlineAdditionalClass: '',
+
+    isShowHeadline: true,
+
     type: '',
     rows: [], // array of rowId
 };

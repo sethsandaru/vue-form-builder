@@ -1,5 +1,5 @@
 <template>
-    <div class="add-section-container" :class="cssClasses.COLUMNS.COL12" @click="showOption">
+    <div class="add-control-container" :class="cssClasses.COLUMNS.COL12" @click="showOption">
         <p>+ Add New Section</p>
 
         <div :class="cssClasses.LIST_GROUP.CONTAINER" v-show="show">
@@ -45,21 +45,6 @@
 </script>
 
 <style scoped>
-    .add-section-container {
-        margin-top: 30px;
-        border: 3px rgba(0,0,0, .4) dotted;
-        padding: 40px;
-        user-select: none;
-        font-size: 18px;
-        position: relative;
-        text-align: center;
-    }
-
-    .add-section-container:hover {
-        border-color: aqua;
-        cursor: pointer;
-    }
-
     .type-desc {
         font-size: 14px;
     }
