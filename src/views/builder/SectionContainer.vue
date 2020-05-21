@@ -1,5 +1,6 @@
 <template>
     <div class="section-container">
+        <SectionConfig :section="section" />
 
         <component :is="sectionViewComponent"
                    :section="section"
@@ -12,9 +13,11 @@
 
 <script>
     import {SECTION_TYPES} from "@/configs/section";
+    import SectionConfig from "@/views/builder/SectionConfig";
 
     export default {
         name: "SectionContainer",
+        components: {SectionConfig},
         props: {
             section: Object,
             rows: Object,
@@ -30,7 +33,4 @@
 </script>
 
 <style scoped>
-    .section-container {
-
-    }
 </style>

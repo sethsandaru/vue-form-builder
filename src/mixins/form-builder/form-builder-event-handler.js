@@ -32,10 +32,10 @@ const FORM_BUILDER_EVENT_HANDLER = {
 
     created() {
         // section events
-        this.$event.$on(EVENT_CONSTANTS.BUILDER.SECTION.ADDED_ROW, this.sectionAndRowMapping)
+        this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SECTION.ADDED_ROW, this.sectionAndRowMapping)
 
         // row events
-        this.$event.$on(EVENT_CONSTANTS.BUILDER.ROW.CREATE, this.rowNewAdded)
+        this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.ROW.CREATE, this.rowNewAdded)
 
         // control events
     }

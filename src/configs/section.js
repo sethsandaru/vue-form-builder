@@ -55,6 +55,7 @@ const SECTION_DEFAULT_DATA = {
 
     isShowHeadline: true,
 
+    sortOrder: 0,
     type: '',
     rows: [], // array of rowId
 };
@@ -62,8 +63,9 @@ const SECTION_DEFAULT_DATA = {
 /**
  * Create new Section
  * @param type
+ * @param sortOrder
  */
-function createNewSection(type) {
+function createNewSection(type, sortOrder = 0) {
     if (!SECTION_TYPES[type]) {
         throw new TypeError(`Section Type: ${type} doesn't exists in Vue-Form-Builder`);
     }
@@ -72,6 +74,9 @@ function createNewSection(type) {
     let newSectionData = HELPER.cloneDeep(SECTION_DEFAULT_DATA)
     newSectionData.type = type
     newSectionData.uniqueId = "section-" + HELPER.getUUIDv4()
+    newSectionData.headline = "New Section"
+    newSectionData.subHeadline = "This is the sub-headline of the new section"
+    newSectionData.sortOrder = sortOrder
 
     return newSectionData;
 }

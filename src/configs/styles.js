@@ -11,6 +11,8 @@ const STYLES = {
         NORMAL: "container"
     },
 
+    ROW: "row",
+
     COLUMNS: {
         COL1: "col-md-1",
         COL2: "col-md-2",

@@ -12,3 +12,31 @@
     border-color: aqua;
     cursor: pointer;
 }
+
+.section-container {
+    position: relative;
+}
+
+.section-container:hover {
+    border: 2px solid #3498db;
+}
+
+.section-container .section-config {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: none;
+}
+
+.section-container:hover .section-config {
+    display: block;
+}
+
+.buttons > button {
+    margin-right: 5px;
+}
+
+.normal-section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

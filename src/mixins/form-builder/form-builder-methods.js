@@ -24,10 +24,18 @@ const FORM_BUILDER_METHODS = {
         },
 
         /**
+         * Create Default Form-Config-Data on a new section...
+         */
+        createDefaultData() {
+            this.formData = Object.assign({}, dataApplier(this.formData));
+        },
+
+        /**
          * Push new Section Item into the Big Data
          */
         addSection(sectionType) {
-            let sectionObject = createNewSection(sectionType)
+            let newSortOrder = Object.keys(this.formData.sections).length + 1;
+            let sectionObject = createNewSection(sectionType, newSortOrder)
 
             // we have to push it from $set otherwise it will break (LOL)
             this.$set(this.formData.sections, sectionObject.uniqueId, sectionObject)

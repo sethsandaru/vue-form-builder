@@ -35,13 +35,4 @@
         padding-top: 5px;
         padding-bottom: 5px;
     }
-
-    .normal-section {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-
-    .normal-section:hover {
-        border: 2px solid #3498db;
-    }
 </style>

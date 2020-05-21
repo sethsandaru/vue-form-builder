@@ -29,8 +29,8 @@ const SECTION_VIEW_MIXINS = {
             let newRowObject = createNewRow(rowType);
 
             // Parent-Handle: Add Row | Push ID into Section.rows
-            this.$event.$emit(EVENT_CONSTANTS.BUILDER.ROW.CREATE, newRowObject)
-            this.$event.$emit(EVENT_CONSTANTS.BUILDER.SECTION.ADDED_ROW, this.section.uniqueId, newRowObject.uniqueId)
+            this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.ROW.CREATE, newRowObject)
+            this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SECTION.ADDED_ROW, this.section.uniqueId, newRowObject.uniqueId)
         },
 
         /**

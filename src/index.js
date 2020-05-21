@@ -6,13 +6,17 @@ export function install(Vue) {
     if (install.installed) return;
     install.installed = true;
 
+    // DI for Form-Builder
+    Vue.prototype.$formEvent = new Vue();
+
+    // Register Form-Components
     Vue.component('FormBuilder', FormBuilder);
     Vue.component('FormRenderer', FormRenderer);
 }
 
 // Create module definition for Vue.use()
 const plugin = {
-    install,
+    install
 };
 
 // Auto-install when vue is found (eg. in browser via <script> tag)

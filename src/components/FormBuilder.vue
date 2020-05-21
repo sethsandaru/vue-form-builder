@@ -1,6 +1,7 @@
 <template>
-    <div :class="containerClass">
+    <div :class="[styles.CONTAINER.FLUID, 'form-padding']">
         <!-- top configuration -->
+        <FormConfiguration v-model="formData.formConfig" />
 
         <!-- sections info -->
         <SectionContainer v-for="(sectionData) in sortedSections"
@@ -23,18 +24,12 @@
     import {MAIN_CONSTANTS} from "@/configs";
     import SectionContainer from "@/views/builder/SectionContainer";
     import FormBuilderBusiness from "@/mixins/form-builder-mixins";
+    import FormConfiguration from "@/views/builder/FormConfiguration";
 
     export default {
         name: "FormBuilder",
-        components: {SectionContainer, AddSectionControl},
+        components: {FormConfiguration, SectionContainer, AddSectionControl},
         mixins: FormBuilderBusiness,
-        props: {
-            value: Object,
-        },
-        model: {
-            event: "change",
-            props: "value"
-        },
         data: () => ({
             formData: {
                 formConfig: {},
@@ -52,6 +47,8 @@
             if (this.value && typeof this.value === 'object') {
                 this.mapping(this.value)
                 this.doSortSection()
+            } else {
+                this.createDefaultData()
             }
         },
 
@@ -59,9 +56,7 @@
             /**
              *  Main Container Class for the Form.
              */
-            containerClass() {
-                return STYLES.CONTAINER.FLUID
-            },
+            styles: () => STYLES,
 
             /**
              * Copyright Text
@@ -80,5 +75,9 @@
         color: rgba(0,0,0,.4);
         font-size: 13px;
         text-align: center;
+    }
+
+    .form-padding {
+        padding-top: 20px;
     }
 </style>
