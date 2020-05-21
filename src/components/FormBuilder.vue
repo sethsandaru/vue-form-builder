@@ -3,7 +3,7 @@
         <!-- top configuration -->
 
         <!-- sections info -->
-        <SectionContainer v-for="(sectionData, index) in formData.sections"
+        <SectionContainer v-for="(sectionData) in sortedSections"
                           :section="sectionData"
                           :rows="formData.rows"
                           :controls="formData.controls"
@@ -21,13 +21,13 @@
     import {STYLES} from "@/configs/styles";
     import AddSectionControl from "@/views/builder/AddSectionControl";
     import {MAIN_CONSTANTS} from "@/configs";
-    import {dataApplier} from "@/libraries/applier";
-    import {createNewSection} from "@/configs/section";
     import SectionContainer from "@/views/builder/SectionContainer";
+    import FormBuilderBusiness from "@/mixins/form-builder-mixins";
 
     export default {
         name: "FormBuilder",
         components: {SectionContainer, AddSectionControl},
+        mixins: FormBuilderBusiness,
         props: {
             value: Object,
         },
@@ -38,32 +38,20 @@
         data: () => ({
             formData: {
                 formConfig: {},
-                sections: [],
+                sections: {},
                 rows: {},
                 controls: {},
             },
         }),
-        methods: {
-            /**
-             * Push new Section Item into the Big Data
-             */
-            addSection(sectionType) {
-                this.formData.sections.push(
-                    createNewSection(sectionType)
-                )
-            },
 
-            /**
-             * Do Mapping Before Rendering
-             */
-            mapping(value) {
-                this.formData = Object.assign({}, this.formData, dataApplier(value));
-            }
+        methods: {
+
         },
 
         created() {
             if (this.value && typeof this.value === 'object') {
                 this.mapping(this.value)
+                this.doSortSection()
             }
         },
 

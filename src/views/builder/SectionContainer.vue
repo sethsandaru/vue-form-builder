@@ -25,7 +25,7 @@
             sectionViewComponent() {
                 return SECTION_TYPES[this.section.type].builderView
             }
-        }
+        },
     }
 </script>
 

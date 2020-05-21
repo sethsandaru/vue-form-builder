@@ -7,6 +7,7 @@ import {HELPER} from "@/libraries/helper";
 import NormalSectionView from "@/views/builder/section-views/NormalSectionView";
 import TableSectionView from "@/views/builder/section-views/TableSectionView";
 import ToggleableSectionView from "@/views/builder/section-views/ToggleableSectionView";
+import {ROW_TYPES} from "@/configs/row";
 
 
 const SECTION_TYPES = {
@@ -15,6 +16,7 @@ const SECTION_TYPES = {
         description: "Normal block with a headline",
         value: 'normal',
 
+        rowType: ROW_TYPES.normal,
         builderView: NormalSectionView
     },
 
@@ -23,6 +25,7 @@ const SECTION_TYPES = {
         description: "Section block with toggle (display/hide) feature",
         value: 'toggleable',
 
+        rowType: ROW_TYPES.normal,
         builderView: ToggleableSectionView
     },
 
@@ -31,6 +34,7 @@ const SECTION_TYPES = {
         description: "Section block built from a table with 2 column",
         value: 'table',
 
+        rowType: ROW_TYPES.tableRow,
         builderView: TableSectionView
     },
 

@@ -1,4 +1,7 @@
 import AddRowControl from "@/views/builder/AddRowControl";
+import {createNewRow} from "@/configs/row";
+import {SECTION_TYPES} from "@/configs/section";
+import {EVENT_CONSTANTS} from "@/configs/events";
 
 const SECTION_VIEW_MIXINS = {
     components: {AddRowControl},
@@ -6,6 +9,9 @@ const SECTION_VIEW_MIXINS = {
         section: Object,
         rows: Object,
     },
+    data: () => ({
+        sortedRows: [],
+    }),
 
     methods: {
         /**
@@ -16,32 +22,40 @@ const SECTION_VIEW_MIXINS = {
          * @emitKey addRowNotify
          */
         addRow() {
-            // TODO: Create new Row Object
+            // get rowType of Section
+            let rowType = SECTION_TYPES[this.section.type].rowType;
 
-            // TODO: Add it into row object
+            // Create new Row Object - BUSS: New Object
+            let newRowObject = createNewRow(rowType);
 
-            // TODO: assign the ID into section.rows
+            // Parent-Handle: Add Row | Push ID into Section.rows
+            this.$event.$emit(EVENT_CONSTANTS.BUILDER.ROW.CREATE, newRowObject)
+            this.$event.$emit(EVENT_CONSTANTS.BUILDER.SECTION.ADDED_ROW, this.section.uniqueId, newRowObject.uniqueId)
         },
-    },
 
-    computed: {
         /**
-         * Computing rows belong to the current section
-         * @returns rows[]
+         * Sort rows before rendering/after added/deleted/... row
          */
-        sectionRows() {
-            let rows = [];
+        doSortRows() {
+            this.sortedRows = [];
 
-            // we traverse all the section and pick it by ID
+            // get all rows belong to this section hehe
             this.section.rows.forEach(rowId => {
                 if (this.rows[rowId]) {
-                    rows.push(this.rows[rowId])
+                    this.sortedRows.push(this.rows[rowId])
                 }
             })
 
-            return rows;
+            // then sort it...
+            this.sortedRows.sort((a, b) => {
+                return a.sortOrder - b.sortOrder;
+            })
         }
-    }
+    },
+
+    created() {
+        this.doSortRows()
+    },
 };
 
 export {
