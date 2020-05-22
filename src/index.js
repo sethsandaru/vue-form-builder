@@ -1,12 +1,16 @@
 // Declare install function executed by Vue.use()
 import FormBuilder from "./components/FormBuilder";
 import FormRenderer from "./components/FormRenderer";
+import {FormIcon} from "@/libraries/icon-facade";
 
 export function install(Vue) {
     if (install.installed) return;
     install.installed = true;
 
     // DI for Form-Builder
+    Vue.prototype.$form = {
+        getIcon: FormIcon.getSVG
+    };
     Vue.prototype.$formEvent = new Vue();
 
     // Register Form-Components

@@ -26,7 +26,7 @@ const FORM_BUILDER_EVENT_HANDLER = {
          * @param rowObject
          */
         rowNewAdded(rowObject) {
-            this.rows[rowObject.uniqueId] = rowObject
+            this.formData.rows[rowObject.uniqueId] = rowObject
         }
     },
 

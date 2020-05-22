@@ -9,8 +9,12 @@
 }
 
 .add-control-container:hover {
-    border-color: aqua;
+    border-color: #4834d4;
     cursor: pointer;
+}
+
+.add-control-container:hover > p {
+    font-weight: bold;
 }
 
 .section-container {
@@ -39,4 +43,31 @@
 .normal-section {
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.vue-form-builder .row-block {
+    background-color: #bdc3c7;
+    border-radius: 5px;
+    padding: 30px 20px;
+    margin: 15px;
+}
+
+.add-row-outer {
+    margin-top: 15px;
+    padding: 0 15px;
+}
+
+.vue-form-builder .add-row-container {
+    border: 3px rgba(0,0,0, .4) dotted;
+    padding: 40px;
+    user-select: none;
+    font-size: 18px;
+    position: relative;
+    text-align: center;
+}
+
+.vue-form-builder .add-row-container:hover {
+    border-color: #badc58;
+    cursor: pointer;
+    font-weight: bold;
 }

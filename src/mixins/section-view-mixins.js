@@ -31,6 +31,9 @@ const SECTION_VIEW_MIXINS = {
             // Parent-Handle: Add Row | Push ID into Section.rows
             this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.ROW.CREATE, newRowObject)
             this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SECTION.ADDED_ROW, this.section.uniqueId, newRowObject.uniqueId)
+
+            // sort again, please
+            this.doSortRows()
         },
 
         /**

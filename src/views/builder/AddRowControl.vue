@@ -1,6 +1,8 @@
 <template>
-    <div class="add-control-container" :class="cssClasses.COLUMNS.COL12" @click="addNew">
-        <span>+ Add Row</span>
+    <div class="add-row-outer">
+        <div class="add-row-container" :class="cssClasses.COLUMNS.COL12" @click="addNew">
+            <span>+ Add Row</span>
+        </div>
     </div>
 </template>
 
@@ -27,7 +29,4 @@
 </script>
 
 <style scoped>
-    .add-control-container {
-        padding: 30px;
-    }
 </style>

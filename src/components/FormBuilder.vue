@@ -1,5 +1,5 @@
 <template>
-    <div :class="[styles.CONTAINER.FLUID, 'form-padding']">
+    <div :class="[styles.CONTAINER.FLUID, 'form-padding', 'vue-form-builder']">
         <!-- top configuration -->
         <FormConfiguration v-model="formData.formConfig" />
 

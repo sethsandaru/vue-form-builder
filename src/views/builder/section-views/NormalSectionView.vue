@@ -6,7 +6,9 @@
         </div>
 
         <!-- Rows -->
-        
+        <NormalRowView v-for="(rowObject, index) in sortedRows"
+                       :key="rowObject.uniqueId"
+                       :row="rowObject"/>
 
         <!-- Add More Row? -->
         <AddRowControl @addRowNotify="addRow" />
@@ -15,6 +17,7 @@
 
 <script>
     import {SECTION_VIEW_MIXINS} from "@/mixins/section-view-mixins";
+    import NormalRowView from "@/views/builder/row-views/NormalRowView";
 
     /**
      * @property {Object} section
@@ -23,6 +26,7 @@
      */
     export default {
         name: "NormalSectionView",
+        components: {NormalRowView},
         mixins: [SECTION_VIEW_MIXINS],
         methods: {
 
