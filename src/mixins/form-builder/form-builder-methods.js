@@ -31,13 +31,13 @@ const FORM_BUILDER_METHODS = {
         },
 
         /**
-         * Push new Section Item into the Big Data
+         * Create a new Blank Section into the Big `sections`
          */
         addSection(sectionType) {
             let newSortOrder = Object.keys(this.formData.sections).length + 1;
             let sectionObject = createNewSection(sectionType, newSortOrder)
 
-            // we have to push it from $set otherwise it will break (LOL)
+            // we have to push it from $set otherwise it will not reactive (LOL)
             this.$set(this.formData.sections, sectionObject.uniqueId, sectionObject)
             this.doSortSection()
         },

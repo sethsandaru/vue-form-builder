@@ -7,11 +7,11 @@ const CONTROLS = {
     input: {
         name: "Input Field",
         description: "Simple field which let user input their own text, single line.",
-        icon: 'edit-pencil.svg', // I only use SVG, please respect and follow the rule
+        icon: 'editPencil', // Follow ICON in `icon-facade.js` to see how it works.
 
         // config data for the input field - it will be merge with the CONTROL_DEFAULT_DATA
         configData: {
-
+            validateEmail: false,
         },
     },
     number: {},
@@ -33,12 +33,15 @@ const LABEL_DIRECTION = {
 
 const CONTROL_DEFAULT_DATA = {
     // default configuration
-    'uniqueId': '',
+    'uniqueId': '', // :id
     'type': '', // control type...
+    'name': '', // :name
+
     'label': '',
     'subLabel': '',
     'isShowDefaultLabel': false,
     'labelDirection': LABEL_DIRECTION.top, // top-left
+
     'sortOrder': 0,
     'containerClass': '',
 

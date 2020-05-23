@@ -6,7 +6,7 @@
         </div>
 
         <!-- Rows -->
-        <NormalRowView v-for="(rowObject, index) in sortedRows"
+        <NormalRowView v-for="(rowObject) in sortedRows"
                        :key="rowObject.uniqueId"
                        :row="rowObject"/>
 
@@ -33,10 +33,3 @@
         },
     }
 </script>
-
-<style scoped>
-    .p5 {
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-</style>

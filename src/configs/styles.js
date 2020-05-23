@@ -1,7 +1,10 @@
 /**
  * Styling for Vue-Form-Builder
  * Mostly it about the Container class.
- * @note The classes can be re-placed in run-time version.
+ * <note>
+ * The classes can be re-placed in run-time (For other CSS framework if you want)
+ * But the main ideas is following Bootstrap, hopefully yours framework is have a same structural.
+ * </note>
  * @author Phat Tran
  */
 
@@ -47,7 +50,18 @@ const STYLES = {
         DANGER: "btn btn-danger",
         WARNING: "btn btn-warning",
         INFO: "btn btn-info",
-    }
+    },
+
+    /**
+     * Form Classes
+     */
+    FORM: {
+        FORM_GROUP: "form-group",
+        INPUT_GROUP: "input-group",
+        FORM_CONTROL: "form-control",
+    },
+
+
 };
 
 export {

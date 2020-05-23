@@ -1,6 +1,6 @@
 <template>
     <div class="row-block">
-        Hello World
+
     </div>
 </template>
 

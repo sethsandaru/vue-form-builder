@@ -1,6 +1,6 @@
 <template>
     <div class="section-container">
-        <SectionConfig :section="section" />
+        <SectionNavigationBar :section="section" />
 
         <component :is="sectionViewComponent"
                    :section="section"
@@ -13,11 +13,11 @@
 
 <script>
     import {SECTION_TYPES} from "@/configs/section";
-    import SectionConfig from "@/views/builder/SectionConfig";
+    import SectionNavigationBar from "@/views/builder/SectionNavigationBar";
 
     export default {
         name: "SectionContainer",
-        components: {SectionConfig},
+        components: {SectionNavigationBar},
         props: {
             section: Object,
             rows: Object,

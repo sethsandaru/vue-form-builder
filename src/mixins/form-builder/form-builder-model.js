@@ -17,11 +17,27 @@ const FORM_BUILDER_MODEL = {
         props: "value"
     },
     watch: {
+        /**
+         * For Update New Configuration After User Changed the Form
+         */
         formData: {
             deep: true, // deep watcher - because we have a long-tree object
             handler(newFormData) {
                 this.$emit(EMIT_EVENT, newFormData)
-            },
+            }
+        },
+
+        /**
+         * For Update the New Configuration After User Applied new DATA into v-model
+         */
+        value: {
+            deep:true,
+            handler(newFormData) {
+                if (newFormData) {
+                    return
+                }
+                this.mapping(newFormData)
+            }
         }
     },
 };

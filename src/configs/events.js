@@ -11,12 +11,25 @@ const EVENT_CONSTANTS = {
     BUILDER: {
         SECTION: {
             ADDED_ROW: "builder.section.added_row",
+            DELETE: "builder.section.delete",
+
+            // section sort
+            PUSH: "builder.section.push"
         },
         ROW: {
             CREATE: "builder.row.add",
             UPDATE: "builder.row.update",
-            DELETE: "builder.row.update",
+            DELETE: "builder.row.delete",
         },
+
+        /**
+         * GLOBAL SIDEBAR EVENTS
+         */
+        SIDEBAR: {
+            INJECT: "builder.sidebar.inject",
+            OPEN: "builder.sidebar.open",
+            AFTER_CLOSED: "builder.sidebar.after_closed",
+        }
     },
 
     /**

@@ -1,21 +1,35 @@
 /**
- * Form-Icon-Facade is a lightweight library to help you retrieve
+ * Form-Icon-Facade is a lightweight library to help you retain ICON inside Form-Builder v2
  * @author Phat Tran <phattranminh96@gmail.com>
+ * @license From Zondicons of Steve Schoger. Thanks very much for the beautiful/lightweight icons
+ * @iconHomePage https://www.zondicons.com/
  */
 import {ARROW_UP_ICON} from "@/libraries/icons/arrow-up.icon";
 import {ARROW_DOWN_ICON} from "@/libraries/icons/arrow-down.icon";
 import {EDIT_PENCIL_ICON} from "@/libraries/icons/edit-pencil.icon";
 import {COG_ICON} from "@/libraries/icons/cog.icon";
+import {ADD_OUTLINE_ICON} from "@/libraries/icons/add-outline.icon";
+import {CLOSE_ICON} from "@/libraries/icons/close.icon";
 
 
 const ICONS = {
+    addOutline: ADD_OUTLINE_ICON,
     arrowUp: ARROW_UP_ICON,
     arrowDown: ARROW_DOWN_ICON,
     editPencil: EDIT_PENCIL_ICON,
-    cog: COG_ICON
+    cog: COG_ICON,
+    close: CLOSE_ICON
 }
 
 const FormIcon = {
+    /**
+     * Get SVG Icon for Form-Builder
+     * @param {String} iconName
+     * @param {String} width - Width with px (Eg: 16px)
+     * @param {String} height - Height with px (Eg: 16px)
+     * @param {String} fillColor - Hex Color String (Eg: #ffffff)
+     * @returns {string} of SVG HTML TAG
+     */
     getSVG(
         iconName,
         width = '16px',

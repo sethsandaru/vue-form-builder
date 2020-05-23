@@ -21,6 +21,34 @@ HELPER.getUUIDv4 = function() {
     );
 }
 
+/**
+ * Find inside object/array by a specific rule
+ * @param {Array|Object} collection
+ * @param {string} ruleKey
+ * @param {string} value
+ * @returns {any|undefined} first item that matched the rule or undefined
+ * @complexity O(n) for normal cases, best case will be O(1) or O(logn)
+ */
+HELPER.find = function(collection, ruleKey, value) {
+
+    // Only array has `length` property
+    if (collection.length) {
+        // array
+        return collection.find(item => item[ruleKey] == value)
+    }
+
+    // object traversal
+    let keys = Object.keys(collection)
+    for (const objKey of keys) {
+        let data = collection[objKey]
+        if (data && data[ruleKey] == value) {
+            return data;
+        }
+    }
+
+    return undefined
+}
+
 export {
     HELPER
 }

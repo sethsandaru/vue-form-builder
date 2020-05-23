@@ -13,6 +13,8 @@
         <!-- below all -->
         <AddSectionControl @addSectionNotify="addSection" />
 
+        <!-- global stuff -->
+        <GlobalSidebar />
 
         <p class="copyright" v-text="copyrightText"></p>
     </div>
@@ -25,10 +27,11 @@
     import SectionContainer from "@/views/builder/SectionContainer";
     import FormBuilderBusiness from "@/mixins/form-builder-mixins";
     import FormConfiguration from "@/views/builder/FormConfiguration";
+    import GlobalSidebar from "@/views/builder/GlobalSidebar";
 
     export default {
         name: "FormBuilder",
-        components: {FormConfiguration, SectionContainer, AddSectionControl},
+        components: {GlobalSidebar, FormConfiguration, SectionContainer, AddSectionControl},
         mixins: FormBuilderBusiness,
         data: () => ({
             formData: {
@@ -38,10 +41,6 @@
                 controls: {},
             },
         }),
-
-        methods: {
-
-        },
 
         created() {
             if (this.value && typeof this.value === 'object') {
@@ -53,11 +52,6 @@
         },
 
         computed: {
-            /**
-             *  Main Container Class for the Form.
-             */
-            styles: () => STYLES,
-
             /**
              * Copyright Text
              * @returns {string}
