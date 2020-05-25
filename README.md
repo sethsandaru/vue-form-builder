@@ -25,6 +25,12 @@ Demo Online: http://vue-form-builder.sethphat.com
 Demo Project: https://github.com/sethsandaru/demo-vue-form-builder
 
 ## Big Announcement
+
+### Preview v2.0.0
+
+Here: https://vue-form-builder.herokuapp.com/
+
+### Announcement
 Hey guys, seem likes I have ignored the project for nearly 1 year. Still a lot of problems left to make the form become better, like:   
 - The library itself is too highly depended from many libraries. This cost us a lot (including the final bundle size, too heavy)
 - Multilingual - One of the must-have feature.
