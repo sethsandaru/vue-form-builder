@@ -1,6 +1,6 @@
 <template>
     <div class="normal-section">
-        <div class="p5" v-show="section.isShowHeadline">
+        <div class="headline-block p5" v-show="section.isShowHeadline">
             <h2 :class="section.headlineAdditionalClass" v-text="section.headline"></h2>
             <p :class="section.subHeadlineAdditionalClass" v-text="section.subHeadline"></p>
         </div>

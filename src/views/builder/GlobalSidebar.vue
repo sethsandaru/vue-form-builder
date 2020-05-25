@@ -37,15 +37,23 @@
              * Close the right sidebar
              * @hook After Closed - Fire an Event to notify (maybe someone will listen :v )
              */
-            close(specialData = {}) {
+            close(emitData = false, specialData = {}) {
                 this.$el.style.width = 0
                 document.getElementsByTagName("body")[0].style.marginRight = 0
 
-                // fire event after closed
-                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED, {
-                    runnerId: this.runnerId,
-                    data: Object.assign(this.dynamicData, specialData)
-                })
+                // fire event after closed (if emit == true)
+                if (emitData) {
+                    this.$formEvent.$emit(
+                        EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED,
+                        this.runnerId,
+                        Object.assign({}, this.dynamicData, specialData)
+                    )
+                }
+
+                // remove renderer
+                this.component = null
+                this.dynamicData = {}
+                this.runnerId = null
             },
 
             /**
@@ -53,7 +61,7 @@
              * @param {SidebarRenderer} rendererInfo - data that will be assigned for the Component
              */
             updateBody(rendererInfo) {
-                this.$set(this.dynamicData, rendererInfo.data)
+                this.dynamicData = Object.assign({}, this.dynamicData, rendererInfo.data)
                 this.component = rendererInfo.component
                 this.runnerId = rendererInfo.runnerId
             }

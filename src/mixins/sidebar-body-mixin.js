@@ -9,9 +9,24 @@ const SIDEBAR_BODY_MIXIN = {
     },
 
     methods: {
+        /**
+         * Close the sidebar without fire any events
+         */
         close() {
-            this.$emit('close')
+            this.$emit(this.emitCloseKey, false)
         }
+    },
+
+    computed: {
+        /**
+         * Emit to parent to close the sidebar
+         * @returns {string}
+         */
+        emitCloseKey() {
+            return 'close'
+        },
+
+
     }
 }
 

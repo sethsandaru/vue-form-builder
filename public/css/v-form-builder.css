@@ -81,6 +81,10 @@
     padding-bottom: 10px;
 }
 
+.normal-section .headline-block {
+    padding: 0 15px;
+}
+
 .vue-form-builder .row-block {
     background-color: rgba(0,0,0,.2);
     border-radius: 5px;
@@ -141,4 +145,8 @@ body {
 
 .vue-form-builder .sidebar-form-configuration {
     padding: 15px;
+}
+
+.vue-form-builder .sidebar-form-configuration .buttons {
+    text-align: right;
 }

@@ -14,10 +14,15 @@
     import SidebarRenderer from "@/libraries/sidebar-renderer.class";
     import SidebarFormConfiguration from "@/views/builder/sidebar-config-views/SidebarFormConfiguration";
 
+    const RUNNER_ID = 'FormConfiguration'
+
     export default {
         name: "FormConfiguration",
         components: {SidebarFormConfiguration},
         mixins: [STYLE_INJECTION_MIXIN],
+        props: {
+            value: Object
+        },
         model: {
             event: 'change',
             props: 'value'
@@ -38,11 +43,30 @@
              */
             renderSidebar() {
                 this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.INJECT, new SidebarRenderer(
-                    'FormConfiguration',
+                    RUNNER_ID,
                     SidebarFormConfiguration,
                     this.value
                 ));
+            },
+
+            /**
+             * Handle Saving the Form Configuration
+             * @param {string} runnerId
+             * @param {Object} data
+             */
+            saveConfiguration(runnerId, data) {
+                // does it out of scope? if it does, stop
+                if (runnerId !== RUNNER_ID) {
+                    return
+                }
+
+                let newValue = Object.assign({}, this.value, data)
+                this.$emit('change', newValue) // run this to update v-model
             }
+        },
+
+        created() {
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED, this.saveConfiguration);
         }
     }
 </script>
