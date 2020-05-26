@@ -49,11 +49,11 @@
         </div>
 
         <div class="buttons">
-            <button :class="styles.BUTTON.SECONDARY" @click="close">
-                Cancel
-            </button>
-            <button :class="styles.BUTTON.PRIMARY" @click="save">
+            <button :class="styles.BUTTON.PRIMARY" @click="save(false)">
                 Save
+            </button>
+            <button :class="styles.BUTTON.INFO" @click="save(true)">
+                Save & Close
             </button>
         </div>
     </div>
@@ -78,8 +78,12 @@
             /**
              * Save the configuration (Actually I will close the sidebar and emit event =)) )
              */
-            save() {
-                this.$emit(this.emitCloseKey, true, this.formConfiguration)
+            save(close = false) {
+                if (close) {
+                    this.$emit(this.emitCloseKey, true, this.formConfiguration)
+                } else {
+                    this.$emit(this.emitSaveKey, this.formConfiguration)
+                }
             },
         },
 

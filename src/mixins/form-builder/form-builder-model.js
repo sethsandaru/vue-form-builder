@@ -7,6 +7,7 @@
  *  @author Phat Tran <phattranminh96@gmail.com>
  */
 const EMIT_EVENT = "change";
+const deepEqual = require('deep-equal') // TO CHECK THE DEEPEST VALUES OF THE FORM...
 
 const FORM_BUILDER_MODEL = {
     props: {
@@ -16,6 +17,7 @@ const FORM_BUILDER_MODEL = {
         event: EMIT_EVENT,
         props: "value"
     },
+
     watch: {
         /**
          * For Update New Configuration After User Changed the Form
@@ -32,11 +34,25 @@ const FORM_BUILDER_MODEL = {
          */
         value: {
             deep:true,
-            handler(newFormData) {
-                if (newFormData) {
+            handler(newFormData, oldFormData) {
+                // because this is in the initialize => no data at first
+                if (typeof oldFormData === 'undefined') {
                     return
                 }
-                this.mapping(newFormData)
+
+                // we have to create a new formConfig for the "unexpected value" like: {}, null, undefined
+                // only available for null and empty object data
+                if (!newFormData || !Object.keys(newFormData).length) {
+                    return this.mapping()
+                }
+
+                // this time object have data, we have to make sure everything
+                if (deepEqual(newFormData, oldFormData)) {
+                    return
+                }
+
+                // okay this time object is fully new and we need to do mapping again
+                return this.mapping(newFormData)
             }
         }
     },

@@ -9,6 +9,7 @@
         <component v-if="component"
                    :is="component"
                    :dataPackage="dynamicData"
+                   @save="save"
                    @close="close"
         />
     </div>
@@ -34,6 +35,18 @@
             },
 
             /**
+             * Save - Emitting data to the listener but do not close the sidebar
+             * @hook Emit Data to the Listener
+             */
+            save(specialData = {}) {
+                this.$formEvent.$emit(
+                    EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED,
+                    this.runnerId,
+                    Object.assign({}, this.dynamicData, specialData)
+                )
+            },
+
+            /**
              * Close the right sidebar
              * @hook After Closed - Fire an Event to notify (maybe someone will listen :v )
              */
@@ -43,11 +56,7 @@
 
                 // fire event after closed (if emit == true)
                 if (emitData) {
-                    this.$formEvent.$emit(
-                        EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED,
-                        this.runnerId,
-                        Object.assign({}, this.dynamicData, specialData)
-                    )
+                    this.save(specialData)
                 }
 
                 // remove renderer

@@ -8,7 +8,7 @@ import {ROW_DEFAULT_DATA} from "@/configs/row";
 /**
  * Applier is an extending-object to make sure your old form-configuration still working well with the new version
  * @author Phat Tran
- * @param {{formConfig: Object, sections: Array, rows: Object, controls: Object}} formConfigObject
+ * @param {{formConfig: Object, sections: Array, rows: Object, controls: Object}|undefined} formConfigObject
  * @return {Object} Final Object that can always use with the Form-Builder/Renderer
  */
 const dataApplier = function(formConfigObject) {
@@ -19,8 +19,14 @@ const dataApplier = function(formConfigObject) {
         controls: {}
     };
 
+    // base-created-form
+    if (!formConfigObject) {
+        appliedObject.formConfig = HELPER.cloneDeep(FORM_DEFAULT_DATA)
+        return appliedObject
+    }
+
     // Form-Config Apply
-    appliedObject.formConfig = Object.assign(FORM_DEFAULT_DATA, formConfigObject.formConfig)
+    appliedObject.formConfig = Object.assign({}, FORM_DEFAULT_DATA, formConfigObject.formConfig)
 
     // Section(s) Apply
     for (let [sectionId, sectionObject] of Object.entries(formConfigObject.sections)) {

@@ -17,7 +17,8 @@
             </button>
 
             <button :class="styles.BUTTON.DANGER" @click="deleteSection">
-                <span>Remove Section</span>
+                <span v-html="$form.getIcon('trash')"></span>
+                <span>Delete</span>
             </button>
         </div>
     </div>

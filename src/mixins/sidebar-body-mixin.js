@@ -19,14 +19,20 @@ const SIDEBAR_BODY_MIXIN = {
 
     computed: {
         /**
-         * Emit to parent to close the sidebar
+         * Emit-Key to parent to close the sidebar
          * @returns {string}
          */
         emitCloseKey() {
             return 'close'
         },
 
-
+        /**
+         * Emit-Key to the parent to save the result
+         * @returns {string}
+         */
+        emitSaveKey() {
+            return 'save'
+        }
     }
 }
 

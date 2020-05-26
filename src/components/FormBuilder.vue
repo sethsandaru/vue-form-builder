@@ -3,6 +3,12 @@
         <!-- top configuration -->
         <FormConfiguration v-model="formData.formConfig" />
 
+        <!-- form headline -->
+        <div class="form-headline-container" v-show="formData.formConfig.isShowHeadline">
+            <h1 v-text="formData.formConfig.headline"></h1>
+            <p v-text="formData.formConfig.subHeadline"></p>
+        </div>
+
         <!-- sections info -->
         <SectionContainer v-for="(sectionData) in sortedSections"
                           :section="sectionData"
@@ -16,12 +22,14 @@
         <!-- global stuff -->
         <GlobalSidebar />
 
-        <p class="copyright" v-text="copyrightText"></p>
+
+        <hr>
+
+        <p class="copyright-text" v-text="copyrightText"></p>
     </div>
 </template>
 
 <script>
-    import {STYLES} from "@/configs/styles";
     import AddSectionControl from "@/views/builder/AddSectionControl";
     import {MAIN_CONSTANTS} from "@/configs";
     import SectionContainer from "@/views/builder/SectionContainer";
@@ -45,7 +53,6 @@
         created() {
             if (this.value && typeof this.value === 'object') {
                 this.mapping(this.value)
-                this.doSortSection()
             } else {
                 this.createDefaultData()
             }
@@ -62,16 +69,3 @@
         }
     }
 </script>
-
-<style scoped>
-    .copyright {
-        padding-top: 50px;
-        color: rgba(0,0,0,.4);
-        font-size: 13px;
-        text-align: center;
-    }
-
-    .form-padding {
-        padding-top: 20px;
-    }
-</style>

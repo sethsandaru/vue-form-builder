@@ -13,6 +13,17 @@
 * END GLOBAL PADDING - MARGIN
 **********************************/
 
+.vue-form-builder hr {
+    margin: 30px 0;
+}
+
+.copyright-text {
+    padding-top: 20px;
+    color: rgba(0,0,0,.4);
+    font-size: 13px;
+    text-align: center;
+}
+
 .add-control-container {
     margin-top: 30px;
     border: 3px rgba(0,0,0, .4) dotted;
