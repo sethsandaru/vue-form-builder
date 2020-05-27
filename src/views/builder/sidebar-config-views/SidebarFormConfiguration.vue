@@ -71,21 +71,10 @@
         name: "SidebarFormConfiguration",
         mixins: [STYLE_INJECTION_MIXIN, SIDEBAR_BODY_MIXIN],
         data: () => ({
+            // OVERRIDE IT FROM `SIDEBAR_BODY_MIXIN`
+            dataKey: "formConfiguration",
             formConfiguration: Object.assign({}, FORM_DEFAULT_DATA),
         }),
-
-        methods: {
-            /**
-             * Save the configuration (Actually I will close the sidebar and emit event =)) )
-             */
-            save(close = false) {
-                if (close) {
-                    this.$emit(this.emitCloseKey, true, this.formConfiguration)
-                } else {
-                    this.$emit(this.emitSaveKey, this.formConfiguration)
-                }
-            },
-        },
 
         created() {
             // retrieve the data from `GlobalSidebar` passed in

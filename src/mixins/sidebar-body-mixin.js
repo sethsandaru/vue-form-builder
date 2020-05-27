@@ -8,13 +8,36 @@ const SIDEBAR_BODY_MIXIN = {
         dataPackage: Object
     },
 
+    data: () => ({
+        /**
+         * Ideally, you have put override this key. It will be used to access your data to send it back to your component
+         * @example For SidebarFormConfiguration. I created `formConfiguration` data field. And I will handle all data-changing stuff
+         * only in `formConfiguration`. And that will be the data I need to send it back to the right component.
+         * @required
+         */
+        dataKey: "",
+    }),
+
     methods: {
         /**
          * Close the sidebar without fire any events
          */
         close() {
             this.$emit(this.emitCloseKey, false)
-        }
+        },
+
+        /**
+         * Save the configuration (Actually I will close the sidebar and emit event =)) )
+         */
+        save(close = false) {
+            let data = this[this.dataKey]
+
+            if (close) {
+                this.$emit(this.emitCloseKey, true, data)
+            } else {
+                this.$emit(this.emitSaveKey, data)
+            }
+        },
     },
 
     computed: {

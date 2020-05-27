@@ -7,6 +7,49 @@
             <button class="btn btn-info mr-2" @click="getData">Get JSON Form-Data (Console)</button>
             <button class="btn btn-info mr-2" @click="setData">Set JSON Form-Data (Basic Configuration)</button>
             <button class="btn btn-info mr-2" @click="createBlank">Create Blank Form</button>
+            <button class="btn btn-info mr-2" @click="isShowDevNote = !isShowDevNote">Show Development Note</button>
+        </div>
+
+        <div class="container-fluid" v-show="isShowDevNote">
+            <hr>
+
+            <h4>@v2.0.0 Development Notes</h4>
+
+            <ul>
+                <li>Basic Form Structural ✅</li>
+                <li>Form Configuration ✅</li>
+                <li>
+                    Section:
+                    <ul>
+                        <li>Configuration 👨‍💻</li>
+                        <li>Sort (Up/Down) ✅</li>
+                        <li>Create/Delete ✅</li>
+                        <li>
+                            Types:
+                            <ul>
+                                <li>Normal ✅</li>
+                                <li>Toggle-able 👨‍💻</li>
+                                <li>Table 👨‍💻</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Row:
+                    <ul>
+                        <li>Sort (Up/Down) 👨‍💻</li>
+                        <li>Create ✅ / Delete 👨‍💻</li>
+                    </ul>
+                </li>
+                <li>
+                    Controls:
+                    <ul>
+                        <li>Create 👨‍💻</li>
+                        <li>Remove 👨‍💻</li>
+                        <li>Types 👨‍💻</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
 
         <hr>
@@ -26,7 +69,8 @@
             FormBuilder
         },
         data: () => ({
-            formData: null
+            formData: null,
+            isShowDevNote: false
         }),
         methods: {
             getData() {

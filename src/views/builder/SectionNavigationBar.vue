@@ -11,7 +11,7 @@
                     @click="pushDown"
                     v-html="$form.getIcon('arrowDown')"></button>
 
-            <button :class="styles.BUTTON.INFO">
+            <button :class="styles.BUTTON.INFO" @click="openConfiguration">
                 <span v-html="$form.getIcon('cog')"></span>
                 <span>Configuration</span>
             </button>
@@ -28,6 +28,8 @@
     import {SECTION_SORT_MIXINS} from "@/mixins/section-sort-mixins";
     import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
     import {EVENT_CONSTANTS} from "@/configs/events";
+    import SidebarRenderer from "@/libraries/sidebar-renderer.class";
+    import SidebarSectionConfiguration from "@/views/builder/sidebar-config-views/SidebarSectionConfiguration";
 
     export default {
         name: "SectionNavigationBar",
@@ -51,7 +53,46 @@
 
                 // submit to delete
                 this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SECTION.DELETE, this.section.uniqueId)
+            },
+
+            /**
+             * Tell the sidebar to open so we can configure our Section =))
+             */
+            openConfiguration() {
+                this.renderSidebar()
+                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPEN, true)
+            },
+
+            /**
+             * Emitting the configuration to render the Section-Config-Sidebar
+             */
+            renderSidebar() {
+                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.INJECT, new SidebarRenderer(
+                    this.section.uniqueId,
+                    SidebarSectionConfiguration,
+                    this.section
+                ));
+            },
+
+            /**
+             * Handle Saving the Form Configuration
+             * @param {string} runnerId
+             * @param {Object} data
+             */
+            saveConfiguration(runnerId, data) {
+                // does it out of scope? if it does, stop
+                if (runnerId !== this.section.uniqueId) {
+                    return
+                }
+
+                let newValue = Object.assign({}, this.section, data)
+                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SECTION.UPDATE, newValue)
             }
+        },
+
+        created() {
+            // listen to after-closed from GlobalSidebar
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED, this.saveConfiguration);
         }
     }
 </script>

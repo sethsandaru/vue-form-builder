@@ -12,6 +12,7 @@ const EVENT_CONSTANTS = {
         SECTION: {
             ADDED_ROW: "builder.section.added_row",
             DELETE: "builder.section.delete",
+            UPDATE: "builder.section.update",
 
             // section sort
             PUSH: "builder.section.push"

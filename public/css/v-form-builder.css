@@ -17,14 +17,14 @@
     margin: 30px 0;
 }
 
-.copyright-text {
+.vue-form-builder .copyright-text {
     padding-top: 20px;
     color: rgba(0,0,0,.4);
     font-size: 13px;
     text-align: center;
 }
 
-.add-control-container {
+.vue-form-builder .add-control-container {
     margin-top: 30px;
     border: 3px rgba(0,0,0, .4) dotted;
     padding: 40px;
@@ -34,65 +34,65 @@
     text-align: center;
 }
 
-.add-control-container:hover {
+.vue-form-builder .add-control-container:hover {
     border-color: #4834d4;
     cursor: pointer;
 }
 
-.add-control-container > p {
+.vue-form-builder .add-control-container > p {
     margin: 0;
 }
 
-.add-control-container:hover > p {
+.vue-form-builder .add-control-container:hover > p {
     font-weight: bold;
 }
 
-.add-container-list {
+.vue-form-builder .add-container-list {
     margin-top: 15px;
 }
 
-.type-desc {
+.vue-form-builder .type-desc {
     font-size: 14px;
 }
 
-.type-headline {
+.vue-form-builder .type-headline {
     font-weight: bold;
 }
 
-.section-container {
+.vue-form-builder .section-container {
     position: relative;
     border: 2px solid transparent;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
 
-.section-container:hover {
+.vue-form-builder .section-container:hover {
     border: 2px solid #0198fa;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
 
-.section-container .section-config {
+.vue-form-builder .section-container .section-config {
     position: absolute;
     top: 5px;
     right: 5px;
     display: none;
 }
 
-.section-container:hover .section-config {
+.vue-form-builder .section-container:hover .section-config {
     display: block;
 }
 
-.buttons > button {
+.vue-form-builder .buttons > button {
     margin-right: 5px;
 }
 
-.normal-section {
+.vue-form-builder .normal-section {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.normal-section .headline-block {
+.vue-form-builder .normal-section .headline-block {
     padding: 0 15px;
 }
 
@@ -103,12 +103,13 @@
     margin: 15px;
 }
 
-.add-row-outer {
+.vue-form-builder .add-row-outer {
     margin-top: 15px;
     padding: 0 15px;
 }
 
 .vue-form-builder .add-row-container {
+    margin-top: 40px;
     border: 3px rgba(0,0,0, .4) dotted;
     padding: 40px;
     user-select: none;

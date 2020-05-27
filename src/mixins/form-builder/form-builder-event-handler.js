@@ -86,6 +86,29 @@ const FORM_BUILDER_EVENT_HANDLER = {
 
             // Sort Again After Deleted
             this.doSortSection()
+
+            // re-index sortOrder
+            // thankfully this still keep reference... :D
+            let index = 1;
+            for (let sectionObj of this.sortedSections) {
+                sectionObj.sortOrder = index++;
+            }
+        },
+
+        /**
+         * Update data for section
+         * @param sectionObj
+         */
+        sectionUpdate(sectionObj) {
+            let sectionId = sectionObj.uniqueId
+
+            // validate input
+            if (!this.formData.sections.hasOwnProperty(sectionId)) {
+                return
+            }
+
+            // update by using the extend . best way
+            this.formData.sections[sectionId] = Object.assign(this.formData.sections[sectionId], sectionObj)
         },
 
         /**
@@ -102,6 +125,7 @@ const FORM_BUILDER_EVENT_HANDLER = {
         this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SECTION.ADDED_ROW, this.sectionAndRowMapping)
         this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SECTION.PUSH, this.sectionPushedUp)
         this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SECTION.DELETE, this.sectionDelete)
+        this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SECTION.UPDATE, this.sectionUpdate)
 
         // row events
         this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.ROW.CREATE, this.rowNewAdded)
