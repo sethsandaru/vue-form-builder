@@ -66,7 +66,7 @@
     transition: all 0.2s ease-in-out;
 }
 
-.vue-form-builder .section-container:hover {
+.vue-form-builder .section-container:hover, .vue-form-builder .section-container.active {
     border: 2px solid #0198fa;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
@@ -161,4 +161,57 @@ body {
 
 .vue-form-builder .sidebar-form-configuration .buttons {
     text-align: right;
+}
+
+.vue-form-builder .toggleable-section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.vue-form-builder .toggleable-section .headline-block {
+    padding: 0 15px;
+    border-bottom: 1px solid #000;
+}
+
+.vue-form-builder .toggleable-section .headline-block small {
+    font-size: 15px;
+}
+
+.vue-form-builder .toggle-item {
+    cursor: pointer;
+}
+
+/*********************************
+* Vue-Transition Classes - Slide Up/Down
+**********************************/
+.slide-enter-active {
+    -moz-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -moz-transition-timing-function: ease-in;
+    -webkit-transition-timing-function: ease-in;
+    -o-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+}
+
+.slide-leave-active {
+    -moz-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.slide-enter-to, .slide-leave {
+    max-height: 100px;
+    overflow: hidden;
+}
+
+.slide-enter, .slide-leave-to {
+    overflow: hidden;
+    max-height: 0;
 }

@@ -59,8 +59,21 @@
              * Tell the sidebar to open so we can configure our Section =))
              */
             openConfiguration() {
+                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPEN, this.section.uniqueId)
+            },
+
+            /**
+             * We need this special event to know when the sidebar is opened
+             * Therefore, we will render the sidebar and turn on the border (current editing section)
+             */
+            configurationOpened(runnerId) {
+                if (this.section.uniqueId !== runnerId) {
+                    return
+                }
+
+                // render sidebar and turn on the border
                 this.renderSidebar()
-                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPEN, true)
+                this.$emit('active', true) // call to parent to let it know this section is currently editing..
             },
 
             /**
@@ -87,16 +100,29 @@
 
                 let newValue = Object.assign({}, this.section, data)
                 this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SECTION.UPDATE, newValue)
+            },
+
+            /**
+             * Save and close
+             * @param runnerId
+             * @param data
+             */
+            saveAndClose(runnerId, data) {
+                // does it out of scope? if it does, stop
+                if (runnerId !== this.section.uniqueId) {
+                    return
+                }
+
+                this.saveConfiguration(runnerId, data)
+                this.$emit('active', false) // call to parent to let it know this section is finished edit
             }
         },
 
         created() {
             // listen to after-closed from GlobalSidebar
-            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED, this.saveConfiguration);
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE, this.saveConfiguration)
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED, this.saveAndClose)
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPENED, this.configurationOpened)
         }
     }
 </script>
-
-<style scoped>
-
-</style>

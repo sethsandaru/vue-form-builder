@@ -34,7 +34,7 @@
              */
             open() {
                 this.renderSidebar()
-                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPEN, true)
+                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPEN, RUNNER_ID)
             },
 
             /**
@@ -66,6 +66,7 @@
         },
 
         created() {
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE, this.saveConfiguration);
             this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED, this.saveConfiguration);
         }
     }

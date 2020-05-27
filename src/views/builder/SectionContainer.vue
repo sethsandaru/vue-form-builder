@@ -1,6 +1,7 @@
 <template>
-    <div class="section-container">
-        <SectionNavigationBar :section="section" />
+    <div class="section-container" :class="{'active': isDoingConfiguration}">
+        <SectionNavigationBar :section="section"
+                              @active="setActive" />
 
         <component :is="sectionViewComponent"
                    :section="section"
@@ -22,6 +23,18 @@
             section: Object,
             rows: Object,
             controls: Object,
+        },
+        data: () => ({
+            isDoingConfiguration: false
+        }),
+        methods: {
+            /**
+             * Set Active in order to show the holder of current editing section
+             * @param val
+             */
+            setActive(val = true) {
+                this.isDoingConfiguration = val
+            }
         },
 
         computed: {

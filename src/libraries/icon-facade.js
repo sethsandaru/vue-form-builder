@@ -11,6 +11,8 @@ import {COG_ICON} from "@/libraries/icons/cog.icon";
 import {ADD_OUTLINE_ICON} from "@/libraries/icons/add-outline.icon";
 import {CLOSE_ICON} from "@/libraries/icons/close.icon";
 import {TRASH_ICON} from "@/libraries/icons/trash.icon";
+import {CHEVRON_UP_ICON} from "@/libraries/icons/chevron-up.icon";
+import {CHEVRON_DOWN_ICON} from "@/libraries/icons/chevron-down.icon";
 
 
 const ICONS = {
@@ -20,7 +22,9 @@ const ICONS = {
     editPencil: EDIT_PENCIL_ICON,
     cog: COG_ICON,
     close: CLOSE_ICON,
-    trash: TRASH_ICON
+    trash: TRASH_ICON,
+    chevronUp: CHEVRON_UP_ICON,
+    chevronDown: CHEVRON_DOWN_ICON
 }
 
 const FormIcon = {

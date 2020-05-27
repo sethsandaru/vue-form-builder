@@ -3,22 +3,36 @@
         <h5>Section Configuration</h5>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Form Headline</label>
+            <label>Headline</label>
             <input type="text"
                    :class="styles.FORM.FORM_CONTROL"
                    v-model="sectionConfiguration.headline">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Form Sub-Headline</label>
+            <label>Headline Additional Class (CSS)</label>
+            <input type="text"
+                   :class="styles.FORM.FORM_CONTROL"
+                   v-model="sectionConfiguration.headlineAdditionalClass">
+        </div>
+
+        <div :class="styles.FORM.FORM_GROUP">
+            <label>Sub-Headline</label>
             <input type="text"
                    :class="styles.FORM.FORM_CONTROL"
                    v-model="sectionConfiguration.subHeadline">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
+            <label>Sub-Headline Additional Class (CSS)</label>
+            <input type="text"
+                   :class="styles.FORM.FORM_CONTROL"
+                   v-model="sectionConfiguration.subHeadlineAdditionalClass">
+        </div>
+
+        <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Show Form Headline?
+                Show Section Headline?
                 <input type="checkbox" v-model="sectionConfiguration.isShowHeadline">
             </label>
         </div>

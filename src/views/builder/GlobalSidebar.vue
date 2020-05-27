@@ -23,15 +23,26 @@
         data: () => ({
             component: null,
             dynamicData: {},
-            runnerId: null
+            runnerId: null,
+            isOpen: false,
         }),
         methods: {
             /**
              * Open the Right Sidebar
              */
-            open() {
+            open(runnerId) {
+                if (this.isOpen) {
+                    alert("Please save your changes and close the sidebar before start editing another one. Thanks")
+                    return
+                }
+
                 this.$el.style.width = "300px"
-                document.getElementsByTagName("body")[0].style.marginRight = "300px";
+                document.getElementsByTagName("body")[0].style.marginRight = "300px"
+
+                // turn on flag and notify watcher that sidebar is opened
+                // `runnerId` will be sent back in order to make sure other components will touch yours
+                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPENED, runnerId)
+                this.isOpen = true
             },
 
             /**
@@ -40,7 +51,7 @@
              */
             save(specialData = {}) {
                 this.$formEvent.$emit(
-                    EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED,
+                    EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE,
                     this.runnerId,
                     Object.assign({}, this.dynamicData, specialData)
                 )
@@ -50,19 +61,22 @@
              * Close the right sidebar
              * @hook After Closed - Fire an Event to notify (maybe someone will listen :v )
              */
-            close(emitData = false, specialData = {}) {
+            close(specialData = {}) {
                 this.$el.style.width = 0
                 document.getElementsByTagName("body")[0].style.marginRight = 0
 
                 // fire event after closed (if emit == true)
-                if (emitData) {
-                    this.save(specialData)
-                }
+                this.$formEvent.$emit(
+                    EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED,
+                    this.runnerId,
+                    Object.assign({}, this.dynamicData, specialData)
+                )
 
                 // remove renderer
                 this.component = null
                 this.dynamicData = {}
                 this.runnerId = null
+                this.isOpen = false
             },
 
             /**
@@ -70,6 +84,10 @@
              * @param {SidebarRenderer} rendererInfo - data that will be assigned for the Component
              */
             updateBody(rendererInfo) {
+                if (this.isOpen) {
+                    return
+                }
+
                 this.dynamicData = Object.assign({}, this.dynamicData, rendererInfo.data)
                 this.component = rendererInfo.component
                 this.runnerId = rendererInfo.runnerId
