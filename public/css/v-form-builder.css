@@ -133,6 +133,10 @@
     margin: 0 15px;
 }
 
+.vue-form-builder .table-section .table-wrapper {
+    margin: 10px 15px;
+}
+
 /*********************************
 * SIDEBAR CLASS
 **********************************/

@@ -3,6 +3,7 @@
  * @author Phat Tran
  */
 import {STYLES} from "@/configs/styles";
+import {HELPER} from "@/libraries/helper";
 
 const CONTROLS = {
     input: {
@@ -104,7 +105,9 @@ const CONTROL_DEFAULT_DATA = {
  */
 function createControlData(controlKey) {
     const newData = Object.assign({}, CONTROL_DEFAULT_DATA, CONTROLS[controlKey].configData || {})
+
     newData.type = controlKey
+    newData.uniqueId = "control-" + HELPER.getUUIDv4()
 
     return newData
 }

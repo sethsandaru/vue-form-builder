@@ -53,7 +53,7 @@
                 this.$formEvent.$emit(
                     EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE,
                     this.runnerId,
-                    Object.assign({}, this.dynamicData, specialData)
+                    Object.assign({}, specialData)
                 )
             },
 
@@ -69,7 +69,7 @@
                 this.$formEvent.$emit(
                     EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED,
                     this.runnerId,
-                    Object.assign({}, this.dynamicData, specialData)
+                    Object.assign({}, specialData)
                 )
 
                 // remove renderer
@@ -88,7 +88,7 @@
                     return
                 }
 
-                this.dynamicData = Object.assign({}, this.dynamicData, rendererInfo.data)
+                this.dynamicData = Object.assign({}, rendererInfo.data)
                 this.component = rendererInfo.component
                 this.runnerId = rendererInfo.runnerId
             }

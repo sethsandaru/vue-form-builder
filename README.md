@@ -4,54 +4,29 @@
 [![HitCount](http://hits.dwyl.io/sethsandaru/vue-form-builder.svg)](http://hits.dwyl.io/sethsandaru/vue-form-builder)
 [![img](https://img.shields.io/badge/documentation-full-green.svg?longCache=true&style=flat-square)](https://github.com/sethsandaru/vue-form-builder/wiki)
 
-A simple form-builder with drag & drop to help you deal your own form. Less code in development and your site will be more generic, configurable.
+A simple builder to help you generate a super form for your features/modules/sites,... Easy to use, create, upgrade, maintain,...
+Why need to code the form when you can use `Vue-Form-Builder` and render it with some extra steps :D
 
 Advantages:
-- Less code in development
-- Wide range of APIs
-- Easily to maintain, update later
-- Easily to config your form (drag & drop, control settings)
-- Extensibility (Extend-able): Help you to import your own Control
-- Validation & Custom Control Validation Supported.
+- Less code in development (No more <form> <div> <input> .... </div> </form>)
+- Easy to maintain, update your Form later
+- Setup your Form with a super friendly UI/UX
+- Extensibility (Your custom control, styling,...)
+- Form Validation? I got you fam
 - ...
 
-Fully documentation in this Repo's Wiki. Check it out!
+Give this repo a ⭐ (star) if you actually like this and might use it for your development/production :D! Thank you!
 
-Give this repo a ⭐ (star) if you actually like this and will use it for your development/production :D! Thank you!
+The library is up & ready for production but if you meet any bugs or issues, feel free to open!
 
-The library is built & ready for production but if you meet any bugs or issues, feel free to open!
-
-Demo Online: http://vue-form-builder.sethphat.com    
+Demo Online: https://vue-form-builder.herokuapp.com/   
 Demo Project: https://github.com/sethsandaru/demo-vue-form-builder
 
 ## In-Development
 
 Version 2.0.0 (this branch) is in development. So please don't install it until I made a release.
 
-## Current version
-Current latest version of the Vue Form Builder: **1.4.1-rc1**.
-
-Updated/Features:
-- Update dependencies that got security problem.
-- Placeholder for Sortable (drag n' drop section, row, control to order)
-- Update some CSS, JS
-
-## Technologies/Libraries using
-- Javascript - ES5+
-- VueJS 2.x
-- ...
-
-**Note**: From the version **1.2.0** to above, I don't import bootstrap 4 stylesheet into the bundle, you should include your own bootstrap 4 stylesheet in order
-to get both of GUI & Template working normally.
-
-## Form Builder Structure
-- Template: is where you can config/create/edit your own form.
-![template_config](https://i.imgur.com/Z0jP3sl.gif)
-
-- GUI: is where the form will be built by your configuration.
-![gui_config](https://i.imgur.com/0GbXcec.gif)
-
-For more information please visit this Repo's wiki, thanks :D!
+You can visit the newest version, here: https://vue-form-builder.herokuapp.com/   
 
 ## How to install?
 Run this command to install:
@@ -59,96 +34,41 @@ Run this command to install:
 npm i v-form-builder --save
 ```
 
-NPMJS: [https://www.npmjs.com/package/v-form-builder](https://www.npmjs.com/package/v-form-builder)
+NPMJS Info: [v-form-builder](https://www.npmjs.com/package/v-form-builder)
 
 **Notes:** 
 - For the best experience, please install the latest version!
-- Please don't install the old version below **v1.1.1**. Thank you!
+- Version below **@v2.0.0** is deprecated. No maintain + fix bugs. Please use 2.0.0 or above.
 
 ## How to implement?
 
 ### Import into your project
-1/ Import as global component
+
+#### Import as global component
 ```javascript
-import FormBuilder from 'v-form-builder';
-Vue.component('FormBuilder', FormBuilder);
+Coming soon
 ```
 
-2/ Import as single component
+#### Import as single component
+
 ```javascript
-import FormBuilder from 'v-form-builder';
-
-export default {
-    components: {FormBuilder}
-    ...
-}
+Coming soon
 ```
-
-**Note:** you should have your own Bootstrap 4 stylesheet imported inside your project in order to use the Form Builder normally.
 
 ### Usage
-```php
-<template>
-    <div>
-        // form builder template
-        <form-builder type="template"></form-builder>
-        
-        // form builder gui
-        <form-builder type="gui" :form="yourConfigFormObject"></form-builder>
-    </div>
-</template>
-```
-Binding options:
-- type (String):
-    - Form Config (Template): **template**
-    - Form GUI: **gui**
-- form (Object) - for Form GUI Only, where you passing the configuration data and the Form Builder will build the form by your configuration data.
-
-#### V-Model for Form Builder Template
-You can use v-model in Form Builder Template, it'll return to you the form configuration data that you're configurated (object) and also render the old configuration and let you edit/update that configuration.
-```php
-<template>
-    <div>
-        <form-builder type="template" v-model="formData"></form-builder>
-    </div>
-</template>
-```
-The form config data would look like this:
-```javascript
-{
-    sections: [...],
-    layout: "...",
-    _uniqueId: "..."
-}
-```
-
-Ideally, you need to convert that Object to JSON string and then save it in your database :D
-
-#### V-Model for Form Builder GUI
-You can use V-Model to get/set values from your built form.
-```php
-<template>
-    <div>
-        <form-builder type="gui" :form="formData" v-model="formValues"></form-builder>
-    </div>
-</template>
-```
-The form values data would look like this:
-```javascript
-{
-    section_key: {
-        control_name_1: "data",
-        control_name_2: 123,
-        ...
-    },
-    ...
-}
-```
+Update later.
 
 ### APIs
 Please visit this Repo's Wiki.
 
 ## Release notes
+- Version **2.0.0**:
+    - New structural, new behaviour, everything is new.
+    - No more ugly code
+    - Make the process/development/configuration more simple than previous version.
+    - More controls
+    - More features
+    - Less dependencies
 - Version **1.4.0**:
     - Refactored, the code is more easy to view & read.
     - Able to extend a custom control.

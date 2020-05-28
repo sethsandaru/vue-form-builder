@@ -61,6 +61,14 @@ const STYLES = {
         FORM_CONTROL: "form-control",
     },
 
+    /**
+     * Table Classes
+     */
+    TABLE: {
+        TABLE_CLASS: "table",
+        TR_CLASS: "",
+        TD_CLASS: ""
+    },
 
 };
 

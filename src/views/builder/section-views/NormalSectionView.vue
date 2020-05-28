@@ -10,8 +10,8 @@
 
         </div>
 
-        <!-- Add More Control -->
-        <AddControlControl />
+        <!-- Add Control -->
+        <AddControlControl :section="section" />
     </div>
 </template>
 
