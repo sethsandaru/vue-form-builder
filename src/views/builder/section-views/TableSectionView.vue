@@ -27,7 +27,7 @@
 <script>
     import {SECTION_VIEW_MIXINS} from "@/mixins/section-view-mixins";
     import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
-    import AddRowControl from "@/views/builder/AddRowControl";
+    import AddRowControl from "@/views/builder/add-controls/AddRowControl";
     import TableRowView from "@/views/builder/row-views/TableRowView";
 
     export default {

@@ -32,7 +32,7 @@
 <script>
     import {SECTION_VIEW_MIXINS} from "@/mixins/section-view-mixins";
     import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
-    import AddControlControl from "@/views/builder/AddControlControl";
+    import AddControlControl from "@/views/builder/add-controls/AddControlControl";
 
     export default {
         name: "ToggleableSectionView",

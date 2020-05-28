@@ -11,7 +11,7 @@
 
 <script>
     import {ROW_VIEW_MIXIN} from "@/mixins/row-view-mixin";
-    import AddControlControl from "@/views/builder/AddControlControl";
+    import AddControlControl from "@/views/builder/add-controls/AddControlControl";
 
     export default {
         name: "TableRowView",

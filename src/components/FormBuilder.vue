@@ -30,7 +30,7 @@
 </template>
 
 <script>
-    import AddSectionControl from "@/views/builder/AddSectionControl";
+    import AddSectionControl from "@/views/builder/add-controls/AddSectionControl";
     import {MAIN_CONSTANTS} from "@/configs";
     import SectionContainer from "@/views/builder/SectionContainer";
     import FormBuilderBusiness from "@/mixins/form-builder-mixins";

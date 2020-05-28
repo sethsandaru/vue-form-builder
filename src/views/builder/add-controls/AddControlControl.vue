@@ -20,7 +20,9 @@
             section: {
                 type: Object,
                 required: true
-            }
+            },
+
+            // TODO: Need to extend: Row too.
         },
         data: () => ({
             show: false
@@ -65,6 +67,7 @@
                 }
 
                 // emit to FormBuilder and let it create control...
+                // TODO: Need to extend - For Rows
                 this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.CONTROL.CREATE, this.section.uniqueId, controlObj)
             }
         },

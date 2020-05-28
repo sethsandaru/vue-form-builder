@@ -1,4 +1,4 @@
-import AddRowControl from "@/views/builder/AddRowControl";
+import AddRowControl from "@/views/builder/add-controls/AddRowControl";
 import {createNewRow} from "@/configs/row";
 import {SECTION_TYPES} from "@/configs/section";
 import {EVENT_CONSTANTS} from "@/configs/events";
