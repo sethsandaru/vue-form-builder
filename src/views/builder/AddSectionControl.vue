@@ -1,5 +1,5 @@
 <template>
-    <div class="add-control-container" :class="styles.COLUMNS.COL12" @click="showOption">
+    <div class="add-section-container" :class="styles.COLUMNS.COL12" @click="showOption">
         <p>
             <span v-html="$form.getIcon('addOutline', '32px', '32px', '#000')"></span>
             <span>Add Section</span>

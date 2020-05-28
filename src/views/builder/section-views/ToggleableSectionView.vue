@@ -13,28 +13,31 @@
         </div>
 
         <!-- Rows - BLock it for animation -->
-        <div v-show="isVisible">
-            <transition name="slide">
-                <NormalRowView v-for="(rowObject) in sortedRows"
-                               :key="rowObject.uniqueId"
-                               :row="rowObject"/>
+        <transition name="slide">
+            <div v-show="isVisible">
 
-                <!-- Add More Row? -->
-                <AddRowControl @addRowNotify="addRow" />
-            </transition>
-        </div>
+                <!--- SHOW CONTROLS --->
+                <div :class="styles.ROW">
+
+                </div>
+
+                <!-- Add More Control? -->
+                <AddControlControl :section="section" />
+            </div>
+        </transition>
 
     </div>
 </template>
 
 <script>
     import {SECTION_VIEW_MIXINS} from "@/mixins/section-view-mixins";
-    import NormalRowView from "@/views/builder/row-views/NormalRowView";
+    import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
+    import AddControlControl from "@/views/builder/AddControlControl";
 
     export default {
         name: "ToggleableSectionView",
-        components: {NormalRowView},
-        mixins: [SECTION_VIEW_MIXINS],
+        components: {AddControlControl},
+        mixins: [SECTION_VIEW_MIXINS, STYLE_INJECTION_MIXIN],
         data: () => ({
             isVisible: true,
         }),

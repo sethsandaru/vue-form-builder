@@ -58,6 +58,7 @@ const SECTION_DEFAULT_DATA = {
     sortOrder: 0,
     type: '',
     rows: [], // array of rowId
+    controls: [], // array of controlIds
 };
 
 /**

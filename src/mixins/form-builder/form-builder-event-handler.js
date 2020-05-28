@@ -117,7 +117,22 @@ const FORM_BUILDER_EVENT_HANDLER = {
          */
         rowNewAdded(rowObject) {
             this.formData.rows[rowObject.uniqueId] = rowObject
-        }
+        },
+
+
+        /**
+         * Added new control to a section
+         * @param {string} sectionId
+         * @param {Object} controlObj
+         */
+        controlNewAdded(sectionId, controlObj) {
+            // add into big list
+            this.$set(this.formData.controls, controlObj.uniqueId, controlObj)
+
+            // add controlID to section
+            this.formData.sections[sectionId].controls.push(controlObj.uniqueId)
+        },
+
     },
 
     created() {
@@ -131,6 +146,7 @@ const FORM_BUILDER_EVENT_HANDLER = {
         this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.ROW.CREATE, this.rowNewAdded)
 
         // control events
+        this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.CONTROL.CREATE, this.controlNewAdded)
     }
 }
 

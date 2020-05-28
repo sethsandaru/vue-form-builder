@@ -53,7 +53,8 @@ const SECTION_VIEW_MIXINS = {
             this.sortedRows.sort((a, b) => {
                 return a.sortOrder - b.sortOrder;
             })
-        }
+        },
+
     },
 
     created() {

@@ -5,19 +5,20 @@
             <p :class="section.subHeadlineAdditionalClass" v-text="section.subHeadline"></p>
         </div>
 
-        <!-- Rows -->
-        <NormalRowView v-for="(rowObject) in sortedRows"
-                       :key="rowObject.uniqueId"
-                       :row="rowObject"/>
+        <!--- SHOW CONTROLS --->
+        <div :class="styles.ROW">
 
-        <!-- Add More Row? -->
-        <AddRowControl @addRowNotify="addRow" />
+        </div>
+
+        <!-- Add More Control -->
+        <AddControlControl />
     </div>
 </template>
 
 <script>
     import {SECTION_VIEW_MIXINS} from "@/mixins/section-view-mixins";
-    import NormalRowView from "@/views/builder/row-views/NormalRowView";
+    import AddControlControl from "@/views/builder/AddControlControl";
+    import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
 
     /**
      * @property {Object} section
@@ -26,10 +27,7 @@
      */
     export default {
         name: "NormalSectionView",
-        components: {NormalRowView},
-        mixins: [SECTION_VIEW_MIXINS],
-        methods: {
-
-        },
+        components: {AddControlControl},
+        mixins: [SECTION_VIEW_MIXINS, STYLE_INJECTION_MIXIN],
     }
 </script>

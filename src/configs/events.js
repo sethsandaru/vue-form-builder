@@ -3,7 +3,6 @@
  * @author Phat Tran <phattranminh96@gmai.com>
  */
 
-
 const EVENT_CONSTANTS = {
     /**
      * Constants for Form-Builder
@@ -17,10 +16,19 @@ const EVENT_CONSTANTS = {
             // section sort
             PUSH: "builder.section.push"
         },
+
+
         ROW: {
-            CREATE: "builder.row.add",
+            CREATE: "builder.row.create",
             UPDATE: "builder.row.update",
             DELETE: "builder.row.delete",
+        },
+
+        CONTROL: {
+            CREATE: "builder.control.create",
+            UPDATE: "builder.control.update",
+            DELETE: "builder.control.delete",
+            SORT: "builder.control.delete",
         },
 
         /**

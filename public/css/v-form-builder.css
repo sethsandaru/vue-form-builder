@@ -24,7 +24,7 @@
     text-align: center;
 }
 
-.vue-form-builder .add-control-container {
+.vue-form-builder .add-section-container {
     margin-top: 30px;
     border: 3px rgba(0,0,0, .4) dotted;
     padding: 40px;
@@ -34,16 +34,16 @@
     text-align: center;
 }
 
-.vue-form-builder .add-control-container:hover {
+.vue-form-builder .add-section-container:hover {
     border-color: #4834d4;
     cursor: pointer;
 }
 
-.vue-form-builder .add-control-container > p {
+.vue-form-builder .add-section-container > p {
     margin: 0;
 }
 
-.vue-form-builder .add-control-container:hover > p {
+.vue-form-builder .add-section-container:hover > p {
     font-weight: bold;
 }
 
@@ -66,7 +66,8 @@
     transition: all 0.2s ease-in-out;
 }
 
-.vue-form-builder .section-container:hover, .vue-form-builder .section-container.active {
+.vue-form-builder .section-container:hover,
+.vue-form-builder .section-container.active {
     border: 2px solid #0198fa;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
@@ -92,8 +93,9 @@
     padding-bottom: 10px;
 }
 
-.vue-form-builder .normal-section .headline-block {
+.vue-form-builder .headline-block {
     padding: 0 15px;
+    user-select: none;
 }
 
 .vue-form-builder .row-block {
@@ -103,12 +105,14 @@
     margin: 15px;
 }
 
-.vue-form-builder .add-row-outer {
+.vue-form-builder .add-row-outer,
+.vue-form-builder .add-control-outer {
     margin-top: 15px;
     padding: 0 15px;
 }
 
-.vue-form-builder .add-row-container {
+.vue-form-builder .add-row-container,
+.vue-form-builder .add-control-container {
     margin-top: 40px;
     border: 3px rgba(0,0,0, .4) dotted;
     padding: 40px;
@@ -118,10 +122,15 @@
     text-align: center;
 }
 
-.vue-form-builder .add-row-container:hover {
+.vue-form-builder .add-row-container:hover,
+.vue-form-builder .add-control-container:hover {
     border-color: #badc58;
     cursor: pointer;
     font-weight: bold;
+}
+
+.vue-form-builder .outer-add-control {
+    margin: 0 15px;
 }
 
 /*********************************
@@ -169,7 +178,6 @@ body {
 }
 
 .vue-form-builder .toggleable-section .headline-block {
-    padding: 0 15px;
     border-bottom: 1px solid #000;
 }
 
