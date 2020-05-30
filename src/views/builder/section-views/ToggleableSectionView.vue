@@ -1,14 +1,23 @@
 <template>
     <div class="toggleable-section">
-        <div class="headline-block p5" v-show="section.isShowHeadline">
+        <div class="headline-block p5">
             <h2 :class="section.headlineAdditionalClass">
+                <!-- chevron icon to show/hide -->
                 <span class="toggle-item"
-                      v-html="isVisible ? iconClose : iconOpen"
-                      @click="isVisible = !isVisible"></span>
+                  v-html="isVisible ? iconClose : iconOpen"
+                  @click="isVisible = !isVisible">
+                </span>
 
-                {{section.headline}}
+                <!-- headline -->
+                <span v-text="section.headline"
+                      v-show="section.isShowHeadline">
+                </span>
 
-                <small :class="section.subHeadlineAdditionalClass" v-text="section.subHeadline"></small>
+                <!-- subheadline -->
+                <small :class="[section.subHeadlineAdditionalClass, 'toggleable-sub-headline']"
+                       v-text="section.subHeadline"
+                       v-show="section.isShowHeadline">
+                </small>
             </h2>
         </div>
 
@@ -16,10 +25,21 @@
         <transition name="slide">
             <div v-show="isVisible">
 
-                <!--- SHOW CONTROLS --->
-                <div :class="styles.ROW">
+                <!--- SHOW CONTROLS / With Draggable --->
+                <draggable
+                        :class="draggableClasses"
+                        ghost-class="ghost"
+                        :handle="dragControlHandle"
+                        :list="section.controls"
+                        :group="dragGroup">
 
-                </div>
+                    <ControlView v-for="controlId in section.controls"
+                                 :control="controls[controlId]" />
+
+                    <p v-if="!hasControl">
+                        Droppable Zone / Controls will be showed here...
+                    </p>
+                </draggable>
 
                 <!-- Add More Control? -->
                 <AddControlControl :section="section" />

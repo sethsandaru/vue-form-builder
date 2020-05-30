@@ -2,15 +2,29 @@ import AddRowControl from "@/views/builder/add-controls/AddRowControl";
 import {createNewRow} from "@/configs/row";
 import {SECTION_TYPES} from "@/configs/section";
 import {EVENT_CONSTANTS} from "@/configs/events";
+import draggable from 'vuedraggable'
+import AddControlControl from "@/views/builder/add-controls/AddControlControl";
+import ControlView from "@/views/builder/ControlView";
+import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
 
 const SECTION_VIEW_MIXINS = {
-    components: {AddRowControl},
+    components: {
+        AddRowControl, // Add Row
+        draggable,  // For Sorting Row/Control
+        AddControlControl, // Add Control
+        ControlView // Show Control
+    },
+
+    mixins: [STYLE_INJECTION_MIXIN],
+
     props: {
         section: Object,
         rows: Object,
+        controls: Object,
     },
+
     data: () => ({
-        sortedRows: [],
+
     }),
 
     methods: {
@@ -32,33 +46,44 @@ const SECTION_VIEW_MIXINS = {
             this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.ROW.CREATE, newRowObject)
             this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SECTION.ADDED_ROW, this.section.uniqueId, newRowObject.uniqueId)
 
-            // sort again, please
-            this.doSortRows()
-        },
-
-        /**
-         * Sort rows before rendering/after added/deleted/... row
-         */
-        doSortRows() {
-            this.sortedRows = [];
-
-            // get all rows belong to this section hehe
-            this.section.rows.forEach(rowId => {
-                if (this.rows[rowId]) {
-                    this.sortedRows.push(this.rows[rowId])
-                }
-            })
-
-            // then sort it...
-            this.sortedRows.sort((a, b) => {
-                return a.sortOrder - b.sortOrder;
-            })
         },
 
     },
 
-    created() {
-        this.doSortRows()
+    computed: {
+        /**
+         * Property that will be used to drag - for Control Only
+         */
+        dragControlHandle() {
+            return ".option-control.drag-item"
+        },
+
+        /**
+         * Base group of drag/drop
+         * We can share this for each section/row
+         */
+        dragGroup() {
+            return "v-form-builder-control"
+        },
+
+        /**
+         * Accessor helper to check if the current section has control(s) or not
+         */
+        hasControl() {
+            return this.section.controls.length > 0
+        },
+
+        /**
+         * Classes for draggable
+         * @returns {(string|string)[]}
+         */
+        draggableClasses() {
+            return [
+                this.styles.ROW,
+                'control-list-container',
+                this.hasControl ? '' : 'empty'
+            ]
+        }
     },
 };
 

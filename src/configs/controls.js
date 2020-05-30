@@ -4,6 +4,9 @@
  */
 import {STYLES} from "@/configs/styles";
 import {HELPER} from "@/libraries/helper";
+import InputControl from "@/views/controls/InputControl"
+import TextControl from "@/views/controls/TextControl"
+import ButtonControl from "@/views/controls/ButtonControl"
 
 const CONTROLS = {
     input: {
@@ -15,6 +18,9 @@ const CONTROLS = {
         configData: {
             validateEmail: false,
         },
+
+        // component mapping
+        fieldComponent: InputControl,
     },
 
     number: {
@@ -25,6 +31,14 @@ const CONTROLS = {
     text: {
         name: "Text Field",
         description: "Multiple line text field",
+
+        // config data for the input field - it will be merge with the CONTROL_DEFAULT_DATA
+        configData: {
+            rows: 3, // numeric
+        },
+
+        // component mapping
+        fieldComponent: TextControl,
     },
 
     richText: {
@@ -70,6 +84,22 @@ const CONTROLS = {
     button: {
         name: "Button",
         description: "Simple button for your own purpose",
+
+        configData: {
+            buttonClass: STYLES.BUTTON.PRIMARY,
+            buttonType: "button", // submit/reset/button/...
+
+            bindingType: 1, // 1 - onclick (normal) | 2 - emit event
+            onclickCode: "", // like: onclick="return func();"...
+
+            emitEventCode: "", // like: "BtnClicked/clicked/change"
+            emitEventData: "", // special data to emit to let you know which button is clicked
+
+            // Override here in order to not show the Label
+            isShowLabel: false,
+        },
+
+        fieldComponent: ButtonControl
     }
 };
 
@@ -86,11 +116,13 @@ const CONTROL_DEFAULT_DATA = {
 
     'label': '',
     'subLabel': '',
-    'isShowDefaultLabel': false,
-    'labelDirection': LABEL_DIRECTION.top, // top-left
+    'isShowLabel': true,
 
     'containerClass': STYLES.COLUMNS.COL4,
     'additionalContainerClass': '',
+
+    'additionalFieldClass': '',
+    'additionalLabelClass': '',
 
     'isRequired': false, // check required
     'defaultValue': '',
@@ -106,7 +138,11 @@ const CONTROL_DEFAULT_DATA = {
 function createControlData(controlKey) {
     const newData = Object.assign({}, CONTROL_DEFAULT_DATA, CONTROLS[controlKey].configData || {})
 
+    // set default data
+    newData.label = CONTROLS[controlKey].name
     newData.type = controlKey
+
+    // unique ID is a must - I used UUIDv4 => 99% Unique
     newData.uniqueId = "control-" + HELPER.getUUIDv4()
 
     return newData

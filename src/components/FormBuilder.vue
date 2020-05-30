@@ -9,7 +9,7 @@
             <p v-text="formData.formConfig.subHeadline"></p>
         </div>
 
-        <!-- sections info -->
+        <!-- sections of the form -->
         <SectionContainer v-for="(sectionData) in sortedSections"
                           :section="sectionData"
                           :rows="formData.rows"

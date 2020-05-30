@@ -22,6 +22,8 @@ The library is up & ready for production but if you meet any bugs or issues, fee
 Demo Online: https://vue-form-builder.herokuapp.com/   
 Demo Project: https://github.com/sethsandaru/demo-vue-form-builder
 
+Documentation (v2, pending...): [Vue Form Builder Documentation](https://phattranminh96.gitbook.io/vue-form-builder/)
+
 ## In-Development
 
 Version 2.0.0 (this branch) is in development. So please don't install it until I made a release.

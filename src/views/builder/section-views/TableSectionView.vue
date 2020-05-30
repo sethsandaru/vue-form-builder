@@ -9,10 +9,10 @@
             <table :class="styles.TABLE.TABLE_CLASS">
                 <!--- TODO: Sortable --->
 
-                <TableRowView v-for="(rowObject, index) in sortedRows"
-                              :key="rowObject.uniqueId"
+                <TableRowView v-for="(rowId) in section.rows"
+                              :key="rowId"
                               :section="section"
-                              :row="rowObject" />
+                              :row="rows[rowId]" />
 
                 <tr>
                     <td colspan="2">

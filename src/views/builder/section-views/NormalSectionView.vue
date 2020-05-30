@@ -5,10 +5,21 @@
             <p :class="section.subHeadlineAdditionalClass" v-text="section.subHeadline"></p>
         </div>
 
-        <!--- SHOW CONTROLS --->
-        <div :class="styles.ROW">
+        <!--- SHOW CONTROLS WITH SORTABLE --->
+        <draggable
+                :class="draggableClasses"
+                ghost-class="ghost"
+                :handle="dragControlHandle"
+                :list="section.controls"
+                :group="dragGroup">
 
-        </div>
+            <ControlView v-for="controlId in section.controls"
+                         :control="controls[controlId]" />
+
+            <p v-if="!hasControl">
+                Droppable Zone / Controls will be showed here...
+            </p>
+        </draggable>
 
         <!-- Add Control -->
         <AddControlControl :section="section" />
@@ -17,17 +28,20 @@
 
 <script>
     import {SECTION_VIEW_MIXINS} from "@/mixins/section-view-mixins";
-    import AddControlControl from "@/views/builder/add-controls/AddControlControl";
-    import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
 
     /**
      * @property {Object} section
      * @property {Object} rows RowId - RowData
+     * @property {Object} controls ControlId - ControlData
      * @property {Array} section.rows
+     * @property {Array} section.controls
      */
     export default {
         name: "NormalSectionView",
-        components: {AddControlControl},
-        mixins: [SECTION_VIEW_MIXINS, STYLE_INJECTION_MIXIN],
+        mixins: [SECTION_VIEW_MIXINS],
+        data: () => ({
+
+        }),
+
     }
 </script>

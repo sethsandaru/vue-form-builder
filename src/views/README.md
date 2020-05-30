@@ -15,6 +15,7 @@ Also, me, think this is a good strategy. And easy to learn too. Keep 1 component
     - row-views: Row View Template (Table Row)
     - add-controls: Controls that help us to Add Section/Row/Control
     - sidebar-config-views: View for GlobalSidebar
+    - control-views: Related View for the Control
 - controls: Control Item (Final Render) in here
 
 ## Flows

@@ -13,6 +13,7 @@ import {CLOSE_ICON} from "@/libraries/icons/close.icon";
 import {TRASH_ICON} from "@/libraries/icons/trash.icon";
 import {CHEVRON_UP_ICON} from "@/libraries/icons/chevron-up.icon";
 import {CHEVRON_DOWN_ICON} from "@/libraries/icons/chevron-down.icon";
+import {NAVIGATION_MORE_ICON} from "@/libraries/icons/navigation-more.icon";
 
 
 const ICONS = {
@@ -24,7 +25,8 @@ const ICONS = {
     close: CLOSE_ICON,
     trash: TRASH_ICON,
     chevronUp: CHEVRON_UP_ICON,
-    chevronDown: CHEVRON_DOWN_ICON
+    chevronDown: CHEVRON_DOWN_ICON,
+    navigationMore: NAVIGATION_MORE_ICON
 }
 
 const FormIcon = {
