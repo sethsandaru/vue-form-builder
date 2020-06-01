@@ -9,7 +9,7 @@
             <span v-html="$form.getIcon('cog', '24px', '24px', '#3498db')"></span>
         </div>
 
-        <div class="option-control" title="Delete Control">
+        <div class="option-control" title="Delete Control" @click="clickedDelete">
             <span v-html="$form.getIcon('trash', '24px', '24px', '#e74c3c')"></span>
         </div>
     </div>
@@ -17,6 +17,14 @@
 
 <script>
     export default {
-        name: "ControlOption"
+        name: "ControlOption",
+        methods: {
+            /**
+             * Emit to parent to delete this control...
+             */
+            clickedDelete() {
+                this.$emit('delete', true)
+            }
+        },
     }
 </script>

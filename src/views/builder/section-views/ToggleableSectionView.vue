@@ -34,7 +34,8 @@
                         :group="dragGroup">
 
                     <ControlView v-for="controlId in section.controls"
-                                 :control="controls[controlId]" />
+                                 :control="controls[controlId]"
+                                 :parent-id="section.uniqueId" />
 
                     <p v-if="!hasControl">
                         Droppable Zone / Controls will be showed here...

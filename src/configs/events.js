@@ -26,8 +26,12 @@ const EVENT_CONSTANTS = {
 
         CONTROL: {
             CREATE: "builder.control.create",
+
             UPDATE: "builder.control.update",
+
             DELETE: "builder.control.delete",
+            DELETED: "builder.control.deleted",
+
             SORT: "builder.control.delete",
         },
 

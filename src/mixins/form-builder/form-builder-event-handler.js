@@ -133,6 +133,33 @@ const FORM_BUILDER_EVENT_HANDLER = {
             this.formData.sections[sectionId].controls.push(controlObj.uniqueId)
         },
 
+        /**
+         * Delete a control from section/row
+         * @param {string} parentId - Might be SectionId, might be RowId
+         * @param {string} controlId - LOL
+         * @afterHandled Emit an event to notify the deletion is complete
+         */
+        controlDeletion(parentId, controlId) {
+            let type = this.formData.sections.hasOwnProperty(parentId) ? 'section' : 'row';
+
+            // FIRST: We delete the relationship in section/row
+            if (type === 'section') {
+                // find index and delete in section-controls
+                let indexInSection = HELPER.findIndex(this.formData.sections[parentId].controls, undefined, controlId)
+                this.formData.sections[parentId].controls.splice(indexInSection, 1)
+            } else {
+                // find index and delete in row-controls
+                let indexInRow = HELPER.findIndex(this.formData.rows[parentId].controls, undefined, controlId)
+                this.formData.rows[parentId].controls.splice(indexInRow, 1)
+            }
+
+            // SECOND: We delete the control object in `controls`
+            this.$delete(this.formData.controls, controlId)
+
+            // LAST: Emit DELETED (might be some component will register this??)
+            this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.CONTROL.DELETED, parentId, controlId)
+        },
+
     },
 
     created() {
@@ -147,6 +174,7 @@ const FORM_BUILDER_EVENT_HANDLER = {
 
         // control events
         this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.CONTROL.CREATE, this.controlNewAdded)
+        this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.CONTROL.DELETE, this.controlDeletion)
     }
 }
 

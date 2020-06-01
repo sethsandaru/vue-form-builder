@@ -1,6 +1,7 @@
 
 
-const HELPER = {};
+const
+    HELPER = {};
 
 /**
  * Deep-Clone an Object
@@ -47,6 +48,23 @@ HELPER.find = function(collection, ruleKey, value) {
     }
 
     return undefined
+}
+
+/**
+ * Find array by a specific rule and return the index
+ * @param {Array} array
+ * @param {string} ruleKey - If it's undefined, we check the item only
+ * @param {string} value
+ * @returns {number} first item that matched the rule or -1
+ * @complexity O(n) for normal cases, best case will be O(1) or O(logn)
+ */
+HELPER.findIndex = function (array, ruleKey, value) {
+    return array.findIndex(item => {
+        if (!ruleKey)
+            return item == value
+
+        return item[ruleKey] == value
+    })
 }
 
 export {

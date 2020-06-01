@@ -11,7 +11,7 @@
         </div>
 
         <!-- render the right option to config/drag/... -->
-        <ControlOption />
+        <ControlOption @delete="deleteControl" />
     </div>
 </template>
 
@@ -20,6 +20,7 @@
     import ControlLabel from "@/views/builder/control-views/ControlLabel";
     import {CONTROLS} from "@/configs/controls";
     import ControlOption from "@/views/builder/control-views/ControlOption";
+    import {EVENT_CONSTANTS} from "@/configs/events";
 
     export default {
         name: "ControlView",
@@ -29,7 +30,25 @@
             control: {
                 type: Object,
                 required: true
+            },
+            parentId: {
+                type: String,
+                required: true,
             }
+        },
+
+        methods: {
+            /**
+             * [Emit-from-children] ControlOption will emit this if user want to delete the current control
+             */
+            deleteControl() {
+                // EMIT to FormBuilder to let it delete the control for us
+                this.$formEvent.$emit(
+                    EVENT_CONSTANTS.BUILDER.CONTROL.DELETE,
+                    this.parentId,
+                    this.control.uniqueId
+                )
+            },
         },
 
         computed: {
