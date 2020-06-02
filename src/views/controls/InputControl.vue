@@ -3,6 +3,7 @@
            type="text"
            :class="controlFieldClass"
            :value="value"
+           :name="control.name"
            @input="updateValue($event.target.value)"
     />
 </template>

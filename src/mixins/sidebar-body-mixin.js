@@ -33,7 +33,7 @@ const SIDEBAR_BODY_MIXIN = {
             let data = this[this.dataKey]
 
             if (close) {
-                this.$emit(this.emitCloseKey, data)
+                this.$emit(this.emitSaveAndCloseKey, data)
             } else {
                 this.$emit(this.emitSaveKey, data)
             }
@@ -55,6 +55,14 @@ const SIDEBAR_BODY_MIXIN = {
          */
         emitSaveKey() {
             return 'save'
+        },
+
+        /**
+         * Emit-Key - Save and Close
+         * @returns {string}
+         */
+        emitSaveAndCloseKey() {
+            return 'saveAndClose'
         }
     }
 }

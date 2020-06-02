@@ -114,6 +114,12 @@
                 }
 
                 this.saveConfiguration(runnerId, data)
+            },
+
+            /**
+             * After Sidebar closed => Remove the Active Class
+             */
+            removeActive() {
                 this.$emit('active', false) // call to parent to let it know this section is finished edit
             }
         },
@@ -121,7 +127,8 @@
         created() {
             // listen to after-closed from GlobalSidebar
             this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE, this.saveConfiguration)
-            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED, this.saveAndClose)
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE_AND_CLOSE, this.saveAndClose)
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED, this.removeActive)
             this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPENED, this.configurationOpened)
         }
     }

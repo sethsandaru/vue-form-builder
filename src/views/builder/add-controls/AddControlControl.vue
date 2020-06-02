@@ -64,7 +64,7 @@
             createNewControlForSection(runnerId, controlObj) {
                 // runnerId to check the right identifier of the Invoker
                 // uniqueId to check if we create new control or not
-                if (this.runnerId !== runnerId || !controlObj.uniqueId) {
+                if (this.runnerId !== runnerId) {
                     return
                 }
 
@@ -87,7 +87,7 @@
         created() {
             // listen to Global Sidebar
             this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPENED, this.afterOpenedSidebar)
-            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED, this.createNewControlForSection)
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE_AND_CLOSE, this.createNewControlForSection)
         },
     }
 

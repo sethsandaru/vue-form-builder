@@ -33,7 +33,6 @@
              * @desc Fire an Event to GlobalSidebar
              */
             open() {
-                this.renderSidebar()
                 this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPEN, RUNNER_ID)
             },
 
@@ -62,12 +61,28 @@
 
                 let newValue = Object.assign({}, this.value, data)
                 this.$emit('change', newValue) // run this to update v-model
-            }
+            },
+
+            /**
+             * After sidebar is opened - we will render the GlobalSidebar's body
+             * @param runnerId
+             */
+            afterOpenedSidebar(runnerId) {
+                // does it out of scope? if it does, stop
+                if (runnerId !== RUNNER_ID) {
+                    return
+                }
+
+                // render sidebar if its from FormConfiguration
+                this.renderSidebar()
+            },
         },
 
         created() {
+            // listen to GlobalSidebar Event...
             this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE, this.saveConfiguration);
-            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED, this.saveConfiguration);
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE_AND_CLOSE, this.saveConfiguration);
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPENED, this.renderSidebar)
         }
     }
 </script>

@@ -14,14 +14,14 @@
                           :section="sectionData"
                           :rows="formData.rows"
                           :controls="formData.controls"
-                          :key="sectionData.uniqueId" />
+                          :key="sectionData.uniqueId"
+        />
 
         <!-- below all -->
         <AddSectionControl @addSectionNotify="addSection" />
 
         <!-- global stuff -->
         <GlobalSidebar />
-
 
         <hr>
 
@@ -39,7 +39,12 @@
 
     export default {
         name: "FormBuilder",
-        components: {GlobalSidebar, FormConfiguration, SectionContainer, AddSectionControl},
+        components: {
+            GlobalSidebar,
+            FormConfiguration,
+            SectionContainer,
+            AddSectionControl
+        },
         mixins: FormBuilderBusiness,
         data: () => ({
             formData: {

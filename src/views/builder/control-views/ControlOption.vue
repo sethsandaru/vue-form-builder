@@ -5,7 +5,7 @@
             <span v-html="$form.getIcon('navigationMore', '24px', '24px', '#f1c40f')"></span>
         </div>
 
-        <div class="option-control" title="Control Configuration">
+        <div class="option-control" title="Control Configuration" @click="clickedConfiguration">
             <span v-html="$form.getIcon('cog', '24px', '24px', '#3498db')"></span>
         </div>
 
@@ -24,6 +24,13 @@
              */
             clickedDelete() {
                 this.$emit('delete', true)
+            },
+
+            /**
+             * Emit to parent to open the configuration
+             */
+            clickedConfiguration() {
+                this.$emit('config', true)
             }
         },
     }

@@ -10,6 +10,7 @@
                    :is="component"
                    :dataPackage="dynamicData"
                    @save="save"
+                   @saveAndClose="saveAndClose"
                    @close="close"
         />
     </div>
@@ -58,10 +59,23 @@
             },
 
             /**
+             * Save event with close the right sidebar
+             */
+            saveAndClose(specialData = {}) {
+                this.$formEvent.$emit(
+                    EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE_AND_CLOSE,
+                    this.runnerId,
+                    Object.assign({}, specialData)
+                )
+
+                this.close()
+            },
+
+            /**
              * Close the right sidebar
              * @hook After Closed - Fire an Event to notify (maybe someone will listen :v )
              */
-            close(specialData = {}) {
+            close() {
                 this.$el.style.width = 0
                 document.getElementsByTagName("body")[0].style.marginRight = 0
 
@@ -69,7 +83,7 @@
                 this.$formEvent.$emit(
                     EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED,
                     this.runnerId,
-                    Object.assign({}, specialData)
+                    null
                 )
 
                 // remove renderer

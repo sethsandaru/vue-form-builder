@@ -42,7 +42,10 @@ const EVENT_CONSTANTS = {
             INJECT: "builder.sidebar.inject",
             OPEN: "builder.sidebar.open",
             OPENED: "builder.sidebar.opened",
+
             SAVE: "builder.sidebar.save",
+            SAVE_AND_CLOSE: "builder.sidebar.save_and_close",
+
             AFTER_CLOSED: "builder.sidebar.after_closed",
         }
     },

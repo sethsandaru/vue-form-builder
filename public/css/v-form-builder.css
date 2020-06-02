@@ -102,6 +102,16 @@
     user-select: none;
 }
 
+.vue-form-builder .sidebar-form-configuration .headline-block {
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+
+.vue-form-builder .sidebar-form-configuration .headline-block h5 {
+    font-size: 16px;
+}
+
 .vue-form-builder .row-block {
     background-color: rgba(0,0,0,.2);
     border-radius: 5px;
@@ -149,17 +159,22 @@
 * CONTROL-VIEW CLASS
 **********************************/
 .vue-form-builder .control-view {
-    border: 1px solid #bdc3c7;
     padding: 10px;
+    border: 1px solid transparent;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
-/*.vue-form-builder .control-view-wrapper:first-child {*/
-/*    padding-left: 5px;*/
-/*}*/
 
-/*.vue-form-builder .control-view-wrapper:last-child {*/
-/*    padding-right: 5px;*/
-/*}*/
+.vue-form-builder .control-view:hover {
+    border: 1px solid #bdc3c7;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.vue-form-builder .control-view.active {
+    border: 1px solid #0198fa;
+}
 
 .vue-form-builder .control-list-container {
     margin: 20px;

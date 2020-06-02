@@ -54,24 +54,11 @@
     import {SECTION_VIEW_MIXINS} from "@/mixins/section-view-mixins";
     import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
     import AddControlControl from "@/views/builder/add-controls/AddControlControl";
+    import {TOGGLEABLE_MIXIN} from "@/mixins/toggleable-mixin";
 
     export default {
         name: "ToggleableSectionView",
         components: {AddControlControl},
-        mixins: [SECTION_VIEW_MIXINS, STYLE_INJECTION_MIXIN],
-        data: () => ({
-            isVisible: true,
-        }),
-        computed: {
-            iconColor: () => '#000',
-            iconSize: () => '32px',
-
-            iconClose() {
-                return this.$form.getIcon('chevronUp', this.iconSize, this.iconSize, this.iconColor)
-            },
-            iconOpen() {
-                return this.$form.getIcon('chevronDown', this.iconSize, this.iconSize, this.iconColor)
-            }
-        }
+        mixins: [SECTION_VIEW_MIXINS, STYLE_INJECTION_MIXIN, TOGGLEABLE_MIXIN],
     }
 </script>

@@ -1,8 +1,7 @@
 <template>
     <button :id="control.uniqueId"
-            :class="[control.buttonClass, control.additionalFieldClass]"
+            :class="buttonClasses"
             v-text="control.label"
-            :onclick="(isOnclickMode ? control.onclickCode : false)"
             @click="clickedHandle"
     ></button>
 </template>
@@ -23,9 +22,9 @@
         mixins: [CONTROL_FIELD_EXTEND_MIXIN],
         methods: {
             clickedHandle() {
-                // prefer to trigger the onclick first
-                if (this.isOnclickMode() || this.control.onclickCode) {
-                    return
+                if (this.control.isRunValidation) {
+                    // run validation here
+                    // TODO: Validation
                 }
 
                 // emit to the specific emitEventCode
@@ -40,11 +39,14 @@
              */
             isOnclickMode() {
                 return this.control.bindingType === 1;
+            },
+
+            buttonClasses() {
+                return [
+                    this.control.buttonClass,
+                    this.control.additionalFieldClass
+                ]
             }
         }
     }
 </script>
-
-<style scoped>
-
-</style>

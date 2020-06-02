@@ -5,6 +5,7 @@
             :class="controlFieldClass"
             :value="value"
             :rows="control.rows"
+            :name="control.name"
             @input="updateValue($event.target.value)"
     ></textarea>
 </template>
@@ -21,7 +22,3 @@
         mixins: [CONTROL_FIELD_EXTEND_MIXIN]
     }
 </script>
-
-<style scoped>
-
-</style>

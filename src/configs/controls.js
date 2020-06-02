@@ -7,6 +7,8 @@ import {HELPER} from "@/libraries/helper";
 import InputControl from "@/views/controls/InputControl"
 import TextControl from "@/views/controls/TextControl"
 import ButtonControl from "@/views/controls/ButtonControl"
+import EmptyBlockControl from "@/views/controls/EmptyBlockControl";
+import TextBlockControl from "@/views/controls/TextBlockControl";
 
 const CONTROLS = {
     input: {
@@ -79,6 +81,10 @@ const CONTROLS = {
     label: {
         name: "Label",
         description: "Simple label text for your purpose",
+
+        configData: {
+            forAttribute: "", // `for` for any control?
+        },
     },
 
     button: {
@@ -89,23 +95,39 @@ const CONTROLS = {
             buttonClass: STYLES.BUTTON.PRIMARY,
             buttonType: "button", // submit/reset/button/...
 
-            bindingType: 1, // 1 - onclick (normal) | 2 - emit event
-            onclickCode: "", // like: onclick="return func();"...
-
             emitEventCode: "", // like: "BtnClicked/clicked/change"
             emitEventData: "", // special data to emit to let you know which button is clicked
+
+            // if this is true => validation will be run before the real invoke method
+            isRunValidation: false,
 
             // Override here in order to not show the Label
             isShowLabel: false,
         },
 
         fieldComponent: ButtonControl
-    }
-};
+    },
 
-const LABEL_DIRECTION = {
-    top: 'top', // top view (label \n input)
-    left: 'left' // left view (label - input)
+    emptyBlock: {
+        name: "Empty Block",
+        description: "Empty block to design your section/row.",
+        fieldComponent: EmptyBlockControl,
+
+        configData: {
+            // Override here in order to not show the Label
+            isShowLabel: false,
+        }
+    },
+
+    textBlock: {
+        name: "Text Block",
+        description: "Block with text only (without any controls)",
+        fieldComponent: TextBlockControl,
+
+        configData: {
+            text: ""
+        }
+    }
 };
 
 const CONTROL_DEFAULT_DATA = {
@@ -124,8 +146,13 @@ const CONTROL_DEFAULT_DATA = {
     'additionalFieldClass': '',
     'additionalLabelClass': '',
 
-    'isRequired': false, // check required
     'defaultValue': '',
+
+    /**
+     * Validation that applied to the control
+     * @var Validation[] validations
+     */
+    'validations': [],
 
     // data of the other should we here...
 };
@@ -150,7 +177,6 @@ function createControlData(controlKey) {
 
 export {
     CONTROLS,
-    LABEL_DIRECTION,
     CONTROL_DEFAULT_DATA,
     createControlData
 }

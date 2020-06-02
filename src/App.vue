@@ -21,14 +21,14 @@
                 <li>
                     Section:
                     <ul>
-                        <li>Configuration 👨‍💻</li>
+                        <li>Configuration ✅</li>
                         <li>Sort (Up/Down) ✅</li>
                         <li>Create/Delete ✅</li>
                         <li>
                             Types:
                             <ul>
                                 <li>Normal ✅</li>
-                                <li>Toggle-able 👨‍💻</li>
+                                <li>Toggle-able ✅</li>
                                 <li>Table 👨‍💻</li>
                             </ul>
                         </li>
@@ -38,15 +38,24 @@
                     Row:
                     <ul>
                         <li>Sort (Up/Down) 👨‍💻</li>
-                        <li>Create ✅ / Delete 👨‍💻</li>
+                        <li>Create ✅ / Delete ✅</li>
                     </ul>
                 </li>
                 <li>
                     Controls:
                     <ul>
-                        <li>Create 👨‍💻</li>
-                        <li>Remove 👨‍💻</li>
-                        <li>Types 👨‍💻</li>
+                        <li>Create ✅</li>
+                        <li>Remove ✅</li>
+                        <li>Configuration 👨‍💻</li>
+                        <li>
+                            Types:
+                            <ul>
+                                <li>Input ✅</li>
+                                <li>Text ✅</li>
+                                <li>Empty Block ✅</li>
+                                <li>...</li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
             </ul>

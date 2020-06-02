@@ -1,6 +1,6 @@
 <template>
     <div :class="[control.containerClass, 'control-view-wrapper']">
-        <div class="control-view">
+        <div class="control-view" :class="{'active': isActive}">
             <!-- render the label -->
             <ControlLabel v-show="control.isShowLabel" :control="control" />
 
@@ -11,7 +11,8 @@
         </div>
 
         <!-- render the right option to config/drag/... -->
-        <ControlOption @delete="deleteControl" />
+        <ControlOption @delete="deleteControl"
+                       @config="openConfiguration" />
     </div>
 </template>
 
@@ -21,6 +22,8 @@
     import {CONTROLS} from "@/configs/controls";
     import ControlOption from "@/views/builder/control-views/ControlOption";
     import {EVENT_CONSTANTS} from "@/configs/events";
+    import SidebarRenderer from "@/libraries/sidebar-renderer.class";
+    import SidebarControlConfiguration from "@/views/builder/sidebar-config-views/SidebarControlConfiguration";
 
     export default {
         name: "ControlView",
@@ -37,6 +40,10 @@
             }
         },
 
+        data: () => ({
+            isActive: false
+        }),
+
         methods: {
             /**
              * [Emit-from-children] ControlOption will emit this if user want to delete the current control
@@ -49,6 +56,52 @@
                     this.control.uniqueId
                 )
             },
+
+            /**
+             * [Emit-from-children] ControlOption will emit this when user clicked "Cog" button
+             * We're opening the sidebar configuration....
+             */
+            openConfiguration() {
+                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPEN, this.control.uniqueId)
+            },
+
+            /**
+             * [Emit-from-GlobalSidebar]
+             */
+            openedConfiguration(runnerId) {
+                if (runnerId !== this.control.uniqueId) {
+                    return
+                }
+
+                // eligible to render sidebar
+                this.isActive = true
+                this.renderSidebar()
+            },
+
+            /**
+             * Push an Event to GlobalSidebar to Render the Body :D
+             */
+            renderSidebar() {
+                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.INJECT, new SidebarRenderer(
+                    this.control.uniqueId,
+                    SidebarControlConfiguration,
+                    this.control
+                ));
+            },
+
+            /**
+             * Received closed notification from sidebar
+             */
+            closedConfiguration() {
+                this.isActive = false
+            },
+
+            /**
+             * Save Control Configuration Data
+             */
+            saveConfiguration(controlData) {
+                
+            }
         },
 
         computed: {
@@ -63,10 +116,14 @@
 
                 return CONTROLS[this.control.type].fieldComponent
             }
-        }
+        },
+
+        created() {
+            // listen to GlobalSidebar
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE, this.saveConfiguration)
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE_AND_CLOSE, this.saveConfiguration)
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED, this.closedConfiguration)
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPENED, this.openedConfiguration)
+        },
     }
 </script>
-
-<style scoped>
-
-</style>
