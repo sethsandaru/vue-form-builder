@@ -6,6 +6,7 @@
             :value="value"
             :rows="control.rows"
             :name="control.name"
+            :placeholder="control.placeholderText"
             @input="updateValue($event.target.value)"
     ></textarea>
 </template>

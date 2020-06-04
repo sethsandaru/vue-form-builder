@@ -9,6 +9,7 @@ import TextControl from "@/views/controls/TextControl"
 import ButtonControl from "@/views/controls/ButtonControl"
 import EmptyBlockControl from "@/views/controls/EmptyBlockControl";
 import TextBlockControl from "@/views/controls/TextBlockControl";
+import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
 
 const CONTROLS = {
     input: {
@@ -16,13 +17,8 @@ const CONTROLS = {
         description: "Input text single line",
         icon: 'editPencil', // Follow ICON in `icon-facade.js` to see how it works.
 
-        // config data for the input field - it will be merge with the CONTROL_DEFAULT_DATA
-        configData: {
-            validateEmail: false,
-        },
-
         // component mapping
-        fieldComponent: InputControl,
+        fieldComponent: InputControl
     },
 
     number: {
@@ -69,13 +65,31 @@ const CONTROLS = {
     },
 
     checkbox: {
-        name: "Checkbox",
+        name: "Checkbox List",
         description: "Checkbox list items (Multiple Select)",
+
+        configData: {
+            displayMode: "line", // line by line / next to each others / 2 items per line
+
+            /**
+             * @var {ListItem[]} items
+             */
+            items: [], // list-item
+        },
     },
 
     radio: {
-        name: "Radio",
+        name: "Radio List",
         description: "Radio-Button list items (Single Select)",
+
+        configData: {
+            displayMode: "line", // line by line / next to each others / 2 items per line
+
+            /**
+             * @var {ListItem[]} items
+             */
+            items: [], // list-item
+        },
     },
 
     label: {
@@ -123,6 +137,7 @@ const CONTROLS = {
         name: "Text Block",
         description: "Block with text only (without any controls)",
         fieldComponent: TextBlockControl,
+        configComponent: TextBlockConfigView,
 
         configData: {
             text: ""
@@ -140,6 +155,8 @@ const CONTROL_DEFAULT_DATA = {
     'subLabel': '',
     'isShowLabel': true,
 
+    'placeholderText': '',
+
     'containerClass': STYLES.COLUMNS.COL4,
     'additionalContainerClass': '',
 
@@ -150,7 +167,7 @@ const CONTROL_DEFAULT_DATA = {
 
     /**
      * Validation that applied to the control
-     * @var Validation[] validations
+     * @var {ValidationRule[]} validations
      */
     'validations': [],
 

@@ -4,6 +4,7 @@
            :class="controlFieldClass"
            :value="value"
            :name="control.name"
+           :placeholder="control.placeholderText"
            @input="updateValue($event.target.value)"
     />
 </template>

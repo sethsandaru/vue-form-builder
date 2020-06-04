@@ -46,6 +46,7 @@
                     <ul>
                         <li>Create ✅</li>
                         <li>Remove ✅</li>
+                        <li>Sort/Reposition ✅</li>
                         <li>Configuration 👨‍💻</li>
                         <li>
                             Types:

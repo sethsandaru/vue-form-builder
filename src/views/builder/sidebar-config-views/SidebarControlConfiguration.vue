@@ -3,34 +3,7 @@
         <h5>Control Configuration</h5>
 
         <!-- Basic of the control/Same for all -->
-        <SidebarToggleableContainer headline="Basic Detail">
-            <div :class="styles.FORM.FORM_GROUP">
-                <label>Unique ID</label>
-                <input type="text" :class="styles.FORM.FORM_CONTROL" :value="control.uniqueId" readonly>
-            </div>
-
-            <div :class="styles.FORM.FORM_GROUP">
-                <label>Name (Must be unique)</label>
-                <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.name">
-            </div>
-
-            <div :class="styles.FORM.FORM_GROUP">
-                <label>Label</label>
-                <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.label">
-            </div>
-
-            <div :class="styles.FORM.FORM_GROUP">
-                <label>Sub-label</label>
-                <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.subLabel">
-            </div>
-
-            <div :class="styles.FORM.FORM_GROUP">
-                <label>
-                    Show Label?
-                    <input type="checkbox" v-model="control.isShowLabel">
-                </label>
-            </div>
-        </SidebarToggleableContainer>
+        <ControlBasicInformation :control="control" />
 
         <!-- Validation of the control / same for all -->
         <SidebarToggleableContainer
@@ -39,11 +12,15 @@
             Nè
         </SidebarToggleableContainer>
 
-        <!-- Control specific configuration -->
+        <!-- Control specific configuration / Only render it if the control has specific configuration view -->
         <SidebarToggleableContainer
+                v-if="specificConfigurationView"
                 headline="Control Specific Configuration"
                 :initial-open="false">
-            Bạn
+
+            <component :is="specificConfigurationView"
+                       :control="control" />
+
         </SidebarToggleableContainer>
 
 
@@ -62,10 +39,13 @@
     import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
     import {SIDEBAR_BODY_MIXIN} from "@/mixins/sidebar-body-mixin";
     import SidebarToggleableContainer from "@/views/container-views/SidebarToggleableContainer";
+    import ControlBasicInformation
+        from "@/views/builder/sidebar-config-views/control-configuration-views/ControlBasicInformation";
+    import {CONTROLS} from "@/configs/controls";
 
     export default {
         name: "SidebarControlConfiguration",
-        components: {SidebarToggleableContainer},
+        components: {ControlBasicInformation, SidebarToggleableContainer},
         mixins: [STYLE_INJECTION_MIXIN, SIDEBAR_BODY_MIXIN],
         data:() => ({
             dataKey: "control",
@@ -74,6 +54,30 @@
 
         created() {
             this.control = this.dataPackage
-        }
+        },
+
+        computed: {
+            /**
+             * Quick'n'Short access to the control type
+             */
+            controlType() {
+                return this.control.type
+            },
+
+            /**
+             * Pick-up the specific configuration View for the Control
+             * Depend on the `configComponent` of CONTROLS in `src/configs/controls.js`
+             * If there's none => No Specific Configuration for the field
+             * @returns VueComponent
+             */
+            specificConfigurationView() {
+                if (!CONTROLS[this.controlType].hasOwnProperty('configComponent')) {
+                    return null
+                }
+
+                // NOTE: this is a hash map access , not 2d array =))
+                return CONTROLS[this.controlType]['configComponent'];
+            }
+        },
     }
 </script>

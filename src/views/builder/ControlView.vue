@@ -62,6 +62,11 @@
              * We're opening the sidebar configuration....
              */
             openConfiguration() {
+                // If the current one active => no trigger...
+                if (this.isActive) {
+                    return
+                }
+
                 this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPEN, this.control.uniqueId)
             },
 
@@ -98,9 +103,11 @@
 
             /**
              * Save Control Configuration Data
+             * @param {String} runnerId - Control ID
+             * @param {Object} controlData - Control Object (After edited in the sidebar)
              */
-            saveConfiguration(controlData) {
-                
+            saveConfiguration(runnerId, controlData) {
+                this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.CONTROL.UPDATE, runnerId, controlData)
             }
         },
 

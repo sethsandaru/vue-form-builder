@@ -160,6 +160,20 @@ const FORM_BUILDER_EVENT_HANDLER = {
             this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.CONTROL.DELETED, parentId, controlId)
         },
 
+        /**
+         * Update a control
+         * @param {String} controlId
+         * @param {Object} controlData
+         */
+        controlUpdated(controlId, controlData) {
+            // validate input
+            if (!this.formData.controls.hasOwnProperty(controlId)) {
+                return
+            }
+
+            // update by using the extend . best way
+            this.formData.controls[controlId] = Object.assign(this.formData.controls[controlId], controlData)
+        }
     },
 
     created() {
@@ -175,6 +189,7 @@ const FORM_BUILDER_EVENT_HANDLER = {
         // control events
         this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.CONTROL.CREATE, this.controlNewAdded)
         this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.CONTROL.DELETE, this.controlDeletion)
+        this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.CONTROL.UPDATE, this.controlUpdated)
     }
 }
 
