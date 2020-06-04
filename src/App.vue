@@ -54,7 +54,15 @@
                                 <li>Input ✅</li>
                                 <li>Text ✅</li>
                                 <li>Empty Block ✅</li>
-                                <li>...</li>
+                                <li>Text Block ✅</li>
+                                <li>Checkbox List 👨‍💻</li>
+                                <li>Radio-Button List 👨‍💻</li>
+                                <li>Date Picker 👨‍💻</li>
+                                <li>Date-Range Picker 👨‍💻</li>
+                                <li>Date-Time Picker 👨‍💻</li>
+                                <li>File Upload 👨‍💻</li>
+                                <li>Label 👨‍💻</li>
+                                <li>Rich-Text Editor 👨‍💻</li>
                             </ul>
                         </li>
                     </ul>
