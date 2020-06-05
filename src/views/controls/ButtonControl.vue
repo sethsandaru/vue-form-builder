@@ -1,6 +1,7 @@
 <template>
     <button :id="control.uniqueId"
             :class="buttonClasses"
+            :name="control.name"
             v-text="control.label"
             @click="clickedHandle"
     ></button>
@@ -33,14 +34,6 @@
         },
 
         computed: {
-            /**
-             * Check the current onclick mode
-             * @returns {boolean}
-             */
-            isOnclickMode() {
-                return this.control.bindingType === 1;
-            },
-
             buttonClasses() {
                 return [
                     this.control.buttonClass,

@@ -7,6 +7,7 @@
 
         <!-- Validation of the control / same for all -->
         <SidebarToggleableContainer
+                v-if="isValidationDisabled == false"
                 headline="Validation"
                 :initial-open="false">
             Nè
@@ -62,6 +63,17 @@
              */
             controlType() {
                 return this.control.type
+            },
+
+            /**
+             * CHeck if the control doesn't need validation
+             */
+            isValidationDisabled() {
+                if (CONTROLS[this.controlType].disableValidation) {
+                    return true
+                }
+
+                return false
             },
 
             /**

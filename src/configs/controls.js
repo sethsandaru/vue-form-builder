@@ -10,6 +10,7 @@ import ButtonControl from "@/views/controls/ButtonControl"
 import EmptyBlockControl from "@/views/controls/EmptyBlockControl";
 import TextBlockControl from "@/views/controls/TextBlockControl";
 import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
+import ButtonConfigView from "@/views/control-configs/ButtonConfigView";
 
 const CONTROLS = {
     input: {
@@ -104,6 +105,7 @@ const CONTROLS = {
     button: {
         name: "Button",
         description: "Simple button for your own purpose",
+        disableValidation: true,
 
         configData: {
             buttonClass: STYLES.BUTTON.PRIMARY,
@@ -119,12 +121,15 @@ const CONTROLS = {
             isShowLabel: false,
         },
 
-        fieldComponent: ButtonControl
+        fieldComponent: ButtonControl,
+        configComponent: ButtonConfigView
     },
 
     emptyBlock: {
         name: "Empty Block",
         description: "Empty block to design your section/row.",
+        disableValidation: true,
+
         fieldComponent: EmptyBlockControl,
 
         configData: {
@@ -136,6 +141,8 @@ const CONTROLS = {
     textBlock: {
         name: "Text Block",
         description: "Block with text only (without any controls)",
+        disableValidation: true,
+
         fieldComponent: TextBlockControl,
         configComponent: TextBlockConfigView,
 
