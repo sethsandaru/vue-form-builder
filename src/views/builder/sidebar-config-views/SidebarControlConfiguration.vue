@@ -4,6 +4,18 @@
 
         <!-- Basic of the control/Same for all -->
         <ControlBasicInformation :control="control" />
+        <ControlStylingInformation :control="control" />
+
+        <!-- Control specific configuration / Only render it if the control has specific configuration view -->
+        <SidebarToggleableContainer
+                v-if="specificConfigurationView"
+                headline="Control Specific Configuration">
+
+            <component :is="specificConfigurationView"
+                       :formData="formData"
+                       :control="control" />
+
+        </SidebarToggleableContainer>
 
         <!-- Validation of the control / same for all -->
         <SidebarToggleableContainer
@@ -12,18 +24,6 @@
                 :initial-open="false">
             Nè
         </SidebarToggleableContainer>
-
-        <!-- Control specific configuration / Only render it if the control has specific configuration view -->
-        <SidebarToggleableContainer
-                v-if="specificConfigurationView"
-                headline="Control Specific Configuration"
-                :initial-open="false">
-
-            <component :is="specificConfigurationView"
-                       :control="control" />
-
-        </SidebarToggleableContainer>
-
 
         <div class="buttons">
             <button :class="styles.BUTTON.PRIMARY" @click="save(false)">
@@ -43,10 +43,12 @@
     import ControlBasicInformation
         from "@/views/builder/sidebar-config-views/control-configuration-views/ControlBasicInformation";
     import {CONTROLS} from "@/configs/controls";
+    import ControlStylingInformation
+        from "@/views/builder/sidebar-config-views/control-configuration-views/ControlStylingInformation";
 
     export default {
         name: "SidebarControlConfiguration",
-        components: {ControlBasicInformation, SidebarToggleableContainer},
+        components: {ControlStylingInformation, ControlBasicInformation, SidebarToggleableContainer},
         mixins: [STYLE_INJECTION_MIXIN, SIDEBAR_BODY_MIXIN],
         data:() => ({
             dataKey: "control",

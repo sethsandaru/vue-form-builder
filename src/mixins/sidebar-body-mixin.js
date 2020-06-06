@@ -5,7 +5,13 @@ const SIDEBAR_BODY_MIXIN = {
          * Data Object that you will use for the Component inner Sidebar body
          * Normally, you need to create your own `data` field and emit it later.
          */
-        dataPackage: Object
+        dataPackage: Object,
+
+        /**
+         * Main Form-Data from the Parent.
+         * There might be some Configuration need these data.
+         */
+        formData: Object
     },
 
     data: () => ({

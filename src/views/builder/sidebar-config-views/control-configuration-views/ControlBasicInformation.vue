@@ -31,6 +31,7 @@
             <label>Field Placeholder</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.placeholderText">
         </div>
+
     </SidebarToggleableContainer>
 </template>
 

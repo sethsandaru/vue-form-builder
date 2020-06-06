@@ -4,13 +4,19 @@
  */
 import {STYLES} from "@/configs/styles";
 import {HELPER} from "@/libraries/helper";
+
+// Control-GUI-Component
 import InputControl from "@/views/controls/InputControl"
 import TextControl from "@/views/controls/TextControl"
 import ButtonControl from "@/views/controls/ButtonControl"
 import EmptyBlockControl from "@/views/controls/EmptyBlockControl";
 import TextBlockControl from "@/views/controls/TextBlockControl";
+import LabelControl from "@/views/controls/LabelControl";
+
+// Control-Config-Component
 import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
 import ButtonConfigView from "@/views/control-configs/ButtonConfigView";
+import LabelConfigView from "@/views/control-configs/LabelConfigView";
 
 const CONTROLS = {
     input: {
@@ -95,13 +101,22 @@ const CONTROLS = {
 
     label: {
         name: "Label",
-        description: "Simple label text for your purpose",
+        description: "Simple label text show up in your Form",
 
         configData: {
-            forAttribute: "", // `for` for any control?
+            forAttribute: null, // `for` for any control? (except the Label)
+
+            // Override here in order to not show the Label
+            isShowLabel: false
         },
+
+        // no need validation
+        disableValidation: true,
+        fieldComponent: LabelControl,
+        configComponent: LabelConfigView
     },
 
+    // STATUS: OK
     button: {
         name: "Button",
         description: "Simple button for your own purpose",
@@ -125,6 +140,7 @@ const CONTROLS = {
         configComponent: ButtonConfigView
     },
 
+    // STATUS: OK
     emptyBlock: {
         name: "Empty Block",
         description: "Empty block to design your section/row.",
@@ -138,6 +154,7 @@ const CONTROLS = {
         }
     },
 
+    // STATUS: OK
     textBlock: {
         name: "Text Block",
         description: "Block with text only (without any controls)",

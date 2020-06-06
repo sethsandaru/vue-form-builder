@@ -9,6 +9,7 @@
         <component v-if="component"
                    :is="component"
                    :dataPackage="dynamicData"
+                   :formData="formData"
                    @save="save"
                    @saveAndClose="saveAndClose"
                    @close="close"
@@ -21,6 +22,14 @@
 
     export default {
         name: "GlobalSidebar",
+        props: {
+            formData: {
+                type: Object,
+                default() {
+                    return {}
+                }
+            }
+        },
         data: () => ({
             component: null,
             dynamicData: {},

@@ -21,7 +21,9 @@
         <AddSectionControl @addSectionNotify="addSection" />
 
         <!-- global stuff -->
-        <GlobalSidebar />
+        <GlobalSidebar
+                :formData="formData"
+        />
 
         <hr>
 

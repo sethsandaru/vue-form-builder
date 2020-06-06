@@ -14,6 +14,7 @@
                 :group="dragGroup">
 
             <ControlView v-for="controlId in section.controls"
+                         :key="controlId"
                          :control="controls[controlId]"
                          :parent-id="section.uniqueId" />
 

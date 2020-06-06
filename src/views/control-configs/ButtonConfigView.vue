@@ -31,14 +31,22 @@
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Emitting Code</label>
+            <label>
+                Emitting Code
+                <IconTooltip icon="informationOutline"
+                             text="V-Form will $emit an Event with <strong>YOUR CODE</strong>" />
+            </label>
             <input type="text"
                    :class="styles.FORM.FORM_CONTROL"
                    v-model="control.emitEventCode">
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Emitting Value</label>
+            <label>
+                Emitting Value
+                <IconTooltip icon="informationOutline"
+                             text="Specific Data-String when V-Form performs invoke $emit" />
+            </label>
             <input type="text"
                    :class="styles.FORM.FORM_CONTROL"
                    v-model="control.emitEventData">

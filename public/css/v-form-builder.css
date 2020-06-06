@@ -176,6 +176,10 @@
     border: 1px solid #0198fa;
 }
 
+.vue-form-builder .control-view.label-selected {
+    border: 1px solid #e74c3c;
+}
+
 .vue-form-builder .control-list-container {
     margin: 20px;
 }
@@ -234,6 +238,33 @@
 .ghost {
     opacity: 0.5;
     background: #c8ebfb;
+}
+
+.vue-form-builder .v-tooltip {
+    position: relative;
+}
+
+/* Tooltip text */
+.vue-form-builder .v-tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -100px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.vue-form-builder .v-tooltip:hover .tooltiptext {
+    visibility: visible;
 }
 
 /*********************************
