@@ -8,6 +8,7 @@
  */
 import {EVENT_CONSTANTS} from "@/configs/events";
 import {HELPER} from "@/libraries/helper";
+import ListItem from "@/libraries/list-item.class";
 
 
 const FORM_BUILDER_EVENT_HANDLER = {
@@ -126,6 +127,11 @@ const FORM_BUILDER_EVENT_HANDLER = {
          * @param {Object} controlObj
          */
         controlNewAdded(sectionId, controlObj) {
+            if (controlObj.type == 'radio') {
+                controlObj.items.push(new ListItem("test11", "Radio Item 1"))
+                controlObj.items.push(new ListItem("test2", "Radio Item 2"))
+            }
+
             // add into big list
             this.$set(this.formData.controls, controlObj.uniqueId, controlObj)
 

@@ -4,6 +4,7 @@
  */
 import {STYLES} from "@/configs/styles";
 import {HELPER} from "@/libraries/helper";
+import {RADIO_CHECKBOX_POSITION, RADIO_CHECKBOX_STYLE} from "@/configs/control-config-enum";
 
 // Control-GUI-Component
 import InputControl from "@/views/controls/InputControl"
@@ -12,6 +13,7 @@ import ButtonControl from "@/views/controls/ButtonControl"
 import EmptyBlockControl from "@/views/controls/EmptyBlockControl";
 import TextBlockControl from "@/views/controls/TextBlockControl";
 import LabelControl from "@/views/controls/LabelControl";
+import RadioCheckboxControl from "@/views/controls/RadioCheckboxControl";
 
 // Control-Config-Component
 import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
@@ -76,13 +78,16 @@ const CONTROLS = {
         description: "Checkbox list items (Multiple Select)",
 
         configData: {
-            displayMode: "line", // line by line / next to each others / 2 items per line
+            displayMode: RADIO_CHECKBOX_STYLE.line, // line by line / next to each others / 2 items per line
+            position: RADIO_CHECKBOX_POSITION.left, // POSITION
 
             /**
              * @var {ListItem[]} items
              */
             items: [], // list-item
         },
+
+        fieldComponent: RadioCheckboxControl
     },
 
     radio: {
@@ -90,13 +95,15 @@ const CONTROLS = {
         description: "Radio-Button list items (Single Select)",
 
         configData: {
-            displayMode: "line", // line by line / next to each others / 2 items per line
-
+            displayMode: RADIO_CHECKBOX_STYLE.line, // line by line / next to each others / 2 items per line
+            position: RADIO_CHECKBOX_POSITION.left, // POSITION
             /**
              * @var {ListItem[]} items
              */
             items: [], // list-item
         },
+
+        fieldComponent: RadioCheckboxControl
     },
 
     label: {
