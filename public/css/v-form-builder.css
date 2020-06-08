@@ -13,6 +13,18 @@
 .position-relative {
     position: relative;
 }
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
 /*********************************
 * END GLOBAL PADDING - MARGIN
 **********************************/
@@ -321,6 +333,15 @@ body {
 
 .vue-form-builder .toggle-item {
     cursor: pointer;
+}
+
+.vue-form-builder .radio-checkbox.line label {
+    display: block;
+}
+
+.vue-form-builder .radio-checkbox.next label {
+    display: inline-block;
+    margin-right: 5px;
 }
 
 /*********************************

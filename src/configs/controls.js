@@ -19,6 +19,7 @@ import RadioCheckboxControl from "@/views/controls/RadioCheckboxControl";
 import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
 import ButtonConfigView from "@/views/control-configs/ButtonConfigView";
 import LabelConfigView from "@/views/control-configs/LabelConfigView";
+import RadioCheckboxConfigView from "@/views/control-configs/RadioCheckboxConfigView";
 
 const CONTROLS = {
     input: {
@@ -87,7 +88,8 @@ const CONTROLS = {
             items: [], // list-item
         },
 
-        fieldComponent: RadioCheckboxControl
+        fieldComponent: RadioCheckboxControl,
+        configComponent: RadioCheckboxConfigView
     },
 
     radio: {
@@ -103,7 +105,8 @@ const CONTROLS = {
             items: [], // list-item
         },
 
-        fieldComponent: RadioCheckboxControl
+        fieldComponent: RadioCheckboxControl,
+        configComponent: RadioCheckboxConfigView
     },
 
     label: {

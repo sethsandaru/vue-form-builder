@@ -45,6 +45,7 @@
     import {CONTROLS} from "@/configs/controls";
     import ControlStylingInformation
         from "@/views/builder/sidebar-config-views/control-configuration-views/ControlStylingInformation";
+    import {HELPER} from "@/libraries/helper";
 
     export default {
         name: "SidebarControlConfiguration",
@@ -56,7 +57,8 @@
         }),
 
         created() {
-            this.control = this.dataPackage
+            // clone to make sure, no references will interrupt the configuration...
+            this.control = HELPER.cloneDeep(this.dataPackage)
         },
 
         computed: {

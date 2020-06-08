@@ -1,6 +1,11 @@
 <template>
     <div>
-        <div v-if="displayMode === 'line' || displayMode === 'next'">
+        <div v-if="displayMode === 'line' || displayMode === 'next'"
+             class="radio-checkbox"
+             :class="{
+                'line': displayMode === 'line',
+                'next': displayMode === 'next',
+             }">
             <label v-for="listItem in control.items">
                 <!--- For structural, line/next is same --->
                 <input :type="control.type"
