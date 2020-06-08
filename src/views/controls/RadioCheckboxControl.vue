@@ -22,16 +22,17 @@
                 <div :class="styles.COLUMNS.COL6"
                      v-for="listItem in control.items">
 
-                    <!--- Input things are same, hmm - TODO: DRY ?? --->
-                    <input :type="control.type"
-                           :class="control.additionalFieldClass"
-                           :name="inputName"
-                           :value="listItem.value"
-                           @input="updateValue(listItem.value)"
-                    >
+                    <label>
+                        <!--- Input things are same, hmm - TODO: DRY ?? --->
+                        <input :type="control.type"
+                               :class="control.additionalFieldClass"
+                               :name="inputName"
+                               :value="listItem.value"
+                               @input="updateValue(listItem.value)"
+                        >
 
-                    {{listItem.text}}
-
+                        {{listItem.text}}
+                    </label>
                 </div>
             </div>
         </div>

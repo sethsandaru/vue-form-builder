@@ -78,8 +78,8 @@ const CONTROLS = {
         description: "Checkbox list items (Multiple Select)",
 
         configData: {
-            displayMode: RADIO_CHECKBOX_STYLE.line, // line by line / next to each others / 2 items per line
-            position: RADIO_CHECKBOX_POSITION.left, // POSITION
+            displayMode: RADIO_CHECKBOX_STYLE.line.val, // line by line / next to each others / 2 items per line
+            position: RADIO_CHECKBOX_POSITION.left.val, // POSITION
 
             /**
              * @var {ListItem[]} items
@@ -95,8 +95,8 @@ const CONTROLS = {
         description: "Radio-Button list items (Single Select)",
 
         configData: {
-            displayMode: RADIO_CHECKBOX_STYLE.line, // line by line / next to each others / 2 items per line
-            position: RADIO_CHECKBOX_POSITION.left, // POSITION
+            displayMode: RADIO_CHECKBOX_STYLE.line.val, // line by line / next to each others / 2 items per line
+            position: RADIO_CHECKBOX_POSITION.left.val, // POSITION
             /**
              * @var {ListItem[]} items
              */

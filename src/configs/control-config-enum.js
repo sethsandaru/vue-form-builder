@@ -7,8 +7,14 @@ const RADIO_CHECKBOX_STYLE = {
         val: 'line',
         description: "Line by Line"
     },
-    next: "next",
-    bothSide: "bothSide"
+    next: {
+        val: 'next',
+        description: "Next to each others"
+    },
+    bothSide: {
+        val: "bothSide",
+        description: "Stay on each sides in a row (Left - Right)",
+    }
 };
 
 /**
@@ -16,9 +22,18 @@ const RADIO_CHECKBOX_STYLE = {
  * @type {{left: string, center: string, right: string}}
  */
 const RADIO_CHECKBOX_POSITION = {
-    left: 'Left',
-    center: 'Center',
-    right: 'Right'
+    left: {
+        val: 'left',
+        description: "Left"
+    },
+    center: {
+        val: 'center',
+        description: 'Center',
+    },
+    right: {
+        val: 'right',
+        description: 'Right'
+    }
 };
 
 export  {
