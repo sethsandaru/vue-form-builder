@@ -27,35 +27,38 @@
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>List Selections</label>
+            <label>
+                List Selections
+                <span class="pointer"
+                      @click="addListItem"
+                      v-html="$form.getIcon('addOutline', '16px', '16px', 'green')">
+                </span>
+            </label>
 
-            <table :class="styles.TABLE.TABLE_CLASS">
-                <thead>
-                    <tr>
-                        <th class="text-center">
-                           <span v-html="$form.getIcon('addOutline', '24px', '24px', 'green')"
-                                 @click="addListItem">
-                           </span>
-                        </th>
-                        <th>Value</th>
-                        <th>Label</th>
-                    </tr>
-                </thead>
+            <!-- Im using div instead of table. Table too small :( -->
+            <div :class="['list-selection']" v-for="(listItem, iItem) in control.items">
 
-                <tbody>
-                    <tr v-for="listItem in control.items">
-                        <td class="text-center">
-                            <span v-html="$form.getIcon('addOutline', '24px', '24px', 'green')"></span>
-                        </td>
-                        <td>
-                            <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="listItem.value">
-                        </td>
-                        <td>
-                            <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="listItem.text">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="tool-block">
+                    <span class="pointer"
+                          @click="removeListItem(iItem)"
+                          v-html="$form.getIcon('close', '16px', '16px', 'red')">
+                    </span>
+                </div>
+
+                <div :class="styles.FORM.FORM_GROUP">
+                    <label>Item Value</label>
+                    <input type="text" :class="styles.FORM.FORM_CONTROL"
+                           placeholder="Radio-Value"
+                           v-model="listItem.value">
+                </div>
+
+                <div :class="styles.FORM.FORM_GROUP">
+                    <label>Label Text</label>
+                    <input type="text" :class="styles.FORM.FORM_CONTROL"
+                           placeholder="Label text"
+                           v-model="listItem.text">
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -77,6 +80,13 @@
                 this.control.items.push(
                     new ListItem('', '')
                 )
+            },
+
+            /**
+             * Remove list-Item by Index of the Array
+             */
+            removeListItem(index) {
+                this.control.items.splice(index, 1)
             }
         },
 
