@@ -1,12 +1,8 @@
 <template>
     <div>
-        <div v-if="displayMode === 'line' || displayMode === 'next'"
-             class="radio-checkbox"
-             :class="{
-                'line': displayMode === 'line',
-                'next': displayMode === 'next',
-             }">
-            <label v-for="listItem in control.items">
+        <div v-if="isSameBlock" class="radio-checkbox" :class="lineNextClasses">
+
+            <label v-for="listItem in control.items" :class="positionClasses">
                 <!--- For structural, line/next is same --->
                 <input :type="control.type"
                        :class="control.additionalFieldClass"
@@ -20,12 +16,13 @@
                 <!--- Line By Line will need this <br> --->
                 <br v-if="displayMode === 'line'" />
             </label>
+
         </div>
         <div v-else>
             <!--- Double/Size --->
             <div :class="styles.ROW">
-                <div :class="styles.COLUMNS.COL6"
-                     v-for="listItem in control.items">
+
+                <div :class="[styles.COLUMNS.COL6, positionClasses]"  v-for="listItem in control.items">
 
                     <label>
                         <!--- Input things are same, hmm - TODO: DRY ?? --->
@@ -39,6 +36,7 @@
                         {{listItem.text}}
                     </label>
                 </div>
+
             </div>
         </div>
     </div>
@@ -46,7 +44,7 @@
 
 <script>
     import {CONTROL_FIELD_EXTEND_MIXIN} from "@/mixins/control-field-extend-mixin";
-    import {RADIO_CHECKBOX_STYLE} from "@/configs/control-config-enum";
+    import {RADIO_CHECKBOX_POSITION, RADIO_CHECKBOX_STYLE} from "@/configs/control-config-enum";
 
     /**
      * Radio/Checkbox List Control
@@ -72,6 +70,37 @@
              */
             displayMode() {
                 return this.control.displayMode
+            },
+
+            /**
+             * Check if the displayMode either line or next. Because both of them are in the same `div` block
+             * @returns {boolean}
+             */
+            isSameBlock() {
+                return this.displayMode === 'line' || this.displayMode === 'next'
+            },
+
+            /**
+             * Get classes for view mode of Line - Next
+             * @returns {Object}
+             */
+            lineNextClasses() {
+                return {
+                    'line': this.displayMode === 'line',
+                    'next': this.displayMode === 'next',
+                }
+            },
+
+            /**
+             * Get position class depends on the configuration
+             * @returns {Object}
+             */
+            positionClasses() {
+                return {
+                    'text-center': this.control.position === RADIO_CHECKBOX_POSITION.center.val,
+                    'text-right': this.control.position === RADIO_CHECKBOX_POSITION.right.val,
+                    'text-left': this.control.position === RADIO_CHECKBOX_POSITION.left.val,
+                }
             },
 
             /**
