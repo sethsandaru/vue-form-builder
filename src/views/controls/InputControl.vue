@@ -18,7 +18,7 @@
      */
     export default {
         name: "InputControl",
-        mixins: [CONTROL_FIELD_EXTEND_MIXIN]
+        mixins: [CONTROL_FIELD_EXTEND_MIXIN],
     }
 </script>
 

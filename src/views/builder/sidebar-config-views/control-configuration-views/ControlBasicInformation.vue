@@ -28,8 +28,13 @@
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Field Placeholder</label>
+            <label>Field Placeholder (Optional)</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.placeholderText">
+        </div>
+
+        <div :class="styles.FORM.FORM_GROUP">
+            <label>Default Value (Optional)</label>
+            <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.defaultValue">
         </div>
 
     </SidebarToggleableContainer>

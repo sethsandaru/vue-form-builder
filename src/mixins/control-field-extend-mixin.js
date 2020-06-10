@@ -20,6 +20,11 @@ const CONTROL_FIELD_EXTEND_MIXIN = {
         value: null, // any types
     },
 
+    // global data-field - available to override
+    data: () =>({
+        stopDefaultValueAssign: false
+    }),
+
     /**
      * For V-Model Purpose
      * Basically, we will emit the 'change' to the parent to keep the update...
@@ -66,8 +71,21 @@ const CONTROL_FIELD_EXTEND_MIXIN = {
                 this.control.additionalFieldClass
             ]
         }
-    }
+    },
 
+    /**
+     * Global post-mounted processing
+     */
+    mounted() {
+        // default set value
+        if (
+            this.stopDefaultValueAssign === false &&
+            this.value &&
+            this.control.defaultValue
+        ) {
+            this.updateValue(this.control.defaultValue)
+        }
+    },
 }
 
 export {

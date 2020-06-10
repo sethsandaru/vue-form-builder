@@ -20,6 +20,8 @@ import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
 import ButtonConfigView from "@/views/control-configs/ButtonConfigView";
 import LabelConfigView from "@/views/control-configs/LabelConfigView";
 import RadioCheckboxConfigView from "@/views/control-configs/RadioCheckboxConfigView";
+import NumberControl from "@/views/controls/NumberControl";
+import NumberConfigView from "@/views/control-configs/NumberConfigView";
 
 const CONTROLS = {
     input: {
@@ -34,6 +36,14 @@ const CONTROLS = {
     number: {
         name: "Number Input Field",
         description: "Input text single line - Number Only",
+
+        configData: {
+            isReal: false, // integer or real (float/double)
+            decimalPlace: 1, // [For Real] 0.xxx?? (x = num of places)
+        },
+
+        fieldComponent: NumberControl,
+        configComponent: NumberConfigView
     },
 
     text: {
