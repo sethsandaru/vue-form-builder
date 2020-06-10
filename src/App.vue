@@ -29,7 +29,7 @@
                             <ul>
                                 <li>Normal ✅</li>
                                 <li>Toggle-able ✅</li>
-                                <li>Table 👨‍💻</li>
+                                <li>Table ✅</li>
                             </ul>
                         </li>
                     </ul>
@@ -55,13 +55,13 @@
                                 <li>Text ✅</li>
                                 <li>Empty Block ✅</li>
                                 <li>Text Block ✅</li>
-                                <li>Checkbox List 👨‍💻</li>
-                                <li>Radio-Button List 👨‍💻</li>
+                                <li>Checkbox List ✅</li>
+                                <li>Radio-Button List ✅</li>
                                 <li>Date Picker 👨‍💻</li>
                                 <li>Date-Range Picker 👨‍💻</li>
                                 <li>Date-Time Picker 👨‍💻</li>
                                 <li>File Upload 👨‍💻</li>
-                                <li>Label 👨‍💻</li>
+                                <li>Label ✅</li>
                                 <li>Rich-Text Editor 👨‍💻</li>
                             </ul>
                         </li>
@@ -81,6 +81,7 @@
      * NOTE - This file only exists for development purpose.
      */
     import FormBuilder from "@/components/FormBuilder";
+    import {DEMO_FORM_DATA} from "@/demo-form-data";
 
     export default {
         components: {
@@ -100,7 +101,7 @@
             },
 
             setData() {
-                this.formData = Object.assign({},{"formConfig":{"headline":"Hello World","subHeadline":"Basic Form Configuration For You","isShowHeadline":true,"renderFormTag":false,"formActionURL":"","formMethod":"POST"},"sections":{},"rows":{},"controls":{}});
+                this.formData = Object.assign({}, DEMO_FORM_DATA);
             }
         }
     }
