@@ -2,7 +2,7 @@
     <input :id="control.uniqueId"
            type="number"
            :class="controlFieldClass"
-           :value="previewMode"
+           :value="number"
            :name="control.name"
            :placeholder="control.placeholderText"
            @input="convertToNumber($event.target.value)"
