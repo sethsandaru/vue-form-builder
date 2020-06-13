@@ -34,7 +34,6 @@
 
                 this.control.forAttribute = $e.target.value
 
-                console.log(this.control.forAttribute)
                 // is eligible to add selected class??
                 if (this.control.forAttribute) {
                     this.labelMappedAssign(this.control.forAttribute)
@@ -42,16 +41,18 @@
             },
 
             /**
-             * This method will added
+             * Find the control and add it a simple class to let the configurator know which
+             * label they're assigning to which control.
              * @param controlId
              */
             labelMappedAssign(controlId) {
-                console.log (
-                    document.getElementById(controlId).parentNode
-                )
                 document.getElementById(controlId).parentNode.classList.add(LABEL_SELECTED_CLASS)
             },
 
+            /**
+             * Simply loop through all the controls and remove the `bordered` class
+             * Vanilla JS rules
+             */
             clearAllMapped() {
                 this.listControlData.forEach(id => {
                     document.getElementById(id).parentNode.classList.remove(LABEL_SELECTED_CLASS)

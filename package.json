@@ -1,7 +1,7 @@
 {
   "name": "v-form-builder",
   "version": "2.0.0",
-  "description": "Form Builder PRO MAX built from top of Vue. Super dynamic and flexible including Drag and Drop feature.",
+  "description": "Vue Form Builder PRO MAX built from top of Vue. Super dynamic and flexible including Drag and Drop feature.",
   "author": {
     "email": "phattranminh@gmail.com",
     "name": "Phat Tran",
@@ -16,6 +16,7 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "deep-equal": "^2.0.3",
+    "pikaday": "^1.8.0",
     "vue": "^2.6.10",
     "vuedraggable": "^2.23.2"
   },

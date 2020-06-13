@@ -22,7 +22,9 @@
                 v-if="isValidationDisabled == false"
                 headline="Validation"
                 :initial-open="false">
-            Nè
+
+            Coming soon!!
+
         </SidebarToggleableContainer>
 
         <div class="buttons">

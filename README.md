@@ -13,7 +13,7 @@ Advantages:
 - Setup your Form with a super friendly UI/UX
 - Extensibility (Your custom control, styling,...)
 - Form Validation? I got you fam
-- ...
+- Included HTML5 structure, no tricks or cheats.
 
 Give this repo a ⭐ (star) if you actually like this and might use it for your development/production :D! Thank you!
 
@@ -41,6 +41,18 @@ NPMJS Info: [v-form-builder](https://www.npmjs.com/package/v-form-builder)
 **Notes:** 
 - For the best experience, please install the latest version!
 - Version below **@v2.0.0** is deprecated. No maintain + fix bugs. Please use 2.0.0 or above.
+
+## Dependencies
+I carefully watch the dependencies of the Vue Form Builder, from the version **2.0.0** and above. Here is the list:
+
+- Vue JS (obviously)
+- vuedraggable: Based on `Sortable.JS` which is very lightweight and a lot of lighter than JQuery UI
+- deep-equal: A simple method to check the Form Configuration...
+- Datepicker - PikaDay (Super lightweight, ~5KB): https://github.com/Pikaday/Pikaday
+
+For more info, visit: [package.json](./package.json) and look at the `dependencies`
+
+My fully desire: Fewer dependencies as possible. Try to come up with HTML5, ES5/6/7 syntax/library,...
 
 ## How to implement?
 
