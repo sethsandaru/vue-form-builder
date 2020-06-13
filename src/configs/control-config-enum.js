@@ -36,7 +36,23 @@ const RADIO_CHECKBOX_POSITION = {
     }
 };
 
+/**
+ * Return Type for Date-Picker
+ * @type {{format: {val: string, description: string}, object: {val: string, description: string}}}
+ */
+const DATE_PICKER_RETURN_TYPES = {
+    format: {
+        val: "format",
+        description: "Date String from Date Format"
+    },
+    object: {
+        val: "object",
+        description: "JS-Date Object"
+    }
+}
+
 export  {
     RADIO_CHECKBOX_POSITION,
-    RADIO_CHECKBOX_STYLE
+    RADIO_CHECKBOX_STYLE,
+    DATE_PICKER_RETURN_TYPES
 }

@@ -3,7 +3,7 @@
            type="text"
            :class="controlFieldClass"
            :value="value"
-           :name="control.name"
+           :name="control.name || control.uniqueId"
            :placeholder="control.placeholderText"
            @input="updateValue($event.target.value)"
     />

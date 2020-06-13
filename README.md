@@ -48,7 +48,8 @@ I carefully watch the dependencies of the Vue Form Builder, from the version **2
 - Vue JS (obviously)
 - vuedraggable: Based on `Sortable.JS` which is very lightweight and a lot of lighter than JQuery UI
 - deep-equal: A simple method to check the Form Configuration...
-- Datepicker - PikaDay (Super lightweight, ~5KB): https://github.com/Pikaday/Pikaday
+- Datepicker - LitePicker (Super lightweight, ~5KB): https://wakirin.github.io/Litepicker/
+- DayJS: Parse/Formatting date (2KB) https://day.js.org/en/
 
 For more info, visit: [package.json](./package.json) and look at the `dependencies`
 

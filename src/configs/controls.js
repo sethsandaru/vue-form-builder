@@ -4,7 +4,7 @@
  */
 import {STYLES} from "@/configs/styles";
 import {HELPER} from "@/libraries/helper";
-import {RADIO_CHECKBOX_POSITION, RADIO_CHECKBOX_STYLE} from "@/configs/control-config-enum";
+import {DATE_PICKER_RETURN_TYPES, RADIO_CHECKBOX_POSITION, RADIO_CHECKBOX_STYLE} from "@/configs/control-config-enum";
 
 // Control-GUI-Component
 import InputControl from "@/views/controls/InputControl"
@@ -14,6 +14,7 @@ import EmptyBlockControl from "@/views/controls/EmptyBlockControl";
 import TextBlockControl from "@/views/controls/TextBlockControl";
 import LabelControl from "@/views/controls/LabelControl";
 import RadioCheckboxControl from "@/views/controls/RadioCheckboxControl";
+import DatePickerControl from "@/views/controls/DatePickerControl";
 
 // Control-Config-Component
 import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
@@ -67,6 +68,19 @@ const CONTROLS = {
     date: {
         name: "Date Picker",
         description: "Simple date picker field",
+
+        configData: {
+            format: "DD/MM/YYYY",
+            firstDay: 1, // 0 Sunday, 1 Monday,...
+            numberOfMonths: 1, // Number of Month(s) will be shown
+            numberOfColumns: 1, // Number of Column(s) will be shown
+            minDate: null, // min day (less => can't select)
+            maxDate: null,// max day (more => can't select),
+
+            returnType: DATE_PICKER_RETURN_TYPES.format.val, // specific return type
+        },
+
+        fieldComponent: DatePickerControl
     },
 
     dateRange: {
