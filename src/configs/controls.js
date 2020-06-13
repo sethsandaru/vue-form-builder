@@ -77,15 +77,16 @@ const CONTROLS = {
             minDate: null, // min day (less => can't select)
             maxDate: null,// max day (more => can't select),
 
+            singleMode: true, // date or date-range
+
+            // for date-range
+            minDays: 0, // min-day range
+            maxDays: 0, // max-day range
+
             returnType: DATE_PICKER_RETURN_TYPES.format.val, // specific return type
         },
 
         fieldComponent: DatePickerControl
-    },
-
-    dateRange: {
-        name: "Date Range Picker",
-        description: "Pick 2 dates in a range",
     },
 
     fileUpload: {
