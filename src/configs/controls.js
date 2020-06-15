@@ -4,7 +4,12 @@
  */
 import {STYLES} from "@/configs/styles";
 import {HELPER} from "@/libraries/helper";
-import {DATE_PICKER_RETURN_TYPES, RADIO_CHECKBOX_POSITION, RADIO_CHECKBOX_STYLE} from "@/configs/control-config-enum";
+import {
+    DATE_PICKER_RETURN_TYPES,
+    DATE_PICKER_START_DATES,
+    RADIO_CHECKBOX_POSITION,
+    RADIO_CHECKBOX_STYLE
+} from "@/configs/control-config-enum";
 
 // Control-GUI-Component
 import InputControl from "@/views/controls/InputControl"
@@ -15,14 +20,15 @@ import TextBlockControl from "@/views/controls/TextBlockControl";
 import LabelControl from "@/views/controls/LabelControl";
 import RadioCheckboxControl from "@/views/controls/RadioCheckboxControl";
 import DatePickerControl from "@/views/controls/DatePickerControl";
+import NumberControl from "@/views/controls/NumberControl";
 
 // Control-Config-Component
 import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
 import ButtonConfigView from "@/views/control-configs/ButtonConfigView";
 import LabelConfigView from "@/views/control-configs/LabelConfigView";
 import RadioCheckboxConfigView from "@/views/control-configs/RadioCheckboxConfigView";
-import NumberControl from "@/views/controls/NumberControl";
 import NumberConfigView from "@/views/control-configs/NumberConfigView";
+import DatePickerConfigView from "@/views/control-configs/DatePickerConfigView";
 
 const CONTROLS = {
     input: {
@@ -71,7 +77,7 @@ const CONTROLS = {
 
         configData: {
             format: "DD/MM/YYYY",
-            firstDay: 1, // 0 Sunday, 1 Monday,...
+            firstDay: DATE_PICKER_START_DATES.monday.val, // 0 Sunday, 1 Monday,...
             numberOfMonths: 1, // Number of Month(s) will be shown
             numberOfColumns: 1, // Number of Column(s) will be shown
             minDate: null, // min day (less => can't select)
@@ -86,7 +92,8 @@ const CONTROLS = {
             returnType: DATE_PICKER_RETURN_TYPES.format.val, // specific return type
         },
 
-        fieldComponent: DatePickerControl
+        fieldComponent: DatePickerControl,
+        configComponent: DatePickerConfigView
     },
 
     fileUpload: {

@@ -51,8 +51,43 @@ const DATE_PICKER_RETURN_TYPES = {
     }
 }
 
+/**
+ * Date Picker Start Date (Sunday, Monday,...) of the Week
+ */
+const DATE_PICKER_START_DATES = {
+    monday: {
+        val: 1,
+        description: "Monday"
+    },
+    tuesday: {
+        val: 2,
+        description: "Tuesday"
+    },
+    wednesday: {
+        val: 3,
+        description: "Wednesday"
+    },
+    thursday: {
+        val: 4,
+        description: "Thursday"
+    },
+    friday: {
+        val: 5,
+        description: "Friday"
+    },
+    saturday: {
+        val: 6,
+        description: "Saturday"
+    },
+    sunday: {
+        val: 0,
+        description: "Sunday"
+    },
+}
+
 export  {
     RADIO_CHECKBOX_POSITION,
     RADIO_CHECKBOX_STYLE,
-    DATE_PICKER_RETURN_TYPES
+    DATE_PICKER_RETURN_TYPES,
+    DATE_PICKER_START_DATES
 }
