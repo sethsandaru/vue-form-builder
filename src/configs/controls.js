@@ -29,6 +29,7 @@ import LabelConfigView from "@/views/control-configs/LabelConfigView";
 import RadioCheckboxConfigView from "@/views/control-configs/RadioCheckboxConfigView";
 import NumberConfigView from "@/views/control-configs/NumberConfigView";
 import DatePickerConfigView from "@/views/control-configs/DatePickerConfigView";
+import TextConfigView from "@/views/control-configs/TextConfigView";
 
 const CONTROLS = {
     input: {
@@ -64,6 +65,7 @@ const CONTROLS = {
 
         // component mapping
         fieldComponent: TextControl,
+        configComponent: TextConfigView
     },
 
     richText: {
