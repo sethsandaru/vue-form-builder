@@ -6,6 +6,7 @@
                     v-model="control.displayMode">
 
                 <option v-for="item in listDisplayModes"
+                        :key="item.val"
                         :value="item.val"
                         v-text="item.description">
                 </option>
@@ -19,6 +20,7 @@
                     v-model="control.position">
 
                 <option v-for="item in listPositions"
+                        :key="item.val"
                         :value="item.val"
                         v-text="item.description">
                 </option>
@@ -36,7 +38,7 @@
             </label>
 
             <!-- Im using div instead of table. Table too small :( -->
-            <div :class="['list-selection']" v-for="(listItem, iItem) in control.items">
+            <div :class="['list-selection']" v-for="(listItem, iItem) in control.items" :key="iItem">
 
                 <div class="tool-block">
                     <span class="pointer"

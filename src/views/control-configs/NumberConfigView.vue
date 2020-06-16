@@ -9,7 +9,12 @@
 
         <div :class="styles.FORM.FORM_GROUP" v-show="control.isReal">
             <label>Decimal Places</label>
-            <input type="number" min="0" max="10" :class="styles.FORM.FORM_CONTROL" v-model="control.decimalPlace">
+            <input type="number"
+                   step="1"
+                   min="0"
+                   max="10"
+                   :class="styles.FORM.FORM_CONTROL"
+                   v-model.number="control.decimalPlace">
         </div>
     </div>
 </template>
