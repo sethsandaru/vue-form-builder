@@ -6,6 +6,7 @@
                     v-model="control.returnType">
 
                 <option v-for="item in listReturnTypes"
+                        :key="item.val"
                         :value="item.val"
                         v-text="item.description">
                 </option>
@@ -25,6 +26,7 @@
                     v-model="control.firstDay">
 
                 <option v-for="item in listStartDates"
+                        :key="item.val"
                         :value="item.val"
                         v-text="item.description">
                 </option>
@@ -66,14 +68,25 @@
         <!--- Only show this configuration if date-range --->
         <div :class="styles.FORM.FORM_GROUP" v-show="!control.singleMode">
             <label>Minimum Day in Range (0 for none)</label>
-            <input type="number" step="1" :class="styles.FORM.FORM_CONTROL" v-model="control.minDays" />
+            <input type="number" step="1" :class="styles.FORM.FORM_CONTROL" v-model.number="control.minDays" />
         </div>
 
         <div :class="styles.FORM.FORM_GROUP" v-show="!control.singleMode">
             <label>Maximum Day in Range (0 for none)</label>
-            <input type="number" step="1" :class="styles.FORM.FORM_CONTROL" v-model="control.maxDays" />
+            <input type="number" step="1" :class="styles.FORM.FORM_CONTROL" v-model.number="control.maxDays" />
         </div>
 
+        <div :class="styles.FORM.FORM_GROUP">
+            <label>Number of Months</label>
+            <input type="number" step="1" :class="styles.FORM.FORM_CONTROL" v-model.number="control.numberOfMonths" />
+            <small>Number of Months will be shown up</small>
+        </div>
+
+        <div :class="styles.FORM.FORM_GROUP">
+            <label>Number of Columns</label>
+            <input type="number" step="1" :class="styles.FORM.FORM_CONTROL" v-model.number="control.numberOfColumns" />
+            <small>Number of Columns will be shown up</small>
+        </div>
     </div>
 </template>
 
