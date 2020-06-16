@@ -85,9 +85,45 @@ const DATE_PICKER_START_DATES = {
     },
 }
 
+/**
+ * DROPDOWN DATA MODE
+ *  - Normal
+ *  - API
+ */
+const DROPDOWN_DATA_MODES = {
+    list: {
+        val: 'list',
+        description: "Normal - Pre-Config List Items"
+    },
+    api: {
+        val: 'api',
+        description: "API - List Items from your own API",
+    },
+}
+
+/**
+ * File Upload Modes
+ */
+const FILE_UPLOAD_MODES = {
+    normal: {
+        val: 'normal',
+        description: "Keep the file there for HTTP Form Request"
+    },
+
+    preUpload: {
+        val: 'preUpload',
+        description: "Pre-Upload to your own API"
+    },
+}
+
 export  {
     RADIO_CHECKBOX_POSITION,
     RADIO_CHECKBOX_STYLE,
+
     DATE_PICKER_RETURN_TYPES,
-    DATE_PICKER_START_DATES
+    DATE_PICKER_START_DATES,
+
+    DROPDOWN_DATA_MODES,
+
+    FILE_UPLOAD_MODES
 }

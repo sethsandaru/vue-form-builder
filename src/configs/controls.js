@@ -5,10 +5,13 @@
 import {STYLES} from "@/configs/styles";
 import {HELPER} from "@/libraries/helper";
 import {
-    DATE_PICKER_RETURN_TYPES,
-    DATE_PICKER_START_DATES,
-    RADIO_CHECKBOX_POSITION,
-    RADIO_CHECKBOX_STYLE
+    DATE_PICKER_RETURN_TYPES, DATE_PICKER_START_DATES,
+
+    RADIO_CHECKBOX_POSITION, RADIO_CHECKBOX_STYLE,
+
+    DROPDOWN_DATA_MODES,
+
+    FILE_UPLOAD_MODES
 } from "@/configs/control-config-enum";
 
 // Control-GUI-Component
@@ -68,10 +71,14 @@ const CONTROLS = {
         configComponent: TextConfigView
     },
 
-    richText: {
-        name: "Rich-Text Field",
-        description: "Multiple line text field - Rich Editor (WYSIWYG)",
-    },
+    // I would love to support this, but the thing is, many rich editors are too large:
+    // js: 150KB+
+    // css: 30KB+
+    // So 2.0.0 won't have this field.
+    // richText: {
+    //     name: "Rich-Text Field",
+    //     description: "Multiple line text field - Rich Editor (WYSIWYG)",
+    // },
 
     date: {
         name: "Date Picker",
@@ -101,11 +108,28 @@ const CONTROLS = {
     fileUpload: {
         name: "File Upload",
         description: "Upload single file through API",
+
+        configData: {
+            uploadMode: FILE_UPLOAD_MODES.normal.val,
+            apiURL: "", // API-Url to upload
+        },
     },
 
     dropDown: {
         name: "Dropdown",
         description: "Dropdown select from a list",
+
+        configData: {
+            dataMode: DROPDOWN_DATA_MODES.list.val, // normal - api
+            multiple: false, // is multiple selection
+
+            /**
+             * @var {ListItem[]} items
+             */
+            items: [], // for normal hard-list
+
+            apiURL: "", // for api-request - must be entered
+        }
     },
 
     checkbox: {
@@ -160,7 +184,6 @@ const CONTROLS = {
         configComponent: LabelConfigView
     },
 
-    // STATUS: OK
     button: {
         name: "Button",
         description: "Simple button for your own purpose",
@@ -184,7 +207,6 @@ const CONTROLS = {
         configComponent: ButtonConfigView
     },
 
-    // STATUS: OK
     emptyBlock: {
         name: "Empty Block",
         description: "Empty block to design your section/row.",
@@ -198,7 +220,6 @@ const CONTROLS = {
         }
     },
 
-    // STATUS: OK
     textBlock: {
         name: "Text Block",
         description: "Block with text only (without any controls)",
@@ -223,13 +244,13 @@ const CONTROL_DEFAULT_DATA = {
     'subLabel': '',
     'isShowLabel': true,
 
-    'placeholderText': '',
+    'placeholderText': '', // :placeholder
 
     'containerClass': STYLES.COLUMNS.COL4,
-    'additionalContainerClass': '',
+    'additionalContainerClass': '', // :class for the <div> outer container
 
-    'additionalFieldClass': '',
-    'additionalLabelClass': '',
+    'additionalFieldClass': '', // :class for <input> <select> ...
+    'additionalLabelClass': '', // :class for the <label>
 
     'defaultValue': '',
 
@@ -239,7 +260,7 @@ const CONTROL_DEFAULT_DATA = {
      */
     'validations': [],
 
-    // data of the other should we here...
+    // data of the others - coming up later
 };
 
 /**
