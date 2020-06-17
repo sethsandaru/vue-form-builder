@@ -1,39 +1,21 @@
-// Declare install function executed by Vue.use()
-import FormBuilder from "./components/FormBuilder";
-import FormRenderer from "./components/FormRenderer";
-import {FormIcon} from "@/libraries/icon-facade";
-
-export function install(Vue) {
-    if (install.installed) return;
-    install.installed = true;
-
-    // DI for Form-Builder
-    Vue.prototype.$form = {
-        getIcon: FormIcon.getSVG
-    };
-    Vue.prototype.$formEvent = new Vue();
-
-    // Register Form-Components
-    Vue.component('FormBuilder', FormBuilder);
-    Vue.component('FormRenderer', FormRenderer);
-}
+import {VueFormBuilderInstaller} from "@/installer";
 
 // Create module definition for Vue.use()
-const plugin = {
-    install
+const VueFormBuilderPlugin = {
+    install: VueFormBuilderInstaller
 };
 
-// Auto-install when vue is found (eg. in browser via <script> tag)
-let GlobalVue = null;
+// Export the VueFormBuilderPlugin to let developers register it later.
+// we don't automatically register it, therefore we have a big chance to
+// - Configure the Internal Value of the Form
+// - Extendable (Registering more controls, Styling Classes,...)
+// - ...
 if (typeof window !== 'undefined') {
-    GlobalVue = window.Vue;
+    window.VueFormBuilderPlugin = VueFormBuilderPlugin
 } else if (typeof global !== 'undefined') {
-    GlobalVue = global.Vue;
-}
-if (GlobalVue) {
-    GlobalVue.use(plugin);
+    global.VueFormBuilderPlugin = VueFormBuilderPlugin
 }
 
 export {
-    plugin
+    VueFormBuilderPlugin
 }
