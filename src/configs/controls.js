@@ -11,7 +11,7 @@ import {
 
     DROPDOWN_DATA_MODES,
 
-    FILE_UPLOAD_MODES
+    // FILE_UPLOAD_MODES
 } from "@/configs/control-config-enum";
 
 // Control-GUI-Component
@@ -24,6 +24,7 @@ import LabelControl from "@/views/controls/LabelControl";
 import RadioCheckboxControl from "@/views/controls/RadioCheckboxControl";
 import DatePickerControl from "@/views/controls/DatePickerControl";
 import NumberControl from "@/views/controls/NumberControl";
+import DropdownControl from "@/views/controls/DropdownControl";
 
 // Control-Config-Component
 import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
@@ -33,6 +34,7 @@ import RadioCheckboxConfigView from "@/views/control-configs/RadioCheckboxConfig
 import NumberConfigView from "@/views/control-configs/NumberConfigView";
 import DatePickerConfigView from "@/views/control-configs/DatePickerConfigView";
 import TextConfigView from "@/views/control-configs/TextConfigView";
+import DropdownConfigView from "@/views/control-configs/DropdownConfigView";
 
 const CONTROLS = {
     input: {
@@ -105,15 +107,15 @@ const CONTROLS = {
         configComponent: DatePickerConfigView
     },
 
-    fileUpload: {
-        name: "File Upload",
-        description: "Upload single file through API",
-
-        configData: {
-            uploadMode: FILE_UPLOAD_MODES.normal.val,
-            apiURL: "", // API-Url to upload
-        },
-    },
+    // fileUpload: {
+    //     name: "File Upload",
+    //     description: "Upload single file through API",
+    //
+    //     configData: {
+    //         uploadMode: FILE_UPLOAD_MODES.normal.val,
+    //         apiURL: "", // API-Url to upload
+    //     },
+    // },
 
     dropDown: {
         name: "Dropdown",
@@ -129,8 +131,12 @@ const CONTROLS = {
             items: [], // for normal hard-list
 
             apiURL: "", // for api-request - must be entered
-        }
+        },
+
+        fieldComponent: DropdownControl,
+        configComponent: DropdownConfigView,
     },
+
 
     checkbox: {
         name: "Checkbox List",
