@@ -57,7 +57,7 @@ const CONTROL_FIELD_EXTEND_MIXIN = {
          * Need-To-Override Method - Set Value.
          * Set value from parent to the current field/control
          */
-        setValue(val) {} // NEED TO OVERRIDE
+        setValue(val) {return val} // NEED TO OVERRIDE
     },
 
     computed: {
@@ -70,6 +70,14 @@ const CONTROL_FIELD_EXTEND_MIXIN = {
                 this.styles.FORM.FORM_CONTROL,
                 this.control.additionalFieldClass
             ]
+        },
+
+        /**
+         * Control Name
+         * @returns {*|string|string}
+         */
+        controlName() {
+            return this.control.name || this.control.uniqueId
         }
     },
 
@@ -80,7 +88,7 @@ const CONTROL_FIELD_EXTEND_MIXIN = {
         // default set value
         if (
             this.stopDefaultValueAssign === false &&
-            this.value &&
+            !this.value &&
             this.control.defaultValue
         ) {
             this.updateValue(this.control.defaultValue)

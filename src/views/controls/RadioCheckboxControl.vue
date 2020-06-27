@@ -2,13 +2,15 @@
     <div>
         <div v-if="isSameBlock" class="radio-checkbox" :class="lineNextClasses">
 
-            <label v-for="listItem in control.items" :class="positionClasses">
+            <label v-for="listItem in control.items"
+                   :key="listItem.value"
+                   :class="positionClasses">
                 <!--- For structural, line/next is same --->
                 <input :type="control.type"
                        :class="control.additionalFieldClass"
                        :name="inputName"
                        :value="listItem.value"
-                       @input="updateValue(listItem.value)"
+                       v-model="valueContainer[controlName]"
                 >
 
                 {{listItem.text}}
@@ -22,7 +24,9 @@
             <!--- Double/Size --->
             <div :class="styles.ROW">
 
-                <div :class="[styles.COLUMNS.COL6, positionClasses]"  v-for="listItem in control.items">
+                <div :class="[styles.COLUMNS.COL6, positionClasses]"
+                     v-for="listItem in control.items"
+                     :key="listItem.value">
 
                     <label>
                         <!--- Input things are same, hmm - TODO: DRY ?? --->
@@ -30,7 +34,7 @@
                                :class="control.additionalFieldClass"
                                :name="inputName"
                                :value="listItem.value"
-                               @input="updateValue(listItem.value)"
+                               v-model="valueContainer[controlName]"
                         >
 
                         {{listItem.text}}
@@ -54,6 +58,36 @@
     export default {
         name: "RadioCheckboxControl",
         mixins: [CONTROL_FIELD_EXTEND_MIXIN],
+        props: {
+            valueContainer: {
+                type: Object,
+                default: () => ({})
+            }
+        },
+
+        data: () => ({
+            stopDefaultValueAssign: true,
+            defaultBucket: ''
+        }),
+
+        created() {
+            // special case for Form-Builder since we can't use the
+            // valueContainer (value container only available on Renderer)
+            if (!this.valueContainer[this.controlName]) {
+                this.valueContainer[this.controlName] = ''
+            }
+        },
+
+        mounted() {
+            if (this.control.defaultValue) {
+                // assign default value for control
+                if (this.isRadio) {
+                    this.updateValue(this.control.defaultValue)
+                } else {
+                    this.updateValue([this.control.defaultValue])
+                }
+            }
+        },
 
         computed: {
             /**
@@ -77,7 +111,8 @@
              * @returns {boolean}
              */
             isSameBlock() {
-                return this.displayMode === 'line' || this.displayMode === 'next'
+                return this.displayMode === RADIO_CHECKBOX_STYLE.line.val
+                    || this.displayMode === RADIO_CHECKBOX_STYLE.next.val
             },
 
             /**
@@ -111,11 +146,11 @@
                 // For input[name] of Radio, they need to be the same.
                 // If Control Name is Empty => Use ID instead (otherwise, control will break =)) )
                 if (this.isRadio) {
-                    return this.control.name || this.control.uniqueId
+                    return this.controlName
                 }
 
                 // For Checkbox, name will always be Array Mode (name[])
-                return (this.control.name || this.control.uniqueId) + "[]"
+                return (this.controlName) + "[]"
             }
         }
     }

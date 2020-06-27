@@ -56,7 +56,17 @@ const CONTROLS = {
         },
 
         fieldComponent: NumberControl,
-        configComponent: NumberConfigView
+        configComponent: NumberConfigView,
+
+        /**
+         * As same like Vue-JS Property Default Data
+         * Specific field need some special data-type/structure, they need to
+         * put the creation in a factory method.
+         * It must return a value.
+         */
+        rendererDefaultData() {
+            return 0;
+        },
     },
 
     text: {
@@ -153,7 +163,10 @@ const CONTROLS = {
         },
 
         fieldComponent: RadioCheckboxControl,
-        configComponent: RadioCheckboxConfigView
+        configComponent: RadioCheckboxConfigView,
+        rendererDefaultData() {
+            return [];
+        },
     },
 
     radio: {

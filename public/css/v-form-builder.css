@@ -111,12 +111,14 @@
     margin-right: 5px;
 }
 
-.vue-form-builder .normal-section {
+.vue-form-builder .normal-section,
+.vue-form-renderer .normal-section {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.vue-form-builder .headline-block {
+.vue-form-builder .headline-block,
+.vue-form-builder .vue-form-renderer {
     padding: 0 15px;
     user-select: none;
 }
@@ -216,7 +218,8 @@
     margin: 0;
 }
 
-.vue-form-builder .control-view-wrapper {
+.vue-form-builder .control-view-wrapper,
+.vue-form-renderer .control-view-wrapper {
     position: relative;
     margin-top: 10px;
     padding-left: 0;
@@ -338,30 +341,38 @@ body {
     text-align: right;
 }
 
-.vue-form-builder .toggleable-section {
+.vue-form-builder .toggleable-section,
+.vue-form-renderer .toggleable-section {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.vue-form-builder .toggleable-section .headline-block {
+.toggleable-section .headline-block {
     border-bottom: 1px solid #000;
 }
 
-.vue-form-builder .toggleable-section .headline-block small {
+.toggleable-section .headline-block small {
     font-size: 15px;
 }
 
-.vue-form-builder .toggle-item {
+.vue-form-builder .toggle-item,
+.vue-form-renderer .toggle-item {
     cursor: pointer;
 }
 
-.vue-form-builder .radio-checkbox.line label {
+.vue-form-builder .radio-checkbox.line label,
+.vue-form-renderer .radio-checkbox.line label {
     display: block;
 }
 
-.vue-form-builder .radio-checkbox.next label {
+.vue-form-builder .radio-checkbox.next label,
+.vue-form-renderer .radio-checkbox.next label {
     display: inline-block;
     margin-right: 5px;
+}
+
+.vue-form-renderer .control-list-container {
+    padding: 0 15px;
 }
 
 /*********************************

@@ -18,6 +18,7 @@
         mixins: [CONTROL_FIELD_EXTEND_MIXIN],
         data: () => ({
             datepicker: null,
+            currentValue: null,
         }),
 
         model: {
@@ -54,7 +55,35 @@
              * @param val
              */
             setValue(val) {
-                this.datepicker.setDate(val);
+                if (val === null || val === undefined || val === '') {
+                    this.datepicker.setDate(null)
+                    return
+                }
+
+                // set for date-range
+                if (typeof val === 'object' && val.startDate && val.endDate) {
+
+                    // stop if same value
+                    if (
+                        this.currentValue.startDate === val.startDate &&
+                        this.currentValue.endDate === val.endDate
+                    ) {
+                        return
+                    }
+
+                    this.datepicker.setDateRange(val.startDate, val.endDate)
+                    return
+                }
+
+                // set by single date
+                if (typeof val === 'string' || val instanceof Date) {
+                    // stop reset because of same date
+                    if (this.val === this.currentValue) {
+                        return
+                    }
+
+                    this.datepicker.setDate(val);
+                }
             },
 
             /**
@@ -78,6 +107,7 @@
 
                     // emit to parent
                     this.updateValue(emitValue)
+                    this.currentValue = emitValue
                     return
                 }
 
@@ -95,6 +125,7 @@
 
                 // emit to parent
                 this.updateValue(emitValue)
+                this.currentValue = emitValue
             }
         },
         mounted() {

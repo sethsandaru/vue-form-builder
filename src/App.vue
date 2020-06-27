@@ -8,6 +8,14 @@
             <button class="btn btn-info mr-2" @click="getData">Get JSON Form-Data (Console)</button>
             <button class="btn btn-info mr-2" @click="setData">Set JSON Form-Data (Basic Configuration)</button>
             <button class="btn btn-info mr-2" @click="createBlank">Create Blank Form</button>
+            <button class="btn btn-info mr-2" @click="viewRenderer">
+                <span v-show="isRenderer">
+                    Back to Builder
+                </span>
+                <span v-show="!isRenderer">
+                    View Renderer Form from Basic Configuration
+                </span>
+            </button>
             <button class="btn btn-info mr-2" @click="isShowDevNote = !isShowDevNote">Show Development Note</button>
         </div>
 
@@ -68,7 +76,7 @@
                     </ul>
                 </li>
 
-                <li>Form Renderer - In Development</li>
+                <li>Form Renderer - ✅</li>
                 <li>Form Validation - In Development (Last stage)</li>
 
             </ul>
@@ -76,7 +84,25 @@
 
         <hr>
 
-        <FormBuilder v-model="formData"></FormBuilder>
+        <FormBuilder v-if="!isRenderer" v-model="formData"></FormBuilder>
+
+        <div class="row" v-if="isRenderer" style="padding: 20px; margin-right: 0">
+            <div class="col-md-12 mb-4">
+                <button class="btn btn-success" @click="isShowData = !isShowData">
+                    <span v-show="isShowData">Hide Form Data</span>
+                    <span v-show="!isShowData">Show Form Data</span>
+                </button>
+            </div>
+
+            <FormRenderer :class="{'col-md-9': isShowData, 'col-md-12': !isShowData}"
+                          :form-configuration="formData"
+                          v-model="formInputData" />
+
+            <div class="p-0" :class="{'col-md-3': isShowData, 'd-none': !isShowData}">
+                <h4>Form Input Data</h4>
+                <pre class="code"><code class="code" v-html="JSON.stringify(formInputData, null, 2)"></code></pre>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -85,15 +111,20 @@
      * NOTE - This file only exists for development purpose.
      */
     import FormBuilder from "@/components/FormBuilder";
+    import FormRenderer from "@/components/FormRenderer";
     import {DEMO_FORM_DATA} from "@/demo-form-data";
 
     export default {
         components: {
-            FormBuilder
+            FormBuilder,
+            FormRenderer
         },
         data: () => ({
             formData: null,
-            isShowDevNote: false
+            isShowDevNote: false,
+            isRenderer: false,
+            formInputData: null,
+            isShowData: false
         }),
         methods: {
             getData() {
@@ -106,7 +137,43 @@
 
             setData() {
                 this.formData = Object.assign({}, DEMO_FORM_DATA);
+            },
+
+            viewRenderer() {
+                if (!this.isRenderer) {
+                    this.setData();
+                    this.isRenderer = true;
+                    return;
+                }
+
+                this.isRenderer = false;
             }
         }
     }
 </script>
+
+<style scoped>
+    pre {
+        background: #333;
+        white-space: pre;
+        word-wrap: break-word;
+        overflow: auto;
+    }
+
+    pre.code {
+        margin: 20px 0;
+        border-radius: 4px;
+        border: 1px solid #292929;
+        position: relative;
+    }
+
+    pre.code code {
+        display: block;
+        padding: 15px 16px 14px;
+        border-left: 1px solid #555;
+        overflow-x: auto;
+        font-size: 13px;
+        line-height: 19px;
+        color: #ddd;
+    }
+</style>
