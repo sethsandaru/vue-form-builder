@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :id="control.uniqueId">
         <div v-if="isSameBlock" class="radio-checkbox" :class="lineNextClasses">
 
             <label v-for="listItem in control.items"

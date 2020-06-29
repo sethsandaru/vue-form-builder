@@ -7,6 +7,7 @@
     >
         <!-- placeholder -->
         <option disabled
+                selected
                 v-text="control.placeholderText"
                 v-if="control.placeholderText"
         ></option>

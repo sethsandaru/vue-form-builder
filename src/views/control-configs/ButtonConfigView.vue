@@ -6,7 +6,11 @@
                     :class="styles.FORM.FORM_CONTROL"
                     v-model="control.buttonType"
             >
-                <option v-for="item in buttonTypeList" :value="item" v-text="item"></option>
+                <option v-for="item in buttonTypeList"
+                        :key="item"
+                        :value="item"
+                        v-text="item">
+                </option>
             </select>
         </div>
 
@@ -17,6 +21,7 @@
                     v-model="control.buttonClass"
             >
                 <option v-for="(className, name) in buttonClasses"
+                        :key="className"
                         :value="className">
                     {{name}} ({{className}})
                 </option>

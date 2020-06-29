@@ -6,10 +6,13 @@
                     @input="selectedFor"
             >
                 <option>None</option>
+
                 <option v-for="item in listControlData"
-                        :value="item"
-                        v-text="item">
+                        :key="item.value"
+                        :value="item.value"
+                        v-text="item.text">
                 </option>
+
             </select>
         </div>
     </div>
@@ -17,9 +20,13 @@
 
 <script>
     import {CONTROL_SPECIAL_CONFIG_MIXIN} from "@/mixins/control-special-config-mixin";
+    import ListItem from "@/libraries/list-item.class";
 
     const LABEL_SELECTED_CLASS = 'label-selected'
 
+    /**
+     * @property {ListItem[]} listControlData
+     */
     export default {
         name: "LabelConfigView",
         mixins: [CONTROL_SPECIAL_CONFIG_MIXIN],
@@ -46,7 +53,12 @@
              * @param controlId
              */
             labelMappedAssign(controlId) {
-                document.getElementById(controlId).parentNode.classList.add(LABEL_SELECTED_CLASS)
+                const controlDOM = document.getElementById(controlId)
+                if (!controlDOM || !controlDOM.parentNode) {
+                    return
+                }
+
+                controlDOM.parentNode.classList.add(LABEL_SELECTED_CLASS)
             },
 
             /**
@@ -54,8 +66,13 @@
              * Vanilla JS rules
              */
             clearAllMapped() {
-                this.listControlData.forEach(id => {
-                    document.getElementById(id).parentNode.classList.remove(LABEL_SELECTED_CLASS)
+                this.listControlData.forEach(controlOption => {
+                    const controlDOM = document.getElementById(controlOption.value)
+                    if (!controlDOM || !controlDOM.parentNode) {
+                        return
+                    }
+
+                    controlDOM.parentNode.classList.remove(LABEL_SELECTED_CLASS)
                 })
             }
         },
@@ -63,7 +80,7 @@
         created() {
             // prepare control list and remove the current
             let pureIds = Object.keys(this.formData.controls)
-            for (let controlId of pureIds) {
+            for (const controlId of pureIds) {
                 // Current Label => NO ID should be added
                 if (controlId === this.control.uniqueId) {
                     continue
@@ -74,7 +91,19 @@
                     continue
                 }
 
-                this.listControlData.push(controlId)
+                // option text generation
+                const controlObj = this.formData.controls[controlId];
+                let fieldName = `${controlObj.label} - #${controlObj.uniqueId}`
+
+                // if name is exist => use it instead of uniqueID
+                if (controlObj.name) {
+                    fieldName = `${controlObj.label} - ${controlObj.name}`
+                }
+
+                // add it to the list
+                this.listControlData.push(
+                    new ListItem(controlId, fieldName)
+                )
             }
 
             // do we need to mark the border??

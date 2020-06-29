@@ -8,7 +8,6 @@
  */
 import {EVENT_CONSTANTS} from "@/configs/events";
 import {HELPER} from "@/libraries/helper";
-import ListItem from "@/libraries/list-item.class";
 
 
 const FORM_BUILDER_EVENT_HANDLER = {
