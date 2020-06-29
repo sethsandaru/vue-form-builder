@@ -49,6 +49,14 @@ const MODEL = {
             controlIds.forEach(controlId => {
                 const controlItem = this.formData.controls[controlId]
 
+                // if disableValue is provided, we don't need to solve more for the control
+                if (
+                    typeof CONTROLS[controlItem.type].disableValue === 'boolean' &&
+                    CONTROLS[controlItem.type].disableValue
+                ) {
+                    return
+                }
+
                 // get the key-name value
                 let name = controlItem.name;
                 if (!name) {

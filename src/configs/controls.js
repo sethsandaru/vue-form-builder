@@ -189,7 +189,8 @@ const CONTROLS = {
     label: {
         name: "Label",
         description: "Simple label text show up in your Form",
-
+        disableValue: true,
+        
         configData: {
             forAttribute: null, // `for` for any control? (except the Label)
 
@@ -207,6 +208,7 @@ const CONTROLS = {
         name: "Button",
         description: "Simple button for your own purpose",
         disableValidation: true,
+        disableValue: true,
 
         configData: {
             buttonClass: STYLES.BUTTON.PRIMARY,
@@ -230,6 +232,7 @@ const CONTROLS = {
         name: "Empty Block",
         description: "Empty block to design your section/row.",
         disableValidation: true,
+        disableValue: true,
 
         fieldComponent: EmptyBlockControl,
 
@@ -243,6 +246,7 @@ const CONTROLS = {
         name: "Text Block",
         description: "Block with text only (without any controls)",
         disableValidation: true,
+        disableValue: true, // if you provide this, the control field value will not be recorded.
 
         fieldComponent: TextBlockControl,
         configComponent: TextBlockConfigView,
