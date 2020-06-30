@@ -18,14 +18,7 @@
         </SidebarToggleableContainer>
 
         <!-- Validation of the control / same for all -->
-        <SidebarToggleableContainer
-                v-if="isValidationDisabled == false"
-                headline="Validation"
-                :initial-open="false">
-
-            Coming soon!!
-
-        </SidebarToggleableContainer>
+        <ControlValidationInformation :control="control" />
 
         <div class="buttons">
             <button :class="styles.BUTTON.PRIMARY" @click="save(false)">
@@ -48,10 +41,14 @@
     import ControlStylingInformation
         from "@/views/builder/sidebar-config-views/control-configuration-views/ControlStylingInformation";
     import {HELPER} from "@/libraries/helper";
+    import ControlValidationInformation
+        from "@/views/builder/sidebar-config-views/control-configuration-views/ControlValidationInformation";
 
     export default {
         name: "SidebarControlConfiguration",
-        components: {ControlStylingInformation, ControlBasicInformation, SidebarToggleableContainer},
+        components: {
+            ControlValidationInformation,
+            ControlStylingInformation, ControlBasicInformation, SidebarToggleableContainer},
         mixins: [STYLE_INJECTION_MIXIN, SIDEBAR_BODY_MIXIN],
         data:() => ({
             dataKey: "control",

@@ -141,6 +141,8 @@ const CONTROLS = {
             items: [], // for normal hard-list
 
             apiURL: "", // for api-request - must be entered
+            apiTextKey: "text", // <option>TEXT</option>
+            apiValueKey: "value", // <option value=value>...</option>
         },
 
         fieldComponent: DropdownControl,

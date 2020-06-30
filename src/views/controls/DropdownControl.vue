@@ -91,23 +91,30 @@
                 fetch(this.control.apiURL, {
                     method: "GET"
                 }).then(result => result.json())
-                    .then(this.afterRestAPICallDataSuccessfully)
-                    .catch(this.restAPICallErrorHandling);
+                  .then(this.afterRestAPICallDataSuccessfully)
+                  .catch(this.restAPICallErrorHandling);
             },
 
             /**
              * [FOR-RestAPI-Dropdown][EVENT]
              * Appending data after success
-             * @param {[{text: String, value: Number|String|any}]} result
+             * @param {[]} result
              */
             afterRestAPICallDataSuccessfully(result) {
+                if (!Array.isArray(result)) {
+                    throw new TypeError(`[DROPDOWN-${this.control.name}] Wrong API-data format.`);
+                }
+
                 // clear list
                 this.listOptions = [];
 
                 // traversal all list and add it into the list
                 result.forEach(optionObj => {
                     this.listOptions.push(
-                        new ListItem(optionObj.value, optionObj.text)
+                        new ListItem(
+                            optionObj[this.valueKey],
+                            optionObj[this.textKey]
+                        )
                     );
                 });
             },
@@ -118,6 +125,24 @@
              */
             restAPICallErrorHandling() {
                 console.error(`[DROPDOWN-Control-${this.control.uniqueId}] Request API to get data failed.`);
+            },
+        },
+
+        computed: {
+            /**
+             * [API-Only] Get Text Key
+             * @returns {string}
+             */
+            textKey() {
+                return this.control.apiTextKey || "text"
+            },
+
+            /**
+             * [API-Only] Get Text Key
+             * @returns {string}
+             */
+            valueKey() {
+                return this.control.apiValueKey || "value"
             },
         },
 

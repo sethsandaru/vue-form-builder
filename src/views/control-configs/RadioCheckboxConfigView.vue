@@ -50,7 +50,7 @@
                 <div :class="styles.FORM.FORM_GROUP">
                     <label>Item Value</label>
                     <input type="text" :class="styles.FORM.FORM_CONTROL"
-                           placeholder="Radio-Value"
+                           placeholder="Radio/Checkbox-Value"
                            v-model="listItem.value">
                 </div>
 

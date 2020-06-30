@@ -43,7 +43,7 @@ const VALIDATION_RULES = {
         needValue: true,
         valueInfo: "Your Regex Rule here - JavaScript",
 
-        errorMessage: "This field value doesn't match with our rule",
+        errorMessage: "This field value doesn't match with the rule",
     },
 
     sameAs: {
@@ -53,6 +53,15 @@ const VALIDATION_RULES = {
         valueInfo: "The field name you want to check with",
 
         errorMessage: "This field value doesn't as same as :sameAs",
+    },
+
+    customClosure: {
+        desc: "Invoke your own method to check your field",
+
+        needValue: true,
+        valueInfo: "Your method name",
+
+        errorMessage: "Custom validation failed.",
     }
 }
 
@@ -69,9 +78,12 @@ class ValidationRule {
     errorMessage = ""
     additionalValue = ""
 
-    constructor(ruleType) {
+    constructor(ruleType, customErrorMessage) {
         this.ruleType = ruleType
-        this.errorMessage = VALIDATION_RULES[ruleType].errorMessage
+
+        if (ruleType) {
+            this.errorMessage = customErrorMessage || VALIDATION_RULES[ruleType].errorMessage || ""
+        }
     }
 }
 
