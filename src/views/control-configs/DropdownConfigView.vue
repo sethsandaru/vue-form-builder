@@ -21,21 +21,45 @@
             </select>
         </div>
 
-        <div :class="styles.FORM.FORM_GROUP"
-             v-show="this.control.dataMode === listDataModes.api.val">
+        <div v-show="this.control.dataMode === listDataModes.api.val">
+            <div :class="styles.FORM.FORM_GROUP">
+                <label>
+                    Rest-API URL
+                    <icon-tooltip icon="informationOutline"
+                                  text="Your API-Endpoint URL - GET Method. It must return an Array. Read more on Documentation" />
+                </label>
 
-            <label>
-                Rest-API URL
-                <icon-tooltip icon="informationOutline"
-                              text="Your API-Endpoint URL - GET Method. It must return an Array of Objects contains value & text" />
-            </label>
+                <input type="text"
+                       placeholder="https://your-domain/rest-api/get-list/..."
+                       :class="styles.FORM.FORM_CONTROL"
+                       v-model="control.apiURL">
+            </div>
 
-            <input type="text"
-                   placeholder="https://your-domain/rest-api/get-list/..."
-                   :class="styles.FORM.FORM_CONTROL"
-                   v-model="control.apiURL">
+            <div :class="styles.FORM.FORM_GROUP">
+                <label>
+                    Value Key of your Object
+                    <icon-tooltip icon="informationOutline"
+                                  text="[{'value': '',...}] => value" />
+                </label>
 
+                <input type="text"
+                       :class="styles.FORM.FORM_CONTROL"
+                       v-model="control.apiValueKey">
+            </div>
+
+            <div :class="styles.FORM.FORM_GROUP">
+                <label>
+                    Text Key of your Object
+                    <icon-tooltip icon="informationOutline"
+                                  text="[{'text': '',...}] => text" />
+                </label>
+
+                <input type="text"
+                       :class="styles.FORM.FORM_CONTROL"
+                       v-model="control.apiTextKey">
+            </div>
         </div>
+
 
         <div :class="styles.FORM.FORM_GROUP"
              v-show="this.control.dataMode === listDataModes.list.val">
