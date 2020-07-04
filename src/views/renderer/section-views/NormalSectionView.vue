@@ -11,6 +11,7 @@
                          :control="controls[controlId]"
                          :parent-id="section.uniqueId"
                          :value-container="valueContainer"
+                         :validation-errors="validationErrors"
             />
         </div>
     </div>

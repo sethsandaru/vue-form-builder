@@ -360,6 +360,11 @@ body {
     cursor: pointer;
 }
 
+.vue-form-builder .radio-checkbox,
+.vue-form-renderer .radio-checkbox {
+    padding: 5px;
+}
+
 .vue-form-builder .radio-checkbox.line label,
 .vue-form-renderer .radio-checkbox.line label {
     display: block;
@@ -373,6 +378,25 @@ body {
 
 .vue-form-renderer .control-list-container {
     padding: 0 15px;
+}
+
+.vue-form-renderer .control-view div.is-invalid {
+    border: 1px solid #dc3545;
+}
+
+.vue-form-renderer .control-view div.is-invalid~.invalid-feedback {
+    display: block;
+}
+
+.v-form-alert {
+    padding: 20px;
+    background-color: #dc3545;
+    color: white;
+    position: fixed;
+    right: 5px;
+    top: 10px;
+    z-index: 5;
+    border-radius: 5px;
 }
 
 /*********************************

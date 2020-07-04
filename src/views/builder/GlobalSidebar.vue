@@ -19,6 +19,9 @@
 
 <script>
     import {EVENT_CONSTANTS} from "@/configs/events";
+    import {ALERT_DIALOG} from "@/libraries/alert-dialog";
+
+    const SIDEBAR_WIDTH_SIZE = "300px"
 
     export default {
         name: "GlobalSidebar",
@@ -42,12 +45,13 @@
              */
             open(runnerId) {
                 if (this.isOpen) {
-                    alert("Please save your changes and close the sidebar before start editing another one. Thanks")
+                    ALERT_DIALOG.show('Please close the current active sidebar before open another')
                     return
                 }
 
-                this.$el.style.width = "300px"
-                document.getElementsByTagName("body")[0].style.marginRight = "300px"
+                // set size
+                this.$el.style.width = SIDEBAR_WIDTH_SIZE
+                document.getElementsByTagName("body")[0].style.marginRight = SIDEBAR_WIDTH_SIZE
 
                 // turn on flag and notify watcher that sidebar is opened
                 // `runnerId` will be sent back in order to make sure other components will touch yours

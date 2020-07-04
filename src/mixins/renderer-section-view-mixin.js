@@ -12,7 +12,8 @@ const RENDERER_SECTION_VIEW_MIXIN = {
         section: Object,
         rows: Object,
         controls: Object,
-        valueContainer: Object
+        valueContainer: Object,
+        validationErrors: Object,
     },
 
     data: () => ({

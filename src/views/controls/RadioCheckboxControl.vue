@@ -22,7 +22,7 @@
         </div>
         <div v-else>
             <!--- Double/Size --->
-            <div :class="styles.ROW">
+            <div :class="styles.ROW" class="radio-checkbox">
 
                 <div :class="[styles.COLUMNS.COL6, positionClasses]"
                      v-for="listItem in control.items"

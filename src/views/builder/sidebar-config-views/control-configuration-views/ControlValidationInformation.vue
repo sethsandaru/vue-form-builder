@@ -99,7 +99,6 @@
              * [ON-INPUT] Every-Time the rule-select is selected, we need to update the default error message.
              */
             updateDefaultErrorMessage(addedRule) {
-                console.log(addedRule)
                 addedRule.errorMessage = this.getRuleInfo(addedRule.ruleType, 'errorMessage')
             },
 

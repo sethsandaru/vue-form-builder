@@ -42,7 +42,7 @@ export default class Validation {
             let controlName = controlItem.name || controlId
 
             // no name => this field didn't have value
-            if (!this.valueContainer[controlName]) {
+            if (!this.valueContainer.hasOwnProperty(controlName)) {
                 return
             }
 
@@ -58,7 +58,7 @@ export default class Validation {
      */
     run() {
         this.validationResult = new ValidationResult()
-        let controlKeys = Object.entries(this.rules)
+        let controlKeys = Object.keys(this.rules)
 
         for (const key of controlKeys) {
             // pickup basic data

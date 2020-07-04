@@ -16,20 +16,8 @@ export default function maxRule(fieldValue, constraintValue) {
     }
 
     // second, number
-    if (
-        !isNaN(parseInt(fieldValue)) ||
-        !isNaN(parseFloat(fieldValue))
-    ) {
-        let numVal = 0;
-
-        // integer or float/double
-        if (fieldValue.indexOf(".") >= 0) {
-            numVal = parseFloat(fieldValue)
-        } else {
-            numVal = parseInt(fieldValue)
-        }
-
-        return numVal <= minVal
+    if (typeof fieldValue === 'number') {
+        return fieldValue <= minVal
     }
 
     // lastly, string

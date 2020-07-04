@@ -14,6 +14,7 @@
                           :controls="formData.controls"
                           :key="sectionData.uniqueId"
                           :value-container="valueContainer"
+                          :validation-errors="validationErrors"
         />
 
     </div>

@@ -59,6 +59,8 @@ const STYLES = {
         FORM_GROUP: "form-group",
         INPUT_GROUP: "input-group",
         FORM_CONTROL: "form-control",
+        ERROR_OUTLINE: "is-invalid",
+        ERROR_MESSAGE: "invalid-feedback"
     },
 
     /**

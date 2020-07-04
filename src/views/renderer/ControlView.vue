@@ -8,9 +8,18 @@
             <component :is="controlComponent"
                        :control="control"
                        :value-container="valueContainer"
-                       v-model="valueContainer[control.name || control.uniqueId]"
+                       v-model="valueContainer[controlName]"
+                       :class="validationErrorClasses"
             />
 
+            <!-- validation error -->
+            <template v-if="hasValidationError">
+                <div v-for="(mess, i) in validationErrorMessages"
+                     :key="i"
+                     v-text="mess"
+                     :class="styles.FORM.ERROR_MESSAGE"
+                ></div>
+            </template>
         </div>
     </div>
 </template>
@@ -19,11 +28,10 @@
     import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
     import ControlLabel from "@/views/builder/control-views/ControlLabel";
     import {CONTROLS} from "@/configs/controls";
-    import ControlOption from "@/views/builder/control-views/ControlOption";
 
     export default {
         name: "ControlView",
-        components: {ControlOption, ControlLabel},
+        components: {ControlLabel},
         mixins: [STYLE_INJECTION_MIXIN],
         props: {
             control: {
@@ -37,6 +45,10 @@
             valueContainer: {
                 type: Object,
                 required: true
+            },
+            validationErrors: {
+                type: Object,
+                default: () => ({}) // empty object
             }
         },
 
@@ -51,7 +63,37 @@
                 }
 
                 return CONTROLS[this.control.type].fieldComponent
-            }
+            },
+
+            /**
+             * Generate Control Base Name
+             * @returns {string}
+             */
+            controlName() {
+                return this.control.name || this.control.uniqueId
+            },
+
+            /**
+             * Check if current control has validation error(s)
+             * @returns {boolean}
+             */
+            hasValidationError() {
+                return !!this.validationErrors[this.controlName]
+            },
+
+            /**
+             * Short-Path access to the Validation Error MEssages List
+             * @returns {String[]}
+             */
+            validationErrorMessages() {
+                return this.validationErrors[this.controlName]
+            },
+
+            validationErrorClasses() {
+                const classes = {};
+                classes[this.styles.FORM.ERROR_OUTLINE] = this.hasValidationError
+                return classes
+            },
         },
 
     }

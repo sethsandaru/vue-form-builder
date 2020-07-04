@@ -5,7 +5,14 @@ import {CONTROLS} from "@/configs/controls";
 import {STYLES} from "@/configs/styles";
 import {VALIDATION_RULES} from "@/configs/validation";
 
-const VueFormBuilderInstaller = function(Vue, properties = {globalInjection : true}) {
+const VueFormBuilderInstaller = function(
+    Vue,
+    properties = {
+        globalInjection : true,
+        validationErrorShowAlert: true,
+        validationErrorAlertText: "Your form got error(s), please fix it and submit again"
+    }
+) {
     if (VueFormBuilderInstaller.installed) {
         return
     }
@@ -34,6 +41,10 @@ const VueFormBuilderInstaller = function(Vue, properties = {globalInjection : tr
     if (properties.hasOwnProperty('validationClosures')) {
         formDI.validationClosures = properties.validationClosures
     }
+
+    // show alert or not?
+    formDI.validationErrorShowAlert = properties.validationErrorShowAlert || true
+    formDI.validationErrorAlertText = properties.validationErrorAlertText
 
     // For Event-Bus purpose
     Vue.prototype.$formEvent = new Vue()

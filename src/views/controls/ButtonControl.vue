@@ -30,7 +30,7 @@
              */
             clickedHandle() {
                 if (this.control.isRunValidation) {
-                    this.$emit(EVENT_CONSTANTS.RENDERER.RUN_VALIDATION, true)
+                    this.$formEvent.$emit(EVENT_CONSTANTS.RENDERER.RUN_VALIDATION, true)
                 } else {
                     // no need to validation => submit
                     this.submit()

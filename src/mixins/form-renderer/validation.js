@@ -1,5 +1,6 @@
 import Validation from "@/libraries/validation";
 import {EVENT_CONSTANTS} from "@/configs/events";
+import {ALERT_DIALOG} from "@/libraries/alert-dialog";
 
 const VALIDATION_MIXIN = {
     data: () => ({
@@ -13,12 +14,18 @@ const VALIDATION_MIXIN = {
         runValidation() {
             const result = this.$form.Validation.run()
             if (result.errors()) {
-                this.validationErrors = Object.assign({}, result.errorBuckets)
+                // use set for reactive...
+                this.$set(this, 'validationErrors', result.errorBuckets)
+
+                if (this.$form.validationErrorShowAlert) {
+                    ALERT_DIALOG.show(this.$form.validationErrorAlertText)
+                }
+
                 return
             }
 
             // ok emit to all listener if they want to know the validation is ok or not
-            this.$emit(EVENT_CONSTANTS.RENDERER.VALIDATION_OK, true)
+            this.$formEvent.$emit(EVENT_CONSTANTS.RENDERER.VALIDATION_OK, true)
         }
     },
 
@@ -34,7 +41,7 @@ const VALIDATION_MIXIN = {
         )
 
         // listen to validation invoke
-        this.$on(EVENT_CONSTANTS.RENDERER.RUN_VALIDATION, this.runValidation);
+        this.$formEvent.$on(EVENT_CONSTANTS.RENDERER.RUN_VALIDATION, this.runValidation);
     }
 }
 
