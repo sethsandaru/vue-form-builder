@@ -29,7 +29,8 @@
         mixins: FormRendererBusiness,
         data: () => ({
             formData: null
-        })
+        }),
+
     }
 </script>
 

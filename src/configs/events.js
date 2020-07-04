@@ -54,7 +54,8 @@ const EVENT_CONSTANTS = {
      * Constants for Form-Renderer
      */
     RENDERER: {
-
+        RUN_VALIDATION: "renderer.run_validation",
+        VALIDATION_OK: "renderer.validation_ok"
     }
 };
 

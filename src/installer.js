@@ -3,14 +3,15 @@ import FormBuilder from "@/components/FormBuilder";
 import FormRenderer from "@/components/FormRenderer";
 import {CONTROLS} from "@/configs/controls";
 import {STYLES} from "@/configs/styles";
+import {VALIDATION_RULES} from "@/configs/validation";
 
-const VueFormBuilderInstaller = function(Vue, properties = {}) {
+const VueFormBuilderInstaller = function(Vue, properties = {globalInjection : true}) {
     if (VueFormBuilderInstaller.installed) {
         return
     }
 
     // DI for Form-Builder
-    Vue.prototype.$form = {
+    const formDI = {
         getIcon: FormIcon.getSVG, // a method to get icon from IconFacade
     };
 
@@ -24,12 +25,25 @@ const VueFormBuilderInstaller = function(Vue, properties = {}) {
         Object.assign(STYLES, properties.styles)
     }
 
+    // validation extend?
+    if (properties.hasOwnProperty('validations')) {
+        extendingValidations(properties.validations)
+    }
+
+    // validation closures
+    if (properties.hasOwnProperty('validationClosures')) {
+        formDI.validationClosures = properties.validationClosures
+    }
+
     // For Event-Bus purpose
-    Vue.prototype.$formEvent = new Vue();
+    Vue.prototype.$formEvent = new Vue()
+    Vue.prototype.$form = formDI
 
     // Register Form-Components
-    Vue.component('FormBuilder', FormBuilder);
-    Vue.component('FormRenderer', FormRenderer);
+    if (!properties.hasOwnProperty('globalInjection') || properties.globalInjection) {
+        Vue.component('FormBuilder', FormBuilder);
+        Vue.component('FormRenderer', FormRenderer);
+    }
 
     // Mark as registered
     VueFormBuilderInstaller.installed = true;
@@ -53,6 +67,26 @@ const extendingControls = function(moreControlObject) {
 
     // eligible to extend now
     Object.assign(CONTROLS, moreControlObject)
+}
+
+/**
+ * Extending Validation
+ * @param {Object} validationObj
+ */
+const extendingValidations = function (validationObj) {
+    // validation if it does conflict or not
+    const allKeys = Object.keys(validationObj)
+    for (let iKey = 0; iKey < allKeys.length; iKey++) {
+        let key = allKeys[iKey]
+
+        // duplicated => error
+        if (VALIDATION_RULES.hasOwnProperty(key)) {
+            throw new TypeError(`Extend-Validation-Error: Your '${key}' validation is duplicated with our build-in Validation. Please change to another key name instead.`);
+        }
+    }
+
+    // eligible to extend now
+    Object.assign(VALIDATION_RULES, validationObj)
 }
 
 export  {
