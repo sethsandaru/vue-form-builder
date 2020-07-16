@@ -25,15 +25,15 @@ export default class ValidationResult {
         }
 
         // generate error message and add it
-        const errorMessage = validationRule.errorMessage || VALIDATION_RULES[validationRule.ruleType].errorMessage
+        let errorMessage = validationRule.errorMessage || VALIDATION_RULES[validationRule.ruleType].errorMessage
 
         // if it has replaceable variable => replace it (:mix, :max, :lol)
         const replaceableVar = `:${validationRule.ruleType}`
         if (errorMessage.indexOf(replaceableVar) >= 0) {
-            errorMessage.replace(replaceableVar, validationRule.additionalValue)
+            errorMessage = errorMessage.replace(replaceableVar, validationRule.additionalValue)
         }
 
         // add the error message
-        this.errorBuckets[fieldName].push(errorMessage);
+        this.errorBuckets[fieldName].push(errorMessage)
     }
 }

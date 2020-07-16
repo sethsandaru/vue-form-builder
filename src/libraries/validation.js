@@ -34,7 +34,7 @@ export default class Validation {
      * @param {{validations: ValidationRule[]}} controls
      */
     setRules(controls) {
-        let rules = {}
+        const rules = {}
 
         // traversal all control and pick the validations info
         Object.entries(controls).forEach(controlInfo => {
@@ -58,7 +58,7 @@ export default class Validation {
      */
     run() {
         this.validationResult = new ValidationResult()
-        let controlKeys = Object.keys(this.rules)
+        const controlKeys = Object.keys(this.rules)
 
         for (const key of controlKeys) {
             // pickup basic data
