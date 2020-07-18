@@ -1,7 +1,6 @@
 
 
-const
-    HELPER = {};
+const HELPER = {};
 
 /**
  * Deep-Clone an Object

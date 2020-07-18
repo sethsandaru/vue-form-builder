@@ -17,26 +17,42 @@ Advantages:
 
 Give this repo a ⭐ (star) if you actually like this and might use it for your development/production :D! Thank you!
 
-The library is up & ready for production but if you meet any bugs or issues, feel free to open!
+Feel free to open an issue if you reach any bugs or issues. Thanks.
 
-Demo Online: https://vue-form-builder.herokuapp.com/   
-Demo Project: https://github.com/sethsandaru/demo-vue-form-builder
+[Vue Form Builder Documentation](https://phattranminh96.gitbook.io/vue-form-builder/)
 
-Documentation (v2, pending...): [Vue Form Builder Documentation](https://phattranminh96.gitbook.io/vue-form-builder/)
+## Demo
+- Demo Online: [Vue Form Builder ONLINE](https://vue-form-builder.herokuapp.com/)
+- Demo Project (Store and Retrieve Form): https://github.com/sethsandaru/demo-vue-form-builder
 
-## In-Development
+## Supported Browsers
 
-Version 2.0.0 (this branch) is in development. So please don't install it until I made a release.
-
-You can visit the newest version, here: https://vue-form-builder.herokuapp.com/   
+![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
+--- | --- | --- | --- | --- |
+Latest ✔ | Latest ✔ | 9+ ✔ | Latest ✔ | 6.1+ ✔ |
 
 ## How to install?
-Run this command to install:
+
+### NPM / Yarn
 ```php
 npm i v-form-builder --save
 ```
 
-NPMJS Info: [v-form-builder](https://www.npmjs.com/package/v-form-builder)
+### Browser
+- Download the Latest [Release](https://github.com/sethsandaru/vue-form-builder/releases)
+```html
+    <link rel="stylesheet" href="v-form-builder.min.css">
+
+    <script src="vue.min.js"></script>
+    <script src="v-form-builder.umd.min.js"></script>
+```
+
+### CDN
+Coming soon (hopefully :v)
+
+### Documentation
+
+[Installation Documentation](https://phattranminh96.gitbook.io/vue-form-builder/getting-started/installation)
 
 **Notes:** 
 - For the best experience, please install the latest version!
@@ -45,45 +61,38 @@ NPMJS Info: [v-form-builder](https://www.npmjs.com/package/v-form-builder)
 ## Dependencies
 I carefully watch the dependencies of the Vue Form Builder, from the version **2.0.0** and above. Here is the list:
 
-- Vue JS (obviously)
-- vuedraggable: Based on `Sortable.JS` which is very lightweight and a lot of lighter than JQuery UI
-- deep-equal: A simple method to check the Form Configuration...
+- Vue JS (obviously) - But it won't be built together with the final library bundle
+- vuedraggable: From `Sortable.JS` which is very lightweight and much lighter than JQuery + JQuery UI
+- deep-equal: A simple method to check the Form Configuration
 - Datepicker - LitePicker (Super lightweight, ~5KB): https://wakirin.github.io/Litepicker/
-- DayJS: Parse/Formatting date (2KB) https://day.js.org/en/
+- DayJS - Parse/Formatting date (2KB): https://day.js.org/en/
 
-For more info, visit: [package.json](./package.json) and look at the `dependencies`
+See more at: [package.json](./package.json) and look at the `dependencies`
 
-My fully desire: Fewer dependencies as possible. Try to come up with HTML5, ES5/6/7 syntax/library,...
+My truly desire: Fewer dependencies as possible and try minimize the size as much as possible.
 
-## How to implement?
+## How to implement for a beginner?
 
-### Import into your project
+- [Turning Up The Form](https://phattranminh96.gitbook.io/vue-form-builder/getting-started/turning-up-the-form)
+- [Form Builder](https://phattranminh96.gitbook.io/vue-form-builder/getting-started/form-builder-starter)
+- [Form Renderer](https://phattranminh96.gitbook.io/vue-form-builder/getting-started/form-renderer-starter)
 
-#### Import as global component
-```javascript
-Coming soon
-```
+### Usage / Use-cases
 
-#### Import as single component
+[Some of the use-cases I mentioned](https://phattranminh96.gitbook.io/vue-form-builder/use-cases)
 
-```javascript
-Coming soon
-```
+### APIs / Extending / Hard-core stuff
 
-### Usage
-Update later.
-
-### APIs
-Please visit this Repo's Wiki.
+[Visit Documentation](https://phattranminh96.gitbook.io/vue-form-builder/extending/plugin-options)
 
 ## Release notes
 - Version **2.0.0**:
     - New structural, new behaviour, everything is new.
-    - No more ugly code
+    - Less and less ugly code
     - Make the process/development/configuration more simple than previous version.
     - More controls
     - More features
-    - Less dependencies
+    - **Less dependencies**
 - Version **1.4.0**:
     - Refactored, the code is more easy to view & read.
     - Able to extend a custom control.
@@ -114,9 +123,12 @@ Please visit this Repo's Wiki.
     - Able to config form & render form by config data.
     - Get/set value for both GUI & Template.
 
+## License
+MIT License
+
 ## Supporting the project
-If you really like this project & want to contribute a little for the development. You can buy me a coffee. Thank you very much for your supporting <3.
+You can see my lovely `Sponsor` button above. If you want to contribute a little, send me a coffee is good enough.
 
-<a href="https://www.buymeacoffee.com/xKOM9NB8p" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+Also, please show your love by giving this repository a ⭐ (star). That would lighten up my day.
 
-Copyright &copy; 2018 by [Seth Phat](http://sethphat.com) aka Phat Tran Minh!
+Copyright &copy; 2018 by [Seth Phat](http://sethphat.com) aka Phat Tran!

@@ -5,9 +5,10 @@ const VueFormBuilderPlugin = {
     install: VueFormBuilderInstaller
 };
 
+// For Browser-Vue's purpose
 // Export the VueFormBuilderPlugin to let developers register it later.
-// we don't automatically register it, therefore we have a big chance to
-// - Configure the Internal Value of the Form
+// I won't automatically register it, therefore you would have a big chance to
+// - Configure the Internal Configuration of the Form
 // - Extendable (Registering more controls, Styling Classes,...)
 // - ...
 if (typeof window !== 'undefined') {

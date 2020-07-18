@@ -77,7 +77,7 @@
                 </li>
 
                 <li>Form Renderer - ✅</li>
-                <li>Form Validation - In Development (Last stage)</li>
+                <li>Form Validation - ✅</li>
 
             </ul>
         </div>
