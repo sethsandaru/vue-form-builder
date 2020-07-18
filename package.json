@@ -8,6 +8,8 @@
     "url": "https://sethphat.com"
   },
   "private": false,
+  "license": "MIT",
+  "main": "./dist/v-form-builder.umd.min.js",
   "scripts": {
     "serve": "cross-env NODE_ENV=development vue-cli-service serve --port 9999",
     "build": "vue-cli-service build --skip-plugins @vue/cli-plugin-eslint",
@@ -42,5 +44,11 @@
   ],
   "repository": {
     "url": "https://github.com/sethsandaru/vue-form-builder.git"
-  }
+  },
+  "keywords": [
+    "vue-form-builder",
+    "v-form-builder",
+    "vue form builder with drag drop",
+    "vue form builder pro max"
+  ]
 }
