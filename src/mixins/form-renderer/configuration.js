@@ -1,7 +1,8 @@
-
 /**
  * Form-Renderer Configuration Handler
  */
+import {GLOBAL_CONFIG} from "@/configs/global";
+
 const deepEqual = require('deep-equal') // TO CHECK THE DEEPEST VALUES OF THE FORM...
 
 const CONFIGURATION = {
@@ -33,6 +34,13 @@ const CONFIGURATION = {
         this.mapping(this.formConfiguration)
     },
 
+    computed: {
+        /**
+         * Get the <form> id
+         * @returns {string}
+         */
+        formTagId: () => GLOBAL_CONFIG.rendererFormId
+    }
 };
 
 export {

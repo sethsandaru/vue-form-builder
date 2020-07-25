@@ -399,6 +399,11 @@ body {
     border-radius: 5px;
 }
 
+.control-label-container {
+    line-height: 17px;
+    padding-bottom: 10px;
+}
+
 /*********************************
 * Vue-Transition Classes - Slide Up/Down
 **********************************/

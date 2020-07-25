@@ -5,8 +5,8 @@
  */
 export default function requiredRule(fieldValue) {
     // for checkboxes / multiple dropdown
-    if (Array.isArray(fieldValue) && !fieldValue.length) {
-        return false
+    if (Array.isArray(fieldValue)) {
+        return fieldValue.length > 0
     }
 
     // for text/number/any...

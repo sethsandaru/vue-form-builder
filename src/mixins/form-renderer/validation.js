@@ -12,7 +12,13 @@ const VALIDATION_MIXIN = {
          * Run the validation process
          */
         runValidation() {
+            // always clear validation before run...
+            this.$set(this, 'validationErrors', {})
+
+            // run the validation
             const result = this.$form.Validation.run()
+
+            // field-error handling
             if (result.errors()) {
                 // use set for reactive...
                 this.$set(this, 'validationErrors', result.errorBuckets)

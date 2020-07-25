@@ -4,6 +4,7 @@
                :for="control.uniqueId"
                :class="control.additionalLabelClass">
         </label>
+        <br v-if="control.subLabel" />
         <small v-if="control.subLabel"
                v-text="control.subLabel">
         </small>

@@ -3,6 +3,7 @@
             :class="buttonClasses"
             :name="control.name"
             v-text="control.label"
+            :type="control.buttonType || 'button'"
             @click="clickedHandle"
     ></button>
 </template>
@@ -10,6 +11,7 @@
 <script>
     import {CONTROL_FIELD_EXTEND_MIXIN} from "@/mixins/control-field-extend-mixin";
     import {EVENT_CONSTANTS} from "@/configs/events";
+    import {GLOBAL_CONFIG} from "@/configs/global";
 
     /**
      * Button Control
@@ -45,9 +47,27 @@
                 this.submit()
             },
 
+            /**
+             * Submitting The Form
+             * Rules:
+             *  - Had Event Code & Event Data => Submit By Emitting
+             *  - Empty Event Code & Event Data, Had <Form>, Had type = "submit" => Submit by Form Request
+             */
             submit() {
-                // emit to the specific emitEventCode
-                this.$emit(this.control.emitEventCode, this.control.emitEventData)
+                if (this.control.emitEventCode && this.control.emitEventData) {
+                    // emit to the specific emitEventCode
+                    this.$formEvent.$emit(this.control.emitEventCode, this.control.emitEventData)
+                    return
+                }
+
+                // triggering form-submit if exists
+                // use DOM object ??
+                const formDOM = document.getElementById(GLOBAL_CONFIG.rendererFormId)
+                if (!formDOM || this.$el.type !== 'submit') {
+                    return
+                }
+
+                formDOM.submit();
             }
         },
 
@@ -61,7 +81,7 @@
         },
 
         created() {
-            this.$on(EVENT_CONSTANTS.RENDERER.VALIDATION_OK, this.continueProcessOkAfterValidation)
+            this.$formEvent.$on(EVENT_CONSTANTS.RENDERER.VALIDATION_OK, this.continueProcessAfterValidationOk)
         },
     }
 </script>
