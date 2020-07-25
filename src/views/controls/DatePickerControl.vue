@@ -4,6 +4,7 @@
            :name="control.name || control.uniqueId"
            :placeholder="control.placeholderText"
            :class="styles.FORM.FORM_CONTROL"
+           autocomplete="off"
     />
 </template>
 
