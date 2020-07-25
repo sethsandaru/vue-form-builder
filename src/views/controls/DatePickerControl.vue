@@ -1,11 +1,38 @@
 <template>
-    <input type="text"
-           :id="control.uniqueId"
-           :name="control.name || control.uniqueId"
-           :placeholder="control.placeholderText"
-           :class="styles.FORM.FORM_CONTROL"
-           autocomplete="off"
-    />
+    <div>
+        <template v-if="control.singleMode">
+            <input type="text"
+                   :id="control.uniqueId"
+                   :name="control.name || control.uniqueId"
+                   :placeholder="control.placeholderText"
+                   :class="styles.FORM.FORM_CONTROL"
+                   autocomplete="off"
+            />
+        </template>
+        <template v-else>
+            <input type="text"
+                   :id="control.uniqueId"
+                   :placeholder="control.placeholderText"
+                   :class="styles.FORM.FORM_CONTROL"
+                   autocomplete="off"
+            />
+
+            <!--
+            Why I need to implement this?
+            Because in <form> mode, when submitting. The form need to send these together, therefore in the backend
+            You will have some sort like: abc[startDate], abc[endDate] (Object/AssocArray)
+            Its kinda useless for Ajax Mode :D
+            -->
+            <input type="hidden"
+                   :name="startDateFieldName"
+                   v-model="value.startDate"
+            >
+            <input type="hidden"
+                   :name="endDateFieldName"
+                   v-model="value.endDate"
+            >
+        </template>
+    </div>
 </template>
 
 <script>
@@ -66,6 +93,7 @@
 
                     // stop if same value
                     if (
+                        this.currentValue &&
                         this.currentValue.startDate === val.startDate &&
                         this.currentValue.endDate === val.endDate
                     ) {
@@ -131,7 +159,7 @@
         },
         mounted() {
             this.datepicker = new Litepicker({
-                element: this.$el,
+                element: document.getElementById(this.control.uniqueId),
 
                 // applying the configuration (base)
                 ...this.control,
@@ -155,6 +183,15 @@
 
         beforeDestroy() {
             this.datepicker.destroy()
+        },
+
+        computed: {
+            startDateFieldName() {
+                return (this.control.name || this.control.uniqueId) + '[startDate]'
+            },
+            endDateFieldName() {
+                return (this.control.name || this.control.uniqueId) + '[endDate]'
+            },
         }
     }
 </script>

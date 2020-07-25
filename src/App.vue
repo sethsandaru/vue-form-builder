@@ -5,9 +5,10 @@
         <h4 class="text-center mb-3">What you <strong>BUILD</strong> is what you <strong>GOT</strong>.</h4>
 
         <div class="col-md-12">
-            <button class="btn btn-info mr-2" @click="getData">Get JSON Form-Data (Console)</button>
-            <button class="btn btn-info mr-2" @click="setData">Set JSON Form-Data (Basic Configuration)</button>
-            <button class="btn btn-info mr-2" @click="createBlank">Create Blank Form</button>
+            <button class="btn btn-info mr-2" @click="getData">Get JSON Form-Data (Console / Builder)</button>
+            <button class="btn btn-info mr-2" @click="setData">Set JSON Form-Data (Basic Configuration / Builder)</button>
+            <button class="btn btn-info mr-2" @click="createBlank">Create Blank Form (Builder)</button>
+
             <button class="btn btn-info mr-2" @click="viewRenderer">
                 <span v-show="isRenderer">
                     Back to Builder
@@ -88,10 +89,12 @@
 
         <div class="row" v-if="isRenderer" style="padding: 20px; margin-right: 0">
             <div class="col-md-12 mb-4">
-                <button class="btn btn-success" @click="isShowData = !isShowData">
+                <button class="btn btn-success  mr-2" @click="isShowData = !isShowData">
                     <span v-show="isShowData">Hide Form Data</span>
                     <span v-show="!isShowData">Show Form Data</span>
                 </button>
+
+                <button class="btn btn-info mr-2" @click="setRandomData">Set Random Data</button>
             </div>
 
             <FormRenderer :class="{'col-md-9': isShowData, 'col-md-12': !isShowData}"
@@ -147,7 +150,26 @@
                 }
 
                 this.isRenderer = false;
-            }
+            },
+
+            setRandomData() {
+                const faker = require('faker');
+
+                this.$set(this, 'formInputData', {
+                    "name": faker.name.findName(),
+                    "brief-description": faker.company.companyName(),
+                    "long-description": faker.lorem.paragraphs(),
+                    "user_email": faker.internet.email(),
+                    "is_deletable": faker.random.number({min: 0, max:1}),
+                    "doc_props": [""+faker.random.number({min: 1, max:3})],
+                    "doc_date": faker.date.past(),
+                    "doc-process-range": {
+                        startDate: faker.date.past(),
+                        endDate: faker.date.future(),
+                    },
+                    "total_value": faker.finance.amount()
+                });
+            },
         }
     }
 </script>
