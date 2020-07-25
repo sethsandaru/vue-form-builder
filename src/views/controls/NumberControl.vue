@@ -46,8 +46,8 @@
             },
 
             /**
-             * Updated Preview Mode for Number
-             * TODO: Available only v2.0.1
+             * Updated Preview Mode (Mask preview, eg: 1,123,456.00) for Number
+             * TODO: Available only v2.1
              */
             updatedPreview() {
 
