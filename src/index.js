@@ -4,6 +4,8 @@ import FormRenderer from "@/components/FormRenderer";
 import BaseControlSkeleton from "@/skeletons/controls/BaseControlSkeleton";
 import BaseControlConfigSkeleton from "@/skeletons/controls/BaseControlConfigSkeleton";
 
+import '@/assets/v-form-builder.css'
+
 // Create module definition for Vue.use()
 const VueFormBuilderPlugin = {
     install: VueFormBuilderInstaller
