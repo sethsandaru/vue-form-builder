@@ -1,4 +1,8 @@
 import {VueFormBuilderInstaller} from "@/installer";
+import FormBuilder from "@/components/FormBuilder";
+import FormRenderer from "@/components/FormRenderer";
+import BaseControlSkeleton from "@/skeletons/controls/BaseControlSkeleton";
+import BaseControlConfigSkeleton from "@/skeletons/controls/BaseControlConfigSkeleton";
 
 // Create module definition for Vue.use()
 const VueFormBuilderPlugin = {
@@ -18,5 +22,13 @@ if (typeof window !== 'undefined') {
 }
 
 export {
-    VueFormBuilderPlugin
+    VueFormBuilderPlugin,
+
+    // Main Component for Node
+    FormBuilder,
+    FormRenderer,
+
+    // For Vue.extend
+    BaseControlSkeleton,
+    BaseControlConfigSkeleton
 }
