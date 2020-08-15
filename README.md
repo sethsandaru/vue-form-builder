@@ -8,14 +8,14 @@ A simple builder to help you generate a super form for your features/modules/sit
 Why need to code the form when you can use `Vue-Form-Builder` and render it with some extra steps :D
 
 Advantages:
-- Less code in development (No more <form> <div> <input> .... </div> </form>)
-- Easy to maintain, update your Form later
-- Setup your Form with a super friendly UI/UX
+- Less code in development (No need to do `<form> <div> <input> .... </div> </form>` this by your own)
+- Easy to maintain, update your Form in the future.
+- Setup your Form with a super friendly UI/UX.
 - Extensibility (Your custom control, styling,...)
-- Form Validation? I got you fam
+- Form Validation? I got you fam.
 - Included HTML5 structure, no tricks or cheats.
 
-Give this repo a ⭐ (star) if you actually like this and might use it for your development/production :D! Thank you!
+Give this repo a ⭐ (star) if you actually like this and might use it for your project :D! Thank you!
 
 Feel free to open an issue if you reach any bugs or issues. Thanks.
 
@@ -23,7 +23,9 @@ Feel free to open an issue if you reach any bugs or issues. Thanks.
 
 ## Demo
 - Demo Online: [Vue Form Builder ONLINE](https://vue-form-builder.herokuapp.com/)
-- Demo Project (Store and Retrieve Form): https://github.com/sethsandaru/demo-vue-form-builder
+- Demo Form (Real Life Example): 
+    - [Vue Form Builder Real Life Example](http://vue-form-builder.sethphat.com/)
+    - Repo: https://github.com/sethsandaru/demo-vue-form-builder
 
 ## Supported Browsers
 
@@ -50,26 +52,13 @@ npm i v-form-builder --save
 ### CDN
 Coming soon (hopefully :v)
 
-### Documentation
-
-[Installation Documentation](https://phattranminh96.gitbook.io/vue-form-builder/getting-started/installation)
-
-**Notes:** 
+## Installation Note
 - For the best experience, please install the latest version!
-- Version below **@v2.0.0** is deprecated. No maintain + fix bugs. Please use 2.0.0 or above.
+- Version below **@v2.0.0** has been deprecated. No maintain & fix bugs. Please use 2.0.0 or above.
 
-## Dependencies
-I carefully watch the dependencies of the Vue Form Builder, from the version **2.0.0** and above. Here is the list:
+## Documentation
 
-- Vue JS (obviously) - But it won't be built together with the final library bundle
-- vuedraggable: From `Sortable.JS` which is very lightweight and much lighter than JQuery + JQuery UI
-- deep-equal: A simple method to check the Form Configuration
-- Datepicker - LitePicker (Super lightweight, ~5KB): https://wakirin.github.io/Litepicker/
-- DayJS - Parse/Formatting date (2KB): https://day.js.org/en/
-
-See more at: [package.json](./package.json) and look at the `dependencies`
-
-My truly desire: Fewer dependencies as possible and try minimize the size as much as possible.
+[Main Documentation of Vue-Form-Builder](https://phattranminh96.gitbook.io/vue-form-builder/)
 
 ## How to implement for a beginner?
 
@@ -85,49 +74,30 @@ My truly desire: Fewer dependencies as possible and try minimize the size as muc
 
 [Visit Documentation](https://phattranminh96.gitbook.io/vue-form-builder/extending/plugin-options)
 
-## Release notes
-- Version **2.0.0**:
-    - New structural, new behaviour, everything is new.
-    - Less and less ugly code
-    - Make the process/development/configuration more simple than previous version.
-    - More controls
-    - More features
-    - **Less dependencies**
-- Version **1.4.0**:
-    - Refactored, the code is more easy to view & read.
-    - Able to extend a custom control.
-    - Fix some minor bugs.
-- Version **1.3.0**:
-    - Milestone 3 released.
-    - Able to validate the form.
-    - Able to styling the label (bold, italic, underline).
-    - Able to set control label position for Section (horizontal or vertical)
-    - Fix some bugs
-    - Constraints for some Hooks
-    - APIs for Validate
-- Version **1.2.1**:
-    - Fix some minor bugs.
-- Version **1.2.0**:
-    - Hooks are available now for both Template & GUI.
-    - More options for controls, like:
-        - Select: Ajax data source (URL)
-        - Date Picker: date format
-        - Time Picker: time format
-    - Update control: 
-        - Number Control to work properly with the decimal places.
-        - Time Picker: change to another time picker with a better APIs + options.
-    - Fix a problem that make the Date Picker icon didn't show.
-    - Stop import Bootstrap 4 CSS into the bundle.
-- Version **1.1.1**:
-    - First Release of Vue Form Builder
-    - Able to config form & render form by config data.
-    - Get/set value for both GUI & Template.
+## Dependencies
+I carefully watch the dependencies of the Vue Form Builder, from the version **2.0.0** and above. Here is the list:
 
+- Vue JS (obviously) - But it won't be built together with the final library bundle
+- vuedraggable: From `Sortable.JS` which is very lightweight and much lighter than JQuery + JQuery UI
+- deep-equal: A simple method to check the Form Configuration
+- Datepicker - LitePicker (Super lightweight, ~5KB): https://wakirin.github.io/Litepicker/
+- DayJS - Parse/Formatting date (2KB): https://day.js.org/en/
+
+See more at: [package.json](./package.json) and look at the `dependencies`
+
+My truly desire: Fewer dependencies as possible and try minimize the size as much as possible.
+
+## Release notes - 2.0.0
+- New structural, new behaviour, everything is new.
+- Less and less ugly code
+- Make the process/development/configuration more simple than previous version.
+- **Less dependencies / JQuery totally removed**
+    
 ## License
 MIT License
 
 ## Supporting the project
-You can see my lovely `Sponsor` button above. If you want to contribute a little, send me a coffee is good enough.
+You can see the lovely `Sponsor` button on the top. If you want to contribute a little, send me a coffee is good enough.
 
 Also, please show your love by giving this repository a ⭐ (star). That would lighten up my day.
 
