@@ -1,7 +1,17 @@
-import FormBuilder from './FormBuilder';
+/**
+ * NOTE - This file only exists for development purpose.
+ * It will help me to run and test the form
+ */
 
-module.exports = {
-    install: function (Vue, options) {
-        Vue.component('form-builder', FormBuilder);
-    }
-};
+
+import Vue from 'vue'
+import App from './App.vue'
+import {VueFormBuilderPlugin} from "@/index";
+
+Vue.config.productionTip = false
+
+Vue.use(VueFormBuilderPlugin)
+
+new Vue({
+  render: h => h(App)
+}).$mount('#app')

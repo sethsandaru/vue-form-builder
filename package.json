@@ -1,61 +1,60 @@
 {
-    "name": "v-form-builder",
-    "description": "A Super Form Builder (drag & drop) build with VueJS by Seth Phat",
-    "version": "1.4.1-rc1",
-    "author": "Phat Tran <phattranminh96@gmail.com> (https://sethphat.com)",
-    "keywords": [
-        "vue",
-        "vuejs",
-        "form builder",
-        "drag & drop",
-        "seth phat"
-    ],
-    "license": "MIT",
-    "private": false,
-    "main": "dist/vue-form-builder.min.js",
-    "homepage": "https://github.com/sethsandaru/vue-form-builder",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/sethsandaru/vue-form-builder.git"
-    },
-    "scripts": {
-        "test": "webpack --json > stats.json",
-        "dev": "webpack -d --watch",
-        "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-        "build-dev": "cross-env NODE_ENV=development webpack --progress --hide-modules",
-        "build-bundle": "rimraf ./dist && webpack --config ./webpack.config.js"
-    },
-    "dependencies": {
-        "@fortawesome/fontawesome-svg-core": "^1.2.4",
-        "@fortawesome/free-solid-svg-icons": "^5.3.1",
-        "@fortawesome/vue-fontawesome": "^0.1.1",
-        "bootstrap": ">=4.3.1",
-        "jquery": ">=3.4.0",
-        "moment": "^2.22.2",
-        "popper.js": "^1.14.4",
-        "select2": "^4.0.6-rc.1",
-        "underscore": "^1.9.1",
-        "underscore-deep-extend": "^1.1.5",
-        "webpack-jquery-ui": "^2.0.1"
-    },
-    "devDependencies": {
-        "babel-core": "^6.26.0",
-        "babel-loader": "^7.1.2",
-        "babel-plugin-transform-runtime": "^6.23.0",
-        "babel-preset-env": "^1.6.0",
-        "babel-preset-es2015": "^6.24.1",
-        "babel-preset-stage-2": "^6.24.1",
-        "babel-preset-stage-3": "^6.24.1",
-        "cross-env": "^5.0.5",
-        "css-loader": "^0.28.7",
-        "file-loader": "^1.1.4",
-        "rimraf": "^2.6.2",
-        "url-loader": "^1.1.1",
-        "vue": "^2.5.17",
-        "vue-loader": "^13.0.5",
-        "vue-template-compiler": "^2.4.4",
-        "webpack": "^3.6.0",
-        "webpack-dev-server": ">=3.1.11",
-        "webpack-merge": "^4.1.4"
+  "name": "v-form-builder",
+  "version": "2.0.0",
+  "description": "Vue Form Builder PRO MAX built from top of Vue. Super dynamic and flexible including Drag and Drop feature.",
+  "author": {
+    "email": "phattranminh@gmail.com",
+    "name": "Phat Tran",
+    "url": "https://sethphat.com"
+  },
+  "private": false,
+  "license": "MIT",
+  "main": "./dist/v-form-builder.umd.min.js",
+  "scripts": {
+    "serve": "cross-env NODE_ENV=development vue-cli-service serve --port 9999",
+    "build": "vue-cli-service build --skip-plugins @vue/cli-plugin-eslint",
+    "build-lib": "cross-env NODE_ENV=production vue-cli-service build --target lib --name v-form-builder ./src/index.js --skip-plugins @vue/cli-plugin-eslint",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^2.6.5",
+    "dayjs": "^1.8.28",
+    "deep-equal": "^2.0.3",
+    "litepicker": "^1.4.6",
+    "vue": "^2.6.10",
+    "vuedraggable": "^2.23.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.3",
+    "@vue/cli-service": "^4.4.4",
+    "babel-eslint": "^10.0.1",
+    "cross-env": "^7.0.2",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "faker": "^4.1.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
     }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "repository": {
+    "url": "https://github.com/sethsandaru/vue-form-builder.git"
+  },
+  "keywords": [
+    "vue-form-builder",
+    "v-form-builder",
+    "vue form builder with drag drop",
+    "vue form builder pro max",
+    "vue",
+    "vuejs",
+    "form builder",
+    "drag & drop",
+    "seth phat"
+  ]
 }
