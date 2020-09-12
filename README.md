@@ -96,6 +96,13 @@ My truly desire: Fewer dependencies as possible and try minimize the size as muc
 ## License
 MIT License
 
+## Custom Form Builder
+
+I'm always available for Custom Build based on your needs for the Vue Form Builder. You can contact me via:
+
+- Email: [phattranminh96@gmail.com](mailto:phattranminh96@gmail.com)
+- LinkedIn (On my main profile page)
+
 ## Supporting the project
 You can see the lovely `Sponsor` button on the top. If you want to contribute a little, send me a coffee is good enough.
 
