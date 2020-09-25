@@ -50,7 +50,14 @@ npm i v-form-builder --save
 ```
 
 ### CDN
-Coming soon (hopefully :v)
+
+#### jsDelivr
+
+Latest version (@2.0.0)
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sethsandaru/vue-form-builder/dist/v-form-builder.min.css"> 
+<script src="https://cdn.jsdelivr.net/gh/sethsandaru/vue-form-builder/dist/v-form-builder.umd.min.js"></script>
+```
 
 ## Installation Note
 - For the best experience, please install the latest version!
