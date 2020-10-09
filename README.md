@@ -53,7 +53,7 @@ npm i v-form-builder --save
 
 #### jsDelivr
 
-Latest version (@2.0.0)
+Latest version (@2.0.1)
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sethsandaru/vue-form-builder/dist/v-form-builder.min.css"> 
 <script src="https://cdn.jsdelivr.net/gh/sethsandaru/vue-form-builder/dist/v-form-builder.umd.min.js"></script>
@@ -94,7 +94,14 @@ See more at: [package.json](./package.json) and look at the `dependencies`
 
 My truly desire: Fewer dependencies as possible and try minimize the size as much as possible.
 
-## Release notes - 2.0.0
+## Release notes
+
+### 2.0.1
+- Added CSS Classes that worked for Material Design (Thanks to @abhimanusharma)
+- Fixed bugs
+- Security updated
+
+### 2.0.0
 - New structural, new behaviour, everything is new.
 - Less and less ugly code
 - Make the process/development/configuration more simple than previous version.
