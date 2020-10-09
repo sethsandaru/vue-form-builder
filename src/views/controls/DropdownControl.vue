@@ -83,7 +83,7 @@
                 }
 
                 // is it http/https?
-                if (this.control.apiURL.indexOf("http://") < 0 || this.control.apiURL.indexOf("https://") < 0) {
+                if (this.control.apiURL.indexOf("http://") < 0 && this.control.apiURL.indexOf("https://") < 0) {
                     throw new TypeError("[Dropdown] Rest-API Endpoint must be valid http/https URL.");
                 }
 
@@ -123,8 +123,8 @@
              * [FOR-RestAPI-Dropdown][EVENT]
              * Show error for dropdown.
              */
-            restAPICallErrorHandling() {
-                console.error(`[DROPDOWN-Control-${this.control.uniqueId}] Request API to get data failed.`);
+            restAPICallErrorHandling(e) {
+                console.error(`[DROPDOWN-Control-${this.control.uniqueId}] Request API to get data failed.`, e);
             },
         },
 

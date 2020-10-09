@@ -32,7 +32,8 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "faker": "^4.1.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "node-forge": ">=0.10.0"
   },
   "postcss": {
     "plugins": {
