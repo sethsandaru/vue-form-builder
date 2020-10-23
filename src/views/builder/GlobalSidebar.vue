@@ -5,7 +5,6 @@
               v-html="$form.getIcon('close', '24px', '24px', '#000')">
         </span>
 
-        <!--- For dynamic purpose --->
         <component v-if="component"
                    :is="component"
                    :dataPackage="dynamicData"
@@ -26,6 +25,9 @@
     export default {
         name: "GlobalSidebar",
         props: {
+            sidebar: {
+                type: Boolean
+            },
             formData: {
                 type: Object,
                 default() {
@@ -39,6 +41,11 @@
             runnerId: null,
             isOpen: false,
         }),
+        watch: {
+            isOpen(value) {
+                this.$emit('update:sidebar', value)
+            }
+        },
         methods: {
             /**
              * Open the Right Sidebar

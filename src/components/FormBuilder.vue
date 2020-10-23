@@ -21,9 +21,7 @@
         <AddSectionControl @addSectionNotify="addSection" />
 
         <!-- global stuff -->
-        <GlobalSidebar
-                :formData="formData"
-        />
+        <GlobalSidebar :formData="formData" :sidebar.sync="sidebar"/>
 
         <hr>
 
@@ -49,6 +47,7 @@
         },
         mixins: FormBuilderBusiness,
         data: () => ({
+            sidebar: false,
             formData: {
                 formConfig: {},
                 sections: {},
