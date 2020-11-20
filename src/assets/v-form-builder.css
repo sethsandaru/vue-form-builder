@@ -984,6 +984,10 @@ html.md-theme-default .vue-form-builder .md-list-item {
     border: 1px solid rgba(0, 0, 0, .125);
 }
 
+.md-error ~ div {
+    color: red;
+}
+
 @media (max-width: 768px) {
     html.md-theme-default .vue-form-builder .sidebar {
         right: 60%;

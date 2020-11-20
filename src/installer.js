@@ -44,7 +44,7 @@ const VueFormBuilderInstaller = function(
 
     // show alert or not?
     formDI.validationErrorShowAlert = properties.validationErrorShowAlert || true
-    formDI.validationErrorAlertText = properties.validationErrorAlertText
+    formDI.validationErrorAlertText = properties.validationErrorAlertText || "Your form got error(s), please fix it and submit again"
 
     // For Event-Bus purpose
     Vue.prototype.$formEvent = new Vue()
