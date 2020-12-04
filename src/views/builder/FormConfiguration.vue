@@ -2,7 +2,7 @@
     <div class="form-configuration-block pbottom-10">
         <button :class="styles.BUTTON.PRIMARY" @click="open">
             <span v-html="$form.getIcon('cog')"></span>
-            <span>Form Configurations</span>
+            <span>Form Configuration</span>
         </button>
 
     </div>
