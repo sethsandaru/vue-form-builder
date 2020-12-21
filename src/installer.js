@@ -4,18 +4,27 @@ import FormRenderer from "@/components/FormRenderer";
 import {CONTROLS} from "@/configs/controls";
 import {STYLES} from "@/configs/styles";
 import {VALIDATION_RULES} from "@/configs/validation";
+import {IRegisterProperties} from "@/interfaces/register-properties.interface.ts";
 
 const VueFormBuilderInstaller = function(
     Vue,
-    properties = {
-        globalInjection : true,
-        validationErrorShowAlert: true,
-        validationErrorAlertText: "Your form got error(s), please fix it and submit again"
-    }
+    properties = {}
 ) {
     if (VueFormBuilderInstaller.installed) {
         return
     }
+
+    /**
+     *
+     * @type {IRegisterProperties}
+     */
+    const defaultProperties  = {
+        globalInjection : true,
+        validationErrorShowAlert: true,
+        validationErrorAlertText: "Your form got error(s), please fix it and submit again"
+    };
+
+    Object.assign(properties, defaultProperties);
 
     // DI for Form-Builder
     const formDI = {
