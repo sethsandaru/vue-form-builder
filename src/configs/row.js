@@ -8,6 +8,7 @@ import {HELPER} from "@/libraries/helper";
 
 const ROW_TYPES = {
     normal: 'normal', // Normal Row in Div (div.row)
+    tabRow: 'tabRow', // Tab Row
     tableRow: 'tableRow', // Table row (tr)
 };
 

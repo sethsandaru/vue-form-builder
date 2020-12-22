@@ -34,6 +34,16 @@ const SECTION_TYPES = {
         rendererView: RendererToggleableSectionView
     },
 
+    tab: {
+        name: "Tab Block",
+        description: "A block with multiple tabs feature",
+        value: "tab",
+
+        rowType: ROW_TYPES.tabRow,
+        builderView: null,
+        rendererView: null,
+    }
+
     // table: {
     //     name: "Table Block",
     //     description: "Section block built from a table with 2 column",
