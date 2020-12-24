@@ -8,9 +8,11 @@ import {ROW_TYPES} from "@/configs/row";
 import NormalSectionView from "@/views/builder/section-views/NormalSectionView";
 // import TableSectionView from "@/views/builder/section-views/TableSectionView";
 import ToggleableSectionView from "@/views/builder/section-views/ToggleableSectionView";
+import TabSectionView from "@/views/builder/section-views/TabSectionView";
 
 import RendererNormalSectionView from "@/views/renderer/section-views/NormalSectionView";
 import RendererToggleableSectionView from "@/views/renderer/section-views/ToggleableSectionView";
+import RendererTabSectionView from "@/views/renderer/section-views/TabSectionView";
 
 
 const SECTION_TYPES = {
@@ -40,8 +42,8 @@ const SECTION_TYPES = {
         value: "tab",
 
         rowType: ROW_TYPES.tabRow,
-        builderView: null,
-        rendererView: null,
+        builderView: TabSectionView,
+        rendererView: RendererTabSectionView,
     }
 
     // table: {

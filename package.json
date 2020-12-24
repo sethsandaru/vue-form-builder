@@ -36,7 +36,8 @@
     "faker": "^4.1.0",
     "node-forge": ">=0.10.0",
     "typescript": "~3.9.3",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "vue-typed-mixins": "^0.2.0"
   },
   "postcss": {
     "plugins": {

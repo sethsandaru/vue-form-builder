@@ -18,13 +18,15 @@ const ROW_DEFAULT_DATA = {
     type: ROW_TYPES.normal,
     sortOrder: 0,
     controls: [], // ids of control
+    extendData: null, // depends on the row, we would have specific configuration
 };
 
 /**
  * Create new Row Object
- * @param type
+ * @param {string} type
+ * @param {any} extendData
  */
-function createNewRow(type) {
+function createNewRow(type, extendData = null) {
     if (!ROW_TYPES[type]) {
         throw new TypeError(`Row Type: ${type} doesn't exists in Vue-Form-Builder`);
     }
@@ -33,6 +35,7 @@ function createNewRow(type) {
     let newRowObject = HELPER.cloneDeep(ROW_DEFAULT_DATA)
     newRowObject.type = type
     newRowObject.uniqueId = "row-" + HELPER.getUUIDv4()
+    newRowObject.extendData = extendData
 
     return newRowObject
 }

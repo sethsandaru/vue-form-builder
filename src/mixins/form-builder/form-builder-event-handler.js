@@ -122,15 +122,24 @@ const FORM_BUILDER_EVENT_HANDLER = {
 
         /**
          * Added new control to a section
-         * @param {string} sectionId
+         * @param {string} parentId
          * @param {Object} controlObj
          */
-        controlNewAdded(sectionId, controlObj) {
+        controlNewAdded(parentId, controlObj) {
             // add into big list
             this.$set(this.formData.controls, controlObj.uniqueId, controlObj)
 
-            // add controlID to section
-            this.formData.sections[sectionId].controls.push(controlObj.uniqueId)
+            // get type of the parent (section / row)
+            const type = this.formData.sections.hasOwnProperty(parentId)
+                ? 'section'
+                : 'row';
+
+            // add controlID to section / row
+            if (type === 'section') {
+                this.formData.sections[parentId].controls.push(controlObj.uniqueId)
+            } else {
+                this.formData.rows[parentId].controls.push(controlObj.uniqueId)
+            }
         },
 
         /**
@@ -140,7 +149,9 @@ const FORM_BUILDER_EVENT_HANDLER = {
          * @afterHandled Emit an event to notify the deletion is complete
          */
         controlDeletion(parentId, controlId) {
-            let type = this.formData.sections.hasOwnProperty(parentId) ? 'section' : 'row';
+            const type = this.formData.sections.hasOwnProperty(parentId)
+                ? 'section'
+                : 'row';
 
             // FIRST: We delete the relationship in section/row
             if (type === 'section') {
