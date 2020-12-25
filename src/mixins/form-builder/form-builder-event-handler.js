@@ -19,7 +19,7 @@ const FORM_BUILDER_EVENT_HANDLER = {
          */
         sectionAndRowMapping(sectionId, rowId) {
             // push it into the section Rows...
-            // I can ensure that sectionId is exists to be retrieve
+            // I can ensure that sectionId is exists to be retrieved
             this.formData.sections[sectionId].rows.push(rowId)
         },
 
@@ -116,7 +116,8 @@ const FORM_BUILDER_EVENT_HANDLER = {
          * @param rowObject
          */
         rowNewAdded(rowObject) {
-            this.formData.rows[rowObject.uniqueId] = rowObject
+            // $set => reactive
+            this.$set(this.formData.rows, rowObject.uniqueId, rowObject)
         },
 
 
@@ -133,12 +134,13 @@ const FORM_BUILDER_EVENT_HANDLER = {
             const type = this.formData.sections.hasOwnProperty(parentId)
                 ? 'section'
                 : 'row';
+            const controlUniqueId = controlObj.uniqueId
 
             // add controlID to section / row
             if (type === 'section') {
-                this.formData.sections[parentId].controls.push(controlObj.uniqueId)
+                this.formData.sections[parentId].controls.push(controlUniqueId)
             } else {
-                this.formData.rows[parentId].controls.push(controlObj.uniqueId)
+                this.formData.rows[parentId].controls.push(controlUniqueId)
             }
         },
 

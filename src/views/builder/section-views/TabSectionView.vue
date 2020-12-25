@@ -8,26 +8,25 @@
         <div class="tabs">
 
             <input type="radio"
-                   v-for="rowObj in sectionRows"
-                   :key="'tab-radio' + rowObj.uniqueId"
-                   :id="'tab-radio' + rowObj.uniqueId"
+                   v-for="rowId in section.rows"
+                   :key="getRadioID(rowId)"
+                   :id="getRadioID(rowId)"
                    name="tab-control"
-                   :checked="rowObj.defaultChecked"
             >
 
             <ul>
                 <li
-                    v-for="rowObj in sectionRows"
-                    :key="'tab-header' + rowObj.uniqueId"
-                    :id="'tab-header' + rowObj.uniqueId"
+                    v-for="rowId in section.rows"
+                    :key="getTabHeaderID(rowId)"
+                    :id="getTabHeaderID(rowId)"
                 >
-                    <label :for="'tab-radio' + rowObj.uniqueId" role="button">
+                    <label :for="getRadioID(rowId)" role="button">
                         <span
-                            v-if="rowObj.extendData.tabIcon"
-                            v-html="rowObj.extendData.tabIcon"
+                            v-if="rows[rowId].extendData.tabIcon"
+                            v-html="rows[rowId].extendData.tabIcon"
                         ></span>
                         <br>
-                        <span v-text="rowObj.extendData.tabName"></span>
+                        <span v-text="rows[rowId].extendData.tabName"></span>
                     </label>
                 </li>
 
@@ -42,15 +41,15 @@
                 </li>
             </ul>
 
-            <div class="slider" v-show="rows.length > 0">
-                <div class="indicator"></div>
-            </div>
+<!--            <div class="slider" v-show="hasTabs > 0">-->
+<!--                <div class="indicator"></div>-->
+<!--            </div>-->
 
             <div class="content">
                 <TabContentRowView
-                    v-for="rowObj in sectionRows"
-                    :key="rowObj.uniqueId"
-                    :row="rowObj"
+                    v-for="rowId in section.rows"
+                    :key="rowId"
+                    :row="rows[rowId]"
                     :section="section"
                     :controls="controls"
                 />
@@ -60,7 +59,7 @@
     </div>
 </template>
 
-<script lang="ts">
+<script >
     // @ts-ignore
     import {SECTION_VIEW_MIXINS} from "@/mixins/section-view-mixins";
     // @ts-ignore
@@ -72,32 +71,65 @@
     import {TabRow} from "@/interfaces/tab-row.interface";
     import mixins from 'vue-typed-mixins'
 
-    export default mixins(SECTION_VIEW_MIXINS, STYLE_INJECTION_MIXIN).extend({
+    export default {
         name: "TableSectionView",
+        mixins:[SECTION_VIEW_MIXINS, STYLE_INJECTION_MIXIN],
         components: {
             TabContentRowView
         },
+
+        computed: {
+            hasTabs() {
+                // @ts-ignore
+                return this.section.rows.length > 0
+            }
+        },
+
         methods: {
+            getRadioID(uniqueId) {
+                return 'tab-radio-'.concat(uniqueId)
+            },
+
+            getTabHeaderID(uniqueId) {
+                return 'tab-header-'.concat(uniqueId)
+            },
+
             /**
              * [ACTION] Add a new tab action
+             * Buss: simply add a new row with extendData
              */
-            addNewTab() : void {
+            addNewTab() {
                 const tabName = prompt("Give it a name for your new tab")
                 if (!tabName) {
                     return ALERT_DIALOG.show("Tab Name can't be empty.");
                 }
 
-                const tabDetail : TabRow = {
+                const tabDetail = {
                     tabName,
                     defaultChecked: (
                         //@ts-ignore
-                        this.rows.length == 0
+                        this.section.rows.length == 0
                     )
                 }
 
                 // @ts-ignore
                 this.addRow(null, tabDetail);
+
+                // @ts-ignore - check if this is the first tab in our section??
+                if (this.section.rows.length == 1) {
+                    // yes it is, so after rendered new tab, we should select it.
+                    this.defaultSelectTab()
+                }
+            },
+
+            defaultSelectTab() {
+                this.$nextTick(() => {
+                    // @ts-ignore
+                    const radioDom = document.getElementById(this.getRadioID(this.section.rows[0]))
+                    // @ts-ignore
+                    radioDom.checked = true
+                })
             }
         }
-    })
+    }
 </script>

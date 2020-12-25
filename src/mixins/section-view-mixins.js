@@ -37,10 +37,10 @@ const SECTION_VIEW_MIXINS = {
          */
         addRow($event = null, extendData = null) {
             // get rowType of Section
-            let rowType = SECTION_TYPES[this.section.type].rowType;
+            const rowType = SECTION_TYPES[this.section.type].rowType;
 
             // Create new Row Object - BUSS: New Object
-            let newRowObject = createNewRow(rowType, extendData);
+            const newRowObject = createNewRow(rowType, extendData);
 
             // Parent-Handle: Add Row | Push ID into Section.rows
             this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.ROW.CREATE, newRowObject)
@@ -83,16 +83,6 @@ const SECTION_VIEW_MIXINS = {
                 'control-list-container',
                 this.hasControl ? '' : 'empty'
             ]
-        },
-
-        /**
-         * Pick up the rows detail of this section
-         * @returns {Array<{}>}
-         */
-        sectionRows() {
-            return this.section.rows.map(rowId => {
-                return this.rows[rowId]
-            });
         },
     },
 };

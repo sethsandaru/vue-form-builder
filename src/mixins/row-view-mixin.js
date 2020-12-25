@@ -65,21 +65,11 @@ const ROW_VIEW_MIXIN = {
                 this.styles.ROW,
                 'control-list-container',
                 (
-                    this.hasControl ?
-                    '' :
-                    'empty'
+                    this.hasControls
+                        ? ''
+                        : 'empty'
                 )
             ]
-        },
-
-        /**
-         * Pick up the controls detail of this rows
-         * @returns {Array<{}>}
-         */
-        rowControls() {
-            return this.row.controls.map(controlId => {
-                return this.controls[controlId]
-            });
         },
 
         /**
@@ -87,10 +77,9 @@ const ROW_VIEW_MIXIN = {
          * @returns {boolean}
          */
         hasControls() {
-            return this.rowControls.length > 0
+            return this.row.controls.length > 0
         }
     },
-
 }
 export {
     ROW_VIEW_MIXIN
