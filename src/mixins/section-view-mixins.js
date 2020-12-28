@@ -66,6 +66,15 @@ const SECTION_VIEW_MIXINS = {
             return "v-form-builder-control"
         },
 
+
+        /**
+         * Base group of drag/drop
+         * We can share this for each section/row
+         */
+        rowDragGroup() {
+            return "v-form-builder-control-row-section".concat(this.section.uniqueId)
+        },
+
         /**
          * Accessor helper to check if the current section has control(s) or not
          */

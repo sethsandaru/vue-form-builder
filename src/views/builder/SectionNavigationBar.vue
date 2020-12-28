@@ -1,6 +1,12 @@
 <template>
     <div class="section-config">
         <div class="buttons">
+            <component
+                v-if="preCustomButtonView"
+                :is="preCustomButtonView"
+                :section="section"
+            ></component>
+
             <button :class="styles.BUTTON.PRIMARY"
                     title="Push Up"
                     @click="pushUp"
@@ -20,6 +26,12 @@
                 <span v-html="$form.getIcon('trash')"></span>
                 <span>Delete</span>
             </button>
+
+            <component
+                v-if="postCustomButtonView"
+                :is="postCustomButtonView"
+                :section="section"
+            ></component>
         </div>
     </div>
 </template>
@@ -28,6 +40,7 @@
     import {SECTION_SORT_MIXINS} from "@/mixins/section-sort-mixins";
     import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
     import {EVENT_CONSTANTS} from "@/configs/events";
+    import {SECTION_TYPES} from "@/configs/section";
     import SidebarRenderer from "@/libraries/sidebar-renderer.class";
     import SidebarSectionConfiguration from "@/views/builder/sidebar-config-views/SidebarSectionConfiguration";
 
@@ -40,6 +53,33 @@
                 required: true,
             }
         },
+
+        computed: {
+            /**
+             * Accessor - Get Section Type Configuration
+             * @returns {{}}
+             */
+            sectionConfiguration() {
+                return SECTION_TYPES[this.section.type]
+            },
+
+            /**
+             * Get Pre Custom Button View
+             * @returns {VueComponent}
+             */
+            preCustomButtonView() {
+                return this.sectionConfiguration.preCustomButtonView
+            },
+
+            /**
+             * Get Post Custom Button View
+             * @returns {VueComponent}
+             */
+            postCustomButtonView() {
+                return this.sectionConfiguration.postCustomButtonView
+            },
+        },
+
         methods: {
             /**
              * Submit to delete a Section

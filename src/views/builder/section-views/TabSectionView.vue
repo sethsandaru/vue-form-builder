@@ -14,7 +14,13 @@
                    name="tab-control"
             >
 
-            <ul>
+            <draggable
+                ghost-class="ghost"
+                :list="section.rows"
+                :group="rowDragGroup"
+                tag="ul"
+            >
+
                 <li
                     v-for="rowId in section.rows"
                     :key="getTabHeaderID(rowId)"
@@ -30,16 +36,7 @@
                     </label>
                 </li>
 
-                <li @click="addNewTab">
-                    <label class="add-row" role="button">
-                        <span v-html="$form.getIcon('addOutline', '32px', '32px', '#000')"></span>
-                        <br>
-                        <span>
-                            Add Tab
-                        </span>
-                    </label>
-                </li>
-            </ul>
+            </draggable>
 
 <!--            <div class="slider" v-show="hasTabs > 0">-->
 <!--                <div class="indicator"></div>-->
@@ -59,7 +56,7 @@
     </div>
 </template>
 
-<script >
+<script lang="ts">
     // @ts-ignore
     import {SECTION_VIEW_MIXINS} from "@/mixins/section-view-mixins";
     // @ts-ignore
@@ -79,18 +76,18 @@
         },
 
         computed: {
-            hasTabs() {
+            hasTabs() : boolean {
                 // @ts-ignore
                 return this.section.rows.length > 0
             }
         },
 
         methods: {
-            getRadioID(uniqueId) {
+            getRadioID(uniqueId : string): string {
                 return 'tab-radio-'.concat(uniqueId)
             },
 
-            getTabHeaderID(uniqueId) {
+            getTabHeaderID(uniqueId: string): string {
                 return 'tab-header-'.concat(uniqueId)
             },
 
@@ -123,6 +120,7 @@
             },
 
             defaultSelectTab() {
+                // @ts-ignore (don't know why but need to ignore to use nextTick)
                 this.$nextTick(() => {
                     // @ts-ignore
                     const radioDom = document.getElementById(this.getRadioID(this.section.rows[0]))

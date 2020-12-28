@@ -5,14 +5,23 @@
 import {HELPER} from "@/libraries/helper";
 import {ROW_TYPES} from "@/configs/row";
 
+// Builder Views
 import NormalSectionView from "@/views/builder/section-views/NormalSectionView";
 // import TableSectionView from "@/views/builder/section-views/TableSectionView";
 import ToggleableSectionView from "@/views/builder/section-views/ToggleableSectionView";
 import TabSectionView from "@/views/builder/section-views/TabSectionView";
 
+// Builder Buttons [PRE]
+import TabSectionPreButtons from "@/views/builder/section-navigation-buttons/TabSectionPreButtons";
+
+// Builder Buttons [POST]
+
+// Renderer Views
 import RendererNormalSectionView from "@/views/renderer/section-views/NormalSectionView";
 import RendererToggleableSectionView from "@/views/renderer/section-views/ToggleableSectionView";
 import RendererTabSectionView from "@/views/renderer/section-views/TabSectionView";
+
+
 
 
 const SECTION_TYPES = {
@@ -44,6 +53,7 @@ const SECTION_TYPES = {
         rowType: ROW_TYPES.tabRow,
         builderView: TabSectionView,
         rendererView: RendererTabSectionView,
+        preCustomButtonView: TabSectionPreButtons,
     }
 
     // table: {

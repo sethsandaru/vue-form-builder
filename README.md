@@ -110,6 +110,14 @@ My truly desire: Fewer dependencies as possible and try minimize the size as muc
 ## License
 MIT License
 
+## Developing the Vue Form Builder
+For hard-core developers, of course, you can clone this repository and then getting started with these steps:
+
+- `npm install` - obviously
+- `npm run serve` - this will run the `main.ts` which is the main web page to see the Vue Form Builder
+
+Then you will know what you can take a look next: configs, components, views,...
+
 ## Custom Form Builder
 
 I'm always available for Custom Build based on your needs for the Vue Form Builder. You can contact me via:
