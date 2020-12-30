@@ -63,12 +63,14 @@
     import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
     // @ts-ignore
     import {ALERT_DIALOG} from "@/libraries/alert-dialog";
+    // @ts-ignore
+    import {EVENT_CONSTANTS} from '@/configs/events'
 
     import TabContentRowView from "@/views/builder/row-views/TabContentRowView.vue";
     import {TabRow} from "@/interfaces/tab-row.interface";
-    import mixins from 'vue-typed-mixins'
+    import Vue from "vue";
 
-    export default {
+    export default Vue.extend({
         name: "TableSectionView",
         mixins:[SECTION_VIEW_MIXINS, STYLE_INJECTION_MIXIN],
         components: {
@@ -95,13 +97,20 @@
              * [ACTION] Add a new tab action
              * Buss: simply add a new row with extendData
              */
-            addNewTab() {
+            addNewTab(sectionId : string) {
+                // @ts-ignore
+                if (sectionId !== this.section.uniqueId) {
+                    return;
+                }
+
+                // Ask for Tab Name - TODO: do something better with Promise so it wouldn't harm the main thread
                 const tabName = prompt("Give it a name for your new tab")
                 if (!tabName) {
                     return ALERT_DIALOG.show("Tab Name can't be empty.");
                 }
 
-                const tabDetail = {
+                // Data preparation
+                const tabDetail : TabRow = {
                     tabName,
                     defaultChecked: (
                         //@ts-ignore
@@ -119,6 +128,9 @@
                 }
             },
 
+            /**
+             * [UI-Update]
+             */
             defaultSelectTab() {
                 // @ts-ignore (don't know why but need to ignore to use nextTick)
                 this.$nextTick(() => {
@@ -128,6 +140,11 @@
                     radioDom.checked = true
                 })
             }
+        },
+
+        created() {
+            // @ts-ignore
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.ROW.ADD_TAB, this.addNewTab);
         }
-    }
+    })
 </script>

@@ -22,6 +22,9 @@ const EVENT_CONSTANTS = {
             CREATE: "builder.row.create",
             UPDATE: "builder.row.update",
             DELETE: "builder.row.delete",
+
+            // For Tab View
+            ADD_TAB: "builder.row.add_tab",
         },
 
         CONTROL: {
@@ -47,7 +50,21 @@ const EVENT_CONSTANTS = {
             SAVE_AND_CLOSE: "builder.sidebar.save_and_close",
 
             AFTER_CLOSED: "builder.sidebar.after_closed",
-        }
+        },
+
+        /**
+         * GLOBAL MODAL EVENTS
+         */
+        MODAL: {
+            INJECT: "builder.modal.inject",
+            OPEN: "builder.modal.open",
+            OPENED: "builder.modal.opened",
+
+            SAVE: "builder.modal.save",
+            SAVE_AND_CLOSE: "builder.modal.save_and_close",
+
+            AFTER_CLOSED: "builder.modal.after_closed",
+        },
     },
 
     /**
