@@ -13,6 +13,19 @@
     padding-bottom: 10px;
 }
 
+.pl-15 {
+    padding-left: 15px;
+}
+
+.pr-15 {
+    padding-right: 15px;
+}
+
+
+.mr-15 {
+    margin-right: 15px;
+}
+
 .position-relative {
     position: relative;
 }

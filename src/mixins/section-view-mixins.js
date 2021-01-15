@@ -30,8 +30,8 @@ const SECTION_VIEW_MIXINS = {
     methods: {
         /**
          * Add a new rows for the section
-         * @desc Typically, we create a new Row Object, push it into the global `Rows` Object. And then assign the ID
-         * into the current section.rows
+         * @desc Typically, we create a new Row Object, push it into the global `Rows` Object.
+         * And then assign the ID into the current section.rows
          * This method will be invoked whenever `AddRowControl` is emitted any value.
          * @emitKey addRowNotify
          */
@@ -45,9 +45,21 @@ const SECTION_VIEW_MIXINS = {
             // Parent-Handle: Add Row | Push ID into Section.rows
             this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.ROW.CREATE, newRowObject)
             this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.SECTION.ADDED_ROW, this.section.uniqueId, newRowObject.uniqueId)
-
         },
 
+        /**
+         * Delete a row in the section
+         * @desc Emit the rowId to the root-parent to handle the delete process
+         * @param {Object} rowObject
+         * @param {Object} sectionObj
+         */
+        deleteRow(rowObject, sectionObj) {
+            this.$formEvent.$emit(
+                EVENT_CONSTANTS.BUILDER.ROW.DELETE,
+                rowObject.uniqueId,
+                sectionObj.uniqueId
+            )
+        }
     },
 
     computed: {

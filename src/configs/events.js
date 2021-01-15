@@ -22,6 +22,7 @@ const EVENT_CONSTANTS = {
             CREATE: "builder.row.create",
             UPDATE: "builder.row.update",
             DELETE: "builder.row.delete",
+            DELETED: "builder.row.deleted",
 
             // For Tab View
             ADD_TAB: "builder.row.add_tab",

@@ -120,6 +120,23 @@ const FORM_BUILDER_EVENT_HANDLER = {
             this.$set(this.formData.rows, rowObject.uniqueId, rowObject)
         },
 
+        /**
+         * Delete a specific row in the section
+         * @param {string} rowId rowId that need to be delete
+         * @param {string} sectionId row's current sectionId
+         */
+        rowDelete(rowId, sectionId) {
+            // first, delete row in section
+            const indexInSection = HELPER.findIndex(this.formData.sections[sectionId].rows, undefined, rowId)
+            this.formData.sections[sectionId].rows.splice(indexInSection, 1)
+
+            // second, remove row in the big rows
+            this.$delete(this.formData.rows, rowId)
+
+            // lastly, final init to which-ever components listen to the event after deleted
+            this.$formEvent.$emit(EVENT_CONSTANTS.BUILDER.ROW.DELETED, rowId, sectionId)
+        },
+
 
         /**
          * Added new control to a section
@@ -198,6 +215,7 @@ const FORM_BUILDER_EVENT_HANDLER = {
 
         // row events
         this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.ROW.CREATE, this.rowNewAdded)
+        this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.ROW.DELETE, this.rowDelete)
 
         // control events
         this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.CONTROL.CREATE, this.controlNewAdded)

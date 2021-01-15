@@ -49,6 +49,7 @@
                     :row="rows[rowId]"
                     :section="section"
                     :controls="controls"
+                    @delete-row="deleteRow"
                 />
             </div>
         </div>
@@ -119,11 +120,11 @@
                 }
 
                 // @ts-ignore
-                this.addRow(null, tabDetail);
+                this.addRow(null, tabDetail)
 
+                // if we got our-first ever tab, re-selected the first tab.
                 // @ts-ignore - check if this is the first tab in our section??
                 if (this.section.rows.length == 1) {
-                    // yes it is, so after rendered new tab, we should select it.
                     this.defaultSelectTab()
                 }
             },
@@ -144,7 +145,9 @@
 
         created() {
             // @ts-ignore
-            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.ROW.ADD_TAB, this.addNewTab);
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.ROW.ADD_TAB, this.addNewTab)
+            // @ts-ignore
+            this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.ROW.DELETED, this.defaultSelectTab)
         }
     })
 </script>

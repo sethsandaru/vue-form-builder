@@ -1,5 +1,14 @@
 <template>
     <section>
+        <div class="pl-15">
+            <button :class="styles.BUTTON.INFO" class="mr-15">
+                Tab Settings
+            </button>
+            <button :class="styles.BUTTON.DANGER" @click="deleteRow">
+                Delete Tab
+            </button>
+        </div>
+
         <!--- SHOW CONTROLS WITH SORTABLE --->
         <draggable
             :class="draggableClasses"
@@ -26,11 +35,11 @@
     </section>
 </template>
 
-<script>
+<script lang="ts">
+    import Vue from 'vue';
 
     // @ts-ignore
     import {ROW_VIEW_MIXIN} from "@/mixins/row-view-mixin";
-    import mixins from 'vue-typed-mixins'
 
     /**
      * @property {Object} section
@@ -39,8 +48,22 @@
      * @property {Array} section.rows
      * @property {Array} section.controls
      */
-    export default {
+    export default Vue.extend({
         name: "TabContentRowView",
-        mixins: [ROW_VIEW_MIXIN]
-    }
+        mixins: [ROW_VIEW_MIXIN],
+        methods: {
+            /**
+             * [CLICK] Click to remove the tab (row)
+             * @see SECTION_VIEW_MIXINS.deleteRow
+             */
+            deleteRow() {
+                if (!confirm('Do you really want to remove this tab?')) {
+                    return
+                }
+
+                // @ts-ignore
+                this.$emit('delete-row', this.row, this.section)
+            },
+        },
+    })
 </script>
