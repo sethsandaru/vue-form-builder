@@ -1,23 +1,28 @@
 <template>
-    <div id="vueFormBuilderSuperGreatModal" class="modal">
+    <div id="vfb-global-modal" class="modal">
 
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close"
-                  @click="close"
-                  v-html="$form.getIcon('close', '24px', '24px', '#000')">
-            </span>
+            <div class="modal-header">
+                <span class="close"
+                      @click="close"
+                      v-html="$form.getIcon('close', '24px', '24px', '#fff')">
+                </span>
+                <h4 v-text="modalTitle"></h4>
+            </div>
 
-            <!--- For dynamic purpose --->
-            <component
-                v-if="component"
-                :is="component"
-                :dataPackage="dynamicData"
-                :formData="formData"
-                @save="save"
-                @saveAndClose="saveAndClose"
-                @close="close"
-            />
+            <div class="modal-body">
+                <!--- For dynamic purpose --->
+                <component
+                    v-if="component"
+                    :is="component"
+                    :dataPackage="dynamicData"
+                    :formData="formData"
+                    @save="save"
+                    @saveAndClose="saveAndClose"
+                    @close="close"
+                />
+            </div>
         </div>
 
     </div>
@@ -44,6 +49,7 @@
             dynamicData: {},
             runnerId: null,
             isOpen: false,
+            modalTitle: "",
         }),
         methods: {
             /**
@@ -51,7 +57,7 @@
              */
             open(runnerId) {
                 if (this.isOpen) {
-                    ALERT_DIALOG.show('Please close the current active sidebar before open another')
+                    ALERT_DIALOG.show('Please close the current active modal before open another')
                     return
                 }
 
@@ -113,8 +119,9 @@
             /**
              * This method will help us inject our Component into the Sidebar Body
              * @param {SidebarRenderer} rendererInfo - data that will be assigned for the Component
+             * @param {String} title Modal Title
              */
-            updateBody(rendererInfo) {
+            updateBody(rendererInfo, title = "") {
                 if (this.isOpen) {
                     return
                 }
@@ -122,6 +129,7 @@
                 this.dynamicData = Object.assign({}, rendererInfo.data)
                 this.component = rendererInfo.component
                 this.runnerId = rendererInfo.runnerId
+                this.modalTitle = title
             }
         },
 

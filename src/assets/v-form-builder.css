@@ -1270,34 +1270,54 @@ html.md-theme-default .vue-form-builder .md-list-item {
 * Modal CSS - Good enough to use - standalone
 * Ref: https://www.w3schools.com/howto/howto_css_modals.asp
 ********************************************************/
+/* The Modal (background) */
+#vfb-global-modal.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    padding-top:100px;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 
-.modal-header {
-    padding: 2px 16px;
+#vfb-global-modal .modal-header {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 16px;
+    padding-right: 16px;
     background-color: #5cb85c;
     color: white;
+    display: block;
 }
 
 /* Modal Body */
-.modal-body {padding: 2px 16px;}
-
-/* Modal Footer */
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+#vfb-global-modal .modal-body {
+    padding: 10px 16px;
 }
 
 /* Modal Content */
-.modal-content {
+#vfb-global-modal .modal-content {
     position: relative;
     background-color: #fefefe;
     margin: auto;
     padding: 0;
     border: 1px solid #888;
-    width: 80%;
+    width: 50%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     animation-name: animatetop;
     animation-duration: 0.4s
+}
+
+#vfb-global-modal .close:hover,
+#vfb-global-modal .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Add Animation */

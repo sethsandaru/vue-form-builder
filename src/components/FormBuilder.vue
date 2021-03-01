@@ -22,7 +22,10 @@
 
         <!-- global stuff -->
         <GlobalSidebar
-                :formData="formData"
+            :formData="formData"
+        />
+        <GlobalModal
+            :formData="formData"
         />
 
         <hr>
@@ -38,10 +41,12 @@
     import FormBuilderBusiness from "@/mixins/form-builder-mixins";
     import FormConfiguration from "@/views/builder/FormConfiguration";
     import GlobalSidebar from "@/views/builder/GlobalSidebar";
+    import GlobalModal from "@/views/builder/GlobalModal";
 
     export default {
         name: "FormBuilder",
         components: {
+            GlobalModal,
             GlobalSidebar,
             FormConfiguration,
             SectionContainer,
