@@ -8,8 +8,18 @@
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
-            <label>Tab Icon (SVG)</label>
+            <label>Tab Icon (HTML/Inline SVG/Image)</label>
             <textarea :class="styles.FORM.FORM_CONTROL" v-model="rowConfiguration.extendData.tabIcon"></textarea>
+
+            <p>
+                Recommendation: <a href="http://svgicons.sparkk.fr/" target="_blank">Free Inline-SVG Icons</a>
+            </p>
+        </div>
+
+        <div class="buttons">
+            <button :class="styles.BUTTON.PRIMARY" @click="save(true)">
+                Save
+            </button>
         </div>
     </div>
 </template>
