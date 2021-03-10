@@ -72,7 +72,12 @@ const extendingControls = function(moreControlObject) {
 
         // duplicated => error
         if (CONTROLS.hasOwnProperty(key)) {
-            throw new TypeError(`Extend-Control-Error: Your '${key}' control is duplicated with our build-in Controls. Please change to another key name instead.`);
+            if(moreControlObject[key] === false){
+                delete CONTROLS[key]
+                delete moreControlObject[key]
+            }else {
+                throw new TypeError(`Extend-Control-Error: Your '${key}' control is duplicated with our build-in Controls. Please change to another key name instead.`);
+            }
         }
     }
 
