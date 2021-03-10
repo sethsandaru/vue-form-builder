@@ -25,6 +25,7 @@ import RadioCheckboxControl from "@/views/controls/RadioCheckboxControl";
 import DatePickerControl from "@/views/controls/DatePickerControl";
 import NumberControl from "@/views/controls/NumberControl";
 import DropdownControl from "@/views/controls/DropdownControl";
+import FileUploaderControl from "@/views/controls/FileUploaderControl";
 
 // Control-Config-Component
 import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
@@ -35,6 +36,7 @@ import NumberConfigView from "@/views/control-configs/NumberConfigView";
 import DatePickerConfigView from "@/views/control-configs/DatePickerConfigView";
 import TextConfigView from "@/views/control-configs/TextConfigView";
 import DropdownConfigView from "@/views/control-configs/DropdownConfigView";
+import FileUploaderConfigView from "@/views/control-configs/FileUploaderConfigView";
 
 const CONTROLS = {
     input: {
@@ -186,6 +188,36 @@ const CONTROLS = {
 
         fieldComponent: RadioCheckboxControl,
         configComponent: RadioCheckboxConfigView
+    },
+
+    fileUploader: {
+        name: "File Uploader",
+        description: "File Uploader Control from vue-upload-component",
+        disableValidation: true,
+
+        // config data
+        configData: {
+            // for styling
+            buttonLabel: "Select File",
+            buttonClasses: "btn btn-primary",
+
+            // for components
+            postActionURL: "/your-api-post-url-to-upload",
+            extensions: ".gif,.png,.jpg,.jpeg",
+            accept: "image/gif,image/jpeg,image/png",
+            maxSize: 1000, // in bytes - 0 unlimited
+
+            isMultiple: false,
+            maximumFiles: 1, // if multiple is on, we need to configure this one
+
+            // special configurations
+            // these will be appended when the vue-uploader-component make a request
+            headers: [],
+            postData: []
+        },
+
+        fieldComponent: FileUploaderControl,
+        configComponent: FileUploaderConfigView
     },
 
     label: {

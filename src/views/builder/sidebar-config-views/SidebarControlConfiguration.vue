@@ -18,7 +18,7 @@
         </SidebarToggleableContainer>
 
         <!-- Validation of the control / same for all -->
-        <ControlValidationInformation :control="control" />
+        <ControlValidationInformation :control="control" v-if="!isValidationDisabled" />
 
         <div class="buttons">
             <button :class="styles.BUTTON.PRIMARY" @click="save(false)">
