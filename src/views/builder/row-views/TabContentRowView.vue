@@ -30,6 +30,7 @@
 
         <!-- Add Control -->
         <AddControlToRowControl
+            v-if="permissions.canAddControl"
             :row="row"
         />
     </section>

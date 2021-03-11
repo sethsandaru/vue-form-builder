@@ -21,6 +21,7 @@ const SECTION_VIEW_MIXINS = {
         section: Object,
         rows: Object,
         controls: Object,
+        permissions: Object
     },
 
     data: () => ({

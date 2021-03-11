@@ -24,7 +24,10 @@
         </draggable>
 
         <!-- Add Control -->
-        <AddControlControl :section="section" />
+        <AddControlControl
+            v-if="permissions.canAddControl"
+            :section="section"
+        />
     </div>
 </template>
 

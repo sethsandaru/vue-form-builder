@@ -1,7 +1,10 @@
 <template>
     <div :class="[styles.CONTAINER.FLUID, 'form-padding', 'vue-form-builder']">
         <!-- top configuration -->
-        <FormConfiguration v-model="formData.formConfig" />
+        <FormConfiguration
+            :permissions="permissions"
+            v-model="formData.formConfig"
+        />
 
         <!-- form headline -->
         <div class="form-headline-container" v-show="formData.formConfig.isShowHeadline">
@@ -10,15 +13,20 @@
         </div>
 
         <!-- sections of the form -->
-        <SectionContainer v-for="(sectionData) in sortedSections"
-                          :section="sectionData"
-                          :rows="formData.rows"
-                          :controls="formData.controls"
-                          :key="sectionData.uniqueId"
+        <SectionContainer
+            v-for="(sectionData) in sortedSections"
+            :section="sectionData"
+            :rows="formData.rows"
+            :controls="formData.controls"
+            :key="sectionData.uniqueId"
+            :permissions="permissions"
         />
 
         <!-- below all -->
-        <AddSectionControl @addSectionNotify="addSection" />
+        <AddSectionControl
+            v-if="permissions.canAddSection"
+            @addSectionNotify="addSection"
+        />
 
         <!-- global stuff -->
         <GlobalSidebar
@@ -42,6 +50,7 @@
     import FormConfiguration from "@/views/builder/FormConfiguration";
     import GlobalSidebar from "@/views/builder/GlobalSidebar";
     import GlobalModal from "@/views/builder/GlobalModal";
+    import DefaultPermission from "@/configs/roles";
 
     export default {
         name: "FormBuilder",
@@ -53,6 +62,16 @@
             AddSectionControl
         },
         mixins: FormBuilderBusiness,
+
+        props: {
+            permissions: {
+                type: Object,
+                default: () => {
+                    return DefaultPermission
+                }
+            }
+        },
+
         data: () => ({
             formData: {
                 formConfig: {},

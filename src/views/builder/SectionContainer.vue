@@ -1,14 +1,20 @@
 <template>
     <div class="section-container" :class="{'active': isDoingConfiguration}">
-        <SectionNavigationBar :section="section"
-                              @active="setActive" />
+        <SectionNavigationBar
+            :section="section"
+            :permissions="permissions"
 
-        <component :is="sectionViewComponent"
-                   :section="section"
-                   :rows="rows"
-                   :controls="controls"
-                   :key="section.uniqueId" />
+            @active="setActive"
+        />
 
+        <component
+            :is="sectionViewComponent"
+            :section="section"
+            :rows="rows"
+            :controls="controls"
+            :key="section.uniqueId"
+            :permissions="permissions"
+        />
     </div>
 </template>
 
@@ -23,6 +29,7 @@
             section: Object,
             rows: Object,
             controls: Object,
+            permissions: Object
         },
         data: () => ({
             isDoingConfiguration: false

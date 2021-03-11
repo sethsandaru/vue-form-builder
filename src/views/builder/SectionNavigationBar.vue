@@ -5,24 +5,39 @@
                 v-if="preCustomButtonView"
                 :is="preCustomButtonView"
                 :section="section"
+                :permissions="permissions"
             ></component>
 
             <button :class="styles.BUTTON.PRIMARY"
                     title="Push Up"
                     @click="pushUp"
-                    v-html="$form.getIcon('arrowUp')"></button>
+                    v-html="$form.getIcon('arrowUp')"
+
+                    :disabled="!permissions.canReOrderingSection"
+            ></button>
 
             <button :class="styles.BUTTON.SECONDARY"
                     title="Push Down"
                     @click="pushDown"
-                    v-html="$form.getIcon('arrowDown')"></button>
+                    v-html="$form.getIcon('arrowDown')"
 
-            <button :class="styles.BUTTON.INFO" @click="openConfiguration">
+                    :disabled="!permissions.canReOrderingSection"
+            ></button>
+
+            <button
+                :class="styles.BUTTON.INFO"
+                @click="openConfiguration"
+                :disabled="!permissions.canEditSection"
+            >
                 <span v-html="$form.getIcon('cog')"></span>
                 <span>Configuration</span>
             </button>
 
-            <button :class="styles.BUTTON.DANGER" @click="deleteSection">
+            <button
+                :class="styles.BUTTON.DANGER"
+                @click="deleteSection"
+                :disabled="!permissions.canDeleteSection"
+            >
                 <span v-html="$form.getIcon('trash')"></span>
                 <span>Delete</span>
             </button>
@@ -31,6 +46,7 @@
                 v-if="postCustomButtonView"
                 :is="postCustomButtonView"
                 :section="section"
+                :permissions="permissions"
             ></component>
         </div>
     </div>
@@ -51,7 +67,8 @@
             section: {
                 type: Object,
                 required: true,
-            }
+            },
+            permissions: Object
         },
 
         computed: {

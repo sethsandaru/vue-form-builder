@@ -37,7 +37,9 @@ const ROW_VIEW_MIXIN = {
         controls: {
             type: Object,
             required: true,
-        }
+        },
+
+        permissions: Object
     },
 
     computed: {

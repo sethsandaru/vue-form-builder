@@ -47,7 +47,10 @@
                 </draggable>
 
                 <!-- Add More Control? -->
-                <AddControlControl :section="section" />
+                <AddControlControl
+                    v-if="permissions.canAddControl"
+                    :section="section"
+                />
             </div>
         </transition>
 
