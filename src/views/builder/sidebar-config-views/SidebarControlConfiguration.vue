@@ -3,22 +3,33 @@
         <h5>Control Configuration</h5>
 
         <!-- Basic of the control/Same for all -->
-        <ControlBasicInformation :control="control" />
-        <ControlStylingInformation :control="control" />
+        <ControlBasicInformation
+            v-if="permissions.canUpdateControlBasicDetail"
+            :control="control"
+        />
+
+        <ControlStylingInformation
+            v-if="permissions.canUpdateControlStyling"
+            :control="control"
+        />
 
         <!-- Control specific configuration / Only render it if the control has specific configuration view -->
         <SidebarToggleableContainer
-                v-if="specificConfigurationView"
-                headline="Control Specific Configuration">
-
-            <component :is="specificConfigurationView"
-                       :formData="formData"
-                       :control="control" />
-
+                v-if="specificConfigurationView && permissions.canUpdateControlSpecialConfiguration"
+                headline="Control Specific Configuration"
+        >
+            <component
+                :is="specificConfigurationView"
+                :formData="formData"
+                :control="control"
+            />
         </SidebarToggleableContainer>
 
         <!-- Validation of the control / same for all -->
-        <ControlValidationInformation :control="control" v-if="!isValidationDisabled" />
+        <ControlValidationInformation
+            v-if="!isValidationDisabled && permissions.canUpdateControlValidation"
+            :control="control"
+        />
 
         <div class="buttons">
             <button :class="styles.BUTTON.PRIMARY" @click="save(false)">
@@ -48,8 +59,16 @@
         name: "SidebarControlConfiguration",
         components: {
             ControlValidationInformation,
-            ControlStylingInformation, ControlBasicInformation, SidebarToggleableContainer},
+            ControlStylingInformation,
+            ControlBasicInformation,
+            SidebarToggleableContainer
+        },
         mixins: [STYLE_INJECTION_MIXIN, SIDEBAR_BODY_MIXIN],
+
+        props: {
+            permissions: Object
+        },
+
         data:() => ({
             dataKey: "control",
             control: null

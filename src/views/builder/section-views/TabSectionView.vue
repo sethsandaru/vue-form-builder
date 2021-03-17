@@ -19,6 +19,7 @@
                 :list="section.rows"
                 :group="rowDragGroup"
                 tag="ul"
+                :disabled="!permissions.canReOrderingRow"
             >
 
                 <li

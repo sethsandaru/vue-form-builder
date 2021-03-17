@@ -1,18 +1,23 @@
 <template>
     <div :class="[control.containerClass, 'control-view-wrapper', control.additionalContainerClass]">
+
         <div class="control-view" :class="{'active': isActive}">
             <!-- render the label -->
             <ControlLabel v-show="control.isShowLabel" :control="control" />
 
             <!-- render the exact field -->
             <component :is="controlComponent"
-                       :control="control" />
+                       :control="control"
+            />
 
         </div>
 
         <!-- render the right option to config/drag/... -->
-        <ControlOption @delete="deleteControl"
-                       @config="openConfiguration" />
+        <ControlOption
+            @delete="deleteControl"
+            @config="openConfiguration"
+            :permissions="permissions"
+        />
     </div>
 </template>
 
@@ -37,7 +42,8 @@
             parentId: {
                 type: String,
                 required: true,
-            }
+            },
+            permissions: Object
         },
 
         data: () => ({

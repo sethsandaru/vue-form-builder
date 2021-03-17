@@ -16,12 +16,16 @@
             :handle="dragControlHandle"
             :list="row.controls"
             :group="dragGroup"
+            :disabled="!permissions.canReOrderingControl"
         >
 
-            <ControlView v-for="controlId in row.controls"
-                         :key="controlId"
-                         :control="controls[controlId]"
-                         :parent-id="row.uniqueId" />
+            <ControlView
+                v-for="controlId in row.controls"
+                :key="controlId"
+                :control="controls[controlId]"
+                :parent-id="row.uniqueId"
+                :permissions="permissions"
+            />
 
             <p v-if="!hasControls">
                 Droppable Zone / Controls will be showed here...

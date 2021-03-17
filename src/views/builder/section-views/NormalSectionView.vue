@@ -11,12 +11,16 @@
                 ghost-class="ghost"
                 :handle="dragControlHandle"
                 :list="section.controls"
-                :group="dragGroup">
+                :group="dragGroup"
+                :disabled="!permissions.canReOrderingControl"
+        >
 
             <ControlView v-for="controlId in section.controls"
                          :key="controlId"
                          :control="controls[controlId]"
-                         :parent-id="section.uniqueId" />
+                         :parent-id="section.uniqueId"
+                         :permissions="permissions"
+            />
 
             <p v-if="!hasControl">
                 Droppable Zone / Controls will be showed here...

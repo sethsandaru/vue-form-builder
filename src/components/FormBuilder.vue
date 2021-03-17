@@ -31,9 +31,11 @@
         <!-- global stuff -->
         <GlobalSidebar
             :formData="formData"
+            :permissions="permissions"
         />
         <GlobalModal
             :formData="formData"
+            :permissions="permissions"
         />
 
         <hr>

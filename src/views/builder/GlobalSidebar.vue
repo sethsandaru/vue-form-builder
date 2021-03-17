@@ -7,9 +7,12 @@
 
         <!--- For dynamic purpose --->
         <component v-if="component"
+
                    :is="component"
                    :dataPackage="dynamicData"
                    :formData="formData"
+                   :permissions="permissions"
+
                    @save="save"
                    @saveAndClose="saveAndClose"
                    @close="close"
@@ -31,7 +34,8 @@
                 default() {
                     return {}
                 }
-            }
+            },
+            permissions: Object
         },
         data: () => ({
             component: null,

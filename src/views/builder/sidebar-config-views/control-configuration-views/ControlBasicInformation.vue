@@ -49,7 +49,7 @@
         mixins: [STYLE_INJECTION_MIXIN],
         components: {SidebarToggleableContainer},
         props: {
-            control: Object
+            control: Object,
         }
     }
 </script>

@@ -32,6 +32,7 @@
                     :handle="dragControlHandle"
                     :list="section.controls"
                     :group="dragGroup"
+                    :disabled="!permissions.canReOrderingControl"
                 >
 
                     <ControlView
@@ -39,6 +40,7 @@
                         :key="controlId"
                         :control="controls[controlId]"
                         :parent-id="section.uniqueId"
+                        :permissions="permissions"
                     />
 
                     <p v-if="!hasControl">
