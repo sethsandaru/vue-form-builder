@@ -6,8 +6,6 @@ import ControlView from "@/views/builder/ControlView";
 
 const RENDERER_ROW_VIEW_MIXIN = {
     components: {
-        draggable,
-        AddControlToRowControl,
         ControlView
     },
     mixins: [STYLE_INJECTION_MIXIN],

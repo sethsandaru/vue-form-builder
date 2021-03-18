@@ -37,9 +37,6 @@
                     :row="rows[rowId]"
                     :section="section"
                     :controls="controls"
-                    :permissions="permissions"
-
-                    @delete-row="deleteRow"
                 />
             </div>
 

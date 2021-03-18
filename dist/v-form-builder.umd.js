@@ -22493,7 +22493,7 @@ var AddControlToRowControl_component = Object(componentNormalizer["a" /* default
   
 )
 
-/* harmony default export */ var add_controls_AddControlToRowControl = (AddControlToRowControl_component.exports);
+/* harmony default export */ var AddControlToRowControl = (AddControlToRowControl_component.exports);
 // CONCATENATED MODULE: ./src/mixins/row-view-mixin.js
 /**
  * Base extendation for the Row-View - Form-Builder
@@ -22505,7 +22505,7 @@ var AddControlToRowControl_component = Object(componentNormalizer["a" /* default
 var ROW_VIEW_MIXIN = {
   components: {
     draggable: vuedraggable_common_default.a,
-    AddControlToRowControl: add_controls_AddControlToRowControl,
+    AddControlToRowControl: AddControlToRowControl,
     ControlView: ControlView
   },
   mixins: [style_injection_mixin["a" /* STYLE_INJECTION_MIXIN */]],
@@ -23267,12 +23267,12 @@ var section_views_ToggleableSectionView_component = Object(componentNormalizer["
 )
 
 /* harmony default export */ var section_views_ToggleableSectionView = (section_views_ToggleableSectionView_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"33228740-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/section-views/TabSectionView.vue?vue&type=template&id=5b08b60e&
-var TabSectionViewvue_type_template_id_5b08b60e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"tab-section"},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.section.isShowHeadline),expression:"section.isShowHeadline"}],staticClass:"headline-block p5"},[_c('h2',{class:_vm.section.headlineAdditionalClass,domProps:{"textContent":_vm._s(_vm.section.headline)}}),_c('p',{class:_vm.section.subHeadlineAdditionalClass,domProps:{"textContent":_vm._s(_vm.section.subHeadline)}})]),_c('div',{staticClass:"tabs"},[_vm._l((_vm.section.rows),function(rowId){return _c('input',{key:_vm.getRadioID(rowId),attrs:{"type":"radio","id":_vm.getRadioID(rowId),"name":"tab-control"}})}),_c('ul',_vm._l((_vm.section.rows),function(rowId){return _c('li',{key:_vm.getTabHeaderID(rowId),attrs:{"id":_vm.getTabHeaderID(rowId)}},[_c('label',{attrs:{"for":_vm.getRadioID(rowId),"role":"button"}},[(_vm.rows[rowId].extendData.tabIcon)?_c('span',{domProps:{"innerHTML":_vm._s(_vm.rows[rowId].extendData.tabIcon)}}):_vm._e(),_c('br'),_c('span',{domProps:{"textContent":_vm._s(_vm.rows[rowId].extendData.tabName)}})])])}),0),_c('div',{staticClass:"content"},_vm._l((_vm.section.rows),function(rowId){return _c('TabContentRowView',{key:rowId,attrs:{"row":_vm.rows[rowId],"section":_vm.section,"controls":_vm.controls,"permissions":_vm.permissions},on:{"delete-row":_vm.deleteRow}})}),1)],2)])}
-var TabSectionViewvue_type_template_id_5b08b60e_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"33228740-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/section-views/TabSectionView.vue?vue&type=template&id=19f0d1a7&
+var TabSectionViewvue_type_template_id_19f0d1a7_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"tab-section"},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.section.isShowHeadline),expression:"section.isShowHeadline"}],staticClass:"headline-block p5"},[_c('h2',{class:_vm.section.headlineAdditionalClass,domProps:{"textContent":_vm._s(_vm.section.headline)}}),_c('p',{class:_vm.section.subHeadlineAdditionalClass,domProps:{"textContent":_vm._s(_vm.section.subHeadline)}})]),_c('div',{staticClass:"tabs"},[_vm._l((_vm.section.rows),function(rowId){return _c('input',{key:_vm.getRadioID(rowId),attrs:{"type":"radio","id":_vm.getRadioID(rowId),"name":"tab-control"}})}),_c('ul',_vm._l((_vm.section.rows),function(rowId){return _c('li',{key:_vm.getTabHeaderID(rowId),attrs:{"id":_vm.getTabHeaderID(rowId)}},[_c('label',{attrs:{"for":_vm.getRadioID(rowId),"role":"button"}},[(_vm.rows[rowId].extendData.tabIcon)?_c('span',{domProps:{"innerHTML":_vm._s(_vm.rows[rowId].extendData.tabIcon)}}):_vm._e(),_c('br'),_c('span',{domProps:{"textContent":_vm._s(_vm.rows[rowId].extendData.tabName)}})])])}),0),_c('div',{staticClass:"content"},_vm._l((_vm.section.rows),function(rowId){return _c('TabContentRowView',{key:rowId,attrs:{"row":_vm.rows[rowId],"section":_vm.section,"controls":_vm.controls}})}),1)],2)])}
+var TabSectionViewvue_type_template_id_19f0d1a7_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/renderer/section-views/TabSectionView.vue?vue&type=template&id=5b08b60e&
+// CONCATENATED MODULE: ./src/views/renderer/section-views/TabSectionView.vue?vue&type=template&id=19f0d1a7&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"33228740-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/row-views/TabContentRowView.vue?vue&type=template&id=027ba972&
 var TabContentRowViewvue_type_template_id_027ba972_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',[_c('div',{class:_vm.containerClasses},_vm._l((_vm.row.controls),function(controlId){return _c('ControlView',{key:controlId,attrs:{"control":_vm.controls[controlId],"parent-id":_vm.row.uniqueId}})}),1)])}
@@ -23289,8 +23289,6 @@ var TabContentRowViewvue_type_template_id_027ba972_staticRenderFns = []
 
 var RENDERER_ROW_VIEW_MIXIN = {
   components: {
-    draggable: draggable,
-    AddControlToRowControl: AddControlToRowControl,
     ControlView: ControlView
   },
   mixins: [style_injection_mixin["a" /* STYLE_INJECTION_MIXIN */]],
@@ -23441,8 +23439,8 @@ var row_views_TabContentRowView_component = Object(componentNormalizer["a" /* de
 
 var section_views_TabSectionView_component = Object(componentNormalizer["a" /* default */])(
   views_renderer_section_views_TabSectionViewvue_type_script_lang_ts_,
-  TabSectionViewvue_type_template_id_5b08b60e_render,
-  TabSectionViewvue_type_template_id_5b08b60e_staticRenderFns,
+  TabSectionViewvue_type_template_id_19f0d1a7_render,
+  TabSectionViewvue_type_template_id_19f0d1a7_staticRenderFns,
   false,
   null,
   null,
