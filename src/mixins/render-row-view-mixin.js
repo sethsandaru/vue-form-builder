@@ -2,7 +2,7 @@
  * Base extendation for the Row-View - Form-Builder
  */
 import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
-import ControlView from "@/views/builder/ControlView";
+import ControlView from "@/views/renderer/ControlView";
 
 const RENDERER_ROW_VIEW_MIXIN = {
     components: {

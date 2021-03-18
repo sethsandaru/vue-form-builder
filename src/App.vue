@@ -63,6 +63,7 @@
             isShowDevNote: false,
             isRenderer: false,
             formInputData: null,
+            isShowData: false
         }),
         methods: {
             getData() {

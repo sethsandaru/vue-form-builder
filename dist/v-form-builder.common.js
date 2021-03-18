@@ -12710,12 +12710,12 @@ var RadioCheckboxControl_component = Object(componentNormalizer["a" /* default *
 )
 
 /* harmony default export */ var RadioCheckboxControl = (RadioCheckboxControl_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"33228740-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/DatePickerControl.vue?vue&type=template&id=f1dd2036&scoped=true&
-var DatePickerControlvue_type_template_id_f1dd2036_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.control.singleMode)?[_c('input',{class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text","id":_vm.control.uniqueId,"name":_vm.control.name || _vm.control.uniqueId,"placeholder":_vm.control.placeholderText,"autocomplete":"off"}})]:[_c('input',{class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text","id":_vm.control.uniqueId,"placeholder":_vm.control.placeholderText,"autocomplete":"off"}}),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.value.startDate),expression:"value.startDate"}],attrs:{"type":"hidden","name":_vm.startDateFieldName},domProps:{"value":(_vm.value.startDate)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.value, "startDate", $event.target.value)}}}),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.value.endDate),expression:"value.endDate"}],attrs:{"type":"hidden","name":_vm.endDateFieldName},domProps:{"value":(_vm.value.endDate)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.value, "endDate", $event.target.value)}}})]],2)}
-var DatePickerControlvue_type_template_id_f1dd2036_scoped_true_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"33228740-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/DatePickerControl.vue?vue&type=template&id=1163fd1c&scoped=true&
+var DatePickerControlvue_type_template_id_1163fd1c_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.control.singleMode)?[_c('input',{class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text","id":_vm.control.uniqueId,"name":_vm.control.name || _vm.control.uniqueId,"placeholder":_vm.control.placeholderText,"autocomplete":"off"}})]:[_c('input',{class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text","id":_vm.control.uniqueId,"placeholder":_vm.control.placeholderText,"autocomplete":"off"}}),_c('input',{attrs:{"type":"hidden","name":_vm.startDateFieldName},domProps:{"value":_vm.hasStartDate ? _vm.value.startDate : ''}}),_c('input',{attrs:{"type":"hidden","name":_vm.endDateFieldName},domProps:{"value":_vm.hasEndDate ? _vm.value.endDate : ''}})]],2)}
+var DatePickerControlvue_type_template_id_1163fd1c_scoped_true_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/controls/DatePickerControl.vue?vue&type=template&id=f1dd2036&scoped=true&
+// CONCATENATED MODULE: ./src/views/controls/DatePickerControl.vue?vue&type=template&id=1163fd1c&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.get-own-property-descriptors.js
 var es7_object_get_own_property_descriptors = __webpack_require__("8e6e");
@@ -12938,6 +12938,12 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
     },
     endDateFieldName: function endDateFieldName() {
       return (this.control.name || this.control.uniqueId) + '[endDate]';
+    },
+    hasStartDate: function hasStartDate() {
+      return this.value && this.value.startDate;
+    },
+    hasEndDate: function hasEndDate() {
+      return this.value && this.value.endDate;
     }
   }
 });
@@ -12953,11 +12959,11 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 var DatePickerControl_component = Object(componentNormalizer["a" /* default */])(
   controls_DatePickerControlvue_type_script_lang_js_,
-  DatePickerControlvue_type_template_id_f1dd2036_scoped_true_render,
-  DatePickerControlvue_type_template_id_f1dd2036_scoped_true_staticRenderFns,
+  DatePickerControlvue_type_template_id_1163fd1c_scoped_true_render,
+  DatePickerControlvue_type_template_id_1163fd1c_scoped_true_staticRenderFns,
   false,
   null,
-  "f1dd2036",
+  "1163fd1c",
   null
   
 )
@@ -23265,12 +23271,12 @@ var TabSectionViewvue_type_template_id_19f0d1a7_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/views/renderer/section-views/TabSectionView.vue?vue&type=template&id=19f0d1a7&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"33228740-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/row-views/TabContentRowView.vue?vue&type=template&id=027ba972&
-var TabContentRowViewvue_type_template_id_027ba972_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',[_c('div',{class:_vm.containerClasses},_vm._l((_vm.row.controls),function(controlId){return _c('ControlView',{key:controlId,attrs:{"control":_vm.controls[controlId],"parent-id":_vm.row.uniqueId}})}),1)])}
-var TabContentRowViewvue_type_template_id_027ba972_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"33228740-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/row-views/TabContentRowView.vue?vue&type=template&id=8f435d98&
+var TabContentRowViewvue_type_template_id_8f435d98_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',[_c('div',{class:_vm.containerClasses},_vm._l((_vm.row.controls),function(controlId){return _c('ControlView',{key:controlId,attrs:{"control":_vm.controls[controlId],"parent-id":_vm.row.uniqueId}})}),1)])}
+var TabContentRowViewvue_type_template_id_8f435d98_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/renderer/row-views/TabContentRowView.vue?vue&type=template&id=027ba972&
+// CONCATENATED MODULE: ./src/views/renderer/row-views/TabContentRowView.vue?vue&type=template&id=8f435d98&
 
 // CONCATENATED MODULE: ./src/mixins/render-row-view-mixin.js
 /**
@@ -23280,7 +23286,7 @@ var TabContentRowViewvue_type_template_id_027ba972_staticRenderFns = []
 
 var RENDERER_ROW_VIEW_MIXIN = {
   components: {
-    ControlView: ControlView
+    ControlView: renderer_ControlView
   },
   mixins: [style_injection_mixin["a" /* STYLE_INJECTION_MIXIN */]],
   props: {
@@ -23351,10 +23357,10 @@ var RENDERER_ROW_VIEW_MIXIN = {
  * @property {Array} section.controls
  */
 
-/* harmony default export */ var TabContentRowViewvue_type_script_lang_js_ = (Vue.extend({
+/* harmony default export */ var TabContentRowViewvue_type_script_lang_js_ = ({
   name: "TabContentRowView",
   mixins: [RENDERER_ROW_VIEW_MIXIN]
-}));
+});
 // CONCATENATED MODULE: ./src/views/renderer/row-views/TabContentRowView.vue?vue&type=script&lang=js&
  /* harmony default export */ var row_views_TabContentRowViewvue_type_script_lang_js_ = (TabContentRowViewvue_type_script_lang_js_); 
 // CONCATENATED MODULE: ./src/views/renderer/row-views/TabContentRowView.vue
@@ -23367,8 +23373,8 @@ var RENDERER_ROW_VIEW_MIXIN = {
 
 var row_views_TabContentRowView_component = Object(componentNormalizer["a" /* default */])(
   row_views_TabContentRowViewvue_type_script_lang_js_,
-  TabContentRowViewvue_type_template_id_027ba972_render,
-  TabContentRowViewvue_type_template_id_027ba972_staticRenderFns,
+  TabContentRowViewvue_type_template_id_8f435d98_render,
+  TabContentRowViewvue_type_template_id_8f435d98_staticRenderFns,
   false,
   null,
   null,

@@ -25,11 +25,11 @@
             -->
             <input type="hidden"
                    :name="startDateFieldName"
-                   v-model="value.startDate"
+                   :value="hasStartDate ? value.startDate : ''"
             >
             <input type="hidden"
                    :name="endDateFieldName"
-                   v-model="value.endDate"
+                   :value="hasEndDate ? value.endDate : ''"
             >
         </template>
     </div>
@@ -192,6 +192,14 @@
             endDateFieldName() {
                 return (this.control.name || this.control.uniqueId) + '[endDate]'
             },
+
+            hasStartDate() {
+                return this.value && this.value.startDate
+            },
+
+            hasEndDate() {
+                return this.value && this.value.endDate
+            }
         }
     }
 </script>
