@@ -6840,7 +6840,7 @@ var AddSectionControlvue_type_template_id_02d85b7e_staticRenderFns = []
 // EXTERNAL MODULE: ./src/configs/styles.js
 var styles = __webpack_require__("d60e");
 
-// EXTERNAL MODULE: ./src/configs/section.js + 114 modules
+// EXTERNAL MODULE: ./src/configs/section.js + 115 modules
 var section = __webpack_require__("dd3c");
 
 // EXTERNAL MODULE: ./src/mixins/style-injection-mixin.js
@@ -19748,7 +19748,7 @@ var es6_object_keys = __webpack_require__("456d");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.object.assign.js
 var es6_object_assign = __webpack_require__("f751");
 
-// EXTERNAL MODULE: ./src/configs/section.js + 114 modules
+// EXTERNAL MODULE: ./src/configs/section.js + 115 modules
 var section = __webpack_require__("dd3c");
 
 // EXTERNAL MODULE: ./src/configs/controls.js + 108 modules
@@ -22493,7 +22493,7 @@ var AddControlToRowControl_component = Object(componentNormalizer["a" /* default
   
 )
 
-/* harmony default export */ var AddControlToRowControl = (AddControlToRowControl_component.exports);
+/* harmony default export */ var add_controls_AddControlToRowControl = (AddControlToRowControl_component.exports);
 // CONCATENATED MODULE: ./src/mixins/row-view-mixin.js
 /**
  * Base extendation for the Row-View - Form-Builder
@@ -22505,7 +22505,7 @@ var AddControlToRowControl_component = Object(componentNormalizer["a" /* default
 var ROW_VIEW_MIXIN = {
   components: {
     draggable: vuedraggable_common_default.a,
-    AddControlToRowControl: AddControlToRowControl,
+    AddControlToRowControl: add_controls_AddControlToRowControl,
     ControlView: ControlView
   },
   mixins: [style_injection_mixin["a" /* STYLE_INJECTION_MIXIN */]],
@@ -23267,44 +23267,108 @@ var section_views_ToggleableSectionView_component = Object(componentNormalizer["
 )
 
 /* harmony default export */ var section_views_ToggleableSectionView = (section_views_ToggleableSectionView_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"33228740-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/section-views/TabSectionView.vue?vue&type=template&id=30109cc5&scoped=true&
-var TabSectionViewvue_type_template_id_30109cc5_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"tab-section"},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.section.isShowHeadline),expression:"section.isShowHeadline"}],staticClass:"headline-block p5"},[_c('h2',{class:_vm.section.headlineAdditionalClass,domProps:{"textContent":_vm._s(_vm.section.headline)}}),_c('p',{class:_vm.section.subHeadlineAdditionalClass,domProps:{"textContent":_vm._s(_vm.section.subHeadline)}})]),_c('div',{staticClass:"tab-wrapper"})])}
-var TabSectionViewvue_type_template_id_30109cc5_scoped_true_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"33228740-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/section-views/TabSectionView.vue?vue&type=template&id=5b08b60e&
+var TabSectionViewvue_type_template_id_5b08b60e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"tab-section"},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.section.isShowHeadline),expression:"section.isShowHeadline"}],staticClass:"headline-block p5"},[_c('h2',{class:_vm.section.headlineAdditionalClass,domProps:{"textContent":_vm._s(_vm.section.headline)}}),_c('p',{class:_vm.section.subHeadlineAdditionalClass,domProps:{"textContent":_vm._s(_vm.section.subHeadline)}})]),_c('div',{staticClass:"tabs"},[_vm._l((_vm.section.rows),function(rowId){return _c('input',{key:_vm.getRadioID(rowId),attrs:{"type":"radio","id":_vm.getRadioID(rowId),"name":"tab-control"}})}),_c('ul',_vm._l((_vm.section.rows),function(rowId){return _c('li',{key:_vm.getTabHeaderID(rowId),attrs:{"id":_vm.getTabHeaderID(rowId)}},[_c('label',{attrs:{"for":_vm.getRadioID(rowId),"role":"button"}},[(_vm.rows[rowId].extendData.tabIcon)?_c('span',{domProps:{"innerHTML":_vm._s(_vm.rows[rowId].extendData.tabIcon)}}):_vm._e(),_c('br'),_c('span',{domProps:{"textContent":_vm._s(_vm.rows[rowId].extendData.tabName)}})])])}),0),_c('div',{staticClass:"content"},_vm._l((_vm.section.rows),function(rowId){return _c('TabContentRowView',{key:rowId,attrs:{"row":_vm.rows[rowId],"section":_vm.section,"controls":_vm.controls,"permissions":_vm.permissions},on:{"delete-row":_vm.deleteRow}})}),1)],2)])}
+var TabSectionViewvue_type_template_id_5b08b60e_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/renderer/section-views/TabSectionView.vue?vue&type=template&id=30109cc5&scoped=true&
+// CONCATENATED MODULE: ./src/views/renderer/section-views/TabSectionView.vue?vue&type=template&id=5b08b60e&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"33228740-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/builder/row-views/TableRowView.vue?vue&type=template&id=71b40fa6&scoped=true&
-var TableRowViewvue_type_template_id_71b40fa6_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('tr',{class:['table-row-block', _vm.styles.TABLE.TR_CLASS]},[_c('td',[_c('AddControlControl',{attrs:{"section":this.section}})],1),_c('td',[_c('AddControlControl',{attrs:{"section":this.section}})],1)])}
-var TableRowViewvue_type_template_id_71b40fa6_scoped_true_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/views/builder/row-views/TableRowView.vue?vue&type=template&id=71b40fa6&scoped=true&
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/builder/row-views/TableRowView.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"33228740-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/row-views/TabContentRowView.vue?vue&type=template&id=027ba972&
+var TabContentRowViewvue_type_template_id_027ba972_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',[_c('div',{class:_vm.containerClasses},_vm._l((_vm.row.controls),function(controlId){return _c('ControlView',{key:controlId,attrs:{"control":_vm.controls[controlId],"parent-id":_vm.row.uniqueId}})}),1)])}
+var TabContentRowViewvue_type_template_id_027ba972_staticRenderFns = []
 
 
-/* harmony default export */ var TableRowViewvue_type_script_lang_js_ = ({
-  name: "TableRowView",
+// CONCATENATED MODULE: ./src/views/renderer/row-views/TabContentRowView.vue?vue&type=template&id=027ba972&
+
+// CONCATENATED MODULE: ./src/mixins/render-row-view-mixin.js
+/**
+ * Base extendation for the Row-View - Form-Builder
+ */
+
+
+var RENDERER_ROW_VIEW_MIXIN = {
   components: {
-    AddControlControl: AddControlControl
+    draggable: draggable,
+    AddControlToRowControl: AddControlToRowControl,
+    ControlView: ControlView
   },
-  mixins: [ROW_VIEW_MIXIN]
-});
-// CONCATENATED MODULE: ./src/views/builder/row-views/TableRowView.vue?vue&type=script&lang=js&
- /* harmony default export */ var row_views_TableRowViewvue_type_script_lang_js_ = (TableRowViewvue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./src/views/builder/row-views/TableRowView.vue
+  mixins: [style_injection_mixin["a" /* STYLE_INJECTION_MIXIN */]],
+  props: {
+    /**
+     * Section that belong to the current row
+     */
+    section: {
+      type: Object,
+      required: true
+    },
+
+    /**
+     * Current row data
+     */
+    row: {
+      type: Object,
+      required: true
+    },
+
+    /**
+     * Controls of Form
+     */
+    controls: {
+      type: Object,
+      required: true
+    },
+    permissions: Object
+  },
+  computed: {
+    /**
+     * Check if we had controls
+     * @returns {boolean}
+     */
+    hasControls: function hasControls() {
+      return this.row.controls.length > 0;
+    },
+
+    /**
+     * Classes for draggable
+     * @returns {(string|string)[]}
+     */
+    containerClasses: function containerClasses() {
+      return [this.styles.ROW, 'control-list-container', this.hasControls ? '' : 'empty'];
+    }
+  }
+};
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/row-views/TabContentRowView.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/**
+ * @property {Object} section
+ * @property {Object} rows RowId - RowData
+ * @property {Object} controls ControlId - ControlData
+ * @property {Array} section.rows
+ * @property {Array} section.controls
+ */
+
+/* harmony default export */ var TabContentRowViewvue_type_script_lang_js_ = (Vue.extend({
+  name: "TabContentRowView",
+  mixins: [RENDERER_ROW_VIEW_MIXIN]
+}));
+// CONCATENATED MODULE: ./src/views/renderer/row-views/TabContentRowView.vue?vue&type=script&lang=js&
+ /* harmony default export */ var row_views_TabContentRowViewvue_type_script_lang_js_ = (TabContentRowViewvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/views/renderer/row-views/TabContentRowView.vue
 
 
 
@@ -23312,44 +23376,61 @@ var TableRowViewvue_type_template_id_71b40fa6_scoped_true_staticRenderFns = []
 
 /* normalize component */
 
-var TableRowView_component = Object(componentNormalizer["a" /* default */])(
-  row_views_TableRowViewvue_type_script_lang_js_,
-  TableRowViewvue_type_template_id_71b40fa6_scoped_true_render,
-  TableRowViewvue_type_template_id_71b40fa6_scoped_true_staticRenderFns,
+var row_views_TabContentRowView_component = Object(componentNormalizer["a" /* default */])(
+  row_views_TabContentRowViewvue_type_script_lang_js_,
+  TabContentRowViewvue_type_template_id_027ba972_render,
+  TabContentRowViewvue_type_template_id_027ba972_staticRenderFns,
   false,
   null,
-  "71b40fa6",
+  null,
   null
   
 )
 
-/* harmony default export */ var TableRowView = (TableRowView_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/section-views/TabSectionView.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony default export */ var row_views_TabContentRowView = (row_views_TabContentRowView_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--13-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--13-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/section-views/TabSectionView.vue?vue&type=script&lang=ts&
+// @ts-ignore
+ // @ts-ignore
+
+ // @ts-ignore
 
 
-
-/* harmony default export */ var TabSectionViewvue_type_script_lang_js_ = ({
+/* harmony default export */ var renderer_section_views_TabSectionViewvue_type_script_lang_ts_ = ({
   name: "TableSectionView",
   components: {
-    TableRowView: TableRowView
+    TabContentRowView: row_views_TabContentRowView
   },
   mixins: [SECTION_VIEW_MIXINS, style_injection_mixin["a" /* STYLE_INJECTION_MIXIN */]],
-  methods: {}
+  methods: {
+    getRadioID: function getRadioID(uniqueId) {
+      return 'tab-radio-'.concat(uniqueId);
+    },
+    getTabHeaderID: function getTabHeaderID(uniqueId) {
+      return 'tab-header-'.concat(uniqueId);
+    },
+
+    /**
+     * [UI-Update]
+     */
+    defaultSelectTab: function defaultSelectTab() {
+      var _this = this;
+
+      // @ts-ignore (don't know why but need to ignore to use nextTick)
+      this.$nextTick(function () {
+        // @ts-ignore
+        var radioDom = document.getElementById(_this.getRadioID(_this.section.rows[0])); // @ts-ignore
+
+        radioDom.checked = true;
+      });
+    }
+  },
+  mounted: function mounted() {
+    // @ts-ignore
+    this.defaultSelectTab();
+  }
 });
-// CONCATENATED MODULE: ./src/views/renderer/section-views/TabSectionView.vue?vue&type=script&lang=js&
- /* harmony default export */ var section_views_TabSectionViewvue_type_script_lang_js_ = (TabSectionViewvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/views/renderer/section-views/TabSectionView.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var views_renderer_section_views_TabSectionViewvue_type_script_lang_ts_ = (renderer_section_views_TabSectionViewvue_type_script_lang_ts_); 
 // CONCATENATED MODULE: ./src/views/renderer/section-views/TabSectionView.vue
 
 
@@ -23359,12 +23440,12 @@ var TableRowView_component = Object(componentNormalizer["a" /* default */])(
 /* normalize component */
 
 var section_views_TabSectionView_component = Object(componentNormalizer["a" /* default */])(
-  section_views_TabSectionViewvue_type_script_lang_js_,
-  TabSectionViewvue_type_template_id_30109cc5_scoped_true_render,
-  TabSectionViewvue_type_template_id_30109cc5_scoped_true_staticRenderFns,
+  views_renderer_section_views_TabSectionViewvue_type_script_lang_ts_,
+  TabSectionViewvue_type_template_id_5b08b60e_render,
+  TabSectionViewvue_type_template_id_5b08b60e_staticRenderFns,
   false,
   null,
-  "30109cc5",
+  null,
   null
   
 )
@@ -26079,7 +26160,7 @@ var SectionContainervue_type_template_id_f0fac5a2_scoped_true_staticRenderFns = 
 
 // CONCATENATED MODULE: ./src/views/renderer/SectionContainer.vue?vue&type=template&id=f0fac5a2&scoped=true&
 
-// EXTERNAL MODULE: ./src/configs/section.js + 114 modules
+// EXTERNAL MODULE: ./src/configs/section.js + 115 modules
 var section = __webpack_require__("dd3c");
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/SectionContainer.vue?vue&type=script&lang=js&
