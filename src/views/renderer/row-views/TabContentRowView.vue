@@ -21,8 +21,8 @@
      * @property {Array} section.rows
      * @property {Array} section.controls
      */
-    export default Vue.extend({
+    export default {
         name: "TabContentRowView",
         mixins: [RENDERER_ROW_VIEW_MIXIN],
-    })
+    }
 </script>
