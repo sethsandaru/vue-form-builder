@@ -23280,12 +23280,12 @@ var TabSectionViewvue_type_template_id_19f0d1a7_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/views/renderer/section-views/TabSectionView.vue?vue&type=template&id=19f0d1a7&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"33228740-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/row-views/TabContentRowView.vue?vue&type=template&id=8f435d98&
-var TabContentRowViewvue_type_template_id_8f435d98_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',[_c('div',{class:_vm.containerClasses},_vm._l((_vm.row.controls),function(controlId){return _c('ControlView',{key:controlId,attrs:{"control":_vm.controls[controlId],"parent-id":_vm.row.uniqueId}})}),1)])}
-var TabContentRowViewvue_type_template_id_8f435d98_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"33228740-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/row-views/TabContentRowView.vue?vue&type=template&id=14cd7128&
+var TabContentRowViewvue_type_template_id_14cd7128_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',[_c('div',{class:_vm.containerClasses},_vm._l((_vm.row.controls),function(controlId){return _c('ControlView',{key:controlId,attrs:{"control":_vm.controls[controlId],"parent-id":_vm.row.uniqueId,"value-container":_vm.valueContainer,"validation-errors":_vm.validationErrors}})}),1)])}
+var TabContentRowViewvue_type_template_id_14cd7128_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/renderer/row-views/TabContentRowView.vue?vue&type=template&id=8f435d98&
+// CONCATENATED MODULE: ./src/views/renderer/row-views/TabContentRowView.vue?vue&type=template&id=14cd7128&
 
 // CONCATENATED MODULE: ./src/mixins/render-row-view-mixin.js
 /**
@@ -23322,7 +23322,8 @@ var RENDERER_ROW_VIEW_MIXIN = {
       type: Object,
       required: true
     },
-    permissions: Object
+    valueContainer: Object,
+    validationErrors: Object
   },
   computed: {
     /**
@@ -23344,6 +23345,9 @@ var RENDERER_ROW_VIEW_MIXIN = {
 };
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/row-views/TabContentRowView.vue?vue&type=script&lang=js&
+//
+//
+//
 //
 //
 //
@@ -23382,8 +23386,8 @@ var RENDERER_ROW_VIEW_MIXIN = {
 
 var row_views_TabContentRowView_component = Object(componentNormalizer["a" /* default */])(
   row_views_TabContentRowViewvue_type_script_lang_js_,
-  TabContentRowViewvue_type_template_id_8f435d98_render,
-  TabContentRowViewvue_type_template_id_8f435d98_staticRenderFns,
+  TabContentRowViewvue_type_template_id_14cd7128_render,
+  TabContentRowViewvue_type_template_id_14cd7128_staticRenderFns,
   false,
   null,
   null,

@@ -6,6 +6,9 @@
                 :key="controlId"
                 :control="controls[controlId]"
                 :parent-id="row.uniqueId"
+
+                :value-container="valueContainer"
+                :validation-errors="validationErrors"
             />
         </div>
     </section>

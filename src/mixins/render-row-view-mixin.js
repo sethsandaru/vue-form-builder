@@ -35,7 +35,8 @@ const RENDERER_ROW_VIEW_MIXIN = {
             required: true,
         },
 
-        permissions: Object
+        valueContainer: Object,
+        validationErrors: Object,
     },
 
     computed: {
