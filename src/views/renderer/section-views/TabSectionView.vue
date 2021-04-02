@@ -37,6 +37,8 @@
                     :row="rows[rowId]"
                     :section="section"
                     :controls="controls"
+                    :value-container="valueContainer"
+                    :validation-errors="validationErrors"
                 />
             </div>
 
@@ -46,16 +48,14 @@
 
 <script lang="ts">
     // @ts-ignore
-    import {SECTION_VIEW_MIXINS} from "@/mixins/section-view-mixins";
-    // @ts-ignore
-    import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
+    import {RENDERER_SECTION_VIEW_MIXIN} from "@/mixins/renderer-section-view-mixin";
     // @ts-ignore
     import TabContentRowView from "@/views/renderer/row-views/TabContentRowView";
 
     export default {
-        name: "TableSectionView",
+        name: "TabSectionView",
         components: {TabContentRowView},
-        mixins: [SECTION_VIEW_MIXINS, STYLE_INJECTION_MIXIN],
+        mixins: [RENDERER_SECTION_VIEW_MIXIN],
         methods: {
             getRadioID(uniqueId : string): string {
                 return 'tab-radio-'.concat(uniqueId)

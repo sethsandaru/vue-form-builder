@@ -41,7 +41,7 @@ const VALIDATION_RULES = {
         desc: "Validation the field by using your own Regex Rule",
 
         needValue: true,
-        valueInfo: "Your Regex Rule here - JavaScript",
+        valueInfo: "Regex String|Flag - Eg: [0-9]+|g",
 
         errorMessage: "This field value doesn't match with the rule",
     },

@@ -5,6 +5,7 @@ import maxRule from "@/libraries/validations/max";
 import isEmailRule from "@/libraries/validations/is-email";
 import sameAsRule from "@/libraries/validations/same-as";
 import customClosureRule from "@/libraries/validations/custom-closure";
+import isRegexPassed from "@/libraries/validations/regex";
 
 export default class Validation {
     rules = null
@@ -110,6 +111,9 @@ export default class Validation {
 
             case "customClosure":
                 return customClosureRule(fieldValue, validationRule.additionalValue, this.valueContainer, this.customClosures)
+
+            case "regex":
+                return isRegexPassed(fieldValue, validationRule.additionalValue)
 
             default:
                 throw new TypeError(`This validation type ${validationRule.ruleType} is not supported.`);
