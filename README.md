@@ -1,8 +1,7 @@
 # vue-form-builder
 [![npm version](https://badge.fury.io/js/v-form-builder.svg)](https://www.npmjs.com/package/v-form-builder)
 [![GitHub license](https://img.shields.io/github/license/sethsandaru/vue-form-builder.svg?style=flat-square)](https://github.com/sethsandaru/vue-form-builder/blob/master/LICENSE) ![img](https://img.shields.io/npm/dm/v-form-builder.svg)
-[![HitCount](http://hits.dwyl.io/sethsandaru/vue-form-builder.svg)](http://hits.dwyl.io/sethsandaru/vue-form-builder)
-[![img](https://img.shields.io/badge/documentation-full-green.svg?longCache=true&style=flat-square)](https://github.com/sethsandaru/vue-form-builder/wiki)
+[![img](https://img.shields.io/badge/documentation-full-green.svg?longCache=true&style=flat-square)](https://phattranminh96.gitbook.io/vue-form-builder/)
 
 A simple builder to help you generate a super form for your features/modules/sites,... Easy to use, create, upgrade, maintain,...
 Why need to code the form when you can use `Vue-Form-Builder` and render it with some extra steps :D
@@ -14,6 +13,7 @@ Advantages:
 - Extensibility (Your custom control, styling,...)
 - Form Validation? I got you fam.
 - Included HTML5 structure, no tricks or cheats.
+- **NO MORE JQUERY INCLUDED**
 
 Give this repo a ⭐ (star) if you actually like this and might use it for your project :D! Thank you!
 
