@@ -2,5 +2,6 @@
 export interface IRegisterProperties {
     globalInjection: boolean
     validationErrorShowAlert: boolean
-    validationErrorAlertText: string
+    validationErrorAlertText: string,
+    disableControls: Array<string>
 }

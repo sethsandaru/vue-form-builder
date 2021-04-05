@@ -1,3 +1,4 @@
+import {ALERT_DIALOG} from "@/libraries/alert-dialog";
 
 const SIDEBAR_BODY_MIXIN = {
     props: {
@@ -37,6 +38,17 @@ const SIDEBAR_BODY_MIXIN = {
          */
         save(close = false) {
             let data = this[this.dataKey]
+
+            // pre-validation?
+            if (this.preSaveValidation) {
+                const validationErrorMessage = this.preSaveValidation();
+
+                // if has validation error => show error text and stop the submit process
+                if (validationErrorMessage) {
+                    ALERT_DIALOG.show(validationErrorMessage);
+                    return;
+                }
+            }
 
             if (close) {
                 this.$emit(this.emitSaveAndCloseKey, data)

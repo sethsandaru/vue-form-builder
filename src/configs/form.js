@@ -12,6 +12,10 @@ const FORM_DEFAULT_DATA = {
     renderFormTag: false,
     formActionURL: "",
     formMethod: "POST",
+
+    // Server-Side validation
+    enableServerSideValidation: false,
+    serverSideValidationEndpoint: ""
 };
 
 export {
