@@ -51,12 +51,6 @@ const VueFormBuilderInstaller = function(
         formDI.validationClosures = properties.validationClosures
     }
 
-    // field mappings
-    if (properties.hasOwnProperty('fieldMapping')) {
-      console.log('fieldMapping', properties.fieldMapping)
-        //formDI.validationClosures = properties.validationClosures
-    }
-
     // show alert or not?
     formDI.validationErrorShowAlert = properties.validationErrorShowAlert || true
     formDI.validationErrorAlertText = properties.validationErrorAlertText

@@ -7,7 +7,15 @@
 
         <div :class="styles.FORM.FORM_GROUP">
             <label>Name (Must be unique)</label>
-            <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.name">
+            <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.name" :readonly="fieldMappingSet">
+        </div>
+
+        <div :class="styles.FORM.FORM_GROUP">
+            <label>Field Mapping</label>
+            <select class="form-control" @change="handleFieldMappingSelection">
+              <option value=""></option>
+              <option :value="field.field" v-for="(field, index) in fieldMappings" :key="index">{{field.name}}</option>
+            </select>
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
@@ -43,14 +51,35 @@
 <script>
     import SidebarToggleableContainer from "@/views/container-views/SidebarToggleableContainer";
     import {STYLE_INJECTION_MIXIN} from "@/mixins/style-injection-mixin";
+    import {FIELD_MAPPINGS_INJECTION_MIXIN} from "@/mixins/field-mappings-injection-mixin"
 
     export default {
         name: "ControlBasicInformation",
-        mixins: [STYLE_INJECTION_MIXIN],
+        mixins: [STYLE_INJECTION_MIXIN, FIELD_MAPPINGS_INJECTION_MIXIN],
         components: {SidebarToggleableContainer},
         props: {
             control: Object,
-        }
+        },
+        data() {
+          return {
+            fieldMappingSet: false
+          }
+        },
+        methods: {
+          handleFieldMappingSelection(event){
+            let value = event.target.value
+            if(value){
+              this.fieldMappingSet = true
+              this.control.name = value
+              return
+            }
+
+            this.fieldMappingSet = false
+            this.control.name = ""
+            return
+          }
+        },
+        mounted() {},
     }
 </script>
 
