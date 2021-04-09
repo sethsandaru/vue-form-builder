@@ -21642,12 +21642,12 @@ var SidebarControlConfigurationvue_type_template_id_6e0787c7_staticRenderFns = [
 // EXTERNAL MODULE: ./src/views/container-views/SidebarToggleableContainer.vue + 4 modules
 var SidebarToggleableContainer = __webpack_require__("9831");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"506d38fe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/builder/sidebar-config-views/control-configuration-views/ControlBasicInformation.vue?vue&type=template&id=0b4cc628&scoped=true&
-var ControlBasicInformationvue_type_template_id_0b4cc628_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('SidebarToggleableContainer',{attrs:{"headline":"Basic Detail"}},[_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Unique ID")]),_c('input',{class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text","readonly":""},domProps:{"value":_vm.control.uniqueId}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Name (Must be unique)")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.name),expression:"control.name"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text","readonly":_vm.fieldMappingSet},domProps:{"value":(_vm.control.name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "name", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Field Mapping")]),_c('select',{staticClass:"form-control",on:{"change":_vm.handleFieldMappingSelection}},[_c('option',{attrs:{"value":""}}),_vm._l((_vm.fieldMappings),function(field,index){return _c('option',{key:index,domProps:{"value":field.field}},[_vm._v(_vm._s(field.name))])})],2)]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Label")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.label),expression:"control.label"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.label)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "label", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Sub-label")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.subLabel),expression:"control.subLabel"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.subLabel)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "subLabel", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Show Label? "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.isShowLabel),expression:"control.isShowLabel"}],attrs:{"type":"checkbox"},domProps:{"checked":Array.isArray(_vm.control.isShowLabel)?_vm._i(_vm.control.isShowLabel,null)>-1:(_vm.control.isShowLabel)},on:{"change":function($event){var $$a=_vm.control.isShowLabel,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.control, "isShowLabel", $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.control, "isShowLabel", $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.control, "isShowLabel", $$c)}}}})])]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Field Placeholder (Optional)")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.placeholderText),expression:"control.placeholderText"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.placeholderText)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "placeholderText", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Default Value (Optional)")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.defaultValue),expression:"control.defaultValue"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.defaultValue)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "defaultValue", $event.target.value)}}})])])}
-var ControlBasicInformationvue_type_template_id_0b4cc628_scoped_true_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"506d38fe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/builder/sidebar-config-views/control-configuration-views/ControlBasicInformation.vue?vue&type=template&id=cb9c265e&scoped=true&
+var ControlBasicInformationvue_type_template_id_cb9c265e_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('SidebarToggleableContainer',{attrs:{"headline":"Basic Detail"}},[_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Unique ID")]),_c('input',{class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text","readonly":""},domProps:{"value":_vm.control.uniqueId}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Name (Must be unique)")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.name),expression:"control.name"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text","readonly":_vm.fieldMappingSet},domProps:{"value":(_vm.control.name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "name", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Field Mapping")]),_c('select',{staticClass:"form-control",on:{"change":_vm.handleFieldMappingSelection}},[_c('option',{attrs:{"value":""}}),_vm._l((_vm.fieldMappings),function(group,index){return _c('optgroup',{key:index,attrs:{"label":group.groupName}},_vm._l((group),function(field,fieldIndex){return _c('option',{key:fieldIndex,domProps:{"value":field.field}},[_vm._v(_vm._s(field.name))])}),0)})],2)]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Label")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.label),expression:"control.label"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.label)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "label", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Sub-label")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.subLabel),expression:"control.subLabel"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.subLabel)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "subLabel", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Show Label? "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.isShowLabel),expression:"control.isShowLabel"}],attrs:{"type":"checkbox"},domProps:{"checked":Array.isArray(_vm.control.isShowLabel)?_vm._i(_vm.control.isShowLabel,null)>-1:(_vm.control.isShowLabel)},on:{"change":function($event){var $$a=_vm.control.isShowLabel,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.control, "isShowLabel", $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.control, "isShowLabel", $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.control, "isShowLabel", $$c)}}}})])]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Field Placeholder (Optional)")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.placeholderText),expression:"control.placeholderText"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.placeholderText)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "placeholderText", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Default Value (Optional)")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.defaultValue),expression:"control.defaultValue"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.defaultValue)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "defaultValue", $event.target.value)}}})])])}
+var ControlBasicInformationvue_type_template_id_cb9c265e_scoped_true_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/builder/sidebar-config-views/control-configuration-views/ControlBasicInformation.vue?vue&type=template&id=0b4cc628&scoped=true&
+// CONCATENATED MODULE: ./src/views/builder/sidebar-config-views/control-configuration-views/ControlBasicInformation.vue?vue&type=template&id=cb9c265e&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js
 var defineProperty = __webpack_require__("bd86");
@@ -21662,300 +21662,316 @@ var _ref;
  * @author Jesse Marple
  */
 var FIELD_MAPPINGS = [{
-  name: 'TestId',
-  header: 'TestId',
-  field: 'objectID',
-  group: 'common',
-  enabled: true
+  groupName: "Common",
+  groupKey: "common",
+  fields: [{
+    name: "TestId",
+    header: "TestId",
+    field: "objectID",
+    group: "common",
+    enabled: true
+  }, {
+    name: "Patient Id (15)",
+    header: "PatientId",
+    field: "uid15",
+    group: "common",
+    enabled: false
+  }, {
+    name: "Patient Uid (Long)",
+    header: "PatientUID",
+    field: "employeeUid",
+    group: "common",
+    enabled: false
+  }, {
+    name: "Lab Id",
+    header: "labReferenceId",
+    field: "labReferenceId",
+    group: "common",
+    enabled: true
+  }, {
+    name: "Status",
+    header: "Status",
+    field: "employeeStatus",
+    group: "common",
+    enabled: true
+  }, {
+    name: "Created",
+    header: "Created",
+    field: "createdAt",
+    group: "common",
+    enabled: true
+  }, {
+    name: "Result",
+    header: "Result",
+    field: "resultValue",
+    group: "common",
+    enabled: false
+  }, {
+    name: "Collection Date",
+    header: "collectionDate",
+    field: "collectionDate",
+    group: "common",
+    enabled: true
+  }]
 }, {
-  name: 'Patient Id (15)',
-  header: 'PatientId',
-  field: 'uid15',
-  group: 'common',
-  enabled: false
-}, {
-  name: 'Patient Uid (Long)',
-  header: 'PatientUID',
-  field: 'employeeUid',
-  group: 'common',
-  enabled: false
-}, {
-  name: 'Lab Id',
-  header: 'labReferenceId',
-  field: 'labReferenceId',
-  group: 'common',
-  enabled: true
-}, {
-  name: 'Status',
-  header: 'Status',
-  field: 'employeeStatus',
-  group: 'common',
-  enabled: true
-}, {
-  name: 'Created',
-  header: 'Created',
-  field: 'createdAt',
-  group: 'common',
-  enabled: true
-}, {
-  name: 'Result',
-  header: 'Result',
-  field: 'resultValue',
-  group: 'common',
-  enabled: false
-}, {
-  name: 'Collection Date',
-  header: 'collectionDate',
-  field: 'collectionDate',
-  group: 'common',
-  enabled: true
+  groupName: "Contact",
+  groupKey: "contact",
+  fields: [{
+    name: "Full Name",
+    header: "Full Name",
+    field: "employeeName",
+    group: "contact",
+    enabled: false
+  }, {
+    name: "First Name",
+    header: "First Name",
+    field: "employeeFirstName",
+    group: "contact",
+    enabled: false
+  }, {
+    name: "Middle Name",
+    header: "Middle Name",
+    field: "employeeMiddleName",
+    group: "contact",
+    enabled: true
+  }, {
+    name: "Last Name",
+    header: "Last Name",
+    field: "employeeLastName",
+    group: "contact",
+    enabled: false
+  }, {
+    name: "Address Line 1",
+    header: "Address Line 1",
+    field: "employeeAddress",
+    group: "contact",
+    enabled: false
+  }, {
+    name: "Address Line 2",
+    header: "Address Line 2",
+    field: "employeeAddress2",
+    group: "contact",
+    enabled: false
+  }, {
+    name: "City",
+    header: "City",
+    field: "employeeCity",
+    group: "contact",
+    enabled: false
+  }, {
+    name: "State",
+    header: "State",
+    field: "employeeState",
+    group: "contact",
+    enabled: false
+  }, {
+    name: "Zip",
+    header: "Zip",
+    field: "employeeZip",
+    group: "contact",
+    enabled: false
+  }, {
+    name: "County",
+    header: "County",
+    field: "employeeCounty",
+    group: "contact",
+    enabled: false
+  }, {
+    name: "Email",
+    header: "Email",
+    field: "employeeEmail",
+    group: "contact",
+    enabled: false
+  }, {
+    name: "Phone",
+    header: "Phone",
+    field: "employeePhone",
+    group: "contact",
+    enabled: false
+  }, {
+    name: "DOB",
+    header: "DOB",
+    field: "employeeDob",
+    group: "contact",
+    enabled: true
+  }, {
+    name: "Sex",
+    header: "Sex/Gender",
+    field: "employeeGender",
+    group: "contact",
+    enabled: true
+  }]
 }, // Details
 {
-  name: 'Full Name',
-  header: 'Full Name',
-  field: 'employeeName',
-  group: 'contact',
-  enabled: false
-}, {
-  name: 'First Name',
-  header: 'First Name',
-  field: 'employeeFirstName',
-  group: 'contact',
-  enabled: false
-}, {
-  name: 'Middle Name',
-  header: 'Middle Name',
-  field: 'employeeMiddleName',
-  group: 'contact',
-  enabled: true
-}, {
-  name: 'Last Name',
-  header: 'Last Name',
-  field: 'employeeLastName',
-  group: 'contact',
-  enabled: false
-}, {
-  name: 'Address Line 1',
-  header: 'Address Line 1',
-  field: 'employeeAddress',
-  group: 'contact',
-  enabled: false
-}, {
-  name: 'Address Line 2',
-  header: 'Address Line 2',
-  field: 'employeeAddress2',
-  group: 'contact',
-  enabled: false
-}, {
-  name: 'City',
-  header: 'City',
-  field: 'employeeCity',
-  group: 'contact',
-  enabled: false
-}, {
-  name: 'State',
-  header: 'State',
-  field: 'employeeState',
-  group: 'contact',
-  enabled: false
-}, {
-  name: 'Zip',
-  header: 'Zip',
-  field: 'employeeZip',
-  group: 'contact',
-  enabled: false
-}, {
-  name: 'County',
-  header: 'County',
-  field: 'employeeCounty',
-  group: 'contact',
-  enabled: false
-}, {
-  name: 'Email',
-  header: 'Email',
-  field: 'employeeEmail',
-  group: 'contact',
-  enabled: false
-}, {
-  name: 'Phone',
-  header: 'Phone',
-  field: 'employeePhone',
-  group: 'contact',
-  enabled: false
-}, {
-  name: 'DOB',
-  header: 'DOB',
-  field: 'employeeDob',
-  group: 'contact',
-  enabled: true
-}, {
-  name: 'Sex',
-  header: 'Sex/Gender',
-  field: 'employeeGender',
-  group: 'contact',
-  enabled: true
+  groupName: "Product",
+  groupKey: "product",
+  fields: [{
+    name: "Id",
+    header: "Product Id",
+    field: "product.productId",
+    group: "product",
+    enabled: true
+  }, {
+    name: "Name",
+    header: "Product Name",
+    field: "product.name",
+    group: "product",
+    enabled: true
+  }, (_ref = {
+    name: "Maker/Lab",
+    header: "Product Maker"
+  }, Object(defineProperty["a" /* default */])(_ref, "name", "Product Maker"), Object(defineProperty["a" /* default */])(_ref, "field", "product.maker"), Object(defineProperty["a" /* default */])(_ref, "group", "product"), Object(defineProperty["a" /* default */])(_ref, "enabled", false), _ref), {
+    name: "Type",
+    header: "Product Type",
+    field: "product.type",
+    group: "product",
+    enabled: false
+  }, {
+    name: "Sample Source",
+    header: "Sample Source",
+    field: "product.sampleSource",
+    group: "product",
+    enabled: false
+  }, {
+    name: "Sample Type",
+    header: "Sample Type",
+    field: "product.sampleType",
+    group: "product",
+    enabled: false
+  }, {
+    name: "NPI Number",
+    header: "NPI Number",
+    field: "product.npiNumber",
+    group: "product",
+    enabled: false
+  }, {
+    name: "NPI Physician",
+    header: "Physician",
+    field: "product.npiPhysician",
+    group: "product",
+    enabled: false
+  }, {
+    name: "NPI Physician First Name",
+    header: "NPI Physician First Name",
+    field: "product.npiPhysicianFirstName",
+    group: "product",
+    enabled: false
+  }, {
+    name: "NPI Physician Last Name",
+    header: "NPI Physician Last Name",
+    field: "product.npiPhysicianLastName",
+    group: "product",
+    enabled: false
+  }, {
+    name: "DeliveryKey",
+    header: "DeliveryKey",
+    field: "product.deliveryKey",
+    group: "product",
+    enabled: false
+  }, {
+    name: "DeliveryAgent",
+    header: "DeliveryAgent",
+    field: "product.deliveryAgent",
+    group: "product",
+    enabled: false
+  }]
 }, // Product Fields.
 {
-  name: 'Id',
-  header: 'Product Id',
-  field: 'product.productId',
-  group: 'product',
-  enabled: true
-}, {
-  name: 'Name',
-  header: 'Product Name',
-  field: 'product.name',
-  group: 'product',
-  enabled: true
-}, (_ref = {
-  name: 'Maker/Lab',
-  header: 'Product Maker'
-}, Object(defineProperty["a" /* default */])(_ref, "name", 'Product Maker'), Object(defineProperty["a" /* default */])(_ref, "field", 'product.maker'), Object(defineProperty["a" /* default */])(_ref, "group", 'product'), Object(defineProperty["a" /* default */])(_ref, "enabled", false), _ref), {
-  name: 'Type',
-  header: 'Product Type',
-  field: 'product.type',
-  group: 'product',
-  enabled: false
-}, {
-  name: 'Sample Source',
-  header: 'Sample Source',
-  field: 'product.sampleSource',
-  group: 'product',
-  enabled: false
-}, {
-  name: 'Sample Type',
-  header: 'Sample Type',
-  field: 'product.sampleType',
-  group: 'product',
-  enabled: false
-}, {
-  name: 'NPI Number',
-  header: 'NPI Number',
-  field: 'product.npiNumber',
-  group: 'product',
-  enabled: false
-}, {
-  name: 'NPI Physician',
-  header: 'Physician',
-  field: 'product.npiPhysician',
-  group: 'product',
-  enabled: false
-}, {
-  name: 'NPI Physician First Name',
-  header: 'NPI Physician First Name',
-  field: 'product.npiPhysicianFirstName',
-  group: 'product',
-  enabled: false
-}, {
-  name: 'NPI Physician Last Name',
-  header: 'NPI Physician Last Name',
-  field: 'product.npiPhysicianLastName',
-  group: 'product',
-  enabled: false
-}, {
-  name: 'DeliveryKey',
-  header: 'DeliveryKey',
-  field: 'product.deliveryKey',
-  group: 'product',
-  enabled: false
-}, {
-  name: 'DeliveryAgent',
-  header: 'DeliveryAgent',
-  field: 'product.deliveryAgent',
-  group: 'product',
-  enabled: false
-}, // Survey Fields
-{
-  name: 'Covid19CareResident',
-  header: 'Survey Covid19CareResident',
-  field: 'survey.covid19CareResident',
-  group: 'survey',
-  enabled: false
-}, {
-  name: 'Covid19FirstTest',
-  header: 'Survey Covid19FirstTest',
-  field: 'survey.covid19FirstTest',
-  group: 'survey',
-  enabled: false
-}, {
-  name: 'Covid19Healthworker',
-  header: 'Survey Covid19Healthworker',
-  field: 'survey.covid19Healthworker',
-  group: 'survey',
-  enabled: false
-}, {
-  name: 'Covid19Hospitalized',
-  header: 'Survey Covid19Hospitalized',
-  field: 'survey.covid19Hospitalized',
-  group: 'survey',
-  enabled: false
-}, {
-  name: 'Covid19ICU',
-  header: 'Survey Covid19ICU',
-  field: 'survey.covid19ICU',
-  group: 'survey',
-  enabled: false
-}, {
-  name: 'Covid19Pregnant',
-  header: 'Survey Covid19Pregnant',
-  field: 'survey.covid19Pregnant',
-  group: 'survey',
-  enabled: false
-}, {
-  name: 'Covid19Symptomatic',
-  header: 'Survey Covid19Symptomatic',
-  field: 'survey.covid19Symptomatic',
-  group: 'survey',
-  enabled: false
-}, {
-  name: 'Ethnicity',
-  header: 'Survey Ethnicity',
-  field: 'survey.ethnicity',
-  group: 'survey',
-  enabled: false
-}, {
-  name: 'Patient Language',
-  header: 'Survey Patient Language',
-  field: 'survey.patientLanguage',
-  group: 'survey',
-  enabled: false
-}, {
-  name: 'Race',
-  header: 'Survey Race',
-  field: 'survey.race',
-  group: 'survey',
-  enabled: false
-}, {
-  name: 'TravelAbroad',
-  header: 'Survey TravelAbroad',
-  field: 'survey.travelAbroad',
-  group: 'survey',
-  enabled: false
-}, {
-  name: 'ContactWithConfirm',
-  header: 'Survey ContactWithConfirm',
-  field: 'survey.contactWithConfirm',
-  group: 'survey',
-  enabled: false
-}, {
-  name: 'Physician Workflow',
-  header: 'Physician Workflow',
-  field: 'physicianWorkflowMethod',
-  group: 'workflow',
-  enabled: false
-}, {
-  name: 'Collection Method',
-  header: 'Collection Method',
-  field: 'collectionMethod',
-  group: 'workflow',
-  enabled: false
-}, {
-  name: 'Consent Method',
-  header: 'Consent Method',
-  field: 'consentMethod',
-  group: 'workflow',
-  enabled: false
-}];
+  groupName: "Survey",
+  groupKey: "survey",
+  fields: [{
+    name: "Covid19CareResident",
+    header: "Survey Covid19CareResident",
+    field: "survey.covid19CareResident",
+    group: "survey",
+    enabled: false
+  }, {
+    name: "Covid19FirstTest",
+    header: "Survey Covid19FirstTest",
+    field: "survey.covid19FirstTest",
+    group: "survey",
+    enabled: false
+  }, {
+    name: "Covid19Healthworker",
+    header: "Survey Covid19Healthworker",
+    field: "survey.covid19Healthworker",
+    group: "survey",
+    enabled: false
+  }, {
+    name: "Covid19Hospitalized",
+    header: "Survey Covid19Hospitalized",
+    field: "survey.covid19Hospitalized",
+    group: "survey",
+    enabled: false
+  }, {
+    name: "Covid19ICU",
+    header: "Survey Covid19ICU",
+    field: "survey.covid19ICU",
+    group: "survey",
+    enabled: false
+  }, {
+    name: "Covid19Pregnant",
+    header: "Survey Covid19Pregnant",
+    field: "survey.covid19Pregnant",
+    group: "survey",
+    enabled: false
+  }, {
+    name: "Covid19Symptomatic",
+    header: "Survey Covid19Symptomatic",
+    field: "survey.covid19Symptomatic",
+    group: "survey",
+    enabled: false
+  }, {
+    name: "Ethnicity",
+    header: "Survey Ethnicity",
+    field: "survey.ethnicity",
+    group: "survey",
+    enabled: false
+  }, {
+    name: "Patient Language",
+    header: "Survey Patient Language",
+    field: "survey.patientLanguage",
+    group: "survey",
+    enabled: false
+  }, {
+    name: "Race",
+    header: "Survey Race",
+    field: "survey.race",
+    group: "survey",
+    enabled: false
+  }, {
+    name: "TravelAbroad",
+    header: "Survey TravelAbroad",
+    field: "survey.travelAbroad",
+    group: "survey",
+    enabled: false
+  }, {
+    name: "ContactWithConfirm",
+    header: "Survey ContactWithConfirm",
+    field: "survey.contactWithConfirm",
+    group: "survey",
+    enabled: false
+  }, {
+    name: "Physician Workflow",
+    header: "Physician Workflow",
+    field: "physicianWorkflowMethod",
+    group: "workflow",
+    enabled: false
+  }, {
+    name: "Collection Method",
+    header: "Collection Method",
+    field: "collectionMethod",
+    group: "workflow",
+    enabled: false
+  }, {
+    name: "Consent Method",
+    header: "Consent Method",
+    field: "consentMethod",
+    group: "workflow",
+    enabled: false
+  }]
+} // Survey Fields
+];
 
 // CONCATENATED MODULE: ./src/mixins/field-mappings-injection-mixin.js
 
@@ -21968,6 +21984,42 @@ var FIELD_MAPPINGS_INJECTION_MIXIN = {
 };
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/builder/sidebar-config-views/control-configuration-views/ControlBasicInformation.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -22064,11 +22116,11 @@ var FIELD_MAPPINGS_INJECTION_MIXIN = {
 
 var ControlBasicInformation_component = Object(componentNormalizer["a" /* default */])(
   control_configuration_views_ControlBasicInformationvue_type_script_lang_js_,
-  ControlBasicInformationvue_type_template_id_0b4cc628_scoped_true_render,
-  ControlBasicInformationvue_type_template_id_0b4cc628_scoped_true_staticRenderFns,
+  ControlBasicInformationvue_type_template_id_cb9c265e_scoped_true_render,
+  ControlBasicInformationvue_type_template_id_cb9c265e_scoped_true_staticRenderFns,
   false,
   null,
-  "0b4cc628",
+  "cb9c265e",
   null
   
 )
