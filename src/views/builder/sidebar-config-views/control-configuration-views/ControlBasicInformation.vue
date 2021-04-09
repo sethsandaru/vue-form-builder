@@ -31,7 +31,7 @@
         >
           <option
             :value="field.field"
-            v-for="(field, fieldIndex) in group"
+            v-for="(field, fieldIndex) in group.fields"
             :key="fieldIndex"
             >{{ field.name }}</option
           >
