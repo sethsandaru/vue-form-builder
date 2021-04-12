@@ -28,6 +28,7 @@ import DropdownControl from "@/views/controls/DropdownControl";
 import FileUploaderControl from "@/views/controls/FileUploaderControl";
 
 // Control-Config-Component
+import InputConfigView from "@/views/control-configs/InputConfigView";
 import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
 import ButtonConfigView from "@/views/control-configs/ButtonConfigView";
 import LabelConfigView from "@/views/control-configs/LabelConfigView";
@@ -44,8 +45,13 @@ const CONTROLS = {
         description: "Input text single line",
         icon: 'editPencil', // Follow ICON in `icon-facade.js` to see how it works.
 
+        configData: {
+            typeAttribute: "text", // date, password
+        },
+
         // component mapping
-        fieldComponent: InputControl
+        fieldComponent: InputControl,
+        configComponent: InputConfigView,
     },
 
     number: {
