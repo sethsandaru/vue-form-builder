@@ -1546,7 +1546,7 @@ var installer_VueFormBuilderInstaller = function VueFormBuilderInstaller(Vue) {
   var defaultProperties = {
     globalInjection: true,
     validationErrorShowAlert: false,
-    validationErrorAlertText: "Your form contains errors. Please complete the form and submit again."
+    validationErrorAlertText: "Your form contains errors. Please review the form and submit again."
   };
   Object.assign(properties, defaultProperties); // DI for Form-Builder
 
