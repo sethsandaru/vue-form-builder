@@ -19,7 +19,7 @@ const VueFormBuilderInstaller = function(Vue, properties = {}) {
     globalInjection: true,
     validationErrorShowAlert: false,
     validationErrorAlertText:
-      "Your form contains errors. Please complete the form and submit again."
+      "Your form contains errors. Please review the form and submit again."
   };
 
   Object.assign(properties, defaultProperties);
