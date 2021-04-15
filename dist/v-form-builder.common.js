@@ -1536,8 +1536,8 @@ var installer_VueFormBuilderInstaller = function VueFormBuilderInstaller(Vue) {
 
   var defaultProperties = {
     globalInjection: true,
-    validationErrorShowAlert: true,
-    validationErrorAlertText: "Your form got error(s), please fix it and submit again"
+    validationErrorShowAlert: false,
+    validationErrorAlertText: "Your form contains errors. Please complete the form and submit again."
   };
   Object.assign(properties, defaultProperties); // DI for Form-Builder
 
@@ -1546,22 +1546,22 @@ var installer_VueFormBuilderInstaller = function VueFormBuilderInstaller(Vue) {
 
   }; // control extend?
 
-  if (properties.hasOwnProperty('controls')) {
+  if (properties.hasOwnProperty("controls")) {
     installer_extendingControls(properties.controls);
   } // style override?
 
 
-  if (properties.hasOwnProperty('styles')) {
+  if (properties.hasOwnProperty("styles")) {
     Object.assign(styles["a" /* STYLES */], properties.styles);
   } // validation extend?
 
 
-  if (properties.hasOwnProperty('validations')) {
+  if (properties.hasOwnProperty("validations")) {
     installer_extendingValidations(properties.validations);
   } // validation closures
 
 
-  if (properties.hasOwnProperty('validationClosures')) {
+  if (properties.hasOwnProperty("validationClosures")) {
     formDI.validationClosures = properties.validationClosures;
   } // show alert or not?
 
@@ -1572,9 +1572,9 @@ var installer_VueFormBuilderInstaller = function VueFormBuilderInstaller(Vue) {
   Vue.prototype.$formEvent = new Vue();
   Vue.prototype.$form = formDI; // Register Form-Components
 
-  if (!properties.hasOwnProperty('globalInjection') || properties.globalInjection) {
-    Vue.component('FormBuilder', FormBuilder["a" /* default */]);
-    Vue.component('FormRenderer', FormRenderer["a" /* default */]);
+  if (!properties.hasOwnProperty("globalInjection") || properties.globalInjection) {
+    Vue.component("FormBuilder", FormBuilder["a" /* default */]);
+    Vue.component("FormRenderer", FormRenderer["a" /* default */]);
   } // Mark as registered
 
 
