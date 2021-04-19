@@ -227,7 +227,7 @@ const FIELD_MAPPINGS = [
       },
       {
         name: "NPI Physician",
-        header: "Physician",
+        header: "NPI Physician",
         field: "product.npiPhysician",
         group: "product",
         enabled: false

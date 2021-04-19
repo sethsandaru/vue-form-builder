@@ -22,7 +22,11 @@
 
     <div :class="styles.FORM.FORM_GROUP">
       <label>Field Mapping</label>
-      <select class="form-control" @change="handleFieldMappingSelection">
+      <select
+        class="form-control"
+        @change="handleFieldMappingSelection"
+        v-model="selectedFieldMapping"
+      >
         <option value=""></option>
         <optgroup
           v-for="(group, index) in fieldMappings"
@@ -30,7 +34,7 @@
           :label="group.groupName"
         >
           <option
-            :value="field.field"
+            :value="field"
             v-for="(field, fieldIndex) in group.fields"
             :key="fieldIndex"
             >{{ field.name }}</option
@@ -98,15 +102,17 @@ export default {
   },
   data() {
     return {
+      selectedFieldMapping: null,
       fieldMappingSet: false
     };
   },
   methods: {
-    handleFieldMappingSelection(event) {
-      let value = event.target.value;
-      if (value) {
+    handleFieldMappingSelection() {
+      console.log("selectedFieldMapping", this.selectedFieldMapping);
+      if (field) {
         this.fieldMappingSet = true;
-        this.control.name = value;
+        this.control.name = this.selectedFieldMapping.field;
+        this.control.label = this.selectedFieldMapping.header;
         return;
       }
 
