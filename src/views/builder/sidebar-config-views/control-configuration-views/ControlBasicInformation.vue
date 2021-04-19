@@ -109,7 +109,7 @@ export default {
   methods: {
     handleFieldMappingSelection() {
       console.log("selectedFieldMapping", this.selectedFieldMapping);
-      if (field) {
+      if (this.selectedFieldMapping) {
         this.fieldMappingSet = true;
         this.control.name = this.selectedFieldMapping.field;
         this.control.label = this.selectedFieldMapping.header;
