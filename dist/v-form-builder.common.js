@@ -8121,12 +8121,12 @@ var FormConfiguration_component = Object(componentNormalizer["a" /* default */])
 )
 
 /* harmony default export */ var FormConfiguration = (FormConfiguration_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"506d38fe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/builder/GlobalSidebar.vue?vue&type=template&id=4455940d&
-var GlobalSidebarvue_type_template_id_4455940d_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"sidebar"},[_c('span',{staticClass:"close",domProps:{"innerHTML":_vm._s(_vm.$form.getIcon('close', '24px', '24px', '#000'))},on:{"click":_vm.close}}),(_vm.component)?_c(_vm.component,{tag:"component",attrs:{"dataPackage":_vm.dynamicData,"formData":_vm.formData,"permissions":_vm.permissions},on:{"save":_vm.save,"saveAndClose":_vm.saveAndClose,"close":_vm.close}}):_vm._e()],1)}
-var GlobalSidebarvue_type_template_id_4455940d_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"506d38fe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/builder/GlobalSidebar.vue?vue&type=template&id=220a368a&
+var GlobalSidebarvue_type_template_id_220a368a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"sidebar"},[_c('span',{staticClass:"close",domProps:{"innerHTML":_vm._s(_vm.$form.getIcon('close', '24px', '24px', '#000'))},on:{"click":_vm.close}}),(_vm.component)?_c(_vm.component,{tag:"component",attrs:{"dataPackage":_vm.dynamicData,"formData":_vm.formData,"permissions":_vm.permissions},on:{"save":_vm.save,"saveAndClose":_vm.saveAndClose,"close":_vm.close}}):_vm._e()],1)}
+var GlobalSidebarvue_type_template_id_220a368a_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/builder/GlobalSidebar.vue?vue&type=template&id=4455940d&
+// CONCATENATED MODULE: ./src/views/builder/GlobalSidebar.vue?vue&type=template&id=220a368a&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.object.assign.js
 var es6_object_assign = __webpack_require__("f751");
@@ -8161,7 +8161,7 @@ var alert_dialog = __webpack_require__("caca");
 //
 
 
-var SIDEBAR_WIDTH_SIZE = "300px";
+var SIDEBAR_WIDTH_SIZE = "400px";
 /* harmony default export */ var GlobalSidebarvue_type_script_lang_js_ = ({
   name: "GlobalSidebar",
   props: {
@@ -8192,8 +8192,14 @@ var SIDEBAR_WIDTH_SIZE = "300px";
       } // set size
 
 
-      this.$el.style.width = SIDEBAR_WIDTH_SIZE;
-      document.getElementsByTagName("body")[0].style.marginRight = SIDEBAR_WIDTH_SIZE; // turn on flag and notify watcher that sidebar is opened
+      this.$el.style.width = SIDEBAR_WIDTH_SIZE; // TODO
+      // Turn body margin-right into an option
+      // We don't need to set the body width to compensate for the sidebar when
+      // its contained in container itself, e.g. Tabs
+      // document.getElementsByTagName(
+      //   "body"
+      // )[0].style.marginRight = SIDEBAR_WIDTH_SIZE;
+      // turn on flag and notify watcher that sidebar is opened
       // `runnerId` will be sent back in order to make sure other components will touch yours
 
       this.$formEvent.$emit(events["a" /* EVENT_CONSTANTS */].BUILDER.SIDEBAR.OPENED, runnerId);
@@ -8267,8 +8273,8 @@ var SIDEBAR_WIDTH_SIZE = "300px";
 
 var GlobalSidebar_component = Object(componentNormalizer["a" /* default */])(
   builder_GlobalSidebarvue_type_script_lang_js_,
-  GlobalSidebarvue_type_template_id_4455940d_render,
-  GlobalSidebarvue_type_template_id_4455940d_staticRenderFns,
+  GlobalSidebarvue_type_template_id_220a368a_render,
+  GlobalSidebarvue_type_template_id_220a368a_staticRenderFns,
   false,
   null,
   null,
