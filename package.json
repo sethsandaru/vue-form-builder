@@ -16,6 +16,7 @@
   },
   "main": "./dist/v-form-builder.umd.min.js",
   "dependencies": {
+    "axios": "^0.21.1",
     "core-js": "^2.6.5",
     "dayjs": "^1.8.28",
     "deep-equal": "^2.0.3",

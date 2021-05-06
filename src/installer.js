@@ -48,6 +48,10 @@ const VueFormBuilderInstaller = function(Vue, properties = {}) {
   if (properties.hasOwnProperty("validationClosures")) {
     formDI.validationClosures = properties.validationClosures;
   }
+  // validation closures
+  if (properties.hasOwnProperty("fieldMatchingApi")) {
+    formDI.fieldMatchingApi = properties.fieldMatchingApi;
+  }
 
   // show alert or not?
   formDI.validationErrorShowAlert = properties.validationErrorShowAlert || true;
