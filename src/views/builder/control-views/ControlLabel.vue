@@ -6,7 +6,6 @@
       :class="control.additionalLabelClass"
     >
     </label>
-    <div>{{ isRequired }}</div>
     <br v-if="control.subLabel" />
     <small v-if="control.subLabel" v-text="control.subLabel"> </small>
   </div>
