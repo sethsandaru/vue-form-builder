@@ -85,6 +85,48 @@
         v-model="control.defaultValue"
       />
     </div>
+    <div>
+      <label for=""
+        >Conditional?
+        <input type="checkbox" v-model="control.isConditional" />
+      </label>
+    </div>
+    <div v-if="control.isConditional">
+      <div :class="styles.FORM.FORM_GROUP">
+        <label>Conditional Field</label>
+        <input
+          type="text"
+          :class="styles.FORM.FORM_CONTROL"
+          v-model="control.conditionalFieldName"
+        />
+      </div>
+      <div :class="styles.FORM.FORM_GROUP">
+        <label>Conditional Field Value</label>
+        <input
+          type="text"
+          :class="styles.FORM.FORM_CONTROL"
+          v-model="control.conditionalFieldValue"
+        />
+      </div>
+      <div class="form-group">
+        <label for="">Default State</label>
+        <select class="form-control" v-model="control.conditionalNotMet">
+          <option value="visible">Visible When Condition Not Met</option>
+          <option value="invisible">Invisible When Condition Not Met</option>
+          <option value="enabled">Enabled When Condtion Not Met</option>
+          <option value="disabled">Disabled When Condtion Not Met</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="">Conditional State</label>
+        <select class="form-control" v-model="control.conditionalMet">
+          <option value="visible">Visible When Condition Met</option>
+          <option value="invisible">Invisible When Condition Met</option>
+          <option value="enabled">Enabled When Condtion Met</option>
+          <option value="disabled">Disabled When Condtion Met</option>
+        </select>
+      </div>
+    </div>
   </SidebarToggleableContainer>
 </template>
 
@@ -123,7 +165,10 @@ export default {
     }
   },
   mounted() {
+    console.log("control", this.control);
     let form = this.$form;
+
+    console.log("form", form);
 
     if (form.fieldMatchingApi) {
       axios.get(form.fieldMatchingApi).then((response) => {
