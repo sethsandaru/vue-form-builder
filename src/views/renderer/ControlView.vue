@@ -18,6 +18,7 @@
         :value-container="valueContainer"
         v-model="valueContainer[controlName]"
         :class="validationErrorClasses"
+        :disabled="conditionalMetEnabled"
       />
 
       <!-- validation error -->
@@ -109,14 +110,20 @@ export default {
       return classes;
     },
 
-    conditionalClasses() {
-      if (this.control.isConditional && this.control.conditionMet) {
-        return "invisible";
-      }
+    conditionalMetVisible() {
+      return (
+        this.control.isConditional &&
+        this.control.conditionMet &&
+        this.control.conditionalWhenMet === "visible"
+      );
     },
 
-    conditionalMetVisible() {
-      return this.control.isConditional && this.control.conditionMet;
+    conditionalMetEnabled() {
+      return (
+        this.control.isConditional &&
+        this.control.conditionMet &&
+        this.control.conditionalWhenMet === "enabled"
+      );
     }
   },
   mounted() {

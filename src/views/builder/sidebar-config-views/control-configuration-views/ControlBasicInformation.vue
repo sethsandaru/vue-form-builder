@@ -109,6 +109,14 @@
         />
       </div>
       <div class="form-group">
+        <label for="">When Condition Met</label>
+        <select class="form-control" v-model="control.conditionalWhenMet">
+          <option value="visible">Visible</option>
+          <option value="enabled">Enabled When Condtion Not Met</option>
+        </select>
+      </div>
+      <!--
+      <div class="form-group">
         <label for="">Default State</label>
         <select class="form-control" v-model="control.conditionalWhenNotMet">
           <option value="visible">Visible When Condition Not Met</option>
@@ -126,6 +134,7 @@
           <option value="disabled">Disabled When Condtion Met</option>
         </select>
       </div>
+      -->
     </div>
   </SidebarToggleableContainer>
 </template>
@@ -133,7 +142,6 @@
 <script>
 import SidebarToggleableContainer from "@/views/container-views/SidebarToggleableContainer";
 import { STYLE_INJECTION_MIXIN } from "@/mixins/style-injection-mixin";
-// import { FIELD_MAPPINGS_INJECTION_MIXIN } from "@/mixins/field-mappings-injection-mixin";
 import axios from "axios";
 
 export default {
@@ -165,36 +173,11 @@ export default {
     }
   },
   mounted() {
-    console.log("control", this.control);
     let form = this.$form;
-
-    console.log("form", form);
-
     if (form.fieldMatchingApi) {
       axios.get(form.fieldMatchingApi).then((response) => {
         if (response.status === 200 && response.data.length > 0) {
-          // let collection = [];
-          // response.data.forEach((item) => {
-          //   // check the item's group
-          //   // do we already have a group for this item?
-          //   let index = collection.findIndex((element) => {
-          //     if (element.groupKey === item.group) return true;
-          //   });
-          //   if (index > -1) {
-          //     // add the item to the group's fields
-          //     collection[index].fields.push(item);
-          //   } else {
-          //     // if the group doesn't exists create it
-          //     // add the item to the group's fields
-          //     collection.push({
-          //       groupName: item.group.toUpperCase(),
-          //       groupKey: item.group,
-          //       fields: [item]
-          //     });
-          //   }
-          // });
           this.fieldMappings = response.data;
-          // this.fieldMappings = collection;
         }
       });
     }
