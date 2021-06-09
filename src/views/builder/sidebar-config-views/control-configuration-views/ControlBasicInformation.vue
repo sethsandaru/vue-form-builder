@@ -110,7 +110,7 @@
       </div>
       <div class="form-group">
         <label for="">Default State</label>
-        <select class="form-control" v-model="control.conditionalNotMet">
+        <select class="form-control" v-model="control.conditionalWhenNotMet">
           <option value="visible">Visible When Condition Not Met</option>
           <option value="invisible">Invisible When Condition Not Met</option>
           <option value="enabled">Enabled When Condtion Not Met</option>
@@ -119,7 +119,7 @@
       </div>
       <div class="form-group">
         <label for="">Conditional State</label>
-        <select class="form-control" v-model="control.conditionalMet">
+        <select class="form-control" v-model="control.conditionalWhenMet">
           <option value="visible">Visible When Condition Met</option>
           <option value="invisible">Invisible When Condition Met</option>
           <option value="enabled">Enabled When Condtion Met</option>
