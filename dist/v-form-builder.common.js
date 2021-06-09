@@ -23361,12 +23361,12 @@ var SidebarControlConfigurationvue_type_template_id_6e0787c7_staticRenderFns = [
 // EXTERNAL MODULE: ./src/views/container-views/SidebarToggleableContainer.vue + 4 modules
 var SidebarToggleableContainer = __webpack_require__("9831");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"108db1ef-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/builder/sidebar-config-views/control-configuration-views/ControlBasicInformation.vue?vue&type=template&id=4ae842a4&scoped=true&
-var ControlBasicInformationvue_type_template_id_4ae842a4_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('SidebarToggleableContainer',{attrs:{"headline":"Basic Detail"}},[_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Unique ID")]),_c('input',{class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text","readonly":""},domProps:{"value":_vm.control.uniqueId}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Name (Must be unique)")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.name),expression:"control.name"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text","readonly":_vm.fieldMappingSet},domProps:{"value":(_vm.control.name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "name", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Field Mapping")]),_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.selectedFieldMapping),expression:"selectedFieldMapping"}],staticClass:"form-control",on:{"change":[function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.selectedFieldMapping=$event.target.multiple ? $$selectedVal : $$selectedVal[0]},_vm.handleFieldMappingSelection]}},[_c('option',{attrs:{"value":""}}),_vm._l((_vm.fieldMappings),function(group,index){return _c('optgroup',{key:index,attrs:{"label":group.groupName}},_vm._l((group.fields),function(field,fieldIndex){return _c('option',{key:fieldIndex,domProps:{"value":field}},[_vm._v(_vm._s(field.name))])}),0)})],2)]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Label")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.label),expression:"control.label"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.label)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "label", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Sub-label")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.subLabel),expression:"control.subLabel"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.subLabel)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "subLabel", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Show Label? "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.isShowLabel),expression:"control.isShowLabel"}],attrs:{"type":"checkbox"},domProps:{"checked":Array.isArray(_vm.control.isShowLabel)?_vm._i(_vm.control.isShowLabel,null)>-1:(_vm.control.isShowLabel)},on:{"change":function($event){var $$a=_vm.control.isShowLabel,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.control, "isShowLabel", $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.control, "isShowLabel", $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.control, "isShowLabel", $$c)}}}})])]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Field Placeholder (Optional)")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.placeholderText),expression:"control.placeholderText"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.placeholderText)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "placeholderText", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Default Value (Optional)")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.defaultValue),expression:"control.defaultValue"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.defaultValue)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "defaultValue", $event.target.value)}}})]),_c('div',[_c('label',{attrs:{"for":""}},[_vm._v("Conditional? "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.isConditional),expression:"control.isConditional"}],attrs:{"type":"checkbox"},domProps:{"checked":Array.isArray(_vm.control.isConditional)?_vm._i(_vm.control.isConditional,null)>-1:(_vm.control.isConditional)},on:{"change":function($event){var $$a=_vm.control.isConditional,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.control, "isConditional", $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.control, "isConditional", $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.control, "isConditional", $$c)}}}})])]),(_vm.control.isConditional)?_c('div',[_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Conditional Field")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.conditionalFieldName),expression:"control.conditionalFieldName"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.conditionalFieldName)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "conditionalFieldName", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Conditional Field Value")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.conditionalFieldValue),expression:"control.conditionalFieldValue"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.conditionalFieldValue)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "conditionalFieldValue", $event.target.value)}}})]),_c('div',{staticClass:"form-group"},[_c('label',{attrs:{"for":""}},[_vm._v("Default State")]),_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.conditionalWhenNotMet),expression:"control.conditionalWhenNotMet"}],staticClass:"form-control",on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.control, "conditionalWhenNotMet", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},[_c('option',{attrs:{"value":"visible"}},[_vm._v("Visible When Condition Not Met")]),_c('option',{attrs:{"value":"invisible"}},[_vm._v("Invisible When Condition Not Met")]),_c('option',{attrs:{"value":"enabled"}},[_vm._v("Enabled When Condtion Not Met")]),_c('option',{attrs:{"value":"disabled"}},[_vm._v("Disabled When Condtion Not Met")])])]),_c('div',{staticClass:"form-group"},[_c('label',{attrs:{"for":""}},[_vm._v("Conditional State")]),_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.conditionalWhenMet),expression:"control.conditionalWhenMet"}],staticClass:"form-control",on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.control, "conditionalWhenMet", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},[_c('option',{attrs:{"value":"visible"}},[_vm._v("Visible When Condition Met")]),_c('option',{attrs:{"value":"invisible"}},[_vm._v("Invisible When Condition Met")]),_c('option',{attrs:{"value":"enabled"}},[_vm._v("Enabled When Condtion Met")]),_c('option',{attrs:{"value":"disabled"}},[_vm._v("Disabled When Condtion Met")])])])]):_vm._e()])}
-var ControlBasicInformationvue_type_template_id_4ae842a4_scoped_true_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"108db1ef-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/builder/sidebar-config-views/control-configuration-views/ControlBasicInformation.vue?vue&type=template&id=2e7ae78b&scoped=true&
+var ControlBasicInformationvue_type_template_id_2e7ae78b_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('SidebarToggleableContainer',{attrs:{"headline":"Basic Detail"}},[_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Unique ID")]),_c('input',{class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text","readonly":""},domProps:{"value":_vm.control.uniqueId}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Name (Must be unique)")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.name),expression:"control.name"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text","readonly":_vm.fieldMappingSet},domProps:{"value":(_vm.control.name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "name", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Field Mapping")]),_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.selectedFieldMapping),expression:"selectedFieldMapping"}],staticClass:"form-control",on:{"change":[function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.selectedFieldMapping=$event.target.multiple ? $$selectedVal : $$selectedVal[0]},_vm.handleFieldMappingSelection]}},[_c('option',{attrs:{"value":""}}),_vm._l((_vm.fieldMappings),function(group,index){return _c('optgroup',{key:index,attrs:{"label":group.groupName}},_vm._l((group.fields),function(field,fieldIndex){return _c('option',{key:fieldIndex,domProps:{"value":field}},[_vm._v(_vm._s(field.name))])}),0)})],2)]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Label")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.label),expression:"control.label"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.label)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "label", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Sub-label")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.subLabel),expression:"control.subLabel"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.subLabel)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "subLabel", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Show Label? "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.isShowLabel),expression:"control.isShowLabel"}],attrs:{"type":"checkbox"},domProps:{"checked":Array.isArray(_vm.control.isShowLabel)?_vm._i(_vm.control.isShowLabel,null)>-1:(_vm.control.isShowLabel)},on:{"change":function($event){var $$a=_vm.control.isShowLabel,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.control, "isShowLabel", $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.control, "isShowLabel", $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.control, "isShowLabel", $$c)}}}})])]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Field Placeholder (Optional)")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.placeholderText),expression:"control.placeholderText"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.placeholderText)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "placeholderText", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Default Value (Optional)")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.defaultValue),expression:"control.defaultValue"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.defaultValue)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "defaultValue", $event.target.value)}}})]),_c('div',[_c('label',{attrs:{"for":""}},[_vm._v("Conditional? "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.isConditional),expression:"control.isConditional"}],attrs:{"type":"checkbox"},domProps:{"checked":Array.isArray(_vm.control.isConditional)?_vm._i(_vm.control.isConditional,null)>-1:(_vm.control.isConditional)},on:{"change":function($event){var $$a=_vm.control.isConditional,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.control, "isConditional", $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.control, "isConditional", $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.control, "isConditional", $$c)}}}})])]),(_vm.control.isConditional)?_c('div',[_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Conditional Field")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.conditionalFieldName),expression:"control.conditionalFieldName"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.conditionalFieldName)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "conditionalFieldName", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Conditional Field Value")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.conditionalFieldValue),expression:"control.conditionalFieldValue"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.conditionalFieldValue)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "conditionalFieldValue", $event.target.value)}}})]),_c('div',{staticClass:"form-group"},[_c('label',{attrs:{"for":""}},[_vm._v("When Condition Met")]),_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.conditionalWhenMet),expression:"control.conditionalWhenMet"}],staticClass:"form-control",on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.control, "conditionalWhenMet", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},[_c('option',{attrs:{"value":"visible"}},[_vm._v("Visible")]),_c('option',{attrs:{"value":"enabled"}},[_vm._v("Enabled When Condtion Not Met")])])])]):_vm._e()])}
+var ControlBasicInformationvue_type_template_id_2e7ae78b_scoped_true_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/builder/sidebar-config-views/control-configuration-views/ControlBasicInformation.vue?vue&type=template&id=4ae842a4&scoped=true&
+// CONCATENATED MODULE: ./src/views/builder/sidebar-config-views/control-configuration-views/ControlBasicInformation.vue?vue&type=template&id=2e7ae78b&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/axios/index.js
 var axios = __webpack_require__("bc3a");
@@ -23505,8 +23505,16 @@ var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
- // import { FIELD_MAPPINGS_INJECTION_MIXIN } from "@/mixins/field-mappings-injection-mixin";
 
 
 /* harmony default export */ var ControlBasicInformationvue_type_script_lang_js_ = ({
@@ -23542,34 +23550,12 @@ var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
   mounted: function mounted() {
     var _this = this;
 
-    console.log("control", this.control);
     var form = this.$form;
-    console.log("form", form);
 
     if (form.fieldMatchingApi) {
       axios_default.a.get(form.fieldMatchingApi).then(function (response) {
         if (response.status === 200 && response.data.length > 0) {
-          // let collection = [];
-          // response.data.forEach((item) => {
-          //   // check the item's group
-          //   // do we already have a group for this item?
-          //   let index = collection.findIndex((element) => {
-          //     if (element.groupKey === item.group) return true;
-          //   });
-          //   if (index > -1) {
-          //     // add the item to the group's fields
-          //     collection[index].fields.push(item);
-          //   } else {
-          //     // if the group doesn't exists create it
-          //     // add the item to the group's fields
-          //     collection.push({
-          //       groupName: item.group.toUpperCase(),
-          //       groupKey: item.group,
-          //       fields: [item]
-          //     });
-          //   }
-          // });
-          _this.fieldMappings = response.data; // this.fieldMappings = collection;
+          _this.fieldMappings = response.data;
         }
       });
     }
@@ -23587,11 +23573,11 @@ var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
 
 var ControlBasicInformation_component = Object(componentNormalizer["a" /* default */])(
   control_configuration_views_ControlBasicInformationvue_type_script_lang_js_,
-  ControlBasicInformationvue_type_template_id_4ae842a4_scoped_true_render,
-  ControlBasicInformationvue_type_template_id_4ae842a4_scoped_true_staticRenderFns,
+  ControlBasicInformationvue_type_template_id_2e7ae78b_scoped_true_render,
+  ControlBasicInformationvue_type_template_id_2e7ae78b_scoped_true_staticRenderFns,
   false,
   null,
-  "4ae842a4",
+  "2e7ae78b",
   null
   
 )
@@ -25052,23 +25038,23 @@ var NormalSectionViewvue_type_template_id_fea399ce_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/views/renderer/section-views/NormalSectionView.vue?vue&type=template&id=fea399ce&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"108db1ef-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/ControlView.vue?vue&type=template&id=42c0bf25&
-var ControlViewvue_type_template_id_42c0bf25_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:[
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"108db1ef-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/ControlView.vue?vue&type=template&id=5dba4dd8&
+var ControlViewvue_type_template_id_5dba4dd8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.conditionalMetVisible)?_c('div',{class:[
     _vm.control.containerClass,
     'control-view-wrapper',
-    _vm.control.additionalContainerClass,
-    _vm.conditionalClasses
-  ]},[_c('div',{staticClass:"control-view"},[_c('ControlLabel',{directives:[{name:"show",rawName:"v-show",value:(_vm.control.isShowLabel),expression:"control.isShowLabel"}],attrs:{"control":_vm.control}}),_c(_vm.controlComponent,{tag:"component",class:_vm.validationErrorClasses,attrs:{"control":_vm.control,"value-container":_vm.valueContainer},model:{value:(_vm.valueContainer[_vm.controlName]),callback:function ($$v) {_vm.$set(_vm.valueContainer, _vm.controlName, $$v)},expression:"valueContainer[controlName]"}}),(_vm.hasValidationError)?_vm._l((_vm.validationErrorMessages),function(mess,i){return _c('div',{key:i,class:_vm.styles.FORM.ERROR_MESSAGE,domProps:{"textContent":_vm._s(mess)}})}):_vm._e()],2)])}
-var ControlViewvue_type_template_id_42c0bf25_staticRenderFns = []
+    _vm.control.additionalContainerClass
+  ]},[_c('div',{staticClass:"control-view"},[_c('ControlLabel',{directives:[{name:"show",rawName:"v-show",value:(_vm.control.isShowLabel),expression:"control.isShowLabel"}],attrs:{"control":_vm.control}}),_c(_vm.controlComponent,{tag:"component",class:_vm.validationErrorClasses,attrs:{"control":_vm.control,"value-container":_vm.valueContainer,"disabled":_vm.conditionalMetEnabled},model:{value:(_vm.valueContainer[_vm.controlName]),callback:function ($$v) {_vm.$set(_vm.valueContainer, _vm.controlName, $$v)},expression:"valueContainer[controlName]"}}),(_vm.hasValidationError)?_vm._l((_vm.validationErrorMessages),function(mess,i){return _c('div',{key:i,class:_vm.styles.FORM.ERROR_MESSAGE,domProps:{"textContent":_vm._s(mess)}})}):_vm._e()],2)]):_vm._e()}
+var ControlViewvue_type_template_id_5dba4dd8_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/renderer/ControlView.vue?vue&type=template&id=42c0bf25&
+// CONCATENATED MODULE: ./src/views/renderer/ControlView.vue?vue&type=template&id=5dba4dd8&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.function.name.js
 var es6_function_name = __webpack_require__("7f7f");
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/ControlView.vue?vue&type=script&lang=js&
 
+//
 //
 //
 //
@@ -25175,10 +25161,11 @@ var es6_function_name = __webpack_require__("7f7f");
       classes[this.styles.FORM.ERROR_OUTLINE] = this.hasValidationError;
       return classes;
     },
-    conditionalClasses: function conditionalClasses() {
-      if (this.control.isConditional) {
-        return "invisible";
-      }
+    conditionalMetVisible: function conditionalMetVisible() {
+      return this.control.isConditional && this.control.conditionMet && this.control.conditionalWhenMet === "visible";
+    },
+    conditionalMetEnabled: function conditionalMetEnabled() {
+      return this.control.isConditional && this.control.conditionMet && this.control.conditionalWhenMet === "enabled";
     }
   },
   mounted: function mounted() {
@@ -25198,8 +25185,8 @@ var es6_function_name = __webpack_require__("7f7f");
 
 var renderer_ControlView_component = Object(componentNormalizer["a" /* default */])(
   views_renderer_ControlViewvue_type_script_lang_js_,
-  ControlViewvue_type_template_id_42c0bf25_render,
-  ControlViewvue_type_template_id_42c0bf25_staticRenderFns,
+  ControlViewvue_type_template_id_5dba4dd8_render,
+  ControlViewvue_type_template_id_5dba4dd8_staticRenderFns,
   false,
   null,
   null,
