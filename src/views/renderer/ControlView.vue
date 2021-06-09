@@ -3,7 +3,8 @@
     :class="[
       control.containerClass,
       'control-view-wrapper',
-      control.additionalContainerClass
+      control.additionalContainerClass,
+      conditionalClasses
     ]"
   >
     <div class="control-view">
@@ -106,10 +107,17 @@ export default {
       const classes = {};
       classes[this.styles.FORM.ERROR_OUTLINE] = this.hasValidationError;
       return classes;
+    },
+
+    conditionalClasses() {
+      if (this.control.isConditional) {
+        return "invisible";
+      }
     }
   },
   mounted() {
-    console.log("asdfasdf", this.$form);
+    console.log("this", this);
+    console.log("this.$form", this.$form);
   }
 };
 </script>
