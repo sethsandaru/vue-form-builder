@@ -111,24 +111,38 @@ export default {
     },
 
     conditionalMetVisible() {
-      return (
-        this.control.isConditional &&
-        this.control.conditionMet &&
-        this.control.conditionalWhenMet === "visible"
-      );
+      if (!this.control.isConditional) {
+        return true;
+      } else {
+        if (this.control.conditionalWhenMet === "visible") {
+          if (this.control.conditionMet) {
+            return true;
+          } else {
+            return false;
+          }
+        } else {
+          return true;
+        }
+      }
     },
 
     conditionalMetEnabled() {
-      return (
-        this.control.isConditional &&
-        this.control.conditionMet &&
-        this.control.conditionalWhenMet === "enabled"
-      );
+      // remember, disabled/enabled, all this is backwards
+      if (!this.control.isConditional) {
+        return false;
+      } else {
+        if (this.control.conditionalWhenMet === "enabled") {
+          if (this.control.conditionMet) {
+            return false;
+          } else {
+            return true;
+          }
+        } else {
+          return false;
+        }
+      }
     }
   },
-  mounted() {
-    console.log("this", this);
-    console.log("this.$form", this.$form);
-  }
+  mounted() {}
 };
 </script>
