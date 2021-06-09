@@ -1,10 +1,10 @@
 <template>
   <div
+    v-if="conditionalMetVisible"
     :class="[
       control.containerClass,
       'control-view-wrapper',
-      control.additionalContainerClass,
-      conditionalClasses
+      control.additionalContainerClass
     ]"
   >
     <div class="control-view">
@@ -110,9 +110,13 @@ export default {
     },
 
     conditionalClasses() {
-      if (this.control.isConditional) {
+      if (this.control.isConditional && this.control.conditionMet) {
         return "invisible";
       }
+    },
+
+    conditionalMetVisible() {
+      return this.control.isConditional && this.control.conditionMet;
     }
   },
   mounted() {
