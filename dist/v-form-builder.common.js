@@ -28226,7 +28226,7 @@ var validation_Validation = /*#__PURE__*/function () {
         // as such, we can't apply ANY of our validation rules to it.
 
 
-        if (controlItem.isConditional && controlItem.conditionalFieldName && controlItem.conditionMet) {
+        if (controlItem.isConditional && !controlItem.conditionMet) {
           return;
         }
 
