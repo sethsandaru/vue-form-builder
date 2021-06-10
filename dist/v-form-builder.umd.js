@@ -28239,7 +28239,9 @@ var validation_Validation = /*#__PURE__*/function () {
         // however, we're slapping on a property
         // this might be a bad idea
 
-        rules[controlName].uniqueId = controlId;
+        if (controlId) {
+          rules[controlName].uniqueId = controlId;
+        }
       });
       this.rules = rules;
     }
@@ -28260,8 +28262,8 @@ var validation_Validation = /*#__PURE__*/function () {
         var controlValue = this.valueContainer[key];
         var controlRules = this.rules[key] || [];
         var control = this.controls[controlRules.uniqueId];
-        var controlConditional = control.isConditional;
-        var controlConditionalMet = control.conditionMet; // no rule no run
+        var controlConditional = control.isConditional || false;
+        var controlConditionalMet = control.conditionMet || false; // no rule no run
 
         if (!controlRules.length) {
           continue;

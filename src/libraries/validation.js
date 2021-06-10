@@ -54,7 +54,9 @@ export default class Validation {
       // rules[controlName] contains an array
       // however, we're slapping on a property
       // this might be a bad idea
-      rules[controlName].uniqueId = controlId;
+      if (controlId) {
+        rules[controlName].uniqueId = controlId;
+      }
     });
 
     this.rules = rules;
@@ -74,8 +76,8 @@ export default class Validation {
       const controlRules = this.rules[key] || [];
 
       const control = this.controls[controlRules.uniqueId];
-      const controlConditional = control.isConditional;
-      const controlConditionalMet = control.conditionMet;
+      const controlConditional = control.isConditional || false;
+      const controlConditionalMet = control.conditionMet || false;
 
       // no rule no run
       if (!controlRules.length) {
