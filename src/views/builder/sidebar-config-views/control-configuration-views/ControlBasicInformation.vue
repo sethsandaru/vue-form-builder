@@ -109,10 +109,10 @@
         />
       </div>
       <div class="form-group">
-        <label for="">When Condition Met</label>
+        <label for="">When Condition Is Met Input Is</label>
         <select class="form-control" v-model="control.conditionalWhenMet">
           <option value="visible">Visible</option>
-          <option value="enabled">Enabled When Condtion Not Met</option>
+          <option value="enabled">Enabled</option>
         </select>
       </div>
       <!--
