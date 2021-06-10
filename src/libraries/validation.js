@@ -8,115 +8,136 @@ import customClosureRule from "@/libraries/validations/custom-closure";
 import isRegexPassed from "@/libraries/validations/regex";
 
 export default class Validation {
-    rules = null
-    valueContainer = null
-    customClosures = {}
+  rules = null;
+  valueContainer = null;
+  customClosures = {};
 
-    /**
-     * Validation Result. Always create a new instance every time the validation is run
-     * @type {ValidationResult}
-     */
-    validationResult = null
+  /**
+   * Validation Result. Always create a new instance every time the validation is run
+   * @type {ValidationResult}
+   */
+  validationResult = null;
 
-    /**
-     * Create a new Validation handler
-     * @param {Object} valueContainer
-     * @param {Object} controls
-     * @param {Object} definedClosures
-     */
-    constructor(valueContainer, controls, definedClosures = {}) {
-        this.valueContainer = valueContainer
-        this.validationClosures = definedClosures
-        this.setRules(controls)
-    }
+  /**
+   * Create a new Validation handler
+   * @param {Object} valueContainer
+   * @param {Object} controls
+   * @param {Object} definedClosures
+   */
+  constructor(valueContainer, controls, definedClosures = {}) {
+    this.valueContainer = valueContainer;
+    this.validationClosures = definedClosures;
+    this.setRules(controls);
+  }
 
-    /**
-     * Set validation rules from the controls
-     * @param {{validations: ValidationRule[]}} controls
-     */
-    setRules(controls) {
-        const rules = {}
+  /**
+   * Set validation rules from the controls
+   * @param {{validations: ValidationRule[]}} controls
+   */
+  setRules(controls) {
+    const rules = {};
 
-        // traversal all control and pick the validations info
-        Object.entries(controls).forEach(controlInfo => {
-            let [controlId, controlItem] = controlInfo
-            let controlName = controlItem.name || controlId
+    // traversal all control and pick the validations info
+    Object.entries(controls).forEach((controlInfo) => {
+      let [controlId, controlItem] = controlInfo;
+      let controlName = controlItem.name || controlId;
 
-            // no name => this field didn't have value
-            if (!this.valueContainer.hasOwnProperty(controlName)) {
-                return
-            }
+      // no name => this field didn't have value
+      if (!this.valueContainer.hasOwnProperty(controlName)) {
+        return;
+      }
 
-            rules[controlName] = controlItem.validations
-        })
+      // this input is conditional and the condition for it has not been meet
+      // it's either invisible or disabled
+      // as such, we can't apply ANY of our validation rules to it.
+      if (
+        controlItem.isConditional &&
+        controlItem.conditionalFieldName &&
+        controlItem.conditionMet
+      ) {
+        return;
+      }
 
-        this.rules = rules
-    }
+      rules[controlName] = controlItem.validations;
+    });
 
-    /**
-     * Start a validation check
-     * @return {ValidationResult}
-     */
-    run() {
-        this.validationResult = new ValidationResult()
-        const controlKeys = Object.keys(this.rules)
+    this.rules = rules;
+  }
 
-        for (const key of controlKeys) {
-            // pickup basic data
-            const controlValue = this.valueContainer[key]
-            const controlRules = this.rules[key] || []
+  /**
+   * Start a validation check
+   * @return {ValidationResult}
+   */
+  run() {
+    this.validationResult = new ValidationResult();
+    const controlKeys = Object.keys(this.rules);
 
-            // no rule no run
-            if (!controlRules.length) {
-                continue;
-            }
+    for (const key of controlKeys) {
+      // pickup basic data
+      const controlValue = this.valueContainer[key];
+      const controlRules = this.rules[key] || [];
 
-            /**
-             * start the validation process by each rules added for the control
-             */
-            for (const validationRule of controlRules) {
-                const status = this._singleRuleRun(validationRule, controlValue)
-                if (!status) {
-                    this.validationResult.addError(key, validationRule)
-                }
-            }
+      // no rule no run
+      if (!controlRules.length) {
+        continue;
+      }
+
+      /**
+       * start the validation process by each rules added for the control
+       */
+      for (const validationRule of controlRules) {
+        const status = this._singleRuleRun(validationRule, controlValue);
+        if (!status) {
+          this.validationResult.addError(key, validationRule);
         }
-
-        return this.validationResult
+      }
     }
 
-    /**
-     * Run single rule to check
-     * @param {ValidationRule} validationRule
-     * @param {any} fieldValue
-     * @private
-     */
-    _singleRuleRun(validationRule, fieldValue) {
-        switch (validationRule.ruleType) {
+    return this.validationResult;
+  }
 
-            case "required":
-                return requiredRule(fieldValue)
+  /**
+   * Run single rule to check
+   * @param {ValidationRule} validationRule
+   * @param {any} fieldValue
+   * @private
+   */
+  _singleRuleRun(validationRule, fieldValue) {
+    switch (validationRule.ruleType) {
+      case "required":
+        return requiredRule(fieldValue);
 
-            case "min":
-                return minRule(fieldValue, validationRule.additionalValue)
+      case "min":
+        return minRule(fieldValue, validationRule.additionalValue);
 
-            case "max":
-                return maxRule(fieldValue, validationRule.additionalValue)
+      case "max":
+        return maxRule(fieldValue, validationRule.additionalValue);
 
-            case "isEmail":
-                return isEmailRule(fieldValue)
+      case "isEmail":
+        return isEmailRule(fieldValue);
 
-            case "sameAs":
-                return sameAsRule(fieldValue, validationRule.additionalValue, this.valueContainer)
+      case "sameAs":
+        return sameAsRule(
+          fieldValue,
+          validationRule.additionalValue,
+          this.valueContainer
+        );
 
-            case "customClosure":
-                return customClosureRule(fieldValue, validationRule.additionalValue, this.valueContainer, this.customClosures)
+      case "customClosure":
+        return customClosureRule(
+          fieldValue,
+          validationRule.additionalValue,
+          this.valueContainer,
+          this.customClosures
+        );
 
-            case "regex":
-                return isRegexPassed(fieldValue, validationRule.additionalValue)
+      case "regex":
+        return isRegexPassed(fieldValue, validationRule.additionalValue);
 
-            default:
-                throw new TypeError(`This validation type ${validationRule.ruleType} is not supported.`);
-        }
+      default:
+        throw new TypeError(
+          `This validation type ${validationRule.ruleType} is not supported.`
+        );
     }
+  }
 }

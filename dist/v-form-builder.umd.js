@@ -28230,6 +28230,13 @@ var validation_Validation = /*#__PURE__*/function () {
 
         if (!_this.valueContainer.hasOwnProperty(controlName)) {
           return;
+        } // this input is conditional and the condition for it has not been meet
+        // it's either invisible or disabled
+        // as such, we can't apply ANY of our validation rules to it.
+
+
+        if (controlItem.isConditional && controlItem.conditionalFieldName && controlItem.conditionMet) {
+          return;
         }
 
         rules[controlName] = controlItem.validations;
