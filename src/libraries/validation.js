@@ -11,6 +11,7 @@ export default class Validation {
   rules = null;
   valueContainer = null;
   customClosures = {};
+  controls = null;
 
   /**
    * Validation Result. Always create a new instance every time the validation is run
@@ -28,6 +29,8 @@ export default class Validation {
     this.valueContainer = valueContainer;
     this.validationClosures = definedClosures;
     this.setRules(controls);
+
+    this.controls = controls;
   }
 
   /**
@@ -47,14 +50,11 @@ export default class Validation {
         return;
       }
 
-      // this input is conditional and the condition for it has not been meet
-      // it's either invisible or disabled
-      // as such, we can't apply ANY of our validation rules to it.
-      if (controlItem.isConditional && !controlItem.conditionMet) {
-        return;
-      }
-
       rules[controlName] = controlItem.validations;
+      // rules[controlName] contains an array
+      // however, we're slapping on a property
+      // this might be a bad idea
+      rules[controlName].uniqueId = controlId;
     });
 
     this.rules = rules;
@@ -73,11 +73,20 @@ export default class Validation {
       const controlValue = this.valueContainer[key];
       const controlRules = this.rules[key] || [];
 
+      const control = this.controls[controlRules.uniqueId];
+      const controlConditional = control.isConditional;
+      const controlConditionalMet = control.conditionMet;
+
       // no rule no run
       if (!controlRules.length) {
         continue;
       }
-
+      // is this input conditional and has the condition for it not been meet?
+      // it's either invisible or disabled
+      // as such, we can't apply ANY of our validation rules to it.
+      if (controlConditional && controlConditionalMet !== true) {
+        continue;
+      }
       /**
        * start the validation process by each rules added for the control
        */

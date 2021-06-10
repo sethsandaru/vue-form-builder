@@ -45,7 +45,13 @@ const DEMO_FORM_DATA = {
       additionalFieldClass: "",
       additionalLabelClass: "",
       defaultValue: "",
-      validations: []
+      validations: [
+        {
+          ruleType: "required",
+          errorMessage: "First name is required",
+          additionalValue: ""
+        }
+      ]
     },
     "control-4a901d19-8815-4caf-8512-5227425d19e4": {
       uniqueId: "control-4a901d19-8815-4caf-8512-5227425d19e4",
@@ -121,7 +127,7 @@ const DEMO_FORM_DATA = {
       validations: [
         {
           ruleType: "required",
-          errorMessage: "This field is required",
+          errorMessage: "Something Random is required",
           additionalValue: ""
         }
       ],

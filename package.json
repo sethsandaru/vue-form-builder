@@ -21,6 +21,7 @@
     "dayjs": "^1.8.28",
     "deep-equal": "^2.0.3",
     "litepicker": "^1.4.6",
+    "lodash": "^4.17.21",
     "vue": "^2.6.10",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^8.4.2",
