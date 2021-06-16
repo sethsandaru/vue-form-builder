@@ -102,11 +102,19 @@
       </div>
       <div class="control">
         <label class="radio">
-          <input type="control.conditionalFieldEquality" name="equals" />
+          <input
+            type="radio"
+            v-model="control.conditionalFieldEquality"
+            value="equals"
+          />
           Equals
         </label>
         <label class="radio">
-          <input type="radio" name="notEquals" />
+          <input
+            type="radio"
+            v-model="control.conditionalFieldEquality"
+            value="notEqual"
+          />
           Does Not Equal
         </label>
       </div>
