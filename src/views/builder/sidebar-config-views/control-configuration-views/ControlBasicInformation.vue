@@ -100,6 +100,17 @@
           v-model="control.conditionalFieldName"
         />
       </div>
+      <div class="control">
+        <label class="radio">
+          <input type="control.conditionalFieldEquality" name="equals" />
+          Equals
+        </label>
+        <label class="radio">
+          <input type="radio" name="notEquals" />
+          Does Not Equal
+        </label>
+      </div>
+
       <div :class="styles.FORM.FORM_GROUP">
         <label>Conditional Field Value</label>
         <input
