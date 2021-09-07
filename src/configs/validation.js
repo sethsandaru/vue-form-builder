@@ -55,6 +55,15 @@ const VALIDATION_RULES = {
         errorMessage: "This field value doesn't as same as :sameAs",
     },
 
+    ageVerificationValidation: {
+        desc: "Validates if user confirms age",
+
+        needValue: true,
+        valueInfo: "User validates age",
+
+        errorMessage: "Please validate your age",
+    },
+
     customClosure: {
         desc: "Invoke your own method to check your field",
 

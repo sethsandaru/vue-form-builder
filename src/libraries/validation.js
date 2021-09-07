@@ -6,6 +6,7 @@ import isEmailRule from "@/libraries/validations/is-email";
 import sameAsRule from "@/libraries/validations/same-as";
 import customClosureRule from "@/libraries/validations/custom-closure";
 import isRegexPassed from "@/libraries/validations/regex";
+import ageValidation from "@/libraries/validations/ageValidation"
 
 export default class Validation {
   rules = null;
@@ -140,6 +141,9 @@ export default class Validation {
 
       case "regex":
         return isRegexPassed(fieldValue, validationRule.additionalValue);
+
+      case "ageVerificationValidation":
+        return ageValidation(fieldValue);
 
       default:
         throw new TypeError(
