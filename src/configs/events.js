@@ -73,7 +73,8 @@ const EVENT_CONSTANTS = {
      */
     RENDERER: {
         RUN_VALIDATION: "renderer.run_validation",
-        VALIDATION_OK: "renderer.validation_ok"
+        VALIDATION_OK: "renderer.validation_ok",
+        VALIDATION_FAILED: "renderer.validation_failed",
     }
 };
 

@@ -1,6 +1,6 @@
 <template>
     <input :id="control.uniqueId"
-           type="text"
+           :type="control.typeAttribute"
            :class="controlFieldClass"
            :value="value"
            :name="control.name || control.uniqueId"
@@ -21,7 +21,3 @@
         mixins: [CONTROL_FIELD_EXTEND_MIXIN],
     }
 </script>
-
-<style scoped>
-
-</style>

@@ -55,6 +55,11 @@ const VueFormBuilderInstaller = function(
     formDI.validationErrorShowAlert = properties.validationErrorShowAlert || true
     formDI.validationErrorAlertText = properties.validationErrorAlertText
 
+    // disable control?
+    if (properties.disableControls && properties.disableControls.length) {
+        disableControls(properties.disableControls)
+    }
+
     // For Event-Bus purpose
     Vue.prototype.$formEvent = new Vue()
     Vue.prototype.$form = formDI
@@ -107,6 +112,16 @@ const extendingValidations = function (validationObj) {
 
     // eligible to extend now
     Object.assign(VALIDATION_RULES, validationObj)
+}
+
+/**
+ * Disable a list of controls by key
+ * @param {String[]} controlKeys
+ */
+const disableControls = function(controlKeys) {
+    controlKeys.forEach(
+        controlKey => CONTROLS[controlKey].isHidden = true
+    );
 }
 
 export  {

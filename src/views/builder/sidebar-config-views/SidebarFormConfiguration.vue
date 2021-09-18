@@ -48,6 +48,22 @@
 
         </div>
 
+        <div :class="styles.FORM.FORM_GROUP">
+            <label>
+                Enable Server-side Validation?
+                <input type="checkbox" v-model="formConfiguration.enableServerSideValidation">
+            </label>
+        </div>
+
+        <div v-show="formConfiguration.enableServerSideValidation">
+            <div :class="styles.FORM.FORM_GROUP">
+                <label>Validation URL API Endpoint</label>
+                <input type="text"
+                       :class="styles.FORM.FORM_CONTROL"
+                       v-model="formConfiguration.serverSideValidationEndpoint">
+            </div>
+        </div>
+
         <div class="buttons">
             <button :class="styles.BUTTON.PRIMARY" @click="save(false)">
                 Save
@@ -76,13 +92,23 @@
             formConfiguration: Object.assign({}, FORM_DEFAULT_DATA),
         }),
 
+        methods: {
+            /**
+             * Pre-Form-Validation
+             * @return {String}
+             */
+            preSaveValidation() {
+                if (this.formConfiguration.enableServerSideValidation && !this.formConfiguration.serverSideValidationEndpoint) {
+                    return "You must include the Server-side Validation Endpoint";
+                }
+
+                return ""
+            }
+        },
+
         created() {
             // retrieve the data from `GlobalSidebar` passed in
             this.formConfiguration = Object.assign({}, this.formConfiguration, this.dataPackage)
         }
     }
 </script>
-
-<style scoped>
-
-</style>

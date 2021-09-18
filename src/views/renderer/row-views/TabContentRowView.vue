@@ -9,6 +9,7 @@
 
                 :value-container="valueContainer"
                 :validation-errors="validationErrors"
+                :read-only="readOnly"
             />
         </div>
     </section>
