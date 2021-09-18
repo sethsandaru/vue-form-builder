@@ -103,7 +103,11 @@ const VALIDATION_MIXIN = {
          * @returns {Boolean}
          */
         isEnableServerSideValidation() {
-            return this.formConfiguration.formConfig.enableServerSideValidation
+            if (!this.formConfiguration.formConfig || !this.formConfiguration.formConfig.enableServerSideValidation) {
+                return false;
+            }
+
+            return this.formConfiguration.formConfig.enableServerSideValidation;
         },
 
         /**

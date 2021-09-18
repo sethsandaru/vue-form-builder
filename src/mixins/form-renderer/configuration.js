@@ -7,10 +7,22 @@ const deepEqual = require('deep-equal') // TO CHECK THE DEEPEST VALUES OF THE FO
 
 const CONFIGURATION = {
     props: {
+        /**
+         * The main form configuration that generated from FormBuilder
+         */
         formConfiguration: {
             type: Object,
             required: true,
-        }
+        },
+
+        /**
+         * Read-only mode
+         * Show up text instead of input controls
+         */
+        readOnly: {
+            type: Boolean,
+            default: () => false,
+        },
     },
 
     watch: {
@@ -27,7 +39,7 @@ const CONFIGURATION = {
                 this.mapping(val)
                 this.createValueContainer(val)
             }
-        }
+        },
     },
 
     created() {

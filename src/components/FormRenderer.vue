@@ -2,11 +2,12 @@
     <div :class="[styles.CONTAINER.FLUID, 'form-padding', 'vue-form-renderer']">
 
         <!-- Render Form Tag Or Not -->
-        <form v-if="formData.formConfig.renderFormTag"
-              :action="formData.formConfig.formActionURL"
-              :method="formData.formConfig.formMethod"
-              :id="formTagId"
-              @submit.prevent
+        <form
+            v-if="formData.formConfig.renderFormTag"
+            :action="formData.formConfig.formActionURL"
+            :method="formData.formConfig.formMethod"
+            :id="formTagId"
+            @submit.prevent
         >
             <!-- form headline -->
             <div class="form-headline-container" v-show="formData.formConfig.isShowHeadline">
@@ -15,13 +16,15 @@
             </div>
 
             <!-- sections of the form -->
-            <SectionContainer v-for="(sectionData) in sortedSections"
-                              :section="sectionData"
-                              :rows="formData.rows"
-                              :controls="formData.controls"
-                              :key="sectionData.uniqueId"
-                              :value-container="valueContainer"
-                              :validation-errors="validationErrors"
+            <SectionContainer
+                v-for="(sectionData) in sortedSections"
+                :section="sectionData"
+                :rows="formData.rows"
+                :controls="formData.controls"
+                :key="sectionData.uniqueId"
+                :value-container="valueContainer"
+                :validation-errors="validationErrors"
+                :read-only="readOnly"
             />
         </form>
         <template v-else>
@@ -33,13 +36,15 @@
             </div>
 
             <!-- sections of the form -->
-            <SectionContainer v-for="(sectionData) in sortedSections"
-                              :section="sectionData"
-                              :rows="formData.rows"
-                              :controls="formData.controls"
-                              :key="sectionData.uniqueId"
-                              :value-container="valueContainer"
-                              :validation-errors="validationErrors"
+            <SectionContainer
+                v-for="(sectionData) in sortedSections"
+                :section="sectionData"
+                :rows="formData.rows"
+                :controls="formData.controls"
+                :key="sectionData.uniqueId"
+                :value-container="valueContainer"
+                :validation-errors="validationErrors"
+                :read-only="readOnly"
             />
 
         </template>
