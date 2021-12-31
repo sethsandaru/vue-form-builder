@@ -52,7 +52,9 @@ const VueFormBuilderInstaller = function(
     }
 
     // show alert or not?
-    formDI.validationErrorShowAlert = properties.validationErrorShowAlert || true
+    formDI.validationErrorShowAlert = typeof properties.validationErrorShowAlert !== 'undefined'
+        ? Boolean(properties.validationErrorShowAlert)
+        : true
     formDI.validationErrorAlertText = properties.validationErrorAlertText
 
     // disable control?
