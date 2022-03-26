@@ -63,7 +63,6 @@
 
 .vue-form-builder .add-section-container {
     margin-top: 30px;
-    border: 3px rgba(0, 0, 0, .4) dotted;
     padding: 40px;
     user-select: none;
     font-size: 18px;
@@ -72,7 +71,6 @@
 }
 
 .vue-form-builder .add-section-container:hover {
-    border-color: #4834d4;
     cursor: pointer;
 }
 
@@ -105,7 +103,6 @@
 
 .vue-form-builder .section-container:hover,
 .vue-form-builder .section-container.active {
-    border: 2px solid #0198fa;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
@@ -163,7 +160,7 @@
 .vue-form-builder .add-row-container,
 .vue-form-builder .add-control-container {
     margin-top: 40px;
-    border: 3px rgba(0, 0, 0, .4) dotted;
+    border: 1px rgba(0, 0, 0, .4) dotted;
     padding: 40px;
     user-select: none;
     font-size: 18px;
@@ -173,7 +170,8 @@
 
 .vue-form-builder .add-row-container:hover,
 .vue-form-builder .add-control-container:hover {
-    border-color: #badc58;
+    border-color: #f5f5f5;
+    background: #f5f5f5;
     cursor: pointer;
     font-weight: bold;
 }
@@ -207,10 +205,6 @@
     transition: all 0.2s ease-in-out;
 }
 
-.vue-form-builder .control-view.active {
-    border: 1px solid #0198fa;
-}
-
 .vue-form-builder .control-view.label-selected {
     border: 1px solid #e74c3c;
 }
@@ -220,7 +214,7 @@
 }
 
 .vue-form-builder .control-list-container.empty {
-    border: 3px dotted #000;
+    border: 1px dotted #f5f5f5;
     padding: 50px 0;
     color: rgba(0, 0, 0, .4);
     font-size: 14px;
