@@ -1,27 +1,18 @@
 /**
- * Supported Controls in Vue-Form-Builder
- * @author Phat Tran
+ * Supported Controls in Flagtick
+ * @author Lorence
  */
 import {STYLES} from "@/configs/styles";
 import {HELPER} from "@/libraries/helper";
-import {
-    DATE_PICKER_RETURN_TYPES, DATE_PICKER_START_DATES,
 
-    RADIO_CHECKBOX_POSITION, RADIO_CHECKBOX_STYLE,
-
-    DROPDOWN_DATA_MODES,
-
-    // FILE_UPLOAD_MODES
-} from "@/configs/control-config-enum";
-
-// Control-GUI-Component
 import ButtonControl from "@/views/controls/ButtonControl"
 import EmptyBlockControl from "@/views/controls/EmptyBlockControl";
 import TextBlockControl from "@/views/controls/TextBlockControl";
+import TextHTMLControl from "@/views/controls/TextHTMLControl";
 import LabelControl from "@/views/controls/LabelControl";
 
-// Control-Config-Component
 import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
+import TextHTMLConfigView from "@/views/control-configs/TextHTMLConfigView";
 import ButtonConfigView from "@/views/control-configs/ButtonConfigView";
 import LabelConfigView from "@/views/control-configs/LabelConfigView";
 
@@ -33,13 +24,11 @@ const CONTROLS = {
         disableValue: true,
 
         configData: {
-            forAttribute: null, // `for` for any control? (except the Label)
+            forAttribute: null,
 
-            // Override here in order to not show the Label
             isShowLabel: false
         },
 
-        // no need validation
         disableValidation: true,
         fieldComponent: LabelControl,
         configComponent: LabelConfigView
@@ -53,15 +42,13 @@ const CONTROLS = {
 
         configData: {
             buttonClass: STYLES.BUTTON.PRIMARY,
-            buttonType: "button", // submit/reset/button/...
+            buttonType: "button",
 
-            emitEventCode: "", // like: "BtnClicked/clicked/change"
-            emitEventData: "", // special data to emit to let you know which button is clicked
+            emitEventCode: "",
+            emitEventData: "",
 
-            // if this is true => validation will be run before the real invoke method
             isRunValidation: false,
 
-            // Override here in order to not show the Label
             isShowLabel: false,
         },
 
@@ -78,7 +65,6 @@ const CONTROLS = {
         fieldComponent: EmptyBlockControl,
 
         configData: {
-            // Override here in order to not show the Label
             isShowLabel: false,
         }
     },
@@ -87,10 +73,24 @@ const CONTROLS = {
         name: "Text Block",
         description: "Block with text only (without any controls)",
         disableValidation: true,
-        disableValue: true, // if you provide this, the control field value will not be recorded.
+        disableValue: true,
 
         fieldComponent: TextBlockControl,
         configComponent: TextBlockConfigView,
+
+        configData: {
+            text: ""
+        }
+    },
+
+    textHTML: {
+        name: "Text HTML",
+        description: "Block with text only (without any controls)",
+        disableValidation: true,
+        disableValue: true,
+
+        fieldComponent: TextHTMLControl,
+        configComponent: TextHTMLConfigView,
 
         configData: {
             text: ""

@@ -4,7 +4,7 @@
  */
 
 const MAIN_CONSTANTS = {
-    COPYRIGHT: "Vue-Form-Builder v2.1.1 - github.com/sethsandaru with Love <3",
+    COPYRIGHT: "Flagtick Builder Generation v2.1.1 - support@flagtick.com",
 }
 
 export {
