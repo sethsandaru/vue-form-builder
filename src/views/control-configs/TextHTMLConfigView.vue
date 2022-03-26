@@ -2,20 +2,25 @@
     <div>
         <div :class="styles.FORM.FORM_GROUP">
             <label>Text for Text-Block</label>
-<!--            <textarea type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.text" rows="6"></textarea>-->
-            <vue-editor id="description" :class="{ 'is-invalid': form.errors.has('description') }"
-                        useCustomImageHandler @image-added="handleImageAdded"
-                        v-model="control.text"></vue-editor>
+            <div id="app">
+                <vue-editor useCustomImageHandler @image-added="handleImageAdded"
+                            v-model="control.text">
+                </vue-editor>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     import {CONTROL_SPECIAL_CONFIG_MIXIN} from "@/mixins/control-special-config-mixin";
+    import { VueEditor } from "vue2-editor";
 
     export default {
         name: "TextHTMLConfigView",
         mixins: [CONTROL_SPECIAL_CONFIG_MIXIN],
+        components: {
+            VueEditor
+        },
         methods : {
             handleImageAdded: function(file, Editor, cursorLocation, resetUploader) {
                 const formData = new FormData();
