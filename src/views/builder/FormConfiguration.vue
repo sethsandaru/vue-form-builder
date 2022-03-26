@@ -6,7 +6,7 @@
             :disabled="!permissions.canEditFormConfigurations"
         >
             <span v-html="$form.getIcon('cog')"></span>
-            <span>Form Configurations</span>
+            <span>Layout Configurations</span>
         </button>
     </div>
 </template>
