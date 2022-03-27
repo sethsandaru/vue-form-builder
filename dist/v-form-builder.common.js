@@ -12105,12 +12105,12 @@ var TextBlockControl_component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var TextBlockControl = (TextBlockControl_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6519b2bd-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/TextHTMLControl.vue?vue&type=template&id=03a8f0d0&
-var TextHTMLControlvue_type_template_id_03a8f0d0_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:_vm.control.additionalFieldClass,domProps:{"textContent":_vm._s(_vm.control.text)}})}
-var TextHTMLControlvue_type_template_id_03a8f0d0_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6519b2bd-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/TextHTMLControl.vue?vue&type=template&id=424f2e12&
+var TextHTMLControlvue_type_template_id_424f2e12_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:_vm.control.additionalFieldClass,domProps:{"innerHTML":_vm._s(_vm.control.text)}})}
+var TextHTMLControlvue_type_template_id_424f2e12_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/controls/TextHTMLControl.vue?vue&type=template&id=03a8f0d0&
+// CONCATENATED MODULE: ./src/views/controls/TextHTMLControl.vue?vue&type=template&id=424f2e12&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/TextHTMLControl.vue?vue&type=script&lang=js&
 //
@@ -12139,8 +12139,8 @@ var TextHTMLControlvue_type_template_id_03a8f0d0_staticRenderFns = []
 
 var TextHTMLControl_component = Object(componentNormalizer["a" /* default */])(
   controls_TextHTMLControlvue_type_script_lang_js_,
-  TextHTMLControlvue_type_template_id_03a8f0d0_render,
-  TextHTMLControlvue_type_template_id_03a8f0d0_staticRenderFns,
+  TextHTMLControlvue_type_template_id_424f2e12_render,
+  TextHTMLControlvue_type_template_id_424f2e12_staticRenderFns,
   false,
   null,
   null,
