@@ -1,10 +1,9 @@
 <template>
     <div class="form-configuration-block pbottom-10">
         <button
-            :class="styles.BUTTON.PRIMARY"
+            :class="styles.BUTTON.INFO"
             @click="open"
-            :disabled="!permissions.canEditFormConfigurations"
-        >
+            :disabled="!permissions.canEditFormConfigurations">
             <span v-html="$form.getIcon('cog')"></span>
             <span>Layout Configurations</span>
         </button>

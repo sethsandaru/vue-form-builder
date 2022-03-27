@@ -68,7 +68,7 @@
     font-size: 18px;
     position: relative;
     text-align: center;
-    border: 2px dotted #e8e8e8;
+    border: 2px dotted #e5e5e5;
 }
 
 .vue-form-builder .add-section-container:hover {
@@ -171,7 +171,7 @@
 
 .vue-form-builder .add-row-container:hover,
 .vue-form-builder .add-control-container:hover {
-    border-color: #f5f5f5;
+    border-color: #e5e5e5;
     cursor: pointer;
     font-weight: bold;
 }
@@ -193,14 +193,14 @@
 **********************************/
 .vue-form-builder .control-view {
     padding: 10px;
-    border: 1px solid transparent;
+    border: 1px dotted #e5e5e5;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
 
 
 .vue-form-builder .control-view:hover {
-    border: 1px solid #bdc3c7;
+    border: 1px dotted #e5e5e5;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
@@ -214,7 +214,7 @@
 }
 
 .vue-form-builder .control-list-container.empty {
-    border: 2px dotted #e8e8e8;
+    border: 2px dotted #e5e5e5;
     padding: 50px 0;
     color: rgba(0, 0, 0, .4);
     font-size: 14px;
@@ -249,7 +249,7 @@
 
 .vue-form-builder .control-option-container .option-control {
     padding: 2px 5px;
-    border-bottom: 1px solid #bdc3c7;
+    border-bottom: 1px dotted #e5e5e5;
     cursor: pointer;
 }
 
@@ -912,6 +912,7 @@ html.md-theme-default .vue-form-builder .section-container {
 .open>.md-button.md-info.dropdown-toggle:hover {
     background-color: #00bcd4 !important;
     color: #fff !important;
+    border-color: #00bcd4;
 }
 
 .md-button.md-secondary,
