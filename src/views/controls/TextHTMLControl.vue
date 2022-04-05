@@ -12,6 +12,5 @@
     export default {
         name: "TextHTMLControl",
         mixins: [CONTROL_FIELD_EXTEND_MIXIN]
-
     }
 </script>

@@ -95,7 +95,7 @@ const CONTROLS = {
         configData: {
             text: ""
         }
-    }
+    },
 };
 
 const CONTROL_DEFAULT_DATA = {
