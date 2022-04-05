@@ -119,6 +119,7 @@
             full() {
                 // set size
                 this.$el.style.width = SIDEBAR_FULL_SCREEN
+                this.$el.style.zIndex = 112
             },
 
             /**
