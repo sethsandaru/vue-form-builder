@@ -123,12 +123,6 @@
     margin-right: 5px;
 }
 
-.vue-form-builder .normal-section,
-.vue-form-renderer .normal-section {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
 .vue-form-builder .headline-block,
 .vue-form-builder .vue-form-renderer {
     padding: 0 15px;
@@ -394,10 +388,6 @@ body {
 .vue-form-renderer .radio-checkbox.next label {
     display: inline-block;
     margin-right: 5px;
-}
-
-.vue-form-renderer .control-list-container {
-    padding: 0 15px;
 }
 
 .vue-form-renderer .control-view div.is-invalid {
