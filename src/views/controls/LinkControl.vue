@@ -1,17 +1,11 @@
 <template>
-    <p>
-        <a v-if="control.isDownload" :id="control.uniqueId"
-           :href="control.href"
-           :class="control.additionalFieldClass"
-           download>
-            {{ control.text }}
-        </a>
-        <a v-else-if="!control.isDownload" :id="control.uniqueId"
-           :href="control.href"
-           :class="control.additionalFieldClass">
-            {{ control.text }}
-        </a>
-    </p>
+    <a :id="control.uniqueId"
+       :href="control.href"
+       :class="control.additionalFieldClass"
+       :target="control.target"
+       v-show="control.isDownload ? 'download' : ''" >
+        {{ control.text }}
+    </a>
 </template>
 
 <script>
