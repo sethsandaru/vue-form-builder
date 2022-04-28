@@ -1989,7 +1989,7 @@ var FormBuilder = __webpack_require__("6a29");
 // EXTERNAL MODULE: ./src/components/FormRenderer.vue + 24 modules
 var FormRenderer = __webpack_require__("fbdb");
 
-// EXTERNAL MODULE: ./src/configs/controls.js + 46 modules
+// EXTERNAL MODULE: ./src/configs/controls.js + 56 modules
 var controls = __webpack_require__("8dbe");
 
 // EXTERNAL MODULE: ./src/configs/styles.js
@@ -10527,6 +10527,52 @@ module.exports = function availableTypedArrays() {
 
 /***/ }),
 
+/***/ "7333":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 19.1.2.1 Object.assign(target, source, ...)
+var DESCRIPTORS = __webpack_require__("9e1e");
+var getKeys = __webpack_require__("0d58");
+var gOPS = __webpack_require__("2621");
+var pIE = __webpack_require__("52a7");
+var toObject = __webpack_require__("4bf8");
+var IObject = __webpack_require__("626a");
+var $assign = Object.assign;
+
+// should work with symbols and should have deterministic property order (V8 bug)
+module.exports = !$assign || __webpack_require__("79e5")(function () {
+  var A = {};
+  var B = {};
+  // eslint-disable-next-line no-undef
+  var S = Symbol();
+  var K = 'abcdefghijklmnopqrst';
+  A[S] = 7;
+  K.split('').forEach(function (k) { B[k] = k; });
+  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
+}) ? function assign(target, source) { // eslint-disable-line no-unused-vars
+  var T = toObject(target);
+  var aLen = arguments.length;
+  var index = 1;
+  var getSymbols = gOPS.f;
+  var isEnum = pIE.f;
+  while (aLen > index) {
+    var S = IObject(arguments[index++]);
+    var keys = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S);
+    var length = keys.length;
+    var j = 0;
+    var key;
+    while (length > j) {
+      key = keys[j++];
+      if (!DESCRIPTORS || isEnum.call(S, key)) T[key] = S[key];
+    }
+  } return T;
+} : $assign;
+
+
+/***/ }),
+
 /***/ "7514":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11881,6 +11927,9 @@ __webpack_require__.d(__webpack_exports__, "c", function() { return /* binding *
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.function.name.js
 var es6_function_name = __webpack_require__("7f7f");
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.object.assign.js
+var es6_object_assign = __webpack_require__("f751");
+
 // EXTERNAL MODULE: ./src/configs/styles.js
 var styles = __webpack_require__("d60e");
 
@@ -12223,6 +12272,60 @@ var LabelControl_component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var LabelControl = (LabelControl_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"c7dddb52-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/LinkControl.vue?vue&type=template&id=9bd802a6&
+var LinkControlvue_type_template_id_9bd802a6_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.control.isDownload)?_c('a',{class:_vm.control.additionalFieldClass,attrs:{"id":_vm.control.uniqueId,"href":_vm.control.href,"download":""}},[_vm._v(" "+_vm._s(_vm.control.text)+" ")]):(!_vm.control.isDownload)?_c('a',{class:_vm.control.additionalFieldClass,attrs:{"id":_vm.control.uniqueId,"href":_vm.control.href}},[_vm._v(" "+_vm._s(_vm.control.text)+" ")]):_vm._e()}
+var LinkControlvue_type_template_id_9bd802a6_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/views/controls/LinkControl.vue?vue&type=template&id=9bd802a6&
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/LinkControl.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/**
+ * LabelControl
+ * <label for='...'>...</label>
+ */
+
+/* harmony default export */ var LinkControlvue_type_script_lang_js_ = ({
+  name: "LabelControl",
+  mixins: [control_field_extend_mixin["a" /* CONTROL_FIELD_EXTEND_MIXIN */]]
+});
+// CONCATENATED MODULE: ./src/views/controls/LinkControl.vue?vue&type=script&lang=js&
+ /* harmony default export */ var controls_LinkControlvue_type_script_lang_js_ = (LinkControlvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/views/controls/LinkControl.vue
+
+
+
+
+
+/* normalize component */
+
+var LinkControl_component = Object(componentNormalizer["a" /* default */])(
+  controls_LinkControlvue_type_script_lang_js_,
+  LinkControlvue_type_template_id_9bd802a6_render,
+  LinkControlvue_type_template_id_9bd802a6_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var LinkControl = (LinkControl_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"c7dddb52-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/control-configs/TextBlockConfigView.vue?vue&type=template&id=7c65e5f4&
 var TextBlockConfigViewvue_type_template_id_7c65e5f4_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Text for Text-Block")]),_c('textarea',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.text),expression:"control.text"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text","rows":"6"},domProps:{"value":(_vm.control.text)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "text", $event.target.value)}}})])])}
 var TextBlockConfigViewvue_type_template_id_7c65e5f4_staticRenderFns = []
@@ -12629,13 +12732,117 @@ var LabelConfigView_component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var LabelConfigView = (LabelConfigView_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"c7dddb52-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/control-configs/LinkConfigView.vue?vue&type=template&id=6d23774a&
+var LinkConfigViewvue_type_template_id_6d23774a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Link Text ")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.text),expression:"control.text"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.text)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "text", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Link Href (Hypertext Reference) ")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.href),expression:"control.href"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.href)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "href", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Is Download Link? "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.isDownload),expression:"control.isDownload"}],attrs:{"type":"checkbox"},domProps:{"checked":Array.isArray(_vm.control.isDownload)?_vm._i(_vm.control.isDownload,null)>-1:(_vm.control.isDownload)},on:{"change":function($event){var $$a=_vm.control.isDownload,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.control, "isDownload", $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.control, "isDownload", $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.control, "isDownload", $$c)}}}})])]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Is Center Link? "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.isCenter),expression:"control.isCenter"}],attrs:{"type":"checkbox"},domProps:{"checked":Array.isArray(_vm.control.isCenter)?_vm._i(_vm.control.isCenter,null)>-1:(_vm.control.isCenter)},on:{"change":[function($event){var $$a=_vm.control.isCenter,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.control, "isCenter", $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.control, "isCenter", $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.control, "isCenter", $$c)}},function($event){return _vm.addCenter(_vm.control.isCenter, _vm.control.uniqueId)}]}})])]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Link Type (Type Attribute)")]),_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.target),expression:"control.target"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.control, "target", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.buttonTypeList),function(item){return _c('option',{key:item,domProps:{"value":item,"textContent":_vm._s(item)}})}),0)])])}
+var LinkConfigViewvue_type_template_id_6d23774a_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/views/control-configs/LinkConfigView.vue?vue&type=template&id=6d23774a&
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/control-configs/LinkConfigView.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/**
+ * @property {ListItem[]} listControlData
+ */
+
+/* harmony default export */ var LinkConfigViewvue_type_script_lang_js_ = ({
+  name: "LinkConfigView",
+  mixins: [control_special_config_mixin["a" /* CONTROL_SPECIAL_CONFIG_MIXIN */]],
+  computed: {
+    buttonTypeList: function buttonTypeList() {
+      return ['_blank', '_parent', '_self', '_top'];
+    }
+  },
+  methods: {
+    addCenter: function addCenter(isCenter, uniqID) {
+      var el = document.getElementById(uniqID);
+
+      if (isCenter && undefined !== el) {
+        el.parentNode.classList.add("text-center");
+      } else {
+        el.parentNode.classList.remove("text-center");
+      }
+    }
+  }
+});
+// CONCATENATED MODULE: ./src/views/control-configs/LinkConfigView.vue?vue&type=script&lang=js&
+ /* harmony default export */ var control_configs_LinkConfigViewvue_type_script_lang_js_ = (LinkConfigViewvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/views/control-configs/LinkConfigView.vue
+
+
+
+
+
+/* normalize component */
+
+var LinkConfigView_component = Object(componentNormalizer["a" /* default */])(
+  control_configs_LinkConfigViewvue_type_script_lang_js_,
+  LinkConfigViewvue_type_template_id_6d23774a_render,
+  LinkConfigViewvue_type_template_id_6d23774a_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var LinkConfigView = (LinkConfigView_component.exports);
 // CONCATENATED MODULE: ./src/configs/controls.js
+
 
 
 /**
  * Supported Controls in Flagtick
  * @author Lorence
  */
+
+
 
 
 
@@ -12659,6 +12866,22 @@ var CONTROLS = {
     disableValidation: true,
     fieldComponent: LabelControl,
     configComponent: LabelConfigView
+  },
+  link: {
+    name: "Link",
+    description: "Simple Link for your own purpose",
+    disableValue: true,
+    configData: {
+      href: "",
+      isDownload: false,
+      isCenter: false,
+      target: "_self",
+      text: "",
+      additionalFieldClass: 'form-control'
+    },
+    disableValidation: true,
+    fieldComponent: LinkControl,
+    configComponent: LinkConfigView
   },
   button: {
     name: "Button",
@@ -31903,7 +32126,7 @@ var es6_object_keys = __webpack_require__("456d");
 // EXTERNAL MODULE: ./src/configs/section.js + 121 modules
 var section = __webpack_require__("dd3c");
 
-// EXTERNAL MODULE: ./src/configs/controls.js + 46 modules
+// EXTERNAL MODULE: ./src/configs/controls.js + 56 modules
 var controls = __webpack_require__("8dbe");
 
 // EXTERNAL MODULE: ./src/configs/form.js
@@ -33288,7 +33511,7 @@ var SidebarControlSelectListvue_type_template_id_01c01b26_scoped_true_staticRend
 
 // CONCATENATED MODULE: ./src/views/builder/sidebar-config-views/SidebarControlSelectList.vue?vue&type=template&id=01c01b26&scoped=true&
 
-// EXTERNAL MODULE: ./src/configs/controls.js + 46 modules
+// EXTERNAL MODULE: ./src/configs/controls.js + 56 modules
 var controls = __webpack_require__("8dbe");
 
 // EXTERNAL MODULE: ./src/mixins/sidebar-body-mixin.js
@@ -33483,12 +33706,12 @@ var AddControlControl_component = Object(componentNormalizer["a" /* default */])
 )
 
 /* harmony default export */ var AddControlControl = (AddControlControl_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"c7dddb52-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/builder/ControlView.vue?vue&type=template&id=02aa9a22&
-var ControlViewvue_type_template_id_02aa9a22_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:[_vm.control.containerClass, 'control-view-wrapper', _vm.control.additionalContainerClass]},[_c('div',{staticClass:"control-view",class:{'active': _vm.isActive}},[_c('ControlLabel',{directives:[{name:"show",rawName:"v-show",value:(_vm.control.isShowLabel),expression:"control.isShowLabel"}],attrs:{"control":_vm.control}}),_c(_vm.controlComponent,{tag:"component",attrs:{"control":_vm.control}})],1),_c('ControlOption',{attrs:{"permissions":_vm.permissions},on:{"delete":_vm.deleteControl,"config":_vm.openConfiguration}})],1)}
-var ControlViewvue_type_template_id_02aa9a22_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"c7dddb52-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/builder/ControlView.vue?vue&type=template&id=5d97d2d6&
+var ControlViewvue_type_template_id_5d97d2d6_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:[_vm.control.containerClass, 'control-view-wrapper', _vm.control.additionalContainerClass]},[_c('div',{staticClass:"control-view",class:{'active': _vm.isActive, 'text-center': _vm.control.isCenter}},[_c('ControlLabel',{directives:[{name:"show",rawName:"v-show",value:(_vm.control.isShowLabel),expression:"control.isShowLabel"}],attrs:{"control":_vm.control}}),_c(_vm.controlComponent,{tag:"component",attrs:{"control":_vm.control}})],1),_c('ControlOption',{attrs:{"permissions":_vm.permissions},on:{"delete":_vm.deleteControl,"config":_vm.openConfiguration}})],1)}
+var ControlViewvue_type_template_id_5d97d2d6_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/builder/ControlView.vue?vue&type=template&id=02aa9a22&
+// CONCATENATED MODULE: ./src/views/builder/ControlView.vue?vue&type=template&id=5d97d2d6&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"c7dddb52-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/builder/control-views/ControlLabel.vue?vue&type=template&id=02887367&scoped=true&
 var ControlLabelvue_type_template_id_02887367_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"control-label-container"},[_c('label',{class:[_vm.control.additionalLabelClass, _vm.readOnly ? 'bold' : ''],attrs:{"for":_vm.control.uniqueId},domProps:{"textContent":_vm._s(_vm.control.label)}}),(_vm.control.subLabel)?_c('br'):_vm._e(),(_vm.control.subLabel)?_c('small',{domProps:{"textContent":_vm._s(_vm.control.subLabel)}}):_vm._e()])}
@@ -34383,8 +34606,8 @@ var SidebarControlConfiguration_component = Object(componentNormalizer["a" /* de
 
 var ControlView_component = Object(componentNormalizer["a" /* default */])(
   builder_ControlViewvue_type_script_lang_js_,
-  ControlViewvue_type_template_id_02aa9a22_render,
-  ControlViewvue_type_template_id_02aa9a22_staticRenderFns,
+  ControlViewvue_type_template_id_5d97d2d6_render,
+  ControlViewvue_type_template_id_5d97d2d6_staticRenderFns,
   false,
   null,
   null,
@@ -35280,12 +35503,12 @@ var NormalSectionViewvue_type_template_id_5f6e0b87_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/views/renderer/section-views/NormalSectionView.vue?vue&type=template&id=5f6e0b87&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"c7dddb52-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/ControlView.vue?vue&type=template&id=02b5ee39&
-var ControlViewvue_type_template_id_02b5ee39_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:[_vm.control.containerClass, 'control-view-wrapper', _vm.control.additionalContainerClass]},[_c('div',{staticClass:"control-view"},[_c('ControlLabel',{directives:[{name:"show",rawName:"v-show",value:(_vm.control.isShowLabel || _vm.readOnly),expression:"control.isShowLabel || readOnly"}],attrs:{"control":_vm.control,"read-only":_vm.readOnly}}),(!_vm.readOnly)?_c(_vm.controlComponent,{tag:"component",class:_vm.validationErrorClasses,attrs:{"control":_vm.control,"value-container":_vm.valueContainer},model:{value:(_vm.valueContainer[_vm.controlName]),callback:function ($$v) {_vm.$set(_vm.valueContainer, _vm.controlName, $$v)},expression:"valueContainer[controlName]"}}):_c('p',{domProps:{"textContent":_vm._s(_vm.valueContainer[_vm.controlName])}}),(_vm.hasValidationError)?_vm._l((_vm.validationErrorMessages),function(mess,i){return _c('div',{key:i,class:_vm.styles.FORM.ERROR_MESSAGE,domProps:{"textContent":_vm._s(mess)}})}):_vm._e()],2)])}
-var ControlViewvue_type_template_id_02b5ee39_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"c7dddb52-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/renderer/ControlView.vue?vue&type=template&id=3855743f&
+var ControlViewvue_type_template_id_3855743f_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:[_vm.control.containerClass, 'control-view-wrapper', _vm.control.additionalContainerClass]},[_c('div',{staticClass:"control-view",class:{'text-center': _vm.control.isCenter}},[_c('ControlLabel',{directives:[{name:"show",rawName:"v-show",value:(_vm.control.isShowLabel || _vm.readOnly),expression:"control.isShowLabel || readOnly"}],attrs:{"control":_vm.control,"read-only":_vm.readOnly}}),(!_vm.readOnly)?_c(_vm.controlComponent,{tag:"component",class:_vm.validationErrorClasses,attrs:{"control":_vm.control,"value-container":_vm.valueContainer},model:{value:(_vm.valueContainer[_vm.controlName]),callback:function ($$v) {_vm.$set(_vm.valueContainer, _vm.controlName, $$v)},expression:"valueContainer[controlName]"}}):_c('p',{domProps:{"textContent":_vm._s(_vm.valueContainer[_vm.controlName])}}),(_vm.hasValidationError)?_vm._l((_vm.validationErrorMessages),function(mess,i){return _c('div',{key:i,class:_vm.styles.FORM.ERROR_MESSAGE,domProps:{"textContent":_vm._s(mess)}})}):_vm._e()],2)])}
+var ControlViewvue_type_template_id_3855743f_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/renderer/ControlView.vue?vue&type=template&id=02b5ee39&
+// CONCATENATED MODULE: ./src/views/renderer/ControlView.vue?vue&type=template&id=3855743f&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.function.name.js
 var es6_function_name = __webpack_require__("7f7f");
@@ -35417,8 +35640,8 @@ var es6_function_name = __webpack_require__("7f7f");
 
 var renderer_ControlView_component = Object(componentNormalizer["a" /* default */])(
   views_renderer_ControlViewvue_type_script_lang_js_,
-  ControlViewvue_type_template_id_02b5ee39_render,
-  ControlViewvue_type_template_id_02b5ee39_staticRenderFns,
+  ControlViewvue_type_template_id_3855743f_render,
+  ControlViewvue_type_template_id_3855743f_staticRenderFns,
   false,
   null,
   null,
@@ -37788,6 +38011,17 @@ module.exports = function (it, Constructor, name, forbiddenField) {
 
 /***/ }),
 
+/***/ "f751":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.1 Object.assign(target, source)
+var $export = __webpack_require__("5ca1");
+
+$export($export.S + $export.F, 'Object', { assign: __webpack_require__("7333") });
+
+
+/***/ }),
+
 /***/ "f772":
 /***/ (function(module, exports) {
 
@@ -37902,7 +38136,7 @@ var es6_object_keys = __webpack_require__("456d");
 // EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/typeof.js
 var esm_typeof = __webpack_require__("7618");
 
-// EXTERNAL MODULE: ./src/configs/controls.js + 46 modules
+// EXTERNAL MODULE: ./src/configs/controls.js + 56 modules
 var configs_controls = __webpack_require__("8dbe");
 
 // CONCATENATED MODULE: ./src/mixins/form-renderer/model.js

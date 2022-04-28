@@ -10,11 +10,13 @@ import EmptyBlockControl from "@/views/controls/EmptyBlockControl";
 import TextBlockControl from "@/views/controls/TextBlockControl";
 import TextHTMLControl from "@/views/controls/TextHTMLControl";
 import LabelControl from "@/views/controls/LabelControl";
+import LinkControl from "@/views/controls/LinkControl";
 
 import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
 import TextHTMLConfigView from "@/views/control-configs/TextHTMLConfigView";
 import ButtonConfigView from "@/views/control-configs/ButtonConfigView";
 import LabelConfigView from "@/views/control-configs/LabelConfigView";
+import LinkConfigView from "@/views/control-configs/LinkConfigView";
 
 const CONTROLS = {
 
@@ -32,6 +34,25 @@ const CONTROLS = {
         disableValidation: true,
         fieldComponent: LabelControl,
         configComponent: LabelConfigView
+    },
+
+    link: {
+        name: "Link",
+        description: "Simple Link for your own purpose",
+        disableValue: true,
+
+        configData: {
+            href: "",
+            isDownload: false,
+            isCenter: false,
+            target: "_self",
+            text: "",
+            additionalFieldClass: 'form-control'
+        },
+
+        disableValidation: true,
+        fieldComponent: LinkControl,
+        configComponent: LinkConfigView
     },
 
     button: {
