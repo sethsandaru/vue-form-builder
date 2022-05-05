@@ -36,9 +36,9 @@ const CONTROLS = {
         configComponent: LabelConfigView
     },
 
-    link: {
-        name: "Link",
-        description: "Simple Link for your own purpose",
+    downloadLink: {
+        name: "Download Link",
+        description: "Download Link for your own purpose",
         disableValue: true,
 
         configData: {

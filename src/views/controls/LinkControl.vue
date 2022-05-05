@@ -3,7 +3,7 @@
        :href="control.href"
        :class="control.additionalFieldClass"
        :target="control.target"
-       v-show="control.isDownload ? 'download' : ''" >
+       download>
         {{ control.text }}
     </a>
 </template>
