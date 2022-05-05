@@ -17,12 +17,6 @@
         </div>
         <div :class="styles.FORM.FORM_GROUP">
             <label>
-                Is Download Link?
-                <input type="checkbox" v-model="control.isDownload">
-            </label>
-        </div>
-        <div :class="styles.FORM.FORM_GROUP">
-            <label>
                 Is Center Link?
                 <input type="checkbox"
                        @change="addCenter(control.isCenter, control.uniqueId)"

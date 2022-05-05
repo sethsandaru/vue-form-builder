@@ -43,7 +43,6 @@ const CONTROLS = {
 
         configData: {
             href: "",
-            isDownload: false,
             isCenter: false,
             target: "_self",
             text: "",

@@ -10968,20 +10968,14 @@ var LabelConfigView_component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var LabelConfigView = (LabelConfigView_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"17d27a6a-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/control-configs/LinkConfigView.vue?vue&type=template&id=6d23774a&
-var LinkConfigViewvue_type_template_id_6d23774a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Link Text ")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.text),expression:"control.text"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.text)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "text", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Link Href (Hypertext Reference) ")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.href),expression:"control.href"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.href)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "href", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Is Download Link? "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.isDownload),expression:"control.isDownload"}],attrs:{"type":"checkbox"},domProps:{"checked":Array.isArray(_vm.control.isDownload)?_vm._i(_vm.control.isDownload,null)>-1:(_vm.control.isDownload)},on:{"change":function($event){var $$a=_vm.control.isDownload,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.control, "isDownload", $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.control, "isDownload", $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.control, "isDownload", $$c)}}}})])]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Is Center Link? "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.isCenter),expression:"control.isCenter"}],attrs:{"type":"checkbox"},domProps:{"checked":Array.isArray(_vm.control.isCenter)?_vm._i(_vm.control.isCenter,null)>-1:(_vm.control.isCenter)},on:{"change":[function($event){var $$a=_vm.control.isCenter,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.control, "isCenter", $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.control, "isCenter", $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.control, "isCenter", $$c)}},function($event){return _vm.addCenter(_vm.control.isCenter, _vm.control.uniqueId)}]}})])]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Link Type (Type Attribute)")]),_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.target),expression:"control.target"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.control, "target", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.buttonTypeList),function(item){return _c('option',{key:item,domProps:{"value":item,"textContent":_vm._s(item)}})}),0)])])}
-var LinkConfigViewvue_type_template_id_6d23774a_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"17d27a6a-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/control-configs/LinkConfigView.vue?vue&type=template&id=726a75ba&
+var LinkConfigViewvue_type_template_id_726a75ba_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Link Text ")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.text),expression:"control.text"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.text)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "text", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Link Href (Hypertext Reference) ")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.href),expression:"control.href"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.href)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "href", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Is Center Link? "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.isCenter),expression:"control.isCenter"}],attrs:{"type":"checkbox"},domProps:{"checked":Array.isArray(_vm.control.isCenter)?_vm._i(_vm.control.isCenter,null)>-1:(_vm.control.isCenter)},on:{"change":[function($event){var $$a=_vm.control.isCenter,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.control, "isCenter", $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.control, "isCenter", $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.control, "isCenter", $$c)}},function($event){return _vm.addCenter(_vm.control.isCenter, _vm.control.uniqueId)}]}})])]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v("Link Type (Type Attribute)")]),_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.target),expression:"control.target"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.control, "target", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},_vm._l((_vm.buttonTypeList),function(item){return _c('option',{key:item,domProps:{"value":item,"textContent":_vm._s(item)}})}),0)])])}
+var LinkConfigViewvue_type_template_id_726a75ba_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/control-configs/LinkConfigView.vue?vue&type=template&id=6d23774a&
+// CONCATENATED MODULE: ./src/views/control-configs/LinkConfigView.vue?vue&type=template&id=726a75ba&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/control-configs/LinkConfigView.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -11059,8 +11053,8 @@ var LinkConfigViewvue_type_template_id_6d23774a_staticRenderFns = []
 
 var LinkConfigView_component = Object(componentNormalizer["a" /* default */])(
   control_configs_LinkConfigViewvue_type_script_lang_js_,
-  LinkConfigViewvue_type_template_id_6d23774a_render,
-  LinkConfigViewvue_type_template_id_6d23774a_staticRenderFns,
+  LinkConfigViewvue_type_template_id_726a75ba_render,
+  LinkConfigViewvue_type_template_id_726a75ba_staticRenderFns,
   false,
   null,
   null,
@@ -11109,7 +11103,6 @@ var CONTROLS = {
     disableValue: true,
     configData: {
       href: "",
-      isDownload: false,
       isCenter: false,
       target: "_self",
       text: "",
