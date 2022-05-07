@@ -7984,15 +7984,17 @@ var FORM_BUILDER_EVENT_HANDLER = {
      */
     controlNewAdded: function controlNewAdded(parentId, controlObj) {
       // add into big list
-      this.$set(this.formData.controls, controlObj.uniqueId, controlObj); // get type of the parent (section / row)
+      if ('undefined' !== typeof this.formData.controls) {
+        this.$set(this.formData.controls, controlObj.uniqueId, controlObj); // get type of the parent (section / row)
 
-      var type = this.formData.sections.hasOwnProperty(parentId) ? 'section' : 'row';
-      var controlUniqueId = controlObj.uniqueId; // add controlID to section / row
+        var type = this.formData.sections.hasOwnProperty(parentId) ? 'section' : 'row';
+        var controlUniqueId = controlObj.uniqueId; // add controlID to section / row
 
-      if (type === 'section') {
-        this.formData.sections[parentId].controls.push(controlUniqueId);
-      } else {
-        this.formData.rows[parentId].controls.push(controlUniqueId);
+        if (type === 'section') {
+          this.formData.sections[parentId].controls.push(controlUniqueId);
+        } else {
+          this.formData.rows[parentId].controls.push(controlUniqueId);
+        }
       }
     },
 
@@ -8028,12 +8030,14 @@ var FORM_BUILDER_EVENT_HANDLER = {
      */
     controlUpdated: function controlUpdated(controlId, controlData) {
       // validate input
-      if (!this.formData.controls.hasOwnProperty(controlId)) {
+      if ('undefined' !== typeof this.formData.controls && !this.formData.controls.hasOwnProperty(controlId)) {
         return;
       } // update by using the extend . best way
 
 
-      this.formData.controls[controlId] = Object.assign(this.formData.controls[controlId], controlData);
+      if ('undefined' !== typeof this.formData.controls) {
+        this.formData.controls[controlId] = Object.assign(this.formData.controls[controlId], controlData);
+      }
     }
   },
   created: function created() {
