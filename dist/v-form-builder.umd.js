@@ -10562,12 +10562,12 @@ var LinkControl_component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var LinkControl = (LinkControl_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6dedc11b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/VideoControl.vue?vue&type=template&id=18dd2548&
-var VideoControlvue_type_template_id_18dd2548_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('youtube',{attrs:{"video-id":_vm.control.videoID}})}
-var VideoControlvue_type_template_id_18dd2548_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6dedc11b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/VideoControl.vue?vue&type=template&id=2b09db2c&
+var VideoControlvue_type_template_id_2b09db2c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('youtube',{attrs:{"video-id":_vm.getURLfromYoutube}})}
+var VideoControlvue_type_template_id_2b09db2c_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/controls/VideoControl.vue?vue&type=template&id=18dd2548&
+// CONCATENATED MODULE: ./src/views/controls/VideoControl.vue?vue&type=template&id=2b09db2c&
 
 // CONCATENATED MODULE: ./node_modules/vue-youtube-embed/lib/vue-youtube-embed.js
 /*!
@@ -10839,6 +10839,11 @@ var index = {
   mixins: [control_field_extend_mixin["a" /* CONTROL_FIELD_EXTEND_MIXIN */]],
   components: {
     VueYouTubeEmbed: vue_youtube_embed
+  },
+  computed: {
+    getURLfromYoutube: function getURLfromYoutube() {
+      return this.$youtube.getIdFromURL(control.videoID);
+    }
   }
 });
 // CONCATENATED MODULE: ./src/views/controls/VideoControl.vue?vue&type=script&lang=js&
@@ -10853,8 +10858,8 @@ var index = {
 
 var VideoControl_component = Object(componentNormalizer["a" /* default */])(
   controls_VideoControlvue_type_script_lang_js_,
-  VideoControlvue_type_template_id_18dd2548_render,
-  VideoControlvue_type_template_id_18dd2548_staticRenderFns,
+  VideoControlvue_type_template_id_2b09db2c_render,
+  VideoControlvue_type_template_id_2b09db2c_staticRenderFns,
   false,
   null,
   null,

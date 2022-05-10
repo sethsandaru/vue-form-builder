@@ -1,5 +1,5 @@
 <template>
-    <youtube :video-id="control.videoID"></youtube>
+    <youtube :video-id="getURLfromYoutube"></youtube>
 </template>
 
 <script>
@@ -15,6 +15,11 @@
         mixins: [CONTROL_FIELD_EXTEND_MIXIN],
         components: {
             VueYouTubeEmbed
+        },
+        computed : {
+            getURLfromYoutube() {
+                return this.$youtube.getIdFromURL(control.videoID);
+            }
         }
     }
 </script>
