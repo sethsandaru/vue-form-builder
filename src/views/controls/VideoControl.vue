@@ -18,7 +18,7 @@
         },
         computed : {
             getURLfromYoutube() {
-                return this.$youtube.getIdFromURL(control.videoID);
+                return this.$youtube.getIdFromURL(this.control.videoID);
             }
         }
     }
