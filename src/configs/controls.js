@@ -11,12 +11,14 @@ import TextBlockControl from "@/views/controls/TextBlockControl";
 import TextHTMLControl from "@/views/controls/TextHTMLControl";
 import LabelControl from "@/views/controls/LabelControl";
 import LinkControl from "@/views/controls/LinkControl";
+import VideoControl from "@/views/controls/VideoControl";
 
 import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
 import TextHTMLConfigView from "@/views/control-configs/TextHTMLConfigView";
 import ButtonConfigView from "@/views/control-configs/ButtonConfigView";
 import LabelConfigView from "@/views/control-configs/LabelConfigView";
 import LinkConfigView from "@/views/control-configs/LinkConfigView";
+import VideoConfigView from "@/views/control-configs/VideoConfigView";
 
 const CONTROLS = {
 
@@ -115,6 +117,20 @@ const CONTROLS = {
         configData: {
             text: ""
         }
+    },
+
+    video: {
+        name: "Video",
+        description: "Video for your own purpose",
+        disableValue: true,
+
+        configData: {
+            videoID: "",
+        },
+
+        disableValidation: true,
+        fieldComponent: VideoControl,
+        configComponent: VideoConfigView
     },
 };
 

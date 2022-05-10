@@ -24,6 +24,7 @@
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^8.4.2",
     "vue-upload-component": "^2.8.22",
+    "vue-youtube-embed": "^2.2.2",
     "vue2-editor": "^2.10.3",
     "vuedraggable": "^2.23.2"
   },
