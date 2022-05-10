@@ -3,6 +3,7 @@
 </template>
 
 <script>
+    import VueYouTubeEmbed from 'vue-youtube-embed'
     import {CONTROL_FIELD_EXTEND_MIXIN} from "@/mixins/control-field-extend-mixin";
 
     /**
@@ -11,6 +12,9 @@
      */
     export default {
         name: "VideoControl",
-        mixins: [CONTROL_FIELD_EXTEND_MIXIN]
+        mixins: [CONTROL_FIELD_EXTEND_MIXIN],
+        components: {
+            VueYouTubeEmbed
+        }
     }
 </script>

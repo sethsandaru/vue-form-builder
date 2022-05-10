@@ -1267,7 +1267,7 @@ var FormBuilder = __webpack_require__("6a29");
 // EXTERNAL MODULE: ./src/components/FormRenderer.vue + 24 modules
 var FormRenderer = __webpack_require__("fbdb");
 
-// EXTERNAL MODULE: ./src/configs/controls.js + 66 modules
+// EXTERNAL MODULE: ./src/configs/controls.js + 67 modules
 var controls = __webpack_require__("8dbe");
 
 // EXTERNAL MODULE: ./src/configs/styles.js
@@ -10553,18 +10553,272 @@ var LinkControl_component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var LinkControl = (LinkControl_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6dedc11b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/VideoControl.vue?vue&type=template&id=6d465ce1&
-var VideoControlvue_type_template_id_6d465ce1_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('youtube',{attrs:{"video-id":_vm.control.videoID}})}
-var VideoControlvue_type_template_id_6d465ce1_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6dedc11b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/VideoControl.vue?vue&type=template&id=18dd2548&
+var VideoControlvue_type_template_id_18dd2548_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('youtube',{attrs:{"video-id":_vm.control.videoID}})}
+var VideoControlvue_type_template_id_18dd2548_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/controls/VideoControl.vue?vue&type=template&id=6d465ce1&
+// CONCATENATED MODULE: ./src/views/controls/VideoControl.vue?vue&type=template&id=18dd2548&
+
+// CONCATENATED MODULE: ./node_modules/vue-youtube-embed/lib/vue-youtube-embed.js
+/*!
+ * Vue YouTube Embed version 2.2.2
+ * under MIT License copyright 2019 kaorun343
+ */
+// fork from https://github.com/brandly/angular-youtube-embed
+
+if (!String.prototype.includes) {
+  String.prototype.includes = function () {
+    return String.prototype.indexOf.apply(this, arguments) !== -1
+  };
+}
+
+var youtubeRegexp = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube(?:-nocookie)?\.com\S*[^\w\s-])([\w-]{11})(?=[^\w-]|$)(?![?=&+%\w.-]*(?:['"][^<>]*>|<\/a>))[?=&+%\w.-]*/ig;
+var timeRegexp = /t=(\d+)[ms]?(\d+)?s?/;
+
+/**
+ * get id from url
+ * @param  {string} url url
+ * @return {string}     id
+ */
+function getIdFromURL (url) {
+  var id = url.replace(youtubeRegexp, '$1');
+
+  if (id.includes(';')) {
+    var pieces = id.split(';');
+
+    if (pieces[1].includes('%')) {
+      var uriComponent = decodeURIComponent(pieces[1]);
+      id = ("http://youtube.com" + uriComponent).replace(youtubeRegexp, '$1');
+    } else {
+      id = pieces[0];
+    }
+  } else if (id.includes('#')) {
+    id = id.split('#')[0];
+  }
+
+  return id
+}
+
+/**
+ * get time from url
+ * @param  {string} url url
+ * @return {number}     time
+ */
+function getTimeFromURL (url) {
+  if ( url === void 0 ) url = '';
+
+  var times = url.match(timeRegexp);
+
+  if (!times) {
+    return 0
+  }
+
+  var full = times[0];
+  var minutes = times[1];
+  var seconds = times[2];
+
+  if (typeof seconds !== 'undefined') {
+    seconds = parseInt(seconds, 10);
+    minutes = parseInt(minutes, 10);
+  } else if (full.includes('m')) {
+    minutes = parseInt(minutes, 10);
+    seconds = 0;
+  } else {
+    seconds = parseInt(minutes, 10);
+    minutes = 0;
+  }
+
+  return seconds + (minutes * 60)
+}
+
+var container = {
+  scripts: [],
+  events: {},
+
+  run: function run () {
+    var this$1 = this;
+
+    this.scripts.forEach(function (callback) {
+      callback(this$1.YT);
+    });
+    this.scripts = [];
+  },
+
+  register: function register (callback) {
+    var this$1 = this;
+
+    if (this.YT) {
+      this.Vue.nextTick(function () {
+        callback(this$1.YT);
+      });
+    } else {
+      this.scripts.push(callback);
+    }
+  }
+};
+
+var pid = 0;
+
+var YouTubePlayer = {
+  name: 'YoutubeEmbed',
+  props: {
+    playerHeight: {
+      type: [String, Number],
+      default: '360'
+    },
+    playerWidth: {
+      type: [String, Number],
+      default: '640'
+    },
+    playerVars: {
+      type: Object,
+      default: function () { return ({ autoplay: 0, time: 0 }); }
+    },
+    videoId: {
+      type: String
+    },
+    mute: {
+      type: Boolean,
+      default: false
+    },
+    host: {
+      type: String,
+      default: 'https://www.youtube.com'
+    }
+  },
+  render: function render (h) {
+    return h('div', [
+      h('div', { attrs: { id: this.elementId }})
+    ])
+  },
+  template: '<div><div :id="elementId"></div></div>',
+  watch: {
+    playerWidth: 'setSize',
+    playerHeight: 'setSize',
+    videoId: 'update',
+    mute: 'setMute'
+  },
+  data: function data () {
+    pid += 1;
+    return {
+      elementId: ("youtube-player-" + pid),
+      player: {}
+    }
+  },
+  methods: {
+    setSize: function setSize () {
+      this.player.setSize(this.playerWidth, this.playerHeight);
+    },
+    setMute: function setMute (value) {
+      if (value) {
+        this.player.mute();
+      } else {
+        this.player.unMute();
+      }
+    },
+    update: function update (videoId) {
+      var name = (this.playerVars.autoplay ? 'load' : 'cue') + "VideoById";
+      if (this.player.hasOwnProperty(name)) {
+        this.player[name](videoId);
+      } else {
+        setTimeout(function () {
+          this.update(videoId);
+        }.bind(this), 100);
+      }
+    }
+  },
+  mounted: function mounted () {
+    var this$1 = this;
+
+    container.register(function (YouTube) {
+      var ref = this$1;
+      var playerHeight = ref.playerHeight;
+      var playerWidth = ref.playerWidth;
+      var playerVars = ref.playerVars;
+      var videoId = ref.videoId;
+      var host = ref.host;
+
+      this$1.player = new YouTube.Player(this$1.elementId, {
+        height: playerHeight,
+        width: playerWidth,
+        playerVars: playerVars,
+        videoId: videoId,
+        host: host,
+        events: {
+          onReady: function (event) {
+            this$1.setMute(this$1.mute);
+            this$1.$emit('ready', event);
+          },
+          onStateChange: function (event) {
+            if (event.data !== -1) {
+              this$1.$emit(container.events[event.data], event);
+            }
+          },
+          onError: function (event) {
+            this$1.$emit('error', event);
+          }
+        }
+      });
+    });
+  },
+  beforeDestroy: function beforeDestroy () {
+    if (this.player !== null && this.player.destroy) {
+      this.player.destroy();
+    }
+    delete this.player;
+  }
+};
+
+var index = {
+  install: function install (Vue, options) {
+    if ( options === void 0 ) options = {};
+
+    container.Vue = Vue;
+    YouTubePlayer.ready = YouTubePlayer.mounted;
+    var global = options.global; if ( global === void 0 ) global = true;
+    var componentId = options.componentId; if ( componentId === void 0 ) componentId = 'youtube';
+
+    if (global) {
+      // if there is a global component with "youtube" identifier already taken
+      // then we should let user to pass a new identifier.
+      Vue.component(componentId, YouTubePlayer);
+    }
+    Vue.prototype.$youtube = { getIdFromURL: getIdFromURL, getTimeFromURL: getTimeFromURL };
+
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+      var tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/player_api';
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      window.onYouTubeIframeAPIReady = function () {
+        container.YT = YT;
+        var PlayerState = YT.PlayerState;
+
+        container.events[PlayerState.ENDED] = 'ended';
+        container.events[PlayerState.PLAYING] = 'playing';
+        container.events[PlayerState.PAUSED] = 'paused';
+        container.events[PlayerState.BUFFERING] = 'buffering';
+        container.events[PlayerState.CUED] = 'cued';
+
+        container.Vue.nextTick(function () {
+          container.run();
+        });
+      };
+    }
+  }
+};
+
+/* harmony default export */ var vue_youtube_embed = (index);
+
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/controls/VideoControl.vue?vue&type=script&lang=js&
 //
 //
 //
 //
+
 
 /**
  * VideoControl
@@ -10573,7 +10827,10 @@ var VideoControlvue_type_template_id_6d465ce1_staticRenderFns = []
 
 /* harmony default export */ var VideoControlvue_type_script_lang_js_ = ({
   name: "VideoControl",
-  mixins: [control_field_extend_mixin["a" /* CONTROL_FIELD_EXTEND_MIXIN */]]
+  mixins: [control_field_extend_mixin["a" /* CONTROL_FIELD_EXTEND_MIXIN */]],
+  components: {
+    VueYouTubeEmbed: vue_youtube_embed
+  }
 });
 // CONCATENATED MODULE: ./src/views/controls/VideoControl.vue?vue&type=script&lang=js&
  /* harmony default export */ var controls_VideoControlvue_type_script_lang_js_ = (VideoControlvue_type_script_lang_js_); 
@@ -10587,8 +10844,8 @@ var VideoControlvue_type_template_id_6d465ce1_staticRenderFns = []
 
 var VideoControl_component = Object(componentNormalizer["a" /* default */])(
   controls_VideoControlvue_type_script_lang_js_,
-  VideoControlvue_type_template_id_6d465ce1_render,
-  VideoControlvue_type_template_id_6d465ce1_staticRenderFns,
+  VideoControlvue_type_template_id_18dd2548_render,
+  VideoControlvue_type_template_id_18dd2548_staticRenderFns,
   false,
   null,
   null,
@@ -30180,7 +30437,7 @@ var es6_object_assign = __webpack_require__("f751");
 // EXTERNAL MODULE: ./src/configs/section.js + 121 modules
 var section = __webpack_require__("dd3c");
 
-// EXTERNAL MODULE: ./src/configs/controls.js + 66 modules
+// EXTERNAL MODULE: ./src/configs/controls.js + 67 modules
 var controls = __webpack_require__("8dbe");
 
 // EXTERNAL MODULE: ./src/configs/form.js
@@ -31335,7 +31592,7 @@ var SidebarControlSelectListvue_type_template_id_01c01b26_scoped_true_staticRend
 
 // CONCATENATED MODULE: ./src/views/builder/sidebar-config-views/SidebarControlSelectList.vue?vue&type=template&id=01c01b26&scoped=true&
 
-// EXTERNAL MODULE: ./src/configs/controls.js + 66 modules
+// EXTERNAL MODULE: ./src/configs/controls.js + 67 modules
 var controls = __webpack_require__("8dbe");
 
 // EXTERNAL MODULE: ./src/mixins/sidebar-body-mixin.js
@@ -35819,7 +36076,7 @@ var es6_object_assign = __webpack_require__("f751");
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/typeof.js
 var esm_typeof = __webpack_require__("53ca");
 
-// EXTERNAL MODULE: ./src/configs/controls.js + 66 modules
+// EXTERNAL MODULE: ./src/configs/controls.js + 67 modules
 var configs_controls = __webpack_require__("8dbe");
 
 // CONCATENATED MODULE: ./src/mixins/form-renderer/model.js
