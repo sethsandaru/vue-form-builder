@@ -126,6 +126,7 @@ const CONTROLS = {
 
         configData: {
             videoID: "",
+            isCenter: false
         },
 
         disableValidation: true,

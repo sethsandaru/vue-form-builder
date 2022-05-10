@@ -11373,14 +11373,22 @@ var LinkConfigView_component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var LinkConfigView = (LinkConfigView_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6dedc11b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/control-configs/VideoConfigView.vue?vue&type=template&id=759ea52e&
-var VideoConfigViewvue_type_template_id_759ea52e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Link Video ")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.videoID),expression:"control.videoID"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.videoID)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "videoID", $event.target.value)}}})])])}
-var VideoConfigViewvue_type_template_id_759ea52e_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6dedc11b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/control-configs/VideoConfigView.vue?vue&type=template&id=1e0fe02c&
+var VideoConfigViewvue_type_template_id_1e0fe02c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Link Video ")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.videoID),expression:"control.videoID"}],class:_vm.styles.FORM.FORM_CONTROL,attrs:{"type":"text"},domProps:{"value":(_vm.control.videoID)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.control, "videoID", $event.target.value)}}})]),_c('div',{class:_vm.styles.FORM.FORM_GROUP},[_c('label',[_vm._v(" Is Center? "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.control.isCenter),expression:"control.isCenter"}],attrs:{"type":"checkbox"},domProps:{"checked":Array.isArray(_vm.control.isCenter)?_vm._i(_vm.control.isCenter,null)>-1:(_vm.control.isCenter)},on:{"change":[function($event){var $$a=_vm.control.isCenter,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.control, "isCenter", $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.control, "isCenter", $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.control, "isCenter", $$c)}},function($event){return _vm.addCenter(_vm.control.isCenter, _vm.control.uniqueId)}]}})])])])}
+var VideoConfigViewvue_type_template_id_1e0fe02c_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/control-configs/VideoConfigView.vue?vue&type=template&id=759ea52e&
+// CONCATENATED MODULE: ./src/views/control-configs/VideoConfigView.vue?vue&type=template&id=1e0fe02c&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/control-configs/VideoConfigView.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -11400,7 +11408,18 @@ var VideoConfigViewvue_type_template_id_759ea52e_staticRenderFns = []
 
 /* harmony default export */ var VideoConfigViewvue_type_script_lang_js_ = ({
   name: "VideoConfigView",
-  mixins: [control_special_config_mixin["a" /* CONTROL_SPECIAL_CONFIG_MIXIN */]]
+  mixins: [control_special_config_mixin["a" /* CONTROL_SPECIAL_CONFIG_MIXIN */]],
+  methods: {
+    addCenter: function addCenter(isCenter, uniqID) {
+      var el = document.getElementById(uniqID);
+
+      if (isCenter && undefined !== el) {
+        el.parentNode.classList.add("text-center");
+      } else {
+        el.parentNode.classList.remove("text-center");
+      }
+    }
+  }
 });
 // CONCATENATED MODULE: ./src/views/control-configs/VideoConfigView.vue?vue&type=script&lang=js&
  /* harmony default export */ var control_configs_VideoConfigViewvue_type_script_lang_js_ = (VideoConfigViewvue_type_script_lang_js_); 
@@ -11414,8 +11433,8 @@ var VideoConfigViewvue_type_template_id_759ea52e_staticRenderFns = []
 
 var VideoConfigView_component = Object(componentNormalizer["a" /* default */])(
   control_configs_VideoConfigViewvue_type_script_lang_js_,
-  VideoConfigViewvue_type_template_id_759ea52e_render,
-  VideoConfigViewvue_type_template_id_759ea52e_staticRenderFns,
+  VideoConfigViewvue_type_template_id_1e0fe02c_render,
+  VideoConfigViewvue_type_template_id_1e0fe02c_staticRenderFns,
   false,
   null,
   null,
@@ -11528,7 +11547,8 @@ var CONTROLS = {
     description: "Video for your own purpose",
     disableValue: true,
     configData: {
-      videoID: ""
+      videoID: "",
+      isCenter: false
     },
     disableValidation: true,
     fieldComponent: VideoControl,
