@@ -147,7 +147,7 @@ const CONTROL_DEFAULT_DATA = {
 
     'placeholderText': '', // :placeholder
 
-    'containerClass': STYLES.COLUMNS.COL4,
+    'containerClass': 'col-md-4 md-layout-item md-size-33',
     'additionalContainerClass': '', // :class for the <div> outer container
 
     'additionalFieldClass': '', // :class for <input> <select> ...
