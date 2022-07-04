@@ -1,7 +1,7 @@
 <template>
     <div :class="[control.containerClass, 'control-view-wrapper', control.additionalContainerClass]">
 
-        <div class="control-view" :class="{'active': isActive}">
+        <div class="control-view" :class="{'active': isActive, 'text-center': control.isCenter}">
             <!-- render the label -->
             <ControlLabel v-show="control.isShowLabel" :control="control" />
 

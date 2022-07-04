@@ -5,6 +5,11 @@
               v-html="$form.getIcon('close', '24px', '24px', '#000')">
         </span>
 
+        <span class="full"
+              @click="full"
+              v-html="$form.getIcon('full', '24px', '24px', '#000')">
+        </span>
+
         <!--- For dynamic purpose --->
         <component v-if="component"
 
@@ -25,6 +30,7 @@
     import {ALERT_DIALOG} from "@/libraries/alert-dialog";
 
     const SIDEBAR_WIDTH_SIZE = "300px"
+    const SIDEBAR_FULL_SCREEN = "100%"
 
     export default {
         name: "GlobalSidebar",
@@ -108,6 +114,12 @@
                 this.dynamicData = {}
                 this.runnerId = null
                 this.isOpen = false
+            },
+
+            full() {
+                // set size
+                this.$el.style.width = SIDEBAR_FULL_SCREEN
+                this.$el.style.zIndex = 112
             },
 
             /**

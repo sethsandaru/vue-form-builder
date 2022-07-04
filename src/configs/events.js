@@ -1,6 +1,6 @@
 /**
- * Event-Communication Constants in Vue-Form-Builder
- * @author Phat Tran <phattranminh96@gmai.com>
+ * Event-Communication Constants in Flagtick
+ * @author Phat Tran <lorence@flagtick.com>
  */
 
 const EVENT_CONSTANTS = {

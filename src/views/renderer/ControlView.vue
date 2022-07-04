@@ -1,6 +1,6 @@
 <template>
     <div :class="[control.containerClass, 'control-view-wrapper', control.additionalContainerClass]">
-        <div class="control-view">
+        <div class="control-view" :class="{'text-center': control.isCenter}">
             <!-- render the label, readonly should show the label -->
             <ControlLabel
                 v-show="control.isShowLabel || readOnly"

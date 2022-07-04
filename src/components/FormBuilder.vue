@@ -37,9 +37,6 @@
             :formData="formData"
             :permissions="permissions"
         />
-
-        <hr>
-
         <p class="copyright-text" v-text="copyrightText"></p>
     </div>
 </template>

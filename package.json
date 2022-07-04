@@ -4,9 +4,9 @@
   "private": false,
   "description": "Vue Form Builder PRO MAX built from top of Vue. Super dynamic and flexible including Drag and Drop feature.",
   "author": {
-    "email": "phattranminh@gmail.com",
-    "name": "Phat Tran",
-    "url": "https://sethphat.com"
+    "email": "support@flagtick.com",
+    "name": "Luis Nguyen",
+    "url": "https://flagtick.com"
   },
   "scripts": {
     "serve": "cross-env NODE_ENV=development vue-cli-service serve --port 9999",
@@ -24,6 +24,8 @@
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^8.4.2",
     "vue-upload-component": "^2.8.22",
+    "vue-youtube-embed": "^2.2.2",
+    "vue2-editor": "^2.10.3",
     "vuedraggable": "^2.23.2"
   },
   "devDependencies": {
@@ -44,24 +46,5 @@
     "plugins": {
       "autoprefixer": {}
     }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ],
-  "keywords": [
-    "vue-form-builder",
-    "v-form-builder",
-    "vue form builder with drag drop",
-    "vue form builder pro max",
-    "vue",
-    "vuejs",
-    "form builder",
-    "drag & drop",
-    "seth phat"
-  ],
-  "license": "MIT",
-  "repository": {
-    "url": "https://github.com/sethsandaru/vue-form-builder.git"
   }
 }
