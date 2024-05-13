@@ -4,9 +4,9 @@
   "private": false,
   "description": "Vue Form Builder PRO MAX built from top of Vue. Super dynamic and flexible including Drag and Drop feature.",
   "author": {
-    "email": "phattranminh@gmail.com",
-    "name": "Phat Tran",
-    "url": "https://sethphat.com"
+    "email": "me@sethphat.com",
+    "name": "Seth Chen",
+    "url": "https://sethphat.dev"
   },
   "scripts": {
     "serve": "cross-env NODE_ENV=development vue-cli-service serve --port 9999",
