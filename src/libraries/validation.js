@@ -26,7 +26,7 @@ export default class Validation {
      */
     constructor(valueContainer, controls, definedClosures = {}) {
         this.valueContainer = valueContainer
-        this.validationClosures = definedClosures
+        this.customClosures = definedClosures
         this.setRules(controls)
     }
 
